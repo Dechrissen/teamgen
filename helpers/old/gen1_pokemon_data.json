@@ -1,0 +1,2178 @@
+[
+  {
+    "name": "bulbasaur",
+    "is_fully_evolved": false,
+    "evo_stage": 1,
+    "species_line": "bulbasaur",
+    "types": [
+      "grass",
+      "poison"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "ivysaur",
+    "is_fully_evolved": false,
+    "evo_stage": 2,
+    "species_line": "bulbasaur",
+    "types": [
+      "grass",
+      "poison"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "venusaur",
+    "is_fully_evolved": true,
+    "evo_stage": 3,
+    "species_line": "bulbasaur",
+    "types": [
+      "grass",
+      "poison"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "charmander",
+    "is_fully_evolved": false,
+    "evo_stage": 1,
+    "species_line": "charmander",
+    "types": [
+      "fire"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "charmeleon",
+    "is_fully_evolved": false,
+    "evo_stage": 2,
+    "species_line": "charmander",
+    "types": [
+      "fire"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "charizard",
+    "is_fully_evolved": true,
+    "evo_stage": 3,
+    "species_line": "charmander",
+    "types": [
+      "fire",
+      "flying"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "squirtle",
+    "is_fully_evolved": false,
+    "evo_stage": 1,
+    "species_line": "squirtle",
+    "types": [
+      "water"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "wartortle",
+    "is_fully_evolved": false,
+    "evo_stage": 2,
+    "species_line": "squirtle",
+    "types": [
+      "water"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "blastoise",
+    "is_fully_evolved": true,
+    "evo_stage": 3,
+    "species_line": "squirtle",
+    "types": [
+      "water"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "caterpie",
+    "is_fully_evolved": false,
+    "evo_stage": 1,
+    "species_line": "caterpie",
+    "types": [
+      "bug"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "metapod",
+    "is_fully_evolved": false,
+    "evo_stage": 2,
+    "species_line": "caterpie",
+    "types": [
+      "bug"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "butterfree",
+    "is_fully_evolved": true,
+    "evo_stage": 3,
+    "species_line": "caterpie",
+    "types": [
+      "bug",
+      "flying"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "weedle",
+    "is_fully_evolved": false,
+    "evo_stage": 1,
+    "species_line": "weedle",
+    "types": [
+      "bug",
+      "poison"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "kakuna",
+    "is_fully_evolved": false,
+    "evo_stage": 2,
+    "species_line": "weedle",
+    "types": [
+      "bug",
+      "poison"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "beedrill",
+    "is_fully_evolved": true,
+    "evo_stage": 3,
+    "species_line": "weedle",
+    "types": [
+      "bug",
+      "poison"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "pidgey",
+    "is_fully_evolved": false,
+    "evo_stage": 1,
+    "species_line": "pidgey",
+    "types": [
+      "normal",
+      "flying"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "pidgeotto",
+    "is_fully_evolved": false,
+    "evo_stage": 2,
+    "species_line": "pidgey",
+    "types": [
+      "normal",
+      "flying"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "pidgeot",
+    "is_fully_evolved": true,
+    "evo_stage": 3,
+    "species_line": "pidgey",
+    "types": [
+      "normal",
+      "flying"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "rattata",
+    "is_fully_evolved": false,
+    "evo_stage": 1,
+    "species_line": "rattata",
+    "types": [
+      "normal"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "raticate",
+    "is_fully_evolved": true,
+    "evo_stage": 2,
+    "species_line": "rattata",
+    "types": [
+      "normal"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "spearow",
+    "is_fully_evolved": false,
+    "evo_stage": 1,
+    "species_line": "spearow",
+    "types": [
+      "normal",
+      "flying"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "fearow",
+    "is_fully_evolved": true,
+    "evo_stage": 2,
+    "species_line": "spearow",
+    "types": [
+      "normal",
+      "flying"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "ekans",
+    "is_fully_evolved": false,
+    "evo_stage": 1,
+    "species_line": "ekans",
+    "types": [
+      "poison"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "arbok",
+    "is_fully_evolved": true,
+    "evo_stage": 2,
+    "species_line": "ekans",
+    "types": [
+      "poison"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "pikachu",
+    "is_fully_evolved": false,
+    "evo_stage": 1,
+    "species_line": "pikachu",
+    "types": [
+      "electric"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "raichu",
+    "is_fully_evolved": true,
+    "evo_stage": 2,
+    "species_line": "pikachu",
+    "types": [
+      "electric"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "sandshrew",
+    "is_fully_evolved": false,
+    "evo_stage": 1,
+    "species_line": "sandshrew",
+    "types": [
+      "ground"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "sandslash",
+    "is_fully_evolved": true,
+    "evo_stage": 2,
+    "species_line": "sandshrew",
+    "types": [
+      "ground"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "nidoran-f",
+    "is_fully_evolved": false,
+    "evo_stage": 1,
+    "species_line": "nidoran-f",
+    "types": [
+      "poison"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "nidorina",
+    "is_fully_evolved": false,
+    "evo_stage": 2,
+    "species_line": "nidoran-f",
+    "types": [
+      "poison"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "nidoqueen",
+    "is_fully_evolved": true,
+    "evo_stage": 3,
+    "species_line": "nidoran-f",
+    "types": [
+      "poison",
+      "ground"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "nidoran-m",
+    "is_fully_evolved": false,
+    "evo_stage": 1,
+    "species_line": "nidoran-m",
+    "types": [
+      "poison"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "nidorino",
+    "is_fully_evolved": false,
+    "evo_stage": 2,
+    "species_line": "nidoran-m",
+    "types": [
+      "poison"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "nidoking",
+    "is_fully_evolved": true,
+    "evo_stage": 3,
+    "species_line": "nidoran-m",
+    "types": [
+      "poison",
+      "ground"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "clefairy",
+    "is_fully_evolved": false,
+    "evo_stage": 1,
+    "species_line": "clefairy",
+    "types": [
+      "normal"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "clefable",
+    "is_fully_evolved": true,
+    "evo_stage": 2,
+    "species_line": "clefairy",
+    "types": [
+      "normal"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "vulpix",
+    "is_fully_evolved": false,
+    "evo_stage": 1,
+    "species_line": "vulpix",
+    "types": [
+      "fire"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "ninetales",
+    "is_fully_evolved": true,
+    "evo_stage": 2,
+    "species_line": "vulpix",
+    "types": [
+      "fire"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "jigglypuff",
+    "is_fully_evolved": false,
+    "evo_stage": 1,
+    "species_line": "jigglypuff",
+    "types": [
+      "normal"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "wigglytuff",
+    "is_fully_evolved": true,
+    "evo_stage": 2,
+    "species_line": "jigglypuff",
+    "types": [
+      "normal"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "zubat",
+    "is_fully_evolved": false,
+    "evo_stage": 1,
+    "species_line": "zubat",
+    "types": [
+      "poison",
+      "flying"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "golbat",
+    "is_fully_evolved": true,
+    "evo_stage": 2,
+    "species_line": "zubat",
+    "types": [
+      "poison",
+      "flying"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "oddish",
+    "is_fully_evolved": false,
+    "evo_stage": 1,
+    "species_line": "oddish",
+    "types": [
+      "grass",
+      "poison"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "gloom",
+    "is_fully_evolved": false,
+    "evo_stage": 2,
+    "species_line": "oddish",
+    "types": [
+      "grass",
+      "poison"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "vileplume",
+    "is_fully_evolved": true,
+    "evo_stage": 3,
+    "species_line": "oddish",
+    "types": [
+      "grass",
+      "poison"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "paras",
+    "is_fully_evolved": false,
+    "evo_stage": 1,
+    "species_line": "paras",
+    "types": [
+      "bug",
+      "grass"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "parasect",
+    "is_fully_evolved": true,
+    "evo_stage": 2,
+    "species_line": "paras",
+    "types": [
+      "bug",
+      "grass"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "venonat",
+    "is_fully_evolved": false,
+    "evo_stage": 1,
+    "species_line": "venonat",
+    "types": [
+      "bug",
+      "poison"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "venomoth",
+    "is_fully_evolved": true,
+    "evo_stage": 2,
+    "species_line": "venonat",
+    "types": [
+      "bug",
+      "poison"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "diglett",
+    "is_fully_evolved": false,
+    "evo_stage": 1,
+    "species_line": "diglett",
+    "types": [
+      "ground"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "dugtrio",
+    "is_fully_evolved": true,
+    "evo_stage": 2,
+    "species_line": "diglett",
+    "types": [
+      "ground"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "meowth",
+    "is_fully_evolved": false,
+    "evo_stage": 1,
+    "species_line": "meowth",
+    "types": [
+      "normal"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "persian",
+    "is_fully_evolved": true,
+    "evo_stage": 2,
+    "species_line": "meowth",
+    "types": [
+      "normal"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "psyduck",
+    "is_fully_evolved": false,
+    "evo_stage": 1,
+    "species_line": "psyduck",
+    "types": [
+      "water"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "golduck",
+    "is_fully_evolved": true,
+    "evo_stage": 2,
+    "species_line": "psyduck",
+    "types": [
+      "water"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "mankey",
+    "is_fully_evolved": false,
+    "evo_stage": 1,
+    "species_line": "mankey",
+    "types": [
+      "fighting"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "primeape",
+    "is_fully_evolved": true,
+    "evo_stage": 2,
+    "species_line": "mankey",
+    "types": [
+      "fighting"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "growlithe",
+    "is_fully_evolved": false,
+    "evo_stage": 1,
+    "species_line": "growlithe",
+    "types": [
+      "fire"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "arcanine",
+    "is_fully_evolved": true,
+    "evo_stage": 2,
+    "species_line": "growlithe",
+    "types": [
+      "fire"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "poliwag",
+    "is_fully_evolved": false,
+    "evo_stage": 1,
+    "species_line": "poliwag",
+    "types": [
+      "water"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "poliwhirl",
+    "is_fully_evolved": false,
+    "evo_stage": 2,
+    "species_line": "poliwag",
+    "types": [
+      "water"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "poliwrath",
+    "is_fully_evolved": true,
+    "evo_stage": 3,
+    "species_line": "poliwag",
+    "types": [
+      "water",
+      "fighting"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "abra",
+    "is_fully_evolved": false,
+    "evo_stage": 1,
+    "species_line": "abra",
+    "types": [
+      "psychic"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "kadabra",
+    "is_fully_evolved": false,
+    "evo_stage": 2,
+    "species_line": "abra",
+    "types": [
+      "psychic"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "alakazam",
+    "is_fully_evolved": true,
+    "evo_stage": 3,
+    "species_line": "abra",
+    "types": [
+      "psychic"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "machop",
+    "is_fully_evolved": false,
+    "evo_stage": 1,
+    "species_line": "machop",
+    "types": [
+      "fighting"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "machoke",
+    "is_fully_evolved": false,
+    "evo_stage": 2,
+    "species_line": "machop",
+    "types": [
+      "fighting"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "machamp",
+    "is_fully_evolved": true,
+    "evo_stage": 3,
+    "species_line": "machop",
+    "types": [
+      "fighting"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "bellsprout",
+    "is_fully_evolved": false,
+    "evo_stage": 1,
+    "species_line": "bellsprout",
+    "types": [
+      "grass",
+      "poison"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "weepinbell",
+    "is_fully_evolved": false,
+    "evo_stage": 2,
+    "species_line": "bellsprout",
+    "types": [
+      "grass",
+      "poison"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "victreebel",
+    "is_fully_evolved": true,
+    "evo_stage": 3,
+    "species_line": "bellsprout",
+    "types": [
+      "grass",
+      "poison"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "tentacool",
+    "is_fully_evolved": false,
+    "evo_stage": 1,
+    "species_line": "tentacool",
+    "types": [
+      "water",
+      "poison"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "tentacruel",
+    "is_fully_evolved": true,
+    "evo_stage": 2,
+    "species_line": "tentacool",
+    "types": [
+      "water",
+      "poison"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "geodude",
+    "is_fully_evolved": false,
+    "evo_stage": 1,
+    "species_line": "geodude",
+    "types": [
+      "rock",
+      "ground"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "graveler",
+    "is_fully_evolved": false,
+    "evo_stage": 2,
+    "species_line": "geodude",
+    "types": [
+      "rock",
+      "ground"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "golem",
+    "is_fully_evolved": true,
+    "evo_stage": 3,
+    "species_line": "geodude",
+    "types": [
+      "rock",
+      "ground"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "ponyta",
+    "is_fully_evolved": false,
+    "evo_stage": 1,
+    "species_line": "ponyta",
+    "types": [
+      "fire"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "rapidash",
+    "is_fully_evolved": true,
+    "evo_stage": 2,
+    "species_line": "ponyta",
+    "types": [
+      "fire"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "slowpoke",
+    "is_fully_evolved": false,
+    "evo_stage": 1,
+    "species_line": "slowpoke",
+    "types": [
+      "water",
+      "psychic"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "slowbro",
+    "is_fully_evolved": true,
+    "evo_stage": 2,
+    "species_line": "slowpoke",
+    "types": [
+      "water",
+      "psychic"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "magnemite",
+    "is_fully_evolved": false,
+    "evo_stage": 1,
+    "species_line": "magnemite",
+    "types": [
+      "electric"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "magneton",
+    "is_fully_evolved": true,
+    "evo_stage": 2,
+    "species_line": "magnemite",
+    "types": [
+      "electric"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "farfetchd",
+    "is_fully_evolved": true,
+    "evo_stage": 1,
+    "species_line": "farfetchd",
+    "types": [
+      "normal",
+      "flying"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "doduo",
+    "is_fully_evolved": false,
+    "evo_stage": 1,
+    "species_line": "doduo",
+    "types": [
+      "normal",
+      "flying"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "dodrio",
+    "is_fully_evolved": true,
+    "evo_stage": 2,
+    "species_line": "doduo",
+    "types": [
+      "normal",
+      "flying"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "seel",
+    "is_fully_evolved": false,
+    "evo_stage": 1,
+    "species_line": "seel",
+    "types": [
+      "water"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "dewgong",
+    "is_fully_evolved": true,
+    "evo_stage": 2,
+    "species_line": "seel",
+    "types": [
+      "water",
+      "ice"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "grimer",
+    "is_fully_evolved": false,
+    "evo_stage": 1,
+    "species_line": "grimer",
+    "types": [
+      "poison"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "muk",
+    "is_fully_evolved": true,
+    "evo_stage": 2,
+    "species_line": "grimer",
+    "types": [
+      "poison"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "shellder",
+    "is_fully_evolved": false,
+    "evo_stage": 1,
+    "species_line": "shellder",
+    "types": [
+      "water"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "cloyster",
+    "is_fully_evolved": true,
+    "evo_stage": 2,
+    "species_line": "shellder",
+    "types": [
+      "water",
+      "ice"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "gastly",
+    "is_fully_evolved": false,
+    "evo_stage": 1,
+    "species_line": "gastly",
+    "types": [
+      "ghost",
+      "poison"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "haunter",
+    "is_fully_evolved": false,
+    "evo_stage": 2,
+    "species_line": "gastly",
+    "types": [
+      "ghost",
+      "poison"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "gengar",
+    "is_fully_evolved": true,
+    "evo_stage": 3,
+    "species_line": "gastly",
+    "types": [
+      "ghost",
+      "poison"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "onix",
+    "is_fully_evolved": true,
+    "evo_stage": 1,
+    "species_line": "onix",
+    "types": [
+      "rock",
+      "ground"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "drowzee",
+    "is_fully_evolved": false,
+    "evo_stage": 1,
+    "species_line": "drowzee",
+    "types": [
+      "psychic"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "hypno",
+    "is_fully_evolved": true,
+    "evo_stage": 2,
+    "species_line": "drowzee",
+    "types": [
+      "psychic"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "krabby",
+    "is_fully_evolved": false,
+    "evo_stage": 1,
+    "species_line": "krabby",
+    "types": [
+      "water"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "kingler",
+    "is_fully_evolved": true,
+    "evo_stage": 2,
+    "species_line": "krabby",
+    "types": [
+      "water"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "voltorb",
+    "is_fully_evolved": false,
+    "evo_stage": 1,
+    "species_line": "voltorb",
+    "types": [
+      "electric"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "electrode",
+    "is_fully_evolved": true,
+    "evo_stage": 2,
+    "species_line": "voltorb",
+    "types": [
+      "electric"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "exeggcute",
+    "is_fully_evolved": false,
+    "evo_stage": 1,
+    "species_line": "exeggcute",
+    "types": [
+      "grass",
+      "psychic"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "exeggutor",
+    "is_fully_evolved": true,
+    "evo_stage": 2,
+    "species_line": "exeggcute",
+    "types": [
+      "grass",
+      "psychic"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "cubone",
+    "is_fully_evolved": false,
+    "evo_stage": 1,
+    "species_line": "cubone",
+    "types": [
+      "ground"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "marowak",
+    "is_fully_evolved": true,
+    "evo_stage": 2,
+    "species_line": "cubone",
+    "types": [
+      "ground"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "hitmonlee",
+    "is_fully_evolved": true,
+    "evo_stage": 1,
+    "species_line": "hitmonlee",
+    "types": [
+      "fighting"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "hitmonchan",
+    "is_fully_evolved": true,
+    "evo_stage": 1,
+    "species_line": "hitmonchan",
+    "types": [
+      "fighting"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "lickitung",
+    "is_fully_evolved": true,
+    "evo_stage": 1,
+    "species_line": "lickitung",
+    "types": [
+      "normal"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "koffing",
+    "is_fully_evolved": false,
+    "evo_stage": 1,
+    "species_line": "koffing",
+    "types": [
+      "poison"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "weezing",
+    "is_fully_evolved": true,
+    "evo_stage": 2,
+    "species_line": "koffing",
+    "types": [
+      "poison"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "rhyhorn",
+    "is_fully_evolved": false,
+    "evo_stage": 1,
+    "species_line": "rhyhorn",
+    "types": [
+      "ground",
+      "rock"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "rhydon",
+    "is_fully_evolved": true,
+    "evo_stage": 2,
+    "species_line": "rhyhorn",
+    "types": [
+      "ground",
+      "rock"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "chansey",
+    "is_fully_evolved": true,
+    "evo_stage": 1,
+    "species_line": "chansey",
+    "types": [
+      "normal"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "tangela",
+    "is_fully_evolved": true,
+    "evo_stage": 1,
+    "species_line": "tangela",
+    "types": [
+      "grass"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "kangaskhan",
+    "is_fully_evolved": true,
+    "evo_stage": 1,
+    "species_line": "kangaskhan",
+    "types": [
+      "normal"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "horsea",
+    "is_fully_evolved": false,
+    "evo_stage": 1,
+    "species_line": "horsea",
+    "types": [
+      "water"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "seadra",
+    "is_fully_evolved": true,
+    "evo_stage": 2,
+    "species_line": "horsea",
+    "types": [
+      "water"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "goldeen",
+    "is_fully_evolved": false,
+    "evo_stage": 1,
+    "species_line": "goldeen",
+    "types": [
+      "water"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "seaking",
+    "is_fully_evolved": true,
+    "evo_stage": 2,
+    "species_line": "goldeen",
+    "types": [
+      "water"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "staryu",
+    "is_fully_evolved": false,
+    "evo_stage": 1,
+    "species_line": "staryu",
+    "types": [
+      "water"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "starmie",
+    "is_fully_evolved": true,
+    "evo_stage": 2,
+    "species_line": "staryu",
+    "types": [
+      "water",
+      "psychic"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "mr-mime",
+    "is_fully_evolved": true,
+    "evo_stage": 1,
+    "species_line": "mr-mime",
+    "types": [
+      "psychic"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "scyther",
+    "is_fully_evolved": true,
+    "evo_stage": 1,
+    "species_line": "scyther",
+    "types": [
+      "bug",
+      "flying"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "jynx",
+    "is_fully_evolved": true,
+    "evo_stage": 1,
+    "species_line": "jynx",
+    "types": [
+      "ice",
+      "psychic"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "electabuzz",
+    "is_fully_evolved": true,
+    "evo_stage": 1,
+    "species_line": "electabuzz",
+    "types": [
+      "electric"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "magmar",
+    "is_fully_evolved": true,
+    "evo_stage": 1,
+    "species_line": "magmar",
+    "types": [
+      "fire"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "pinsir",
+    "is_fully_evolved": true,
+    "evo_stage": 1,
+    "species_line": "pinsir",
+    "types": [
+      "bug"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "tauros",
+    "is_fully_evolved": true,
+    "evo_stage": 1,
+    "species_line": "tauros",
+    "types": [
+      "normal"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "magikarp",
+    "is_fully_evolved": false,
+    "evo_stage": 1,
+    "species_line": "magikarp",
+    "types": [
+      "water"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "gyarados",
+    "is_fully_evolved": true,
+    "evo_stage": 2,
+    "species_line": "magikarp",
+    "types": [
+      "water",
+      "flying"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "lapras",
+    "is_fully_evolved": true,
+    "evo_stage": 1,
+    "species_line": "lapras",
+    "types": [
+      "water",
+      "ice"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "ditto",
+    "is_fully_evolved": true,
+    "evo_stage": 1,
+    "species_line": "ditto",
+    "types": [
+      "normal"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "eevee",
+    "is_fully_evolved": false,
+    "evo_stage": 1,
+    "species_line": "eevee",
+    "types": [
+      "normal"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "vaporeon",
+    "is_fully_evolved": true,
+    "evo_stage": 2,
+    "species_line": "eevee",
+    "types": [
+      "water"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "jolteon",
+    "is_fully_evolved": true,
+    "evo_stage": 2,
+    "species_line": "eevee",
+    "types": [
+      "electric"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "flareon",
+    "is_fully_evolved": true,
+    "evo_stage": 2,
+    "species_line": "eevee",
+    "types": [
+      "fire"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "porygon",
+    "is_fully_evolved": true,
+    "evo_stage": 1,
+    "species_line": "porygon",
+    "types": [
+      "normal"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "omanyte",
+    "is_fully_evolved": false,
+    "evo_stage": 1,
+    "species_line": "omanyte",
+    "types": [
+      "rock",
+      "water"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "omastar",
+    "is_fully_evolved": true,
+    "evo_stage": 2,
+    "species_line": "omanyte",
+    "types": [
+      "rock",
+      "water"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "kabuto",
+    "is_fully_evolved": false,
+    "evo_stage": 1,
+    "species_line": "kabuto",
+    "types": [
+      "rock",
+      "water"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "kabutops",
+    "is_fully_evolved": true,
+    "evo_stage": 2,
+    "species_line": "kabuto",
+    "types": [
+      "rock",
+      "water"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "aerodactyl",
+    "is_fully_evolved": true,
+    "evo_stage": 1,
+    "species_line": "aerodactyl",
+    "types": [
+      "rock",
+      "flying"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "snorlax",
+    "is_fully_evolved": true,
+    "evo_stage": 1,
+    "species_line": "snorlax",
+    "types": [
+      "normal"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "articuno",
+    "is_fully_evolved": true,
+    "evo_stage": 1,
+    "species_line": "articuno",
+    "types": [
+      "ice",
+      "flying"
+    ],
+    "is_legendary": true,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "zapdos",
+    "is_fully_evolved": true,
+    "evo_stage": 1,
+    "species_line": "zapdos",
+    "types": [
+      "electric",
+      "flying"
+    ],
+    "is_legendary": true,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "moltres",
+    "is_fully_evolved": true,
+    "evo_stage": 1,
+    "species_line": "moltres",
+    "types": [
+      "fire",
+      "flying"
+    ],
+    "is_legendary": true,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "dratini",
+    "is_fully_evolved": false,
+    "evo_stage": 1,
+    "species_line": "dratini",
+    "types": [
+      "dragon"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "dragonair",
+    "is_fully_evolved": false,
+    "evo_stage": 2,
+    "species_line": "dratini",
+    "types": [
+      "dragon"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "dragonite",
+    "is_fully_evolved": true,
+    "evo_stage": 3,
+    "species_line": "dratini",
+    "types": [
+      "dragon",
+      "flying"
+    ],
+    "is_legendary": false,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "mewtwo",
+    "is_fully_evolved": true,
+    "evo_stage": 1,
+    "species_line": "mewtwo",
+    "types": [
+      "psychic"
+    ],
+    "is_legendary": true,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  },
+  {
+    "name": "mew",
+    "is_fully_evolved": true,
+    "evo_stage": 1,
+    "species_line": "mew",
+    "types": [
+      "psychic"
+    ],
+    "is_legendary": true,
+    "base_stat_total": 0,
+    "hms": [
+      ""
+    ]
+  }
+]

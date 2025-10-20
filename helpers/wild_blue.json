@@ -1,0 +1,657 @@
+[
+  {
+    "map_name": "CeruleanCave1F",
+    "walk": [
+      "DITTO",
+      "DODRIO",
+      "GOLBAT",
+      "HYPNO",
+      "KADABRA",
+      "MAGNETON",
+      "PARASECT",
+      "RAICHU",
+      "SANDSLASH",
+      "VENOMOTH"
+    ],
+    "surf": []
+  },
+  {
+    "map_name": "CeruleanCave2F",
+    "walk": [
+      "CHANSEY",
+      "DITTO",
+      "DODRIO",
+      "ELECTRODE",
+      "KADABRA",
+      "MAROWAK",
+      "RHYDON",
+      "VENOMOTH",
+      "WIGGLYTUFF"
+    ],
+    "surf": []
+  },
+  {
+    "map_name": "CeruleanCaveB1F",
+    "walk": [
+      "CHANSEY",
+      "DITTO",
+      "ELECTRODE",
+      "MAROWAK",
+      "PARASECT",
+      "RAICHU",
+      "RHYDON",
+      "SANDSLASH"
+    ],
+    "surf": []
+  },
+  {
+    "map_name": "DiglettsCave",
+    "walk": [
+      "DIGLETT",
+      "DUGTRIO"
+    ],
+    "surf": []
+  },
+  {
+    "map_name": "MtMoon1F",
+    "walk": [
+      "CLEFAIRY",
+      "GEODUDE",
+      "PARAS",
+      "ZUBAT"
+    ],
+    "surf": []
+  },
+  {
+    "map_name": "MtMoonB1F",
+    "walk": [
+      "CLEFAIRY",
+      "GEODUDE",
+      "PARAS",
+      "ZUBAT"
+    ],
+    "surf": []
+  },
+  {
+    "map_name": "MtMoonB2F",
+    "walk": [
+      "CLEFAIRY",
+      "GEODUDE",
+      "PARAS",
+      "ZUBAT"
+    ],
+    "surf": []
+  },
+  {
+    "map_name": "Nothing",
+    "walk": [],
+    "surf": []
+  },
+  {
+    "map_name": "PokemonMansion1F",
+    "walk": [
+      "GRIMER",
+      "KOFFING",
+      "MUK",
+      "PONYTA",
+      "VULPIX",
+      "WEEZING"
+    ],
+    "surf": []
+  },
+  {
+    "map_name": "PokemonMansion2F",
+    "walk": [
+      "GRIMER",
+      "KOFFING",
+      "MUK",
+      "PONYTA",
+      "VULPIX",
+      "WEEZING"
+    ],
+    "surf": []
+  },
+  {
+    "map_name": "PokemonMansion3F",
+    "walk": [
+      "GRIMER",
+      "KOFFING",
+      "MAGMAR",
+      "MUK",
+      "PONYTA",
+      "VULPIX",
+      "WEEZING"
+    ],
+    "surf": []
+  },
+  {
+    "map_name": "PokemonMansionB1F",
+    "walk": [
+      "GRIMER",
+      "KOFFING",
+      "MAGMAR",
+      "MUK",
+      "PONYTA",
+      "VULPIX",
+      "WEEZING"
+    ],
+    "surf": []
+  },
+  {
+    "map_name": "PokemonTower1F",
+    "walk": [],
+    "surf": []
+  },
+  {
+    "map_name": "PokemonTower2F",
+    "walk": [],
+    "surf": []
+  },
+  {
+    "map_name": "PokemonTower3F",
+    "walk": [
+      "CUBONE",
+      "GASTLY",
+      "HAUNTER"
+    ],
+    "surf": []
+  },
+  {
+    "map_name": "PokemonTower4F",
+    "walk": [
+      "CUBONE",
+      "GASTLY",
+      "HAUNTER"
+    ],
+    "surf": []
+  },
+  {
+    "map_name": "PokemonTower5F",
+    "walk": [
+      "CUBONE",
+      "GASTLY",
+      "HAUNTER"
+    ],
+    "surf": []
+  },
+  {
+    "map_name": "PokemonTower6F",
+    "walk": [
+      "CUBONE",
+      "GASTLY",
+      "HAUNTER"
+    ],
+    "surf": []
+  },
+  {
+    "map_name": "PokemonTower7F",
+    "walk": [
+      "CUBONE",
+      "GASTLY",
+      "HAUNTER"
+    ],
+    "surf": []
+  },
+  {
+    "map_name": "PowerPlant",
+    "walk": [
+      "MAGNEMITE",
+      "MAGNETON",
+      "PIKACHU",
+      "RAICHU",
+      "VOLTORB"
+    ],
+    "surf": []
+  },
+  {
+    "map_name": "RockTunnel1F",
+    "walk": [
+      "GEODUDE",
+      "MACHOP",
+      "ONIX",
+      "ZUBAT"
+    ],
+    "surf": []
+  },
+  {
+    "map_name": "RockTunnelB1F",
+    "walk": [
+      "GEODUDE",
+      "MACHOP",
+      "ONIX",
+      "ZUBAT"
+    ],
+    "surf": []
+  },
+  {
+    "map_name": "Route1",
+    "walk": [
+      "PIDGEY",
+      "RATTATA"
+    ],
+    "surf": []
+  },
+  {
+    "map_name": "Route10",
+    "walk": [
+      "SANDSHREW",
+      "SPEAROW",
+      "VOLTORB"
+    ],
+    "surf": []
+  },
+  {
+    "map_name": "Route11",
+    "walk": [
+      "DROWZEE",
+      "SANDSHREW",
+      "SPEAROW"
+    ],
+    "surf": []
+  },
+  {
+    "map_name": "Route12",
+    "walk": [
+      "BELLSPROUT",
+      "PIDGEY",
+      "VENONAT",
+      "WEEPINBELL"
+    ],
+    "surf": []
+  },
+  {
+    "map_name": "Route13",
+    "walk": [
+      "BELLSPROUT",
+      "DITTO",
+      "PIDGEY",
+      "VENONAT",
+      "WEEPINBELL"
+    ],
+    "surf": []
+  },
+  {
+    "map_name": "Route14",
+    "walk": [
+      "BELLSPROUT",
+      "DITTO",
+      "PIDGEOTTO",
+      "PIDGEY",
+      "VENONAT",
+      "WEEPINBELL"
+    ],
+    "surf": []
+  },
+  {
+    "map_name": "Route15",
+    "walk": [
+      "BELLSPROUT",
+      "DITTO",
+      "PIDGEOTTO",
+      "PIDGEY",
+      "VENONAT",
+      "WEEPINBELL"
+    ],
+    "surf": []
+  },
+  {
+    "map_name": "Route16",
+    "walk": [
+      "DODUO",
+      "RATICATE",
+      "RATTATA",
+      "SPEAROW"
+    ],
+    "surf": []
+  },
+  {
+    "map_name": "Route17",
+    "walk": [
+      "DODUO",
+      "FEAROW",
+      "RATICATE",
+      "SPEAROW"
+    ],
+    "surf": []
+  },
+  {
+    "map_name": "Route18",
+    "walk": [
+      "DODUO",
+      "FEAROW",
+      "RATICATE",
+      "SPEAROW"
+    ],
+    "surf": []
+  },
+  {
+    "map_name": "Route19",
+    "walk": [],
+    "surf": [
+      "TENTACOOL"
+    ]
+  },
+  {
+    "map_name": "Route20",
+    "walk": [],
+    "surf": [
+      "TENTACOOL"
+    ]
+  },
+  {
+    "map_name": "Route2",
+    "walk": [
+      "CATERPIE",
+      "PIDGEY",
+      "RATTATA"
+    ],
+    "surf": []
+  },
+  {
+    "map_name": "Route21",
+    "walk": [
+      "PIDGEOTTO",
+      "PIDGEY",
+      "RATICATE",
+      "RATTATA",
+      "TANGELA"
+    ],
+    "surf": [
+      "TENTACOOL"
+    ]
+  },
+  {
+    "map_name": "Route22",
+    "walk": [
+      "NIDORAN_F",
+      "NIDORAN_M",
+      "RATTATA",
+      "SPEAROW"
+    ],
+    "surf": []
+  },
+  {
+    "map_name": "Route23",
+    "walk": [
+      "DITTO",
+      "FEAROW",
+      "SANDSHREW",
+      "SANDSLASH",
+      "SPEAROW"
+    ],
+    "surf": []
+  },
+  {
+    "map_name": "Route24",
+    "walk": [
+      "ABRA",
+      "BELLSPROUT",
+      "CATERPIE",
+      "METAPOD",
+      "PIDGEY"
+    ],
+    "surf": []
+  },
+  {
+    "map_name": "Route25",
+    "walk": [
+      "ABRA",
+      "BELLSPROUT",
+      "CATERPIE",
+      "KAKUNA",
+      "METAPOD",
+      "PIDGEY",
+      "WEEDLE"
+    ],
+    "surf": []
+  },
+  {
+    "map_name": "Route3",
+    "walk": [
+      "JIGGLYPUFF",
+      "PIDGEY",
+      "SPEAROW"
+    ],
+    "surf": []
+  },
+  {
+    "map_name": "Route4",
+    "walk": [
+      "RATTATA",
+      "SANDSHREW",
+      "SPEAROW"
+    ],
+    "surf": []
+  },
+  {
+    "map_name": "Route5",
+    "walk": [
+      "BELLSPROUT",
+      "MEOWTH",
+      "PIDGEY"
+    ],
+    "surf": []
+  },
+  {
+    "map_name": "Route6",
+    "walk": [
+      "BELLSPROUT",
+      "MEOWTH",
+      "PIDGEY"
+    ],
+    "surf": []
+  },
+  {
+    "map_name": "Route7",
+    "walk": [
+      "BELLSPROUT",
+      "MEOWTH",
+      "PIDGEY",
+      "VULPIX"
+    ],
+    "surf": []
+  },
+  {
+    "map_name": "Route8",
+    "walk": [
+      "MEOWTH",
+      "PIDGEY",
+      "SANDSHREW",
+      "VULPIX"
+    ],
+    "surf": []
+  },
+  {
+    "map_name": "Route9",
+    "walk": [
+      "RATTATA",
+      "SANDSHREW",
+      "SPEAROW"
+    ],
+    "surf": []
+  },
+  {
+    "map_name": "SafariZoneCenter",
+    "walk": [
+      "CHANSEY",
+      "EXEGGCUTE",
+      "NIDORAN_F",
+      "NIDORINA",
+      "NIDORINO",
+      "PARASECT",
+      "PINSIR",
+      "RHYHORN",
+      "VENONAT"
+    ],
+    "surf": []
+  },
+  {
+    "map_name": "SafariZoneEast",
+    "walk": [
+      "DODUO",
+      "EXEGGCUTE",
+      "KANGASKHAN",
+      "NIDORAN_F",
+      "NIDORAN_M",
+      "NIDORINA",
+      "PARAS",
+      "PARASECT",
+      "PINSIR"
+    ],
+    "surf": []
+  },
+  {
+    "map_name": "SafariZoneNorth",
+    "walk": [
+      "CHANSEY",
+      "EXEGGCUTE",
+      "NIDORAN_F",
+      "NIDORINA",
+      "NIDORINO",
+      "PARAS",
+      "RHYHORN",
+      "TAUROS",
+      "VENOMOTH"
+    ],
+    "surf": []
+  },
+  {
+    "map_name": "SafariZoneWest",
+    "walk": [
+      "DODUO",
+      "EXEGGCUTE",
+      "KANGASKHAN",
+      "NIDORAN_F",
+      "NIDORAN_M",
+      "NIDORINA",
+      "TAUROS",
+      "VENOMOTH",
+      "VENONAT"
+    ],
+    "surf": []
+  },
+  {
+    "map_name": "SeafoamIslands1F",
+    "walk": [
+      "GOLBAT",
+      "KRABBY",
+      "PSYDUCK",
+      "SEEL",
+      "SLOWBRO",
+      "SLOWPOKE",
+      "STARYU",
+      "ZUBAT"
+    ],
+    "surf": []
+  },
+  {
+    "map_name": "SeafoamIslandsB1F",
+    "walk": [
+      "DEWGONG",
+      "KINGLER",
+      "KRABBY",
+      "PSYDUCK",
+      "SEEL",
+      "SHELLDER",
+      "STARYU"
+    ],
+    "surf": []
+  },
+  {
+    "map_name": "SeafoamIslandsB2F",
+    "walk": [
+      "GOLBAT",
+      "GOLDUCK",
+      "KRABBY",
+      "PSYDUCK",
+      "SEEL",
+      "SHELLDER",
+      "STARYU"
+    ],
+    "surf": []
+  },
+  {
+    "map_name": "SeafoamIslandsB3F",
+    "walk": [
+      "DEWGONG",
+      "KINGLER",
+      "KRABBY",
+      "PSYDUCK",
+      "SEEL",
+      "STARYU"
+    ],
+    "surf": []
+  },
+  {
+    "map_name": "SeafoamIslandsB4F",
+    "walk": [
+      "GOLBAT",
+      "GOLDUCK",
+      "KRABBY",
+      "PSYDUCK",
+      "SEEL",
+      "STARYU"
+    ],
+    "surf": []
+  },
+  {
+    "map_name": "SeaRoutes",
+    "walk": [],
+    "surf": [
+      "TENTACOOL"
+    ]
+  },
+  {
+    "map_name": "VictoryRoad1F",
+    "walk": [
+      "GEODUDE",
+      "GOLBAT",
+      "GRAVELER",
+      "MACHOKE",
+      "MACHOP",
+      "MAROWAK",
+      "ONIX",
+      "ZUBAT"
+    ],
+    "surf": []
+  },
+  {
+    "map_name": "VictoryRoad2F",
+    "walk": [
+      "GEODUDE",
+      "GOLBAT",
+      "GRAVELER",
+      "MACHOKE",
+      "MACHOP",
+      "MAROWAK",
+      "ONIX",
+      "ZUBAT"
+    ],
+    "surf": []
+  },
+  {
+    "map_name": "VictoryRoad3F",
+    "walk": [
+      "GEODUDE",
+      "GOLBAT",
+      "GRAVELER",
+      "MACHOKE",
+      "MACHOP",
+      "ONIX",
+      "VENOMOTH",
+      "ZUBAT"
+    ],
+    "surf": []
+  },
+  {
+    "map_name": "ViridianForest",
+    "walk": [
+      "CATERPIE",
+      "KAKUNA",
+      "METAPOD",
+      "PIKACHU",
+      "WEEDLE"
+    ],
+    "surf": []
+  }
+]

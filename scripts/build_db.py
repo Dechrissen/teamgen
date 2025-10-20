@@ -1,1 +1,0 @@
-# script for (re)building the local SQLite database file which is used by the app to query Pokemon from

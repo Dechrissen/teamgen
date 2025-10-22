@@ -3,6 +3,8 @@
 - vanillasix
 - teamgen
 - partygen
+- uf6g (universal final six generator) or ufsg
+- upg (universal party generator)
 
 ## General ideas
 - kanto.yaml, region map file that stores kanto location data
@@ -108,6 +110,10 @@ When your traversal function reaches a new location:
 ## more ideas
 - the program should probably generate all the spheres from the config file, then generate a party (final evo_stages first?), and check it against the spheres. if it cant verify the final form of a pokemon, step down to the previous stage and check for it in the wild?
 - for trades in the pokemon data file: `"trade": ["ABRA for MR.MIME"]`
+- add ALL moon stones separately to the logic file spheres? (in `evo_items` list)
+- since the program will probably generate a final 6 first (all with final stages) then there should prob be an initial step where it iterates over all pokemon and makes a pool of "full evolved" mons and only considers those to generate
+- every time an evolution item is found in a sphere during iteration, it can just be added to the 'inventory'. if an evo item is needed for evolution in any of the generated pokemon, it will just check the inventory to see if it's there (or if there's enough)
+- for hitmons/fossils, maybe have a list in the progression_red.yaml file that says which pokemon should be considered modal for that game. So it doesn't matter whether the fossils are available once or a second time in victory road (solus), or same for hitmons, it's up to the discretion of the yaml creator to say what makes sense as modal.
 
 ## final unit tests/checks
 - have a lookup table of all valid pokemon for a given region/gen, make sure all pokemon listed in the files are present in the lookup table
@@ -126,4 +132,7 @@ When your traversal function reaches a new location:
 - make "gift" into "choice" for HITMONs?
 - need to figure out how to limit the fossils as choices, since you pick them up as fossils
   - maybe just add them to a modal list like the hitmons?
-- [ ] add old,good,super rod lists to the weird locations like Celadon City, etc.
+- [x] add old,good,super rod lists to the weird locations like Celadon City, etc.
+
+## Later ideas
+- Provide ChatGPT-powered subtool in the program (CLI) that allows the user or a developer to add a new logic file for a new game by having a ChatGPT token in a config, and then a prompt with placeholders etc where the user can provide links to the prompt for ChatGPT (like links to pokemon data, locations on bulbapedia, etc) to build at least the bulk of a new logic json. Maybe in the case of romhacks, a link to the code idk.

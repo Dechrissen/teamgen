@@ -125,11 +125,6 @@
     "surf": []
   },
   {
-    "map_name": "Nothing",
-    "walk": [],
-    "surf": []
-  },
-  {
     "map_name": "PokemonMansion1F",
     "walk": [
       "GRIMER",
@@ -301,6 +296,9 @@
     "super_rod": [
       "KRABBY",
       "SHELLDER"
+    ],
+    "trade": [
+      "NIDORINA requires NIDORINO"
     ]
   },
   {
@@ -434,6 +432,9 @@
       "KRABBY",
       "MAGIKARP",
       "TENTACOOL"
+    ],
+    "trade": [
+      "LICKITUNG requires SLOWBRO"
     ]
   },
   {
@@ -483,7 +484,10 @@
       "RATTATA",
       "WEEDLE"
     ],
-    "surf": []
+    "surf": [],
+    "trade": [
+      "MR.MIME requires ABRA"
+    ]
   },
   {
     "map_name": "Route21",
@@ -644,7 +648,10 @@
       "ODDISH",
       "PIDGEY"
     ],
-    "surf": []
+    "surf": [],
+    "trade": [
+      "NIDORAN_F requires NIDORAN_M"
+    ]
   },
   {
     "map_name": "Route6",
@@ -969,6 +976,9 @@
     "super_rod": [
       "KRABBY",
       "SHELLDER"
+    ],
+    "trade": [
+      "FARFETCHD requires SPEAROW"
     ]
   },
   {
@@ -1017,7 +1027,11 @@
       "KABUTO",
       "AERODACTYL"
     ],
-    "trade": []
+    "trade": [
+      "SEEL requires PONYTA",
+      "ELECTRODE requires RAICHU",
+      "TANGELA requires VENONAT"
+    ]
   },
   {
     "map_name": "FuchsiaCity",
@@ -1030,8 +1044,8 @@
     ],
     "super_rod": [
       "SEAKING",
-      "KRABBY,"
-      "GOLDEEN,"
+      "KRABBY",
+      "GOLDEEN",
       "MAGIKARP"
     ]
   },
@@ -1076,6 +1090,9 @@
        "PSYDUCK",
        "GOLDEEN",
        "KRABBY"
+    ],
+    "trade": [
+      "JYNX requires POLIWHIRL"
     ]
   },
   {

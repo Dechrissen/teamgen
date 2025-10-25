@@ -1,5 +1,5 @@
 from Pokemon import Pokemon
-from Core import *
+from Functions import *
 import random
 import yaml
 

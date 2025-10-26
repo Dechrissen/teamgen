@@ -1,17 +1,19 @@
 from Pokemon import Pokemon
-from Functions import *
+from Core import *
 import random
 import yaml
 
 with open('./data/gen1/pokedex_rb.yaml') as f:
     pokedex_data = yaml.safe_load(f)
 
-all_pokemon = constructFullPokemonSet(pokedex_data)
+all_pokemon = construct_full_pokemon_set(pokedex_data)
 
 rand_mon=random.choice(list(all_pokemon))
 
+with open('./data/gen1/progression_rb.yaml') as p:
+    progression_data = yaml.safe_load(p)
 
-
+print(progression_data)
 
 print(rand_mon.name, rand_mon.types)
 

@@ -5,6 +5,8 @@
 - partygen
 - uf6g (universal final six generator) or ufsg
 - upg (universal party generator)
+- poketeamgen
+- pokesix
 
 ## General ideas
 - kanto.yaml, region map file that stores kanto location data
@@ -133,7 +135,7 @@ When your traversal function reaches a new location:
 - need to figure out how to limit the fossils as choices, since you pick them up as fossils
   - maybe just add them to a modal list like the hitmons?
 - [x] add old,good,super rod lists to the weird locations like Celadon City, etc.
-- [ ] change files to yaml
+- [x] change files to yaml
 
 ## Later ideas
 - Provide ChatGPT-powered subtool in the program (CLI) that allows the user or a developer to add a new logic file for a new game by having a ChatGPT token in a config, and then a prompt with placeholders etc where the user can provide links to the prompt for ChatGPT (like links to pokemon data, locations on bulbapedia, etc) to build at least the bulk of a new logic json. Maybe in the case of romhacks, a link to the code idk.

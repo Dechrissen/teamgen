@@ -6,8 +6,8 @@
 from Pokemon import *
 
 
-def constructFullPokemonSet(pokedex_data) -> set[Pokemon]:
-    '''
+def construct_full_pokemon_set(pokedex_data) -> set[Pokemon]:
+    """
     Creates a set of all Pokémon from an input pokedex YAML.
 
     args:
@@ -15,7 +15,7 @@ def constructFullPokemonSet(pokedex_data) -> set[Pokemon]:
 
     returns:
         all_pokemon (set of Pokemon objects)
-    '''
+    """
     # create empty set
     all_pokemon = set()
 

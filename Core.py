@@ -1,10 +1,10 @@
 # functions needed
-# - iterate over all pokemon in the pokedex file and return a list/dict of all pokemon available
+
 # - iterate over all spheres in the prog file and expand each map, add respective pokemon to a group for each sphere, and items to inventory for each sphere
 # - 
 
 from Pokemon import *
-
+from Location import *
 
 def construct_full_pokemon_set(pokedex_data) -> set[Pokemon]:
     """
@@ -38,3 +38,10 @@ def construct_full_pokemon_set(pokedex_data) -> set[Pokemon]:
         all_pokemon.add(cur_mon_obj)
 
     return all_pokemon
+
+def construct_full_location_set(location_data) -> set[Location]:
+    return
+
+def construct_spheres(progression_data) -> dict:
+    # probably ultimately create a dict of spheres, where the keys correspond to sphere number (int) and the value is the rest of the sphere info in a Sphere object
+    return {}

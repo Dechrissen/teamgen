@@ -7,7 +7,7 @@ class Location:
                  good_rod: list[str] = None,
                  super_rod: list[str] = None,
                  poke_flute: list[str] = None,
-                 static: list[str] = None,
+                 static_encounter: list[str] = None,
                  trade: list[str] = None,
                  gift: list[str] = None,
                  fossil_restore: list[str] = None,
@@ -19,7 +19,7 @@ class Location:
         self.good_rod = good_rod # list[str]
         self.super_rod = super_rod # list[str]
         self.poke_flute = poke_flute # list[str]
-        self.static = static # list[str]
+        self.static_encounter = static_encounter # list[str]
         self.trade = trade # list[str]
         self.gift = gift # list[str]
         self.fossil_restore = fossil_restore # list[str]

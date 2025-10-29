@@ -61,7 +61,7 @@
   - SEADRA
   - SEAKING
   - SLOWBRO
-  static:
+  static_encounter:
   - MEWTWO
 - map_name: DiglettsCave
   walk:
@@ -149,7 +149,7 @@
   - MAGNETON
   - PIKACHU
   - VOLTORB
-  static:
+  static_encounter:
   - ZAPDOS
 - map_name: RockTunnel1F
   walk:
@@ -611,7 +611,7 @@
   - HORSEA
   - SHELLDER
   - STARYU
-  static:
+  static_encounter:
   - ARTICUNO
 - map_name: VictoryRoad1F
   walk:
@@ -633,7 +633,7 @@
   - MAROWAK
   - ONIX
   - ZUBAT
-  static:
+  static_encounter:
   - MOLTRES
 - map_name: VictoryRoad3F
   walk:

@@ -40,7 +40,40 @@ def construct_full_pokemon_set(pokedex_data) -> set[Pokemon]:
     return all_pokemon
 
 def construct_full_location_set(location_data) -> set[Location]:
-    return
+    """
+        Creates a set of all Locations from an input locations YAML.
+
+        args:
+            location_data (list of dicts, one for each location)
+
+        returns:
+            all_locations (set of Location objects)
+        """
+    # create empty set
+    all_locations = set()
+
+    # iterate through each dict in the list location_data
+    for cur_loc in location_data:
+        # create object of class Location for current location
+        cur_loc_obj = Location(
+            name=cur_loc["map_name"],
+            walk=cur_loc["walk"] if "walk" in cur_loc else None,
+            surf=cur_loc["surf"] if "surf" in cur_loc else None,
+            old_rod=cur_loc["old_rod"] if "old_rod" in cur_loc else None,
+            good_rod=cur_loc["good_rod"] if "good_rod" in cur_loc else None,
+            super_rod=cur_loc["super_rod"] if "super_rod" in cur_loc else None,
+            poke_flute=cur_loc["poke_flute"] if "poke_flute" in cur_loc else None,
+            static_encounter=cur_loc["static_encounter"] if "static_encounter" in cur_loc else None,
+            trade=cur_loc["trade"] if "trade" in cur_loc else None,
+            gift=cur_loc["gift"] if "gift" in cur_loc else None,
+            fossil_restore=cur_loc["fossil_restore"] if "fossil_restore" in cur_loc else None,
+            prize_window=cur_loc["prize_window"] if "prize_window" in cur_loc else None
+        )
+
+        # add current mon Pokemon object to full set
+        all_locations.add(cur_loc_obj)
+
+    return all_locations
 
 def construct_spheres(progression_data) -> dict:
     # probably ultimately create a dict of spheres, where the keys correspond to sphere number (int) and the value is the rest of the sphere info in a Sphere object

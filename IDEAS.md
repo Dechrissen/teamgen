@@ -136,6 +136,8 @@ When your traversal function reaches a new location:
   - maybe just add them to a modal list like the hitmons?
 - [x] add old,good,super rod lists to the weird locations like Celadon City, etc.
 - [x] change files to yaml
+- [ ] should "Surf" be considered an 'item' in the progression yaml? or something like 'HM' because it's representing 
+  when you have access to Surf (badge + HM) not just the HM item itself
 
 ## Later ideas
 - Provide ChatGPT-powered subtool in the program (CLI) that allows the user or a developer to add a new logic file for a new game by having a ChatGPT token in a config, and then a prompt with placeholders etc where the user can provide links to the prompt for ChatGPT (like links to pokemon data, locations on bulbapedia, etc) to build at least the bulk of a new logic json. Maybe in the case of romhacks, a link to the code idk.

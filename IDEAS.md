@@ -26,6 +26,9 @@
 - generation mode should be "balanced" by default, ensuring generation of at least 1/2 pokemon in sector 1, otherwise player will be waiting for a while till they can get their first mon
   - other options include "ignore sector 1" or w/e, and "late game heavy"
 - in order to handle Snorlax and different rods, etc, we can keep track of which spheres we've currently unlocked (and thus which routes are available to generate from) 
+- for the unit tests, they should output some sort of "incompatibility" message if it detects that the 3 data YAMLs 
+  are not compatible with each other (i.e. all the maps and pokemon should match spelling, etc between all 3 files 
+  before any logic is run)
 
 
 ## Things I will need
@@ -116,28 +119,41 @@ When your traversal function reaches a new location:
 - every time an evolution item is found in a sphere during iteration, it can just be added to the 'inventory'. if an evo item is needed for evolution in any of the generated pokemon, it will just check the inventory to see if it's there (or if there's enough)
 - for hitmons/fossils, maybe have a list in the progression_red.yaml file that says which pokemon should be considered modal for that game. So it doesn't matter whether the fossils are available once or a second time in victory road (solus), or same for hitmons, it's up to the discretion of the yaml creator to say what makes sense as modal.
 - getParent() and getChild() in the Pokemon class? how will it access all the other Pokemon objects to check for this?
+- to be efficient with memory usage, we can use prompts in the command line after the program is already running, 
+  similar to pokequiz, in order to build all the data structures (Pokemon objects etc) first, then prompt the user: 
+  "Generate? Y/N" or whatever. This way it doesn't build all the data structures over and over for each run.
 
 ## final unit tests/checks
 - have a lookup table of all valid pokemon for a given region/gen, make sure all pokemon listed in the files are present in the lookup table
 - validate formatting of logic file (instructions for running this should be in docs/MR instructions so contributors of new games can run the unit test first)
 
-## TODO
-- [x] figure out how to handle snorlax (need pokeflute)
-  - maybe keep track of an inventory
-  - old, good, super rods can be inventory items as well? (and unlock all those extra 'routes')
-  - need to figure out how to handle super rod as well. this is on route 12, which was accessible before, but once you get pokeflute you can get super rod
-- [ ] figure out how to handle trade rooms as well -- when do u get access to them or how do u keep track of that?
-  - should they have values like "needs: onix, gets: mrmime" ?
-- [x] need to separate red/blue exclusives 
-- [x] need a way to handle choice pokemon, like fossil or hitmons. what will prevent both from being generated?
-  - maybe just a "choice" list in the "build" object that lists pairs of things that are choices?
-- make "gift" into "choice" for HITMONs?
-- need to figure out how to limit the fossils as choices, since you pick them up as fossils
-  - maybe just add them to a modal list like the hitmons?
-- [x] add old,good,super rod lists to the weird locations like Celadon City, etc.
-- [x] change files to yaml
-- [ ] should "Surf" be considered an 'item' in the progression yaml? or something like 'HM' because it's representing 
+
   when you have access to Surf (badge + HM) not just the HM item itself
+
+
+## idea for comparing names (str) to Location (obj) names from ChatGPT
+if you want to make Location objects comparable directly by name:
+You can define these methods in your class:
+
+```class Location:
+    def __init__(self, name):
+        self.name = name
+
+    def __eq__(self, other):
+        if isinstance(other, Location):
+            return self.name == other.name
+        if isinstance(other, str):
+            return self.name == other
+        return NotImplemented
+
+    def __hash__(self):
+        return hash(self.name)
+```
+
+Then your original line would work as written:
+`assert item['name'] in all_locations`
+…but only do this if it makes sense in your overall design (i.e., if comparing Location to a string is a valid semantic operation in your project).
+
 
 ## Later ideas
 - Provide ChatGPT-powered subtool in the program (CLI) that allows the user or a developer to add a new logic file for a new game by having a ChatGPT token in a config, and then a prompt with placeholders etc where the user can provide links to the prompt for ChatGPT (like links to pokemon data, locations on bulbapedia, etc) to build at least the bulk of a new logic json. Maybe in the case of romhacks, a link to the code idk.

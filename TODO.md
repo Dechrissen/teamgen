@@ -1,0 +1,16 @@
+# TODO
+- [x] figure out how to handle snorlax (need pokeflute)
+  - maybe keep track of an inventory
+  - old, good, super rods can be inventory items as well? (and unlock all those extra 'routes')
+  - need to figure out how to handle super rod as well. this is on route 12, which was accessible before, but once you get pokeflute you can get super rod
+- [ ] figure out how to handle trade rooms as well -- when do u get access to them or how do u keep track of that?
+  - should they have values like "needs: onix, gets: mrmime" ?
+- [x] need to separate red/blue exclusives 
+- [x] need a way to handle choice pokemon, like fossil or hitmons. what will prevent both from being generated?
+  - maybe just a "choice" list in the "build" object that lists pairs of things that are choices?
+- make "gift" into "choice" for HITMONs?
+- need to figure out how to limit the fossils as choices, since you pick them up as fossils
+  - maybe just add them to a modal list like the hitmons?
+- [x] add old,good,super rod lists to the weird locations like Celadon City, etc.
+- [x] change files to yaml
+- [ ] should "Surf" be considered an 'item' in the progression yaml? or something like 'HM' because it's representing 

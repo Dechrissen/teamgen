@@ -5,6 +5,8 @@
 
 from Pokemon import *
 from Location import *
+from Sphere import Sphere
+
 
 def construct_full_pokemon_set(pokedex_data) -> set[Pokemon]:
     """
@@ -34,7 +36,7 @@ def construct_full_pokemon_set(pokedex_data) -> set[Pokemon]:
             evolution_method_required=cur_mon["evolution_method_required"]
             )
         
-        # add current mon Pokemon object to full set
+        # add current mon's Pokemon object to full set
         all_pokemon.add(cur_mon_obj)
 
     return all_pokemon
@@ -70,11 +72,44 @@ def construct_full_location_set(location_data) -> set[Location]:
             prize_window=cur_loc["prize_window"] if "prize_window" in cur_loc else None
         )
 
-        # add current mon Pokemon object to full set
+        # add current loc's Location object to full set
         all_locations.add(cur_loc_obj)
 
     return all_locations
 
 def construct_spheres(progression_data) -> dict:
+    """
+        Creates a set of all Spheres from an input progression YAML.
+    """
     # probably ultimately create a dict of spheres, where the keys correspond to sphere number (int) and the value is the rest of the sphere info in a Sphere object
-    return {}
+
+    # create empty set
+    all_spheres = dict()
+
+
+    for cur_sphere in progression_data['world']['spheres']:
+        sphereNum = cur_sphere['sphereNum']
+        sphereContents = cur_sphere['contents']
+        maps, items = [], []
+
+        for element in sphereContents:
+            if element['type'] == 'map':
+                maps.append(element['name'])
+            elif element['type'] == 'item':
+                items.append(element['name'])
+
+        all_spheres[sphereNum] = Sphere(maps, items)
+
+    return all_spheres
+
+def test_whether_locations_are_all_valid_in_progression_file(all_locations):
+    """
+        unfinished
+    """
+    # source of truth for assert statement below
+    location_names = {loc.name for loc in all_locations}
+    for item in sphereContents:
+        print(item['name'])
+        assert item['name'] in location_names
+
+    return

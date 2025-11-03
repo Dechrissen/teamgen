@@ -1,7 +1,11 @@
 class Sphere:
-    def __init__(self,maps,items):
-        self.maps = maps
-        self.items = items
+    def __init__(self,
+                 maps: list,
+                 items: list):
+        self.maps = maps # list
+        self.items = items # list
 
-        # can use this class to keep track of Location objects in sphere, as well as a list of inventory items for this sphere
-        # probably ultimately create a dict of spheres, where the keys correspond to sphere number (int) and the value is the rest of the sphere info in a Sphere object
+        # method to build inventory? another to build pools?
+        # (or no, there should be a separate function in Core that takes the all_spheres dict
+        # and uses all their data to make the pools, since the function will need to access all
+        # the spheres and not just one sphere itself)

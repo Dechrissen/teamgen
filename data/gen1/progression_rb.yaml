@@ -16,7 +16,7 @@ world:
             type: map
           - name: MtMoonB1F
             type: map
-          - name: MtMoon2F
+          - name: MtMoonB2F
             type: map
           - name: MoonStone
             type: item

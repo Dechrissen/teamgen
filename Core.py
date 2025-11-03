@@ -1,25 +1,21 @@
-# functions needed
-
-# - iterate over all spheres in the prog file and expand each map, add respective pokemon to a group for each sphere, and items to inventory for each sphere
-# - 
-
-from Pokemon import *
-from Location import *
+from Pokemon import Pokemon
+from Location import Location
 from Sphere import Sphere
 
 
-def construct_full_pokemon_set(pokedex_data) -> set[Pokemon]:
+
+def construct_full_pokemon_set(pokedex_data) -> dict:
     """
-    Creates a set of all Pokémon from an input pokedex YAML.
+    Creates a dict of all Pokémon from an input pokedex YAML.
 
     args:
         pokedex_data (list of dicts, one for each mon)
 
     returns:
-        all_pokemon (set of Pokemon objects)
+        all_pokemon (dict of Pokemon objects where keys are names of Pokémon)
     """
-    # create empty set
-    all_pokemon = set()
+    # create empty dict
+    all_pokemon = dict()
 
     # iterate through each dict in the list pokedex_data
     for cur_mon in pokedex_data:
@@ -36,23 +32,23 @@ def construct_full_pokemon_set(pokedex_data) -> set[Pokemon]:
             evolution_method_required=cur_mon["evolution_method_required"]
             )
         
-        # add current mon's Pokemon object to full set
-        all_pokemon.add(cur_mon_obj)
+        # add current mon's Pokemon object to dict
+        all_pokemon[cur_mon["name"]] = cur_mon_obj
 
     return all_pokemon
 
-def construct_full_location_set(location_data) -> set[Location]:
+def construct_full_location_set(location_data) -> dict:
     """
-        Creates a set of all Locations from an input locations YAML.
+        Creates a dict of all Locations from an input locations YAML.
 
         args:
             location_data (list of dicts, one for each location)
 
         returns:
-            all_locations (set of Location objects)
+            all_locations (dict of Location objects where keys are names of locations)
         """
-    # create empty set
-    all_locations = set()
+    # create empty dict
+    all_locations = dict()
 
     # iterate through each dict in the list location_data
     for cur_loc in location_data:
@@ -72,35 +68,68 @@ def construct_full_location_set(location_data) -> set[Location]:
             prize_window=cur_loc["prize_window"] if "prize_window" in cur_loc else None
         )
 
-        # add current loc's Location object to full set
-        all_locations.add(cur_loc_obj)
+        # add current loc's Location object to dict
+        all_locations[cur_loc["map_name"]] = cur_loc_obj
 
     return all_locations
 
-def construct_spheres(progression_data) -> dict:
+def construct_spheres(progression_data, all_locations) -> dict:
     """
         Creates a set of all Spheres from an input progression YAML.
-    """
-    # probably ultimately create a dict of spheres, where the keys correspond to sphere number (int) and the value is the rest of the sphere info in a Sphere object
 
+        args:
+            progression_data (from progression YAML)
+
+        returns:
+            all_spheres (dict of Sphere objects, where keys are numbers (int) of spheres)
+    """
     # create empty set
     all_spheres = dict()
 
-
+    # iterate through each sphere in the progression data 'spheres' list
     for cur_sphere in progression_data['world']['spheres']:
-        sphereNum = cur_sphere['sphereNum']
-        sphereContents = cur_sphere['contents']
+        # get the sphere number and contents (list of maps and items)
+        sphere_num = cur_sphere['sphereNum']
+        sphere_contents = cur_sphere['contents']
         maps, items = [], []
 
-        for element in sphereContents:
+        # add all the maps and items to lists for each type
+        for element in sphere_contents:
             if element['type'] == 'map':
-                maps.append(element['name'])
+                map_object = all_locations[element['name']]
+                maps.append(map_object)
             elif element['type'] == 'item':
                 items.append(element['name'])
+            #TODO add a fallback here to check for any other type and raise an Error?
 
-        all_spheres[sphereNum] = Sphere(maps, items)
+        # create a Sphere object and add it to the dict of all spheres, where the key is the sphere num (1, 2, 3, etc.)
+        all_spheres[sphere_num] = Sphere(maps, items)
 
     return all_spheres
+
+def build_pools():
+    """
+        Takes all_spheres as input and expands all Spheres into pools/inventories.
+    """
+    return
+
+def get_parent_mon():
+    # how would this work for branching evos like Eevee?
+    return
+
+def get_immediate_child_mon(pokemon, all_pokemon) -> Pokemon | None:
+    stage = pokemon.evo_stage
+    # check if this is already a basic Pokemon, and return None if so
+    if stage == 1:
+        return None
+    species = pokemon.species_line
+    immediate_child = None
+    for mon in all_pokemon.keys():
+        if all_pokemon[mon].species_line == species and all_pokemon[mon].evo_stage == (stage - 1):
+            immediate_child = all_pokemon[mon]
+            break
+
+    return immediate_child
 
 def test_whether_locations_are_all_valid_in_progression_file(all_locations):
     """
@@ -108,8 +137,8 @@ def test_whether_locations_are_all_valid_in_progression_file(all_locations):
     """
     # source of truth for assert statement below
     location_names = {loc.name for loc in all_locations}
-    for item in sphereContents:
-        print(item['name'])
-        assert item['name'] in location_names
+    # for item in sphereContents:
+    #     print(item['name'])
+    #     assert item['name'] in location_names
 
     return

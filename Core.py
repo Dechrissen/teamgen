@@ -3,8 +3,7 @@ from Location import Location
 from Sphere import Sphere
 
 
-
-def construct_full_pokemon_set(pokedex_data) -> dict:
+def construct_full_pokemon_set(pokedex_data) -> dict[str, Pokemon]:
     """
     Creates a dict of all Pokémon from an input pokedex YAML.
 
@@ -37,7 +36,7 @@ def construct_full_pokemon_set(pokedex_data) -> dict:
 
     return all_pokemon
 
-def construct_full_location_set(location_data) -> dict:
+def construct_full_location_set(location_data) -> dict[str, Location]:
     """
         Creates a dict of all Locations from an input locations YAML.
 
@@ -73,12 +72,12 @@ def construct_full_location_set(location_data) -> dict:
 
     return all_locations
 
-def construct_spheres(progression_data, all_locations) -> dict:
+def construct_spheres(progression_data, all_locations) -> dict[int, Sphere]:
     """
         Creates a set of all Spheres from an input progression YAML.
 
         args:
-            progression_data (from progression YAML)
+            progression_data (from progression YAML), all_locations (dict of all Location objects)
 
         returns:
             all_spheres (dict of Sphere objects, where keys are numbers (int) of spheres)
@@ -109,27 +108,17 @@ def construct_spheres(progression_data, all_locations) -> dict:
 
 def build_pools():
     """
-        Takes all_spheres as input and expands all Spheres into pools/inventories.
+        Takes all_spheres as input and expands all Spheres into pools (available Pokemon in a Sphere).
     """
+    # iterate over all spheres from all_spheres dict
+    # each map in each sphere is a Location object
+    # will also need the list of all_pokemon as input for this function
+    # i will probably first need to make sure all the lists of pokemon in each Location object can be mapped to the actual Pokemon objects
+    # I think the pools should be made up of Pokemon objects, not simply strings of pokemon names. This way, their attributes can be checked when we need to filter them out of the generation
+    # due to config constraints, etc. (like "don't generate pokemon of X type")
+    # final all_pools should be a dict of pool_num (int) as keys and another dict ({"pool": [list, of, pokemon objects], "inventory": [list, of items]}) as the values
+    # but maybe the "inventory" part is actually not necessary if we're only using a Sphere's inventory to build the pools. Yeah, probably this. So pool just needs to be a list of pokemon objects
     return
-
-def get_parent_mon():
-    # how would this work for branching evos like Eevee?
-    return
-
-def get_immediate_child_mon(pokemon, all_pokemon) -> Pokemon | None:
-    stage = pokemon.evo_stage
-    # check if this is already a basic Pokemon, and return None if so
-    if stage == 1:
-        return None
-    species = pokemon.species_line
-    immediate_child = None
-    for mon in all_pokemon.keys():
-        if all_pokemon[mon].species_line == species and all_pokemon[mon].evo_stage == (stage - 1):
-            immediate_child = all_pokemon[mon]
-            break
-
-    return immediate_child
 
 def test_whether_locations_are_all_valid_in_progression_file(all_locations):
     """

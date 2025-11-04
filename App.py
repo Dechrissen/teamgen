@@ -11,7 +11,8 @@ rand_mon = all_pokemon[rand_key]
 print(rand_mon.name, rand_mon.types)
 
 # test getting child
-print(get_immediate_child_mon(rand_mon, all_pokemon).name)
+child = rand_mon.get_immediate_child(all_pokemon)
+print(child.name if child else None)
 
 
 with open('./data/gen1/locations_red.yaml') as l:

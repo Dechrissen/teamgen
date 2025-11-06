@@ -87,10 +87,10 @@ def construct_spheres(progression_data, all_locations) -> dict[int, Sphere]:
 
     # iterate through each sphere in the progression data 'spheres' list
     for cur_sphere in progression_data['world']['spheres']:
-        # get the sphere number and contents (list of maps and items)
+        # get the sphere number and contents (list of maps items, acquisition_unlocks)
         sphere_num = cur_sphere['sphereNum']
         sphere_contents = cur_sphere['contents']
-        maps, items = [], []
+        maps, items, acquisition_unlocks = [], [], []
 
         # add all the maps and items to lists for each type
         for element in sphere_contents:
@@ -99,18 +99,58 @@ def construct_spheres(progression_data, all_locations) -> dict[int, Sphere]:
                 maps.append(map_object)
             elif element['type'] == 'item':
                 items.append(element['name'])
+            elif element['type'] == 'acquisition_unlock':
+                acquisition_unlocks.append(element['name'])
             #TODO add a fallback here to check for any other type and raise an Error?
 
         # create a Sphere object and add it to the dict of all spheres, where the key is the sphere num (1, 2, 3, etc.)
-        all_spheres[sphere_num] = Sphere(maps, items)
+        all_spheres[sphere_num] = Sphere(maps, items, acquisition_unlocks)
 
     return all_spheres
 
-def build_pools():
+
+def build_pools(all_spheres, all_pokemon, starting_acquisition_methods):
     """
         Takes all_spheres as input and expands all Spheres into pools (available Pokemon in a Sphere).
     """
+    all_pools = dict()
+
+    # to keep track of current enabled acquisition methods that unlock Location sublists (old_rod, surf, etc.)
+    enabled_acquisition_methods = [method for method in starting_acquisition_methods]
+
+    # to keep track of current set of items that enable evolution (stones, etc.)
+    inventory = []
+
+    spheres_checked = {}
+
     # iterate over all spheres from all_spheres dict
+    for sphere_num in all_spheres.keys():
+        locations = all_spheres[sphere_num].maps
+        items = all_spheres[sphere_num].items
+        acquisition_unlocks = all_spheres[sphere_num].acquisition_unlocks
+        for item in items:
+            if item not in inventory:
+                inventory.append(item)
+        for unlock in acquisition_unlocks:
+            if unlock not in enabled_acquisition_methods:
+                enabled_acquisition_methods.append(unlock)
+
+        # build list of Pokemon by iterating over each location in locations and adding all its Pokemon (the object version, from all_pokemon) to a list
+        for location_obj in locations:
+            for method in enabled_acquisition_methods:
+                # get list stored in that attribute (like location.walk)
+                method_list = getattr(location_obj, method, None)
+                if method_list:
+                    print(f"\n{method.upper()} encounters at {location_obj.name}:")
+                    for pokemon in method_list:
+                        print(f"  - {pokemon}")
+        # here, will need code that now ALSO goes back and iterates over all the locations in PREV spheres (using the ones kept track of in spheres_checked)
+        # and then compare enabled_acquisition_methods at THIS point to the point in time when the previous spheres were iterated over. so if their "methods_expanded"
+        # list doesnt match the current enabled_acquisition_methods list, the new ones from the PREV spheres locations need to be expanded and added to CURRENT pool.
+        # then, their "methods_expanded" list in spheres_checked dict needs to be updated so it matches the current one (so we don't do it again next iteration).
+        spheres_checked[sphere_num] = {"methods_expanded": [method for method in enabled_acquisition_methods]}
+
+
     # each map in each sphere is a Location object
     # will also need the list of all_pokemon as input for this function
     # i will probably first need to make sure all the lists of pokemon in each Location object can be mapped to the actual Pokemon objects

@@ -3,6 +3,16 @@ from Core import *
 import random
 import yaml
 
+
+starting_acquisition_methods = []
+with open('./data/gen1/config_rb.yaml') as f:
+    config_data = yaml.safe_load(f)
+for method in config_data['acquisition_methods']:
+    if method['enabled'] == True and method['default'] == True:
+        starting_acquisition_methods.append(method['name'])
+print(starting_acquisition_methods)
+
+
 with open('./data/gen1/pokedex_rb.yaml') as f:
     pokedex_data = yaml.safe_load(f)
 all_pokemon = construct_full_pokemon_set(pokedex_data)
@@ -25,12 +35,12 @@ all_locations = construct_full_location_set(location_data)
 with open('./data/gen1/progression_rb.yaml') as p:
     progression_data = yaml.safe_load(p)
 
-# all_spheres = construct_spheres(progression_data, all_locations)
-#
-# for sphere_num in all_spheres.keys():
-#     print(sphere_num, "maps:", all_spheres[sphere_num].maps, "items:", all_spheres[sphere_num].items)
+all_spheres = construct_spheres(progression_data, all_locations)
 
-#print(progression_data)
+#for sphere_num in all_spheres.keys():
+    #print(sphere_num, "maps:", all_spheres[sphere_num].maps, "items:", all_spheres[sphere_num].items)
+
+build_pools(all_spheres, all_pokemon, starting_acquisition_methods)
 
 
 

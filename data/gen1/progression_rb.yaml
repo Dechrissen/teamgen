@@ -34,8 +34,8 @@ world:
             type: map
           - name: VermilionCity
             type: map
-          - name: OldRod
-            type: item
+          - name: old_rod
+            type: acquisition_unlock
           - name: DiglettsCave
             type: map
           - name: Route11
@@ -76,10 +76,10 @@ world:
             type: map
           - name: PokemonTower7F
             type: map
-          - name: PokeFlute
-            type: item
-          - name: SuperRod
-            type: item
+          - name: poke_flute
+            type: acquisition_unlock
+          - name: super_rod
+            type: acquisition_unlock
           - name: Route13
             type: map
           - name: Route14
@@ -92,10 +92,10 @@ world:
             type: map
           - name: Route18
             type: map
-          - name: GoodRod
-            type: item
-          - name: Surf
-            type: item
+          - name: good_rod
+            type: acquisition_unlock
+          - name: surf
+            type: acquisition_unlock
           - name: PowerPlant
             type: map
           - name: SafariZoneCenter

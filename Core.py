@@ -63,6 +63,7 @@ def construct_full_location_set(location_data) -> dict[str, Location]:
             static_encounter=cur_loc["static_encounter"] if "static_encounter" in cur_loc else None,
             trade=cur_loc["trade"] if "trade" in cur_loc else None,
             gift=cur_loc["gift"] if "gift" in cur_loc else None,
+            purchase=cur_loc["purchase"] if "purchase" in cur_loc else None,
             fossil_restore=cur_loc["fossil_restore"] if "fossil_restore" in cur_loc else None,
             prize_window=cur_loc["prize_window"] if "prize_window" in cur_loc else None
         )
@@ -123,8 +124,8 @@ def build_pools(all_spheres, all_pokemon, starting_acquisition_methods):
 
     spheres_checked = {}
 
-    # iterate over all spheres from all_spheres dict
-    for sphere_num in all_spheres.keys():
+    # iterate over all spheres from all_spheres dict (in ascending key order)
+    for sphere_num in sorted(all_spheres.keys()):
         locations = all_spheres[sphere_num].maps
         items = all_spheres[sphere_num].items
         acquisition_unlocks = all_spheres[sphere_num].acquisition_unlocks
@@ -135,30 +136,53 @@ def build_pools(all_spheres, all_pokemon, starting_acquisition_methods):
             if unlock not in enabled_acquisition_methods:
                 enabled_acquisition_methods.append(unlock)
 
-        # build list of Pokemon by iterating over each location in locations and adding all its Pokemon (the object version, from all_pokemon) to a list
+        # initialize empty list to store pokemon objects for this pool
+        current_pool = []
+
+        # build list of Pokemon by iterating over each location in locations and adding all its Pokemon (the object version, from all_pokemon) to current_pool
         for location_obj in locations:
             for method in enabled_acquisition_methods:
-                # get list stored in that attribute (like location.walk)
+                # get list stored in that attribute (like location_obj.walk)
                 method_list = getattr(location_obj, method, None)
                 if method_list:
-                    print(f"\n{method.upper()} encounters at {location_obj.name}:")
                     for pokemon in method_list:
-                        print(f"  - {pokemon}")
-        # here, will need code that now ALSO goes back and iterates over all the locations in PREV spheres (using the ones kept track of in spheres_checked)
-        # and then compare enabled_acquisition_methods at THIS point to the point in time when the previous spheres were iterated over. so if their "methods_expanded"
-        # list doesnt match the current enabled_acquisition_methods list, the new ones from the PREV spheres locations need to be expanded and added to CURRENT pool.
-        # then, their "methods_expanded" list in spheres_checked dict needs to be updated so it matches the current one (so we don't do it again next iteration).
-        spheres_checked[sphere_num] = {"methods_expanded": [method for method in enabled_acquisition_methods]}
+                        current_pool.append(all_pokemon[pokemon]) #TODO maybe current_pool should be more than just a list, and do we need dupes in it?
 
+        # now also iterate over all locations from previous spheres (the ones kept track of in spheres_checked)
+        # and then compare enabled_acquisition_methods at THIS point to the point in time when the previous spheres were iterated over.
+        # i.e. expand all currently possible methods not yet expanded for previous spheres, and add those pokemon to this current pool as well
+        for prev_sphere_num in sorted(spheres_checked.keys()):
+            methods_expanded = spheres_checked[prev_sphere_num]["methods_expanded"]
+            new_unlocks_to_check = [method for method in enabled_acquisition_methods if method not in methods_expanded]
+            if new_unlocks_to_check:
+                prev_sphere_locations = all_spheres[prev_sphere_num].maps
+                # build list of Pokemon by iterating over each location in locations and adding all its Pokemon (the object version, from all_pokemon) to a list
+                for prev_location_obj in prev_sphere_locations:
+                    for method in new_unlocks_to_check:
+                        # get list stored in that attribute (like prev_location_obj.walk)
+                        method_list = getattr(prev_location_obj, method, None)
+                        if method_list:
+                            for pokemon in method_list:
+                                current_pool.append(all_pokemon[pokemon])  #TODO maybe current_pool should be more than just a list, and do we need dupes in it?
+                # update methods_expanded for this sphere to match current possible methods
+                spheres_checked[prev_sphere_num]["methods_expanded"] += new_unlocks_to_check
+
+        # then, current sphere "methods_expanded" list in spheres_checked dict needs to be updated so it matches the current one (so we don't do it again next iteration)
+        spheres_checked[sphere_num] = {"methods_expanded": [method for method in enabled_acquisition_methods]}
+        #print(spheres_checked[sphere_num]["methods_expanded"])
+
+        all_pools[sphere_num] = current_pool #TODO make this a dict or something? pokemon/location pairs to keep track of which pokemon are sourced from which locations
 
     # each map in each sphere is a Location object
     # will also need the list of all_pokemon as input for this function
     # i will probably first need to make sure all the lists of pokemon in each Location object can be mapped to the actual Pokemon objects
+
     # I think the pools should be made up of Pokemon objects, not simply strings of pokemon names. This way, their attributes can be checked when we need to filter them out of the generation
     # due to config constraints, etc. (like "don't generate pokemon of X type")
+
     # final all_pools should be a dict of pool_num (int) as keys and another dict ({"pool": [list, of, pokemon objects], "inventory": [list, of items]}) as the values
     # but maybe the "inventory" part is actually not necessary if we're only using a Sphere's inventory to build the pools. Yeah, probably this. So pool just needs to be a list of pokemon objects
-    return
+    return all_pools
 
 def test_whether_locations_are_all_valid_in_progression_file(all_locations):
     """

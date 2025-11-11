@@ -10,6 +10,7 @@ class Location:
                  static_encounter: list[str] = None,
                  trade: list[str] = None,
                  gift: list[str] = None,
+                 purchase: list[str] = None,
                  fossil_restore: list[str] = None,
                  prize_window: list[str] = None):
         self.name = name # str
@@ -22,5 +23,6 @@ class Location:
         self.static_encounter = static_encounter # list[str]
         self.trade = trade # list[str]
         self.gift = gift # list[str]
+        self.purchase = purchase  # list[str]
         self.fossil_restore = fossil_restore # list[str]
         self.prize_window = prize_window # list[str]

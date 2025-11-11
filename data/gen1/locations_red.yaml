@@ -194,7 +194,7 @@
   - KRABBY
   - SHELLDER
   trade:
-  - NIDORINA requires NIDORINO
+  - NIDORINA #requires NIDORINO
 - map_name: Route12
   walk:
   - GLOOM
@@ -287,7 +287,7 @@
   - MAGIKARP
   - TENTACOOL
   trade:
-  - LICKITUNG requires SLOWBRO
+  - LICKITUNG #requires SLOWBRO
 - map_name: Route19
   surf:
   - TENTACOOL
@@ -320,7 +320,7 @@
   - RATTATA
   - WEEDLE
   trade:
-  - MR.MIME requires ABRA
+  - MR.MIME #requires ABRA
 - map_name: Route21
   walk:
   - PIDGEOTTO
@@ -432,7 +432,7 @@
   - ODDISH
   - PIDGEY
   trade:
-  - NIDORAN_F requires NIDORAN_M
+  - NIDORAN_F #requires NIDORAN_M
 - map_name: Route6
   walk:
   - MANKEY
@@ -662,7 +662,7 @@
   - KRABBY
   - SHELLDER
   trade:
-  - FARFETCHD requires SPEAROW
+  - FARFETCHD #requires SPEAROW
 - map_name: CeladonCity
   old_rod:
   - MAGIKARP
@@ -694,9 +694,9 @@
   - KABUTO
   - AERODACTYL
   trade:
-  - SEEL requires PONYTA
-  - ELECTRODE requires RAICHU
-  - TANGELA requires VENONAT
+  - SEEL #requires PONYTA
+  - ELECTRODE #requires RAICHU
+  - TANGELA #requires VENONAT
 - map_name: FuchsiaCity
   old_rod:
   - MAGIKARP
@@ -737,7 +737,7 @@
   - GOLDEEN
   - KRABBY
   trade:
-  - JYNX requires POLIWHIRL
+  - JYNX #requires POLIWHIRL
 - map_name: CinnabarIsland
   old_rod:
   - MAGIKARP

@@ -1,7 +1,7 @@
-- name: bulbasaur
+- name: BULBASAUR
   is_fully_evolved: false
   evo_stage: 1
-  species_line: bulbasaur
+  species_line: BULBASAUR
   types:
   - grass
   - poison
@@ -10,10 +10,10 @@
   hm_learnset:
   - CUT
   evolution_method_required: none
-- name: ivysaur
+- name: IVYSAUR
   is_fully_evolved: false
   evo_stage: 2
-  species_line: bulbasaur
+  species_line: BULBASAUR
   types:
   - grass
   - poison
@@ -22,10 +22,10 @@
   hm_learnset:
   - CUT
   evolution_method_required: level-up
-- name: venusaur
+- name: VENUSAUR
   is_fully_evolved: true
   evo_stage: 3
-  species_line: bulbasaur
+  species_line: BULBASAUR
   types:
   - grass
   - poison
@@ -34,10 +34,10 @@
   hm_learnset:
   - CUT
   evolution_method_required: level-up
-- name: charmander
+- name: CHARMANDER
   is_fully_evolved: false
   evo_stage: 1
-  species_line: charmander
+  species_line: CHARMANDER
   types:
   - fire
   is_legendary: false
@@ -47,10 +47,10 @@
   - CUT
   - STRENGTH
   evolution_method_required: none
-- name: charmeleon
+- name: CHARMELEON
   is_fully_evolved: false
   evo_stage: 2
-  species_line: charmander
+  species_line: CHARMANDER
   types:
   - fire
   is_legendary: false
@@ -60,10 +60,10 @@
   - CUT
   - STRENGTH
   evolution_method_required: level-up
-- name: charizard
+- name: CHARIZARD
   is_fully_evolved: true
   evo_stage: 3
-  species_line: charmander
+  species_line: CHARMANDER
   types:
   - fire
   - flying
@@ -74,10 +74,10 @@
   - CUT
   - STRENGTH
   evolution_method_required: level-up
-- name: squirtle
+- name: SQUIRTLE
   is_fully_evolved: false
   evo_stage: 1
-  species_line: squirtle
+  species_line: SQUIRTLE
   types:
   - water
   is_legendary: false
@@ -87,10 +87,10 @@
   - SURF
   - STRENGTH
   evolution_method_required: none
-- name: wartortle
+- name: WARTORTLE
   is_fully_evolved: false
   evo_stage: 2
-  species_line: squirtle
+  species_line: SQUIRTLE
   types:
   - water
   is_legendary: false
@@ -100,10 +100,10 @@
   - SURF
   - STRENGTH
   evolution_method_required: level-up
-- name: blastoise
+- name: BLASTOISE
   is_fully_evolved: true
   evo_stage: 3
-  species_line: squirtle
+  species_line: SQUIRTLE
   types:
   - water
   is_legendary: false
@@ -113,30 +113,30 @@
   - SURF
   - STRENGTH
   evolution_method_required: level-up
-- name: caterpie
+- name: CATERPIE
   is_fully_evolved: false
   evo_stage: 1
-  species_line: caterpie
+  species_line: CATERPIE
   types:
   - bug
   is_legendary: false
   base_stat_total: 175
   hm_learnset: []
   evolution_method_required: none
-- name: metapod
+- name: METAPOD
   is_fully_evolved: false
   evo_stage: 2
-  species_line: caterpie
+  species_line: CATERPIE
   types:
   - bug
   is_legendary: false
   base_stat_total: 180
   hm_learnset: []
   evolution_method_required: level-up
-- name: butterfree
+- name: BUTTERFREE
   is_fully_evolved: true
   evo_stage: 3
-  species_line: caterpie
+  species_line: CATERPIE
   types:
   - bug
   - flying
@@ -145,10 +145,10 @@
   hm_learnset:
   - TELEPORT
   evolution_method_required: level-up
-- name: weedle
+- name: WEEDLE
   is_fully_evolved: false
   evo_stage: 1
-  species_line: weedle
+  species_line: WEEDLE
   types:
   - bug
   - poison
@@ -156,10 +156,10 @@
   base_stat_total: 175
   hm_learnset: []
   evolution_method_required: none
-- name: kakuna
+- name: KAKUNA
   is_fully_evolved: false
   evo_stage: 2
-  species_line: weedle
+  species_line: WEEDLE
   types:
   - bug
   - poison
@@ -167,10 +167,10 @@
   base_stat_total: 180
   hm_learnset: []
   evolution_method_required: level-up
-- name: beedrill
+- name: BEEDRILL
   is_fully_evolved: true
   evo_stage: 3
-  species_line: weedle
+  species_line: WEEDLE
   types:
   - bug
   - poison
@@ -179,10 +179,10 @@
   hm_learnset:
   - CUT
   evolution_method_required: level-up
-- name: pidgey
+- name: PIDGEY
   is_fully_evolved: false
   evo_stage: 1
-  species_line: pidgey
+  species_line: PIDGEY
   types:
   - normal
   - flying
@@ -191,10 +191,10 @@
   hm_learnset:
   - FLY
   evolution_method_required: none
-- name: pidgeotto
+- name: PIDGEOTTO
   is_fully_evolved: false
   evo_stage: 2
-  species_line: pidgey
+  species_line: PIDGEY
   types:
   - normal
   - flying
@@ -203,10 +203,10 @@
   hm_learnset:
   - FLY
   evolution_method_required: level-up
-- name: pidgeot
+- name: PIDGEOT
   is_fully_evolved: true
   evo_stage: 3
-  species_line: pidgey
+  species_line: PIDGEY
   types:
   - normal
   - flying
@@ -215,10 +215,10 @@
   hm_learnset:
   - FLY
   evolution_method_required: level-up
-- name: rattata
+- name: RATTATA
   is_fully_evolved: false
   evo_stage: 1
-  species_line: rattata
+  species_line: RATTATA
   types:
   - normal
   is_legendary: false
@@ -226,10 +226,10 @@
   hm_learnset:
   - DIG
   evolution_method_required: none
-- name: raticate
+- name: RATICATE
   is_fully_evolved: true
   evo_stage: 2
-  species_line: rattata
+  species_line: RATTATA
   types:
   - normal
   is_legendary: false
@@ -237,10 +237,10 @@
   hm_learnset:
   - DIG
   evolution_method_required: level-up
-- name: spearow
+- name: SPEAROW
   is_fully_evolved: false
   evo_stage: 1
-  species_line: spearow
+  species_line: SPEAROW
   types:
   - normal
   - flying
@@ -249,10 +249,10 @@
   hm_learnset:
   - FLY
   evolution_method_required: none
-- name: fearow
+- name: FEAROW
   is_fully_evolved: true
   evo_stage: 2
-  species_line: spearow
+  species_line: SPEAROW
   types:
   - normal
   - flying
@@ -261,10 +261,10 @@
   hm_learnset:
   - FLY
   evolution_method_required: level-up
-- name: ekans
+- name: EKANS
   is_fully_evolved: false
   evo_stage: 1
-  species_line: ekans
+  species_line: EKANS
   types:
   - poison
   is_legendary: false
@@ -273,10 +273,10 @@
   - DIG
   - STRENGTH
   evolution_method_required: none
-- name: arbok
+- name: ARBOK
   is_fully_evolved: true
   evo_stage: 2
-  species_line: ekans
+  species_line: EKANS
   types:
   - poison
   is_legendary: false
@@ -285,10 +285,10 @@
   - DIG
   - STRENGTH
   evolution_method_required: level-up
-- name: pikachu
+- name: PIKACHU
   is_fully_evolved: false
   evo_stage: 1
-  species_line: pikachu
+  species_line: PIKACHU
   types:
   - electric
   is_legendary: false
@@ -296,10 +296,10 @@
   hm_learnset:
   - FLASH
   evolution_method_required: none
-- name: raichu
+- name: RAICHU
   is_fully_evolved: true
   evo_stage: 2
-  species_line: pikachu
+  species_line: PIKACHU
   types:
   - electric
   is_legendary: false
@@ -307,10 +307,10 @@
   hm_learnset:
   - FLASH
   evolution_method_required: thunder_stone
-- name: sandshrew
+- name: SANDSHREW
   is_fully_evolved: false
   evo_stage: 1
-  species_line: sandshrew
+  species_line: SANDSHREW
   types:
   - ground
   is_legendary: false
@@ -320,10 +320,10 @@
   - CUT
   - STRENGTH
   evolution_method_required: none
-- name: sandslash
+- name: SANDSLASH
   is_fully_evolved: true
   evo_stage: 2
-  species_line: sandshrew
+  species_line: SANDSHREW
   types:
   - ground
   is_legendary: false
@@ -333,30 +333,30 @@
   - CUT
   - STRENGTH
   evolution_method_required: level-up
-- name: nidoran-f
+- name: NIDORAN_F
   is_fully_evolved: false
   evo_stage: 1
-  species_line: nidoran-f
+  species_line: NIDORAN_F
   types:
   - poison
   is_legendary: false
   base_stat_total: 0
   hm_learnset: []
   evolution_method_required: none
-- name: nidorina
+- name: NIDORINA
   is_fully_evolved: false
   evo_stage: 2
-  species_line: nidoran-f
+  species_line: NIDORAN_F
   types:
   - poison
   is_legendary: false
   base_stat_total: 310
   hm_learnset: []
   evolution_method_required: level-up
-- name: nidoqueen
+- name: NIDOQUEEN
   is_fully_evolved: true
   evo_stage: 3
-  species_line: nidoran-f
+  species_line: NIDORAN_F
   types:
   - poison
   - ground
@@ -366,30 +366,30 @@
   - SURF
   - STRENGTH
   evolution_method_required: moon_stone
-- name: nidoran-m
+- name: NIDORAN_M
   is_fully_evolved: false
   evo_stage: 1
-  species_line: nidoran-m
+  species_line: NIDORAN_M
   types:
   - poison
   is_legendary: false
   base_stat_total: 0
   hm_learnset: []
   evolution_method_required: none
-- name: nidorino
+- name: NIDORINO
   is_fully_evolved: false
   evo_stage: 2
-  species_line: nidoran-m
+  species_line: NIDORAN_M
   types:
   - poison
   is_legendary: false
   base_stat_total: 310
   hm_learnset: []
   evolution_method_required: level-up
-- name: nidoking
+- name: NIDOKING
   is_fully_evolved: true
   evo_stage: 3
-  species_line: nidoran-m
+  species_line: NIDORAN_M
   types:
   - poison
   - ground
@@ -399,10 +399,10 @@
   - SURF
   - STRENGTH
   evolution_method_required: moon_stone
-- name: clefairy
+- name: CLEFAIRY
   is_fully_evolved: false
   evo_stage: 1
-  species_line: clefairy
+  species_line: CLEFAIRY
   types:
   - normal
   is_legendary: false
@@ -412,10 +412,10 @@
   - STRENGTH
   - FLASH
   evolution_method_required: none
-- name: clefable
+- name: CLEFABLE
   is_fully_evolved: true
   evo_stage: 2
-  species_line: clefairy
+  species_line: CLEFAIRY
   types:
   - normal
   is_legendary: false
@@ -425,10 +425,10 @@
   - STRENGTH
   - FLASH
   evolution_method_required: moon_stone
-- name: vulpix
+- name: VULPIX
   is_fully_evolved: false
   evo_stage: 1
-  species_line: vulpix
+  species_line: VULPIX
   types:
   - fire
   is_legendary: false
@@ -436,10 +436,10 @@
   hm_learnset:
   - DIG
   evolution_method_required: none
-- name: ninetales
+- name: NINETALES
   is_fully_evolved: true
   evo_stage: 2
-  species_line: vulpix
+  species_line: VULPIX
   types:
   - fire
   is_legendary: false
@@ -447,10 +447,10 @@
   hm_learnset:
   - DIG
   evolution_method_required: fire_stone
-- name: jigglypuff
+- name: JIGGLYPUFF
   is_fully_evolved: false
   evo_stage: 1
-  species_line: jigglypuff
+  species_line: JIGGLYPUFF
   types:
   - normal
   is_legendary: false
@@ -460,10 +460,10 @@
   - STRENGTH
   - FLASH
   evolution_method_required: none
-- name: wigglytuff
+- name: WIGGLYTUFF
   is_fully_evolved: true
   evo_stage: 2
-  species_line: jigglypuff
+  species_line: JIGGLYPUFF
   types:
   - normal
   is_legendary: false
@@ -473,10 +473,10 @@
   - STRENGTH
   - FLASH
   evolution_method_required: moon_stone
-- name: zubat
+- name: ZUBAT
   is_fully_evolved: false
   evo_stage: 1
-  species_line: zubat
+  species_line: ZUBAT
   types:
   - poison
   - flying
@@ -484,10 +484,10 @@
   base_stat_total: 215
   hm_learnset: []
   evolution_method_required: none
-- name: golbat
+- name: GOLBAT
   is_fully_evolved: true
   evo_stage: 2
-  species_line: zubat
+  species_line: ZUBAT
   types:
   - poison
   - flying
@@ -495,10 +495,10 @@
   base_stat_total: 390
   hm_learnset: []
   evolution_method_required: level-up
-- name: oddish
+- name: ODDISH
   is_fully_evolved: false
   evo_stage: 1
-  species_line: oddish
+  species_line: ODDISH
   types:
   - grass
   - poison
@@ -507,10 +507,10 @@
   hm_learnset:
   - CUT
   evolution_method_required: none
-- name: gloom
+- name: GLOOM
   is_fully_evolved: false
   evo_stage: 2
-  species_line: oddish
+  species_line: ODDISH
   types:
   - grass
   - poison
@@ -519,10 +519,10 @@
   hm_learnset:
   - CUT
   evolution_method_required: level-up
-- name: vileplume
+- name: VILEPLUME
   is_fully_evolved: true
   evo_stage: 3
-  species_line: oddish
+  species_line: ODDISH
   types:
   - grass
   - poison
@@ -531,10 +531,10 @@
   hm_learnset:
   - CUT
   evolution_method_required: leaf_stone
-- name: paras
+- name: PARAS
   is_fully_evolved: false
   evo_stage: 1
-  species_line: paras
+  species_line: PARAS
   types:
   - bug
   - grass
@@ -544,10 +544,10 @@
   - DIG
   - CUT
   evolution_method_required: none
-- name: parasect
+- name: PARASECT
   is_fully_evolved: true
   evo_stage: 2
-  species_line: paras
+  species_line: PARAS
   types:
   - bug
   - grass
@@ -557,10 +557,10 @@
   - DIG
   - CUT
   evolution_method_required: level-up
-- name: venonat
+- name: VENONAT
   is_fully_evolved: false
   evo_stage: 1
-  species_line: venonat
+  species_line: VENONAT
   types:
   - bug
   - poison
@@ -568,10 +568,10 @@
   base_stat_total: 250
   hm_learnset: []
   evolution_method_required: none
-- name: venomoth
+- name: VENOMOTH
   is_fully_evolved: true
   evo_stage: 2
-  species_line: venonat
+  species_line: VENONAT
   types:
   - bug
   - poison
@@ -580,10 +580,10 @@
   hm_learnset:
   - TELEPORT
   evolution_method_required: level-up
-- name: diglett
+- name: DIGLETT
   is_fully_evolved: false
   evo_stage: 1
-  species_line: diglett
+  species_line: DIGLETT
   types:
   - ground
   is_legendary: false
@@ -591,10 +591,10 @@
   hm_learnset:
   - DIG
   evolution_method_required: none
-- name: dugtrio
+- name: DUGTRIO
   is_fully_evolved: true
   evo_stage: 2
-  species_line: diglett
+  species_line: DIGLETT
   types:
   - ground
   is_legendary: false
@@ -602,30 +602,30 @@
   hm_learnset:
   - DIG
   evolution_method_required: level-up
-- name: meowth
+- name: MEOWTH
   is_fully_evolved: false
   evo_stage: 1
-  species_line: meowth
+  species_line: MEOWTH
   types:
   - normal
   is_legendary: false
   base_stat_total: 250
   hm_learnset: []
   evolution_method_required: none
-- name: persian
+- name: PERSIAN
   is_fully_evolved: true
   evo_stage: 2
-  species_line: meowth
+  species_line: MEOWTH
   types:
   - normal
   is_legendary: false
   base_stat_total: 375
   hm_learnset: []
   evolution_method_required: level-up
-- name: psyduck
+- name: PSYDUCK
   is_fully_evolved: false
   evo_stage: 1
-  species_line: psyduck
+  species_line: PSYDUCK
   types:
   - water
   is_legendary: false
@@ -635,10 +635,10 @@
   - SURF
   - STRENGTH
   evolution_method_required: none
-- name: golduck
+- name: GOLDUCK
   is_fully_evolved: true
   evo_stage: 2
-  species_line: psyduck
+  species_line: PSYDUCK
   types:
   - water
   is_legendary: false
@@ -648,10 +648,10 @@
   - SURF
   - STRENGTH
   evolution_method_required: level-up
-- name: mankey
+- name: MANKEY
   is_fully_evolved: false
   evo_stage: 1
-  species_line: mankey
+  species_line: MANKEY
   types:
   - fighting
   is_legendary: false
@@ -660,10 +660,10 @@
   - DIG
   - STRENGTH
   evolution_method_required: none
-- name: primeape
+- name: PRIMEAPE
   is_fully_evolved: true
   evo_stage: 2
-  species_line: mankey
+  species_line: MANKEY
   types:
   - fighting
   is_legendary: false
@@ -672,10 +672,10 @@
   - DIG
   - STRENGTH
   evolution_method_required: level-up
-- name: growlithe
+- name: GROWLITHE
   is_fully_evolved: false
   evo_stage: 1
-  species_line: growlithe
+  species_line: GROWLITHE
   types:
   - fire
   is_legendary: false
@@ -683,10 +683,10 @@
   hm_learnset:
   - DIG
   evolution_method_required: none
-- name: arcanine
+- name: ARCANINE
   is_fully_evolved: true
   evo_stage: 2
-  species_line: growlithe
+  species_line: GROWLITHE
   types:
   - fire
   is_legendary: false
@@ -695,10 +695,10 @@
   - DIG
   - TELEPORT
   evolution_method_required: fire_stone
-- name: poliwag
+- name: POLIWAG
   is_fully_evolved: false
   evo_stage: 1
-  species_line: poliwag
+  species_line: POLIWAG
   types:
   - water
   is_legendary: false
@@ -706,10 +706,10 @@
   hm_learnset:
   - SURF
   evolution_method_required: none
-- name: poliwhirl
+- name: POLIWHIRL
   is_fully_evolved: false
   evo_stage: 2
-  species_line: poliwag
+  species_line: POLIWAG
   types:
   - water
   is_legendary: false
@@ -718,10 +718,10 @@
   - SURF
   - STRENGTH
   evolution_method_required: level-up
-- name: poliwrath
+- name: POLIWRATH
   is_fully_evolved: true
   evo_stage: 3
-  species_line: poliwag
+  species_line: POLIWAG
   types:
   - water
   - fighting
@@ -731,10 +731,10 @@
   - SURF
   - STRENGTH
   evolution_method_required: water_stone
-- name: abra
+- name: ABRA
   is_fully_evolved: false
   evo_stage: 1
-  species_line: abra
+  species_line: ABRA
   types:
   - psychic
   is_legendary: false
@@ -743,10 +743,10 @@
   - TELEPORT
   - FLASH
   evolution_method_required: none
-- name: kadabra
+- name: KADABRA
   is_fully_evolved: false
   evo_stage: 2
-  species_line: abra
+  species_line: ABRA
   types:
   - psychic
   is_legendary: false
@@ -756,10 +756,10 @@
   - TELEPORT
   - FLASH
   evolution_method_required: level-up
-- name: alakazam
+- name: ALAKAZAM
   is_fully_evolved: true
   evo_stage: 3
-  species_line: abra
+  species_line: ABRA
   types:
   - psychic
   is_legendary: false
@@ -769,10 +769,10 @@
   - TELEPORT
   - FLASH
   evolution_method_required: trade
-- name: machop
+- name: MACHOP
   is_fully_evolved: false
   evo_stage: 1
-  species_line: machop
+  species_line: MACHOP
   types:
   - fighting
   is_legendary: false
@@ -781,10 +781,10 @@
   - DIG
   - STRENGTH
   evolution_method_required: none
-- name: machoke
+- name: MACHOKE
   is_fully_evolved: false
   evo_stage: 2
-  species_line: machop
+  species_line: MACHOP
   types:
   - fighting
   is_legendary: false
@@ -793,10 +793,10 @@
   - DIG
   - STRENGTH
   evolution_method_required: level-up
-- name: machamp
+- name: MACHAMP
   is_fully_evolved: true
   evo_stage: 3
-  species_line: machop
+  species_line: MACHOP
   types:
   - fighting
   is_legendary: false
@@ -805,10 +805,10 @@
   - DIG
   - STRENGTH
   evolution_method_required: trade
-- name: bellsprout
+- name: BELLSPROUT
   is_fully_evolved: false
   evo_stage: 1
-  species_line: bellsprout
+  species_line: BELLSPROUT
   types:
   - grass
   - poison
@@ -817,10 +817,10 @@
   hm_learnset:
   - CUT
   evolution_method_required: none
-- name: weepinbell
+- name: WEEPINBELL
   is_fully_evolved: false
   evo_stage: 2
-  species_line: bellsprout
+  species_line: BELLSPROUT
   types:
   - grass
   - poison
@@ -829,10 +829,10 @@
   hm_learnset:
   - CUT
   evolution_method_required: level-up
-- name: victreebel
+- name: VICTREEBEL
   is_fully_evolved: true
   evo_stage: 3
-  species_line: bellsprout
+  species_line: BELLSPROUT
   types:
   - grass
   - poison
@@ -841,10 +841,10 @@
   hm_learnset:
   - CUT
   evolution_method_required: leaf_stone
-- name: tentacool
+- name: TENTACOOL
   is_fully_evolved: false
   evo_stage: 1
-  species_line: tentacool
+  species_line: TENTACOOL
   types:
   - water
   - poison
@@ -854,10 +854,10 @@
   - CUT
   - SURF
   evolution_method_required: none
-- name: tentacruel
+- name: TENTACRUEL
   is_fully_evolved: true
   evo_stage: 2
-  species_line: tentacool
+  species_line: TENTACOOL
   types:
   - water
   - poison
@@ -867,10 +867,10 @@
   - CUT
   - SURF
   evolution_method_required: level-up
-- name: geodude
+- name: GEODUDE
   is_fully_evolved: false
   evo_stage: 1
-  species_line: geodude
+  species_line: GEODUDE
   types:
   - rock
   - ground
@@ -880,10 +880,10 @@
   - DIG
   - STRENGTH
   evolution_method_required: none
-- name: graveler
+- name: GRAVELER
   is_fully_evolved: false
   evo_stage: 2
-  species_line: geodude
+  species_line: GEODUDE
   types:
   - rock
   - ground
@@ -893,10 +893,10 @@
   - DIG
   - STRENGTH
   evolution_method_required: level-up
-- name: golem
+- name: GOLEM
   is_fully_evolved: true
   evo_stage: 3
-  species_line: geodude
+  species_line: GEODUDE
   types:
   - rock
   - ground
@@ -906,30 +906,30 @@
   - DIG
   - STRENGTH
   evolution_method_required: trade
-- name: ponyta
+- name: PONYTA
   is_fully_evolved: false
   evo_stage: 1
-  species_line: ponyta
+  species_line: PONYTA
   types:
   - fire
   is_legendary: false
   base_stat_total: 345
   hm_learnset: []
   evolution_method_required: none
-- name: rapidash
+- name: RAPIDASH
   is_fully_evolved: true
   evo_stage: 2
-  species_line: ponyta
+  species_line: PONYTA
   types:
   - fire
   is_legendary: false
   base_stat_total: 420
   hm_learnset: []
   evolution_method_required: level-up
-- name: slowpoke
+- name: SLOWPOKE
   is_fully_evolved: false
   evo_stage: 1
-  species_line: slowpoke
+  species_line: SLOWPOKE
   types:
   - water
   - psychic
@@ -942,10 +942,10 @@
   - STRENGTH
   - FLASH
   evolution_method_required: none
-- name: slowbro
+- name: SLOWBRO
   is_fully_evolved: true
   evo_stage: 2
-  species_line: slowpoke
+  species_line: SLOWPOKE
   types:
   - water
   - psychic
@@ -958,10 +958,10 @@
   - STRENGTH
   - FLASH
   evolution_method_required: level-up
-- name: magnemite
+- name: MAGNEMITE
   is_fully_evolved: false
   evo_stage: 1
-  species_line: magnemite
+  species_line: MAGNEMITE
   types:
   - electric
   is_legendary: false
@@ -970,10 +970,10 @@
   - TELEPORT
   - FLASH
   evolution_method_required: none
-- name: magneton
+- name: MAGNETON
   is_fully_evolved: true
   evo_stage: 2
-  species_line: magnemite
+  species_line: MAGNEMITE
   types:
   - electric
   is_legendary: false
@@ -982,10 +982,10 @@
   - TELEPORT
   - FLASH
   evolution_method_required: level-up
-- name: farfetchd
+- name: FARFETCHD
   is_fully_evolved: true
   evo_stage: 1
-  species_line: farfetchd
+  species_line: FARFETCHD
   types:
   - normal
   - flying
@@ -995,10 +995,10 @@
   - CUT
   - FLY
   evolution_method_required: none
-- name: doduo
+- name: DODUO
   is_fully_evolved: false
   evo_stage: 1
-  species_line: doduo
+  species_line: DODUO
   types:
   - normal
   - flying
@@ -1007,10 +1007,10 @@
   hm_learnset:
   - FLY
   evolution_method_required: none
-- name: dodrio
+- name: DODRIO
   is_fully_evolved: true
   evo_stage: 2
-  species_line: doduo
+  species_line: DODUO
   types:
   - normal
   - flying
@@ -1019,10 +1019,10 @@
   hm_learnset:
   - FLY
   evolution_method_required: level-up
-- name: seel
+- name: SEEL
   is_fully_evolved: false
   evo_stage: 1
-  species_line: seel
+  species_line: SEEL
   types:
   - water
   is_legendary: false
@@ -1031,10 +1031,10 @@
   - SURF
   - STRENGTH
   evolution_method_required: none
-- name: dewgong
+- name: DEWGONG
   is_fully_evolved: true
   evo_stage: 2
-  species_line: seel
+  species_line: SEEL
   types:
   - water
   - ice
@@ -1044,30 +1044,30 @@
   - SURF
   - STRENGTH
   evolution_method_required: level-up
-- name: grimer
+- name: GRIMER
   is_fully_evolved: false
   evo_stage: 1
-  species_line: grimer
+  species_line: GRIMER
   types:
   - poison
   is_legendary: false
   base_stat_total: 275
   hm_learnset: []
   evolution_method_required: none
-- name: muk
+- name: MUK
   is_fully_evolved: true
   evo_stage: 2
-  species_line: grimer
+  species_line: GRIMER
   types:
   - poison
   is_legendary: false
   base_stat_total: 400
   hm_learnset: []
   evolution_method_required: level-up
-- name: shellder
+- name: SHELLDER
   is_fully_evolved: false
   evo_stage: 1
-  species_line: shellder
+  species_line: SHELLDER
   types:
   - water
   is_legendary: false
@@ -1076,10 +1076,10 @@
   - TELEPORT
   - SURF
   evolution_method_required: none
-- name: cloyster
+- name: CLOYSTER
   is_fully_evolved: true
   evo_stage: 2
-  species_line: shellder
+  species_line: SHELLDER
   types:
   - water
   - ice
@@ -1089,10 +1089,10 @@
   - TELEPORT
   - SURF
   evolution_method_required: water_stone
-- name: gastly
+- name: GASTLY
   is_fully_evolved: false
   evo_stage: 1
-  species_line: gastly
+  species_line: GASTLY
   types:
   - ghost
   - poison
@@ -1100,10 +1100,10 @@
   base_stat_total: 275
   hm_learnset: []
   evolution_method_required: none
-- name: haunter
+- name: HAUNTER
   is_fully_evolved: false
   evo_stage: 2
-  species_line: gastly
+  species_line: GASTLY
   types:
   - ghost
   - poison
@@ -1111,10 +1111,10 @@
   base_stat_total: 350
   hm_learnset: []
   evolution_method_required: level-up
-- name: gengar
+- name: GENGAR
   is_fully_evolved: true
   evo_stage: 3
-  species_line: gastly
+  species_line: GASTLY
   types:
   - ghost
   - poison
@@ -1123,10 +1123,10 @@
   hm_learnset:
   - STRENGTH
   evolution_method_required: trade
-- name: onix
+- name: ONIX
   is_fully_evolved: true
   evo_stage: 1
-  species_line: onix
+  species_line: ONIX
   types:
   - rock
   - ground
@@ -1136,10 +1136,10 @@
   - DIG
   - STRENGTH
   evolution_method_required: none
-- name: drowzee
+- name: DROWZEE
   is_fully_evolved: false
   evo_stage: 1
-  species_line: drowzee
+  species_line: DROWZEE
   types:
   - psychic
   is_legendary: false
@@ -1148,10 +1148,10 @@
   - TELEPORT
   - FLASH
   evolution_method_required: none
-- name: hypno
+- name: HYPNO
   is_fully_evolved: true
   evo_stage: 2
-  species_line: drowzee
+  species_line: DROWZEE
   types:
   - psychic
   is_legendary: false
@@ -1160,10 +1160,10 @@
   - TELEPORT
   - FLASH
   evolution_method_required: level-up
-- name: krabby
+- name: KRABBY
   is_fully_evolved: false
   evo_stage: 1
-  species_line: krabby
+  species_line: KRABBY
   types:
   - water
   is_legendary: false
@@ -1173,10 +1173,10 @@
   - SURF
   - STRENGTH
   evolution_method_required: none
-- name: kingler
+- name: KINGLER
   is_fully_evolved: true
   evo_stage: 2
-  species_line: krabby
+  species_line: KRABBY
   types:
   - water
   is_legendary: false
@@ -1186,10 +1186,10 @@
   - SURF
   - STRENGTH
   evolution_method_required: level-up
-- name: voltorb
+- name: VOLTORB
   is_fully_evolved: false
   evo_stage: 1
-  species_line: voltorb
+  species_line: VOLTORB
   types:
   - electric
   is_legendary: false
@@ -1198,10 +1198,10 @@
   - TELEPORT
   - FLASH
   evolution_method_required: none
-- name: electrode
+- name: ELECTRODE
   is_fully_evolved: true
   evo_stage: 2
-  species_line: voltorb
+  species_line: VOLTORB
   types:
   - electric
   is_legendary: false
@@ -1210,10 +1210,10 @@
   - TELEPORT
   - FLASH
   evolution_method_required: level-up
-- name: exeggcute
+- name: EXEGGCUTE
   is_fully_evolved: false
   evo_stage: 1
-  species_line: exeggcute
+  species_line: EXEGGCUTE
   types:
   - grass
   - psychic
@@ -1222,10 +1222,10 @@
   hm_learnset:
   - TELEPORT
   evolution_method_required: none
-- name: exeggutor
+- name: EXEGGUTOR
   is_fully_evolved: true
   evo_stage: 2
-  species_line: exeggcute
+  species_line: EXEGGCUTE
   types:
   - grass
   - psychic
@@ -1235,10 +1235,10 @@
   - TELEPORT
   - STRENGTH
   evolution_method_required: leaf_stone
-- name: cubone
+- name: CUBONE
   is_fully_evolved: false
   evo_stage: 1
-  species_line: cubone
+  species_line: CUBONE
   types:
   - ground
   is_legendary: false
@@ -1247,10 +1247,10 @@
   - DIG
   - STRENGTH
   evolution_method_required: none
-- name: marowak
+- name: MAROWAK
   is_fully_evolved: true
   evo_stage: 2
-  species_line: cubone
+  species_line: CUBONE
   types:
   - ground
   is_legendary: false
@@ -1259,10 +1259,10 @@
   - DIG
   - STRENGTH
   evolution_method_required: level-up
-- name: hitmonlee
+- name: HITMONLEE
   is_fully_evolved: true
   evo_stage: 1
-  species_line: hitmonlee
+  species_line: HITMONLEE
   types:
   - fighting
   is_legendary: false
@@ -1270,10 +1270,10 @@
   hm_learnset:
   - STRENGTH
   evolution_method_required: none
-- name: hitmonchan
+- name: HITMONCHAN
   is_fully_evolved: true
   evo_stage: 1
-  species_line: hitmonchan
+  species_line: HITMONCHAN
   types:
   - fighting
   is_legendary: false
@@ -1281,10 +1281,10 @@
   hm_learnset:
   - STRENGTH
   evolution_method_required: none
-- name: lickitung
+- name: LICKITUNG
   is_fully_evolved: true
   evo_stage: 1
-  species_line: lickitung
+  species_line: LICKITUNG
   types:
   - normal
   is_legendary: false
@@ -1294,30 +1294,30 @@
   - SURF
   - STRENGTH
   evolution_method_required: none
-- name: koffing
+- name: KOFFING
   is_fully_evolved: false
   evo_stage: 1
-  species_line: koffing
+  species_line: KOFFING
   types:
   - poison
   is_legendary: false
   base_stat_total: 295
   hm_learnset: []
   evolution_method_required: none
-- name: weezing
+- name: WEEZING
   is_fully_evolved: true
   evo_stage: 2
-  species_line: koffing
+  species_line: KOFFING
   types:
   - poison
   is_legendary: false
   base_stat_total: 420
   hm_learnset: []
   evolution_method_required: level-up
-- name: rhyhorn
+- name: RHYHORN
   is_fully_evolved: false
   evo_stage: 1
-  species_line: rhyhorn
+  species_line: RHYHORN
   types:
   - ground
   - rock
@@ -1327,10 +1327,10 @@
   - DIG
   - STRENGTH
   evolution_method_required: none
-- name: rhydon
+- name: RHYDON
   is_fully_evolved: true
   evo_stage: 2
-  species_line: rhyhorn
+  species_line: RHYHORN
   types:
   - ground
   - rock
@@ -1341,10 +1341,10 @@
   - SURF
   - STRENGTH
   evolution_method_required: level-up
-- name: chansey
+- name: CHANSEY
   is_fully_evolved: true
   evo_stage: 1
-  species_line: chansey
+  species_line: CHANSEY
   types:
   - normal
   is_legendary: false
@@ -1355,10 +1355,10 @@
   - STRENGTH
   - FLASH
   evolution_method_required: none
-- name: tangela
+- name: TANGELA
   is_fully_evolved: true
   evo_stage: 1
-  species_line: tangela
+  species_line: TANGELA
   types:
   - grass
   is_legendary: false
@@ -1366,10 +1366,10 @@
   hm_learnset:
   - CUT
   evolution_method_required: none
-- name: kangaskhan
+- name: KANGASKHAN
   is_fully_evolved: true
   evo_stage: 1
-  species_line: kangaskhan
+  species_line: KANGASKHAN
   types:
   - normal
   is_legendary: false
@@ -1378,10 +1378,10 @@
   - SURF
   - STRENGTH
   evolution_method_required: none
-- name: horsea
+- name: HORSEA
   is_fully_evolved: false
   evo_stage: 1
-  species_line: horsea
+  species_line: HORSEA
   types:
   - water
   is_legendary: false
@@ -1389,10 +1389,10 @@
   hm_learnset:
   - SURF
   evolution_method_required: none
-- name: seadra
+- name: SEADRA
   is_fully_evolved: true
   evo_stage: 2
-  species_line: horsea
+  species_line: HORSEA
   types:
   - water
   is_legendary: false
@@ -1400,10 +1400,10 @@
   hm_learnset:
   - SURF
   evolution_method_required: level-up
-- name: goldeen
+- name: GOLDEEN
   is_fully_evolved: false
   evo_stage: 1
-  species_line: goldeen
+  species_line: GOLDEEN
   types:
   - water
   is_legendary: false
@@ -1411,10 +1411,10 @@
   hm_learnset:
   - SURF
   evolution_method_required: none
-- name: seaking
+- name: SEAKING
   is_fully_evolved: true
   evo_stage: 2
-  species_line: goldeen
+  species_line: GOLDEEN
   types:
   - water
   is_legendary: false
@@ -1422,10 +1422,10 @@
   hm_learnset:
   - SURF
   evolution_method_required: level-up
-- name: staryu
+- name: STARYU
   is_fully_evolved: false
   evo_stage: 1
-  species_line: staryu
+  species_line: STARYU
   types:
   - water
   is_legendary: false
@@ -1435,10 +1435,10 @@
   - SURF
   - FLASH
   evolution_method_required: none
-- name: starmie
+- name: STARMIE
   is_fully_evolved: true
   evo_stage: 2
-  species_line: staryu
+  species_line: STARYU
   types:
   - water
   - psychic
@@ -1449,10 +1449,10 @@
   - SURF
   - FLASH
   evolution_method_required: water_stone
-- name: mr-mime
+- name: MR.MIME
   is_fully_evolved: true
   evo_stage: 1
-  species_line: mr-mime
+  species_line: MR.MIME
   types:
   - psychic
   is_legendary: false
@@ -1461,10 +1461,10 @@
   - TELEPORT
   - FLASH
   evolution_method_required: none
-- name: scyther
+- name: SCYTHER
   is_fully_evolved: true
   evo_stage: 1
-  species_line: scyther
+  species_line: SCYTHER
   types:
   - bug
   - flying
@@ -1473,10 +1473,10 @@
   hm_learnset:
   - CUT
   evolution_method_required: none
-- name: jynx
+- name: JYNX
   is_fully_evolved: true
   evo_stage: 1
-  species_line: jynx
+  species_line: JYNX
   types:
   - ice
   - psychic
@@ -1485,10 +1485,10 @@
   hm_learnset:
   - TELEPORT
   evolution_method_required: none
-- name: electabuzz
+- name: ELECTABUZZ
   is_fully_evolved: true
   evo_stage: 1
-  species_line: electabuzz
+  species_line: ELECTABUZZ
   types:
   - electric
   is_legendary: false
@@ -1498,10 +1498,10 @@
   - STRENGTH
   - FLASH
   evolution_method_required: none
-- name: magmar
+- name: MAGMAR
   is_fully_evolved: true
   evo_stage: 1
-  species_line: magmar
+  species_line: MAGMAR
   types:
   - fire
   is_legendary: false
@@ -1510,10 +1510,10 @@
   - TELEPORT
   - STRENGTH
   evolution_method_required: none
-- name: pinsir
+- name: PINSIR
   is_fully_evolved: true
   evo_stage: 1
-  species_line: pinsir
+  species_line: PINSIR
   types:
   - bug
   is_legendary: false
@@ -1522,10 +1522,10 @@
   - CUT
   - STRENGTH
   evolution_method_required: none
-- name: tauros
+- name: TAUROS
   is_fully_evolved: true
   evo_stage: 1
-  species_line: tauros
+  species_line: TAUROS
   types:
   - normal
   is_legendary: false
@@ -1533,20 +1533,20 @@
   hm_learnset:
   - STRENGTH
   evolution_method_required: none
-- name: magikarp
+- name: MAGIKARP
   is_fully_evolved: false
   evo_stage: 1
-  species_line: magikarp
+  species_line: MAGIKARP
   types:
   - water
   is_legendary: false
   base_stat_total: 185
   hm_learnset: []
   evolution_method_required: none
-- name: gyarados
+- name: GYARADOS
   is_fully_evolved: true
   evo_stage: 2
-  species_line: magikarp
+  species_line: MAGIKARP
   types:
   - water
   - flying
@@ -1556,10 +1556,10 @@
   - SURF
   - STRENGTH
   evolution_method_required: level-up
-- name: lapras
+- name: LAPRAS
   is_fully_evolved: true
   evo_stage: 1
-  species_line: lapras
+  species_line: LAPRAS
   types:
   - water
   - ice
@@ -1569,30 +1569,30 @@
   - SURF
   - STRENGTH
   evolution_method_required: none
-- name: ditto
+- name: DITTO
   is_fully_evolved: true
   evo_stage: 1
-  species_line: ditto
+  species_line: DITTO
   types:
   - normal
   is_legendary: false
   base_stat_total: 240
   hm_learnset: []
   evolution_method_required: none
-- name: eevee
+- name: EEVEE
   is_fully_evolved: false
   evo_stage: 1
-  species_line: eevee
+  species_line: EEVEE
   types:
   - normal
   is_legendary: false
   base_stat_total: 280
   hm_learnset: []
   evolution_method_required: none
-- name: vaporeon
+- name: VAPOREON
   is_fully_evolved: true
   evo_stage: 2
-  species_line: eevee
+  species_line: EEVEE
   types:
   - water
   is_legendary: false
@@ -1600,10 +1600,10 @@
   hm_learnset:
   - SURF
   evolution_method_required: water_stone
-- name: jolteon
+- name: JOLTEON
   is_fully_evolved: true
   evo_stage: 2
-  species_line: eevee
+  species_line: EEVEE
   types:
   - electric
   is_legendary: false
@@ -1611,20 +1611,20 @@
   hm_learnset:
   - FLASH
   evolution_method_required: thunder_stone
-- name: flareon
+- name: FLAREON
   is_fully_evolved: true
   evo_stage: 2
-  species_line: eevee
+  species_line: EEVEE
   types:
   - fire
   is_legendary: false
   base_stat_total: 430
   hm_learnset: []
   evolution_method_required: fire_stone
-- name: porygon
+- name: PORYGON
   is_fully_evolved: true
   evo_stage: 1
-  species_line: porygon
+  species_line: PORYGON
   types:
   - normal
   is_legendary: false
@@ -1633,10 +1633,10 @@
   - TELEPORT
   - FLASH
   evolution_method_required: none
-- name: omanyte
+- name: OMANYTE
   is_fully_evolved: false
   evo_stage: 1
-  species_line: omanyte
+  species_line: OMANYTE
   types:
   - rock
   - water
@@ -1645,10 +1645,10 @@
   hm_learnset:
   - SURF
   evolution_method_required: none
-- name: omastar
+- name: OMASTAR
   is_fully_evolved: true
   evo_stage: 2
-  species_line: omanyte
+  species_line: OMANYTE
   types:
   - rock
   - water
@@ -1657,10 +1657,10 @@
   hm_learnset:
   - SURF
   evolution_method_required: level-up
-- name: kabuto
+- name: KABUTO
   is_fully_evolved: false
   evo_stage: 1
-  species_line: kabuto
+  species_line: KABUTO
   types:
   - rock
   - water
@@ -1669,10 +1669,10 @@
   hm_learnset:
   - SURF
   evolution_method_required: none
-- name: kabutops
+- name: KABUTOPS
   is_fully_evolved: true
   evo_stage: 2
-  species_line: kabuto
+  species_line: KABUTO
   types:
   - rock
   - water
@@ -1681,10 +1681,10 @@
   hm_learnset:
   - SURF
   evolution_method_required: level-up
-- name: aerodactyl
+- name: AERODACTYL
   is_fully_evolved: true
   evo_stage: 1
-  species_line: aerodactyl
+  species_line: AERODACTYL
   types:
   - rock
   - flying
@@ -1693,10 +1693,10 @@
   hm_learnset:
   - FLY
   evolution_method_required: none
-- name: snorlax
+- name: SNORLAX
   is_fully_evolved: true
   evo_stage: 1
-  species_line: snorlax
+  species_line: SNORLAX
   types:
   - normal
   is_legendary: false
@@ -1705,10 +1705,10 @@
   - SURF
   - STRENGTH
   evolution_method_required: none
-- name: articuno
+- name: ARTICUNO
   is_fully_evolved: true
   evo_stage: 1
-  species_line: articuno
+  species_line: ARTICUNO
   types:
   - ice
   - flying
@@ -1717,10 +1717,10 @@
   hm_learnset:
   - FLY
   evolution_method_required: none
-- name: zapdos
+- name: ZAPDOS
   is_fully_evolved: true
   evo_stage: 1
-  species_line: zapdos
+  species_line: ZAPDOS
   types:
   - electric
   - flying
@@ -1730,10 +1730,10 @@
   - FLY
   - FLASH
   evolution_method_required: none
-- name: moltres
+- name: MOLTRES
   is_fully_evolved: true
   evo_stage: 1
-  species_line: moltres
+  species_line: MOLTRES
   types:
   - fire
   - flying
@@ -1742,10 +1742,10 @@
   hm_learnset:
   - FLY
   evolution_method_required: none
-- name: dratini
+- name: DRATINI
   is_fully_evolved: false
   evo_stage: 1
-  species_line: dratini
+  species_line: DRATINI
   types:
   - dragon
   is_legendary: false
@@ -1753,10 +1753,10 @@
   hm_learnset:
   - SURF
   evolution_method_required: none
-- name: dragonair
+- name: DRAGONAIR
   is_fully_evolved: false
   evo_stage: 2
-  species_line: dratini
+  species_line: DRATINI
   types:
   - dragon
   is_legendary: false
@@ -1764,10 +1764,10 @@
   hm_learnset:
   - SURF
   evolution_method_required: level-up
-- name: dragonite
+- name: DRAGONITE
   is_fully_evolved: true
   evo_stage: 3
-  species_line: dratini
+  species_line: DRATINI
   types:
   - dragon
   - flying
@@ -1777,10 +1777,10 @@
   - SURF
   - STRENGTH
   evolution_method_required: level-up
-- name: mewtwo
+- name: MEWTWO
   is_fully_evolved: true
   evo_stage: 1
-  species_line: mewtwo
+  species_line: MEWTWO
   types:
   - psychic
   is_legendary: true
@@ -1790,10 +1790,10 @@
   - STRENGTH
   - FLASH
   evolution_method_required: none
-- name: mew
+- name: MEW
   is_fully_evolved: true
   evo_stage: 1
-  species_line: mew
+  species_line: MEW
   types:
   - psychic
   is_legendary: true

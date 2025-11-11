@@ -122,6 +122,9 @@ When your traversal function reaches a new location:
 - to be efficient with memory usage, we can use prompts in the command line after the program is already running, 
   similar to pokequiz, in order to build all the data structures (Pokemon objects etc) first, then prompt the user: 
   "Generate? Y/N" or whatever. This way it doesn't build all the data structures over and over for each run.
+- should "pools" be more than simply a list of pokemon objects? should they instead be a list of pairs, where each 
+  pokemon in the pool is associated with a location object? (this would allow us to output the location that said 
+  pokemon is generated in the final output, for extra detail)
 
 ## final unit tests/checks
 - have a lookup table of all valid pokemon for a given region/gen, make sure all pokemon listed in the files are present in the lookup table
@@ -158,3 +161,6 @@ Then your original line would work as written:
 ## Later ideas
 - Provide ChatGPT-powered subtool in the program (CLI) that allows the user or a developer to add a new logic file for a new game by having a ChatGPT token in a config, and then a prompt with placeholders etc where the user can provide links to the prompt for ChatGPT (like links to pokemon data, locations on bulbapedia, etc) to build at least the bulk of a new logic json. Maybe in the case of romhacks, a link to the code idk.
 - "get this team race" is dictated by IGT at the end of it, so it can be async.
+- nickname generator function
+  - pokemon universe pack
+  - wacky pack

@@ -26,6 +26,9 @@ acquisition_methods:
     - name: gift
       enabled: true
       default: true
+    - name: purchase
+      enabled: true
+      default: true
     - name: fossil_restore
       enabled: true
       default: true

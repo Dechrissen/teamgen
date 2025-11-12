@@ -13,4 +13,9 @@
   - maybe just add them to a modal list like the hitmons?
 - [x] add old,good,super rod lists to the weird locations like Celadon City, etc.
 - [x] change files to yaml
-- [ ] should "Surf" be considered an 'item' in the progression yaml? or something like 'HM' because it's representing 
+- [ ] should "Surf" be considered an 'item' in the progression yaml? or something like 'HM' 
+- [ ] add ALL moon stones to the progression file
+- [ ] add 'items' list to pools.
+  - ultimately pools should be {"pokemon": [(Pokemon, Location), (Pokemon2, Location2),...], "items": []}
+  - this 'items' list will give us an easy way to check if an evo stone is in this pool, or any previous pools (during 
+    generation)

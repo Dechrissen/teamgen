@@ -25,13 +25,13 @@ class Pokemon:
 
     def get_immediate_child(self, all_pokemon) -> Pokemon | None:
         """
-            Returns the previous evolution of this Pokemon based on an input dict of all Pokemon.
+        Returns the previous evolution of this Pokemon based on an input dict of all Pokemon.
 
-            args:
-                all_pokemon (dict of all Pokemon objects)
+        args:
+            all_pokemon (dict of all Pokemon objects)
 
-            returns:
-                immediate_child (Pokemon object) or None
+        returns:
+            immediate_child (Pokemon object) or None
         """
         # save evolution stage
         stage = self.evo_stage

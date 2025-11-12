@@ -1,0 +1,8 @@
+starter_species:
+  - BULBASAUR
+  - CHARMANDER
+  - SQUIRTLE
+
+modal_pokemon:
+  - [HITMONLEE, HITMONCHAN]
+  - [OMANYTE, KABUTO]

@@ -1,17 +1,34 @@
 from Pokemon import Pokemon
 from Location import Location
 from Sphere import Sphere
+import random
 
+def generate(all_pools, all_pokemon, prescribed_type=None):
+    """
+    Generates a list of 6 Pokemon.
+    """
+    party = []
+
+    for x in range(6):
+        is_valid = False
+        while is_valid == False:
+            rand_key = random.choice(list(all_pokemon.keys()))
+            rand_mon = all_pokemon[rand_key]
+            if rand_mon.is_fully_evolved and rand_mon not in party and (prescribed_type in rand_mon.types or prescribed_type == 'none'):
+                is_valid = True
+        party.append(rand_mon)
+
+    return party
 
 def construct_full_pokemon_set(pokedex_data) -> dict[str, Pokemon]:
     """
-    Creates a dict of all Pokémon from an input pokedex YAML.
+    Creates a dict of all Pokemon from an input Pokedex YAML.
 
     args:
         pokedex_data (list of dicts, one for each mon)
 
     returns:
-        all_pokemon (dict of Pokemon objects where keys are names of Pokémon)
+        all_pokemon (dict of Pokemon objects where keys are names of Pokemon)
     """
     # create empty dict
     all_pokemon = dict()
@@ -38,14 +55,14 @@ def construct_full_pokemon_set(pokedex_data) -> dict[str, Pokemon]:
 
 def construct_full_location_set(location_data) -> dict[str, Location]:
     """
-        Creates a dict of all Locations from an input locations YAML.
+    Creates a dict of all Locations from an input locations YAML.
 
-        args:
-            location_data (list of dicts, one for each location)
+    args:
+        location_data (list of dicts, one for each location)
 
-        returns:
-            all_locations (dict of Location objects where keys are names of locations)
-        """
+    returns:
+        all_locations (dict of Location objects where keys are names of locations)
+    """
     # create empty dict
     all_locations = dict()
 
@@ -75,19 +92,19 @@ def construct_full_location_set(location_data) -> dict[str, Location]:
 
 def construct_spheres(progression_data, all_locations) -> dict[int, Sphere]:
     """
-        Creates a set of all Spheres from an input progression YAML.
+    Creates a set of all Spheres from an input progression YAML.
 
-        args:
-            progression_data (from progression YAML), all_locations (dict of all Location objects)
+    args:
+        progression_data (from progression YAML), all_locations (dict of all Location objects)
 
-        returns:
-            all_spheres (dict of Sphere objects, where keys are numbers (int) of spheres)
+    returns:
+        all_spheres (dict of Sphere objects, where keys are numbers (int) of spheres)
     """
     # create empty set
     all_spheres = dict()
 
     # iterate through each sphere in the progression data 'spheres' list
-    for cur_sphere in progression_data['world']['spheres']:
+    for cur_sphere in progression_data['spheres']:
         # get the sphere number and contents (list of maps items, acquisition_unlocks)
         sphere_num = cur_sphere['sphereNum']
         sphere_contents = cur_sphere['contents']
@@ -110,9 +127,17 @@ def construct_spheres(progression_data, all_locations) -> dict[int, Sphere]:
     return all_spheres
 
 
-def build_pools(all_spheres, all_pokemon, starting_acquisition_methods):
+def build_pools(all_spheres, all_pokemon, starting_acquisition_methods) -> dict[int, list]: #TODO update to int: Pool? do we need a class for pools? or maybe int: set?
     """
-        Takes all_spheres as input and expands all Spheres into pools (available Pokemon in a Sphere).
+    Expands the Pokemon lists in each Sphere of all_spheres, then creates a dict of pools (each containing list of available Pokemon for each pool).
+
+    args:
+        all_spheres (dict of Sphere objects, where keys are numbers (int) of spheres)
+        all_pokemon (dict of Pokemon objects where keys are names of Pokemon)
+        starting_acquisition_methods (list of default acquisition methods from config file)
+
+    returns:
+        all_pools (dict of pools -> {pool_num: [list, of, available, Pokemon]})
     """
     all_pools = dict()
 
@@ -122,6 +147,7 @@ def build_pools(all_spheres, all_pokemon, starting_acquisition_methods):
     # to keep track of current set of items that enable evolution (stones, etc.)
     inventory = []
 
+    # to keep track of spheres checked (which acquisition methods have been expanded)
     spheres_checked = {}
 
     # iterate over all spheres from all_spheres dict (in ascending key order)
@@ -173,20 +199,11 @@ def build_pools(all_spheres, all_pokemon, starting_acquisition_methods):
 
         all_pools[sphere_num] = current_pool #TODO make this a dict or something? pokemon/location pairs to keep track of which pokemon are sourced from which locations
 
-    # each map in each sphere is a Location object
-    # will also need the list of all_pokemon as input for this function
-    # i will probably first need to make sure all the lists of pokemon in each Location object can be mapped to the actual Pokemon objects
-
-    # I think the pools should be made up of Pokemon objects, not simply strings of pokemon names. This way, their attributes can be checked when we need to filter them out of the generation
-    # due to config constraints, etc. (like "don't generate pokemon of X type")
-
-    # final all_pools should be a dict of pool_num (int) as keys and another dict ({"pool": [list, of, pokemon objects], "inventory": [list, of items]}) as the values
-    # but maybe the "inventory" part is actually not necessary if we're only using a Sphere's inventory to build the pools. Yeah, probably this. So pool just needs to be a list of pokemon objects
-    return all_pools
+    return all_pools #TODO is it necessary to add "inventory" to each pool (for stones) so we can check if a Fire Stone is gettable if e.g. Flareon is generated?
 
 def test_whether_locations_are_all_valid_in_progression_file(all_locations):
     """
-        unfinished
+    unfinished
     """
     # source of truth for assert statement below
     location_names = {loc.name for loc in all_locations}

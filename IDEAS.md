@@ -9,12 +9,7 @@
 - pokesix
 
 ## General ideas
-- kanto.yaml, region map file that stores kanto location data
-    - list of all valid pokemon locations (routes, but also game corner, gift pokemon spots)
-    - list of field move blockages preventing access to each one, somehow
-- then in the game files, e.g. vanilla_red.yaml or w/e, each pokemon listed needs to have a location list
-    - locations: [route_1, game_corner, cinnabar_lab] but they all need to match the format used in the region file
-    - a check should run before any generation to check whether all game files use valid locations, etc, and error message should print nicely explaining the errors if any
+
 - for gen 3, mach and acro bike selection doesnt cause issue because you can always swap them, so the pokemon generated for you in that sphere will always be gettable
 - "exclude feebas" option
   - or a list of "pokemon_to_exclude" where feebas is prepopulated by default
@@ -25,7 +20,7 @@
 - "dont use gift pokemon or trade pokemon"
 - generation mode should be "balanced" by default, ensuring generation of at least 1/2 pokemon in sector 1, otherwise player will be waiting for a while till they can get their first mon
   - other options include "ignore sector 1" or w/e, and "late game heavy"
-- in order to handle Snorlax and different rods, etc, we can keep track of which spheres we've currently unlocked (and thus which routes are available to generate from) 
+
 - for the unit tests, they should output some sort of "incompatibility" message if it detects that the 3 data YAMLs 
   are not compatible with each other (i.e. all the maps and pokemon should match spelling, etc between all 3 files 
   before any logic is run)
@@ -41,10 +36,6 @@
     - might need to encode "events" that have been completed? to get into Silph Co building etc.
         - really dont want to though, would rather keep it simple
 
-When your traversal function reaches a new location:
-1. Add any newly obtainable items to your “inventory”.
-2. Check which Pokémon in your team can evolve with those items.
-3. Apply the evolution immediately (if you want realistic progression).
 
 ## example map file (old, for super logical version)
 ```json
@@ -115,7 +106,8 @@ When your traversal function reaches a new location:
 - the program should probably generate all the spheres from the config file, then generate a party (final evo_stages first?), and check it against the spheres. if it cant find the final form of a pokemon in a sphere, step down to the previous stage and check for it in the wild?
 - for trades in the pokemon data file: `"trade": ["ABRA for MR.MIME"]`
 - add ALL moon stones separately to the logic file spheres? (in `evo_items` list)
-- since the program will probably generate a final 6 first (all with final stages) then there should prob be an initial step where it iterates over all pokemon and makes a pool of "full evolved" mons and only considers those to generate
+- since the program will probably generate a final 6 first (all with final stages) then there should prob be an 
+  initial step where it iterates over all pokemon and makes a pool of "fully evolved" mons and only considers those to generate
 - every time an evolution item is found in a sphere during iteration, it can just be added to the 'inventory'. if an evo item is needed for evolution in any of the generated pokemon, it will just check the inventory to see if it's there (or if there's enough)
 - for hitmons/fossils, maybe have a list in the progression_red.yaml file that says which pokemon should be considered modal for that game. So it doesn't matter whether the fossils are available once or a second time in victory road (solus), or same for hitmons, it's up to the discretion of the yaml creator to say what makes sense as modal.
 - getParent() and getChild() in the Pokemon class? how will it access all the other Pokemon objects to check for this?
@@ -125,13 +117,12 @@ When your traversal function reaches a new location:
 - should "pools" be more than simply a list of pokemon objects? should they instead be a list of pairs, where each 
   pokemon in the pool is associated with a location object? (this would allow us to output the location that said 
   pokemon is generated in the final output, for extra detail)
+- do we need a class Pool? prob not...
 
 ## final unit tests/checks
 - have a lookup table of all valid pokemon for a given region/gen, make sure all pokemon listed in the files are present in the lookup table
 - validate formatting of logic file (instructions for running this should be in docs/MR instructions so contributors of new games can run the unit test first)
 
-
-  when you have access to Surf (badge + HM) not just the HM item itself
 
 
 ## idea for comparing names (str) to Location (obj) names from ChatGPT

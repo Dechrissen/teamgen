@@ -1,5 +1,4 @@
-world:
-    spheres:
+spheres:
       - sphereNum: 1
         contents:
           - name: Route1

@@ -1,6 +1,8 @@
 # `teamgen`, a universal _Final Six_ generator
 
-A tool for generating a random, progressively sound party of six Pokémon for use in a Pokémon playthrough.
+A tool for generating a random, progression-viable party of six Pokémon for use in a Pokémon playthrough. 
+Specifically, Pokémon availability and progression are respected in the final output. Customization options are 
+available to curate the output further.
 
 ## Table of contents
 1. [Introduction](#introduction)

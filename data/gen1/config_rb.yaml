@@ -1,3 +1,23 @@
+include_starter: false
+allow_not_fully_evolved: false
+allow_legendaries: false
+allow_duplicate_species: false
+allow_trade_evos: true
+allow_dual_type: true
+prescribed_type: none # options: any type ('fire', 'water', etc.) or 'none'
+type_distribution: no_overlap # options: 'no_overlap', 'all_share_one_type', 'anything_goes'
+blacklist: [] # options: a comma-separated list of Pokemon, all caps (Mr. Mime is MR.MIME, Farfetch'd is FARFETCHD, Nidoran♂ is NIDORAN_M)
+
+ensure_hm_coverage:
+  - FLASH: false
+  - CUT: true
+  - STRENGTH: true
+  - FLY: true
+  - SURF: true
+  - DIG: false
+  - TELEPORT: false
+  - SOFTBOILED: false
+
 acquisition_methods:
     - name: walk
       enabled: true
@@ -35,4 +55,3 @@ acquisition_methods:
     - name: prize_window
       enabled: true
       default: true
-

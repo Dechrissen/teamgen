@@ -6,3 +6,36 @@ starter_species:
 modal_pokemon:
   - [HITMONLEE, HITMONCHAN]
   - [OMANYTE, KABUTO]
+
+acquisition_methods:
+  - name: walk
+    is_default: true
+  - name: surf
+    is_default: false
+  - name: old_rod
+    is_default: false
+  - name: good_rod
+    is_default: false
+  - name: super_rod
+    is_default: false
+  - name: poke_flute
+    is_default: false
+  - name: static_encounter
+    is_default: true
+  - name: trade
+    is_default: true
+  - name: gift
+    is_default: true
+  - name: purchase
+    is_default: true
+  - name: fossil_restore
+    is_default: true
+  - name: prize_window
+    is_default: true
+
+evo_items_available:
+  moon_stone: 4
+  fire_stone: 6
+  water_stone: 6
+  thunder_stone: 6
+  leaf_stone: 6

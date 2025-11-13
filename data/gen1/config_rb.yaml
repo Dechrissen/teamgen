@@ -1,57 +1,43 @@
 include_starter: false
-allow_not_fully_evolved: false
+allow_not_fully_evolved: true
 allow_legendaries: false
 allow_duplicate_species: false
-allow_trade_evos: true
 allow_dual_type: true
 prescribed_type: none # options: any type ('fire', 'water', etc.) or 'none'
-type_distribution: no_overlap # options: 'no_overlap', 'all_share_one_type', 'anything_goes'
+type_distribution: anything_goes # options: 'no_overlap', 'all_share_one_type', 'anything_goes'
 blacklist: [] # options: a comma-separated list of Pokemon, all caps (Mr. Mime is MR.MIME, Farfetch'd is FARFETCHD, Nidoran♂ is NIDORAN_M)
 
-ensure_hm_coverage:
-  - FLASH: false
-  - CUT: true
-  - STRENGTH: true
-  - FLY: true
-  - SURF: true
-  - DIG: false
-  - TELEPORT: false
-  - SOFTBOILED: false
+included_evo_methods:
+  level-up: true
+  moon_stone: true
+  fire_stone: true
+  water_stone: true
+  thunder_stone: true
+  trade: true
 
-acquisition_methods:
-    - name: walk
-      enabled: true
-      default: true
-    - name: surf
-      enabled: true
-      default: false
-    - name: old_rod
-      enabled: true
-      default: false
-    - name: good_rod
-      enabled: true
-      default: false
-    - name: super_rod
-      enabled: true
-      default: false
-    - name: poke_flute
-      enabled: true
-      default: false
-    - name: static_encounter
-      enabled: true
-      default: true
-    - name: trade
-      enabled: true
-      default: true
-    - name: gift
-      enabled: true
-      default: true
-    - name: purchase
-      enabled: true
-      default: true
-    - name: fossil_restore
-      enabled: true
-      default: true
-    - name: prize_window
-      enabled: true
-      default: true
+bst_max: none # options: integers or 'none'
+bst_min: none # options: integers or 'none'
+
+ensure_hm_coverage:
+  FLASH: false
+  CUT: true
+  STRENGTH: true
+  FLY: true
+  SURF: true
+  DIG: false
+  TELEPORT: false
+  SOFTBOILED: false
+
+included_acquisition_methods:
+  walk: true
+  surf: true
+  old_rod: true
+  good_rod: true
+  super_rod: true
+  poke_flute: true
+  static_encounter: true
+  trade: true
+  gift: true
+  purchase: true
+  fossil_restore: true
+  prize_window: true

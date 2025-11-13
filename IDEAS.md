@@ -109,15 +109,25 @@
 - since the program will probably generate a final 6 first (all with final stages) then there should prob be an 
   initial step where it iterates over all pokemon and makes a pool of "fully evolved" mons and only considers those to generate
 - every time an evolution item is found in a sphere during iteration, it can just be added to the 'inventory'. if an evo item is needed for evolution in any of the generated pokemon, it will just check the inventory to see if it's there (or if there's enough)
-- for hitmons/fossils, maybe have a list in the progression_red.yaml file that says which pokemon should be considered modal for that game. So it doesn't matter whether the fossils are available once or a second time in victory road (solus), or same for hitmons, it's up to the discretion of the yaml creator to say what makes sense as modal.
-- getParent() and getChild() in the Pokemon class? how will it access all the other Pokemon objects to check for this?
+
 - to be efficient with memory usage, we can use prompts in the command line after the program is already running, 
   similar to pokequiz, in order to build all the data structures (Pokemon objects etc) first, then prompt the user: 
   "Generate? Y/N" or whatever. This way it doesn't build all the data structures over and over for each run.
 - should "pools" be more than simply a list of pokemon objects? should they instead be a list of pairs, where each 
   pokemon in the pool is associated with a location object? (this would allow us to output the location that said 
   pokemon is generated in the final output, for extra detail)
-- do we need a class Pool? prob not...
+  - this can ALSO be used as extra challenge, i.e. the prescribed location can be an added challenge on the user if 
+    they choose (they'd have to acquire it at that location)
+
+- the 'meta' yaml could also be used to keep track of the list of all possible items in the game? (the master list 
+  source of truth to check against during unit tests?)
+- option to reroll 1 pokemon (e.g. `reroll 2` to reroll the second)
+- do I need a function to get a list of OBTAINABLE pokemon from all the pools? e.g. make a set of each pool's 
+  pokemon and iterate over each pokemon, maybe use "getAllParents()" method on Pokemon class, and construct a list 
+  of all final evo pokemon which are obtainable?
+- STARTER (if include_starter is selected) could be moved to OUTSIDE the main generation function, by generating a 
+  random of the 3, and then only passing n=5 to the main generation function instead. (edit: can't do this because 
+  we need to consider that the starter is included in hm converage in is_party_valid function)
 
 ## final unit tests/checks
 - have a lookup table of all valid pokemon for a given region/gen, make sure all pokemon listed in the files are present in the lookup table

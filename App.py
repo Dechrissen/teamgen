@@ -10,14 +10,19 @@ import yaml
 
 # get all data #TODO change this later to all be programmatically picked from a config file which specifies which game uses which files
 
-# get main game config data
+# get game config data
 with open('./data/gen1/config_rb.yaml') as f:
     config_data = yaml.safe_load(f)
 
+# get game meta data
+with open('./data/gen1/meta_rb.yaml') as m:
+    meta_data = yaml.safe_load(m)
+
 # construct list of starting acquisition methods
 starting_acquisition_methods = []
-for method in config_data['acquisition_methods']:
-    if method['enabled'] == True and method['default'] == True:
+for method in meta_data['acquisition_methods']:
+    # add each acquisition method to the list of starting methods if it's both default (in meta data) and True (in include list in config data)
+    if method['is_default'] == True and config_data['included_acquisition_methods'][method['name']] == True:
         starting_acquisition_methods.append(method['name'])
 # config options...
 prescribed_type = config_data['prescribed_type']
@@ -41,7 +46,14 @@ all_spheres = construct_spheres(progression_data, all_locations)
 # build pools from all previously constructed data
 all_pools = build_pools(all_spheres, all_pokemon, starting_acquisition_methods)
 
-# generate a test party
-party = generate(all_pools, all_pokemon, prescribed_type)
+
+# for entry in all_pools[5]['pool_entries']:
+#     print("acquire", entry["pokemon_obj"].name, "by", entry["acquisition_method"], "at", entry["acquiring_location"])
+
+# print(all_pools[1]['inventory'])
+# print(all_pools[2]['inventory'])
+
+
+party = generate_final_party(all_pools, all_pokemon, config_data, meta_data, n=6)
 for pokemon in party:
     print(pokemon.name)

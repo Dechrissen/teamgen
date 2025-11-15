@@ -5,10 +5,7 @@ import yaml
 
 # validation functions should run up here (make sure all files are valid and formatted correctly)
 
-
-# PROGRAM FLOW
-
-# get all data #TODO change this later to all be programmatically picked from a config file which specifies which game uses which files
+# GET ALL DATA #TODO change this later to all be programmatically picked from a config file which specifies which game uses which files
 
 # get game config data
 with open('./data/gen1/config_rb.yaml') as f:
@@ -21,8 +18,8 @@ with open('./data/gen1/meta_rb.yaml') as m:
 # construct list of starting acquisition methods
 starting_acquisition_methods = []
 for method in meta_data['acquisition_methods']:
-    # add each acquisition method to the list of starting methods if it's both default (in meta data) and True (in include list in config data)
-    if method['is_default'] == True and config_data['included_acquisition_methods'][method['name']] == True:
+    # add each acquisition method to the list of starting methods if it's both default (in metadata) and True (in allowed list in config data)
+    if method['is_default'] == True and config_data['allowed_acquisition_methods'][method['name']] == True:
         starting_acquisition_methods.append(method['name'])
 # config options...
 prescribed_type = config_data['prescribed_type']
@@ -47,6 +44,8 @@ all_spheres = construct_spheres(progression_data, all_locations)
 all_pools = build_pools(all_spheres, all_pokemon, starting_acquisition_methods)
 
 
+
+# TESTING
 # for entry in all_pools[5]['pool_entries']:
 #     print("acquire", entry["pokemon_obj"].name, "by", entry["acquisition_method"], "at", entry["acquiring_location"])
 
@@ -54,6 +53,8 @@ all_pools = build_pools(all_spheres, all_pokemon, starting_acquisition_methods)
 # print(all_pools[2]['inventory'])
 
 
+# MAIN
+print("Generating party...")
 party = generate_final_party(all_pools, all_pokemon, config_data, meta_data, n=6)
 for pokemon in party:
     print(pokemon.name)

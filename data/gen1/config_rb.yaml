@@ -3,11 +3,12 @@ allow_not_fully_evolved: true
 allow_legendaries: false
 allow_duplicate_species: false
 allow_dual_type: true
-prescribed_type: none # options: any type ('fire', 'water', etc.) or 'none'
-type_distribution: anything_goes # options: 'no_overlap', 'all_share_one_type', 'anything_goes'
-blacklist: [] # options: a comma-separated list of Pokemon, all caps (Mr. Mime is MR.MIME, Farfetch'd is FARFETCHD, Nidoran♂ is NIDORAN_M)
+prescribed_type: none # options: any type (fire, water, etc.) or none
+type_distribution: anything_goes # options: no_overlap, all_share_one_type, anything_goes
+species_blacklist: [NIDORAN_M] # a comma-separated list of Pokemon species (stage 1s), each in all caps (Mr. Mime is MR.MIME, Farfetch'd is FARFETCHD, Nidoran♂ is NIDORAN_M)
 
-included_evo_methods:
+allowed_evo_methods:
+  none: true # AKA stage 1 Pokemon
   level-up: true
   moon_stone: true
   fire_stone: true
@@ -15,20 +16,21 @@ included_evo_methods:
   thunder_stone: true
   trade: true
 
-bst_max: none # options: integers or 'none'
-bst_min: none # options: integers or 'none'
+#TODO add suggestions here for general cutoffs that make sense for easy mode, hard mode etc.
+bst_max: none # options: integers or none
+bst_min: none # options: integers or none
 
 ensure_hm_coverage:
   FLASH: false
-  CUT: true
-  STRENGTH: true
-  FLY: true
-  SURF: true
+  CUT: false
+  STRENGTH: false
+  FLY: false
+  SURF: false
   DIG: false
   TELEPORT: false
   SOFTBOILED: false
 
-included_acquisition_methods:
+allowed_acquisition_methods:
   walk: true
   surf: true
   old_rod: true

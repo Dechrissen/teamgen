@@ -3,9 +3,16 @@ starter_species:
   - CHARMANDER
   - SQUIRTLE
 
-modal_pokemon:
+# Only one of the Pokemon per modal group can be generated, and no dupes of any selected from a group
+modal_species:
   - [HITMONLEE, HITMONCHAN]
   - [OMANYTE, KABUTO]
+
+# don't need this because is_party_viable will check for poke_flute as one of the "limited" methods
+# if Snorlax is generated twice with the same acquisition method AND location, it will fail
+# this also means Kecleon in Gen 3 will work with this setup with Devon Scope (devon_scope will need to be a new acquisition method)
+limited_species:
+  - SNORLAX: 2
 
 acquisition_methods:
   - name: walk
@@ -35,7 +42,7 @@ acquisition_methods:
 
 evo_items_available:
   moon_stone: 4
-  fire_stone: 6
-  water_stone: 6
-  thunder_stone: 6
-  leaf_stone: 6
+  fire_stone: inf
+  water_stone: inf
+  thunder_stone: inf
+  leaf_stone: inf

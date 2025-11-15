@@ -1,7 +1,7 @@
-# `teamgen`, a universal _Final Six_ generator
+# `teamgen`, a universal party generator
 
-A tool for generating a random, progression-viable party of six Pokémon for use in a Pokémon playthrough. 
-Specifically, Pokémon availability and progression are respected in the final output. Customization options are 
+A tool for generating a random, progression-viable party of six (or fewer) Pokémon for use in a Pokémon playthrough. 
+Pokémon availability and game progression are respected in the final output. Customization options are 
 available to curate the output further.
 
 ## Table of contents
@@ -10,7 +10,7 @@ available to curate the output further.
 3. [Usage](#usage)
 
 ## Introduction
-I wanted this tool to be **universal**. In that sense, it maintains compatibility with most generations of Pokémon, 
+I wanted this tool to be **universal**. In that sense, it maintains compatibility with _most_ generations of Pokémon, 
 but also with romhacks that might contain:
 - New Pokémon
 - New locations 
@@ -23,3 +23,5 @@ but also with romhacks that might contain:
   - [Pokémon Solus RGB](https://github.com/Dechrissen/poke-solus-rgb)
 
 ## Usage
+
+TODO

@@ -26,3 +26,6 @@ class Location:
         self.purchase = purchase  # list[str]
         self.fossil_restore = fossil_restore # list[str]
         self.prize_window = prize_window # list[str]
+        #TODO add squirt_bottle for gen 2? sudowoodo
+        #TODO add devon_scope for gen 3? kecleon
+

@@ -13,48 +13,7 @@
 - for gen 3, mach and acro bike selection doesnt cause issue because you can always swap them, so the pokemon generated for you in that sphere will always be gettable
 - "exclude feebas" option
   - or a list of "pokemon_to_exclude" where feebas is prepopulated by default
-- "don't use starter" option
-  - maybe if this is selected, ignore sector 1 generated mon
-- "make sure final party can use XYZ HMs"
-- "dont use pokemon that evolve by trade"
-- "dont use gift pokemon or trade pokemon"
-- generation mode should be "balanced" by default, ensuring generation of at least 1/2 pokemon in sector 1, otherwise player will be waiting for a while till they can get their first mon
-  - other options include "ignore sector 1" or w/e, and "late game heavy"
 
-- for the unit tests, they should output some sort of "incompatibility" message if it detects that the 3 data YAMLs 
-  are not compatible with each other (i.e. all the maps and pokemon should match spelling, etc between all 3 files 
-  before any logic is run)
-
-
-## Things I will need
-- logic files (region layout/grid json or yaml)
-    - only need to go as deep as pokemon/required items (hms, stones) are located, e.g. trader house, game corner, silph co, dept store
-- pokemon data (hms learned, evolution methods, location found, acquisition method like gift-trade-wild)
-- traversal code (the code that steps through the region)
-- player state (hms, evolution items, pokemon in party)
-- a variable to hold "starting location" for the player so i can test generation from midpoints like saffron to test the Lapras thing etc.
-    - might need to encode "events" that have been completed? to get into Silph Co building etc.
-        - really dont want to though, would rather keep it simple
-
-
-## example map file (old, for super logical version)
-```json
-"locations": {
-    "Route 1": {
-      "connections": [
-        { "to": "Pallet Town", "requires": [] },
-        { "to": "Viridian City", "requires": [] }
-      ],
-      "pokemon": {
-        "wild": ["Pidgey", "Rattata"],
-        "gift": [],
-        "trade": []
-      },
-      "items": []
-    },
-    ...
-}
-```
 
 ## example "build" (list and order of routes and items in file)
 - or "world" ? "structure" ?
@@ -106,9 +65,7 @@
 - the program should probably generate all the spheres from the config file, then generate a party (final evo_stages first?), and check it against the spheres. if it cant find the final form of a pokemon in a sphere, step down to the previous stage and check for it in the wild?
 - for trades in the pokemon data file: `"trade": ["ABRA for MR.MIME"]`
 - add ALL moon stones separately to the logic file spheres? (in `evo_items` list)
-- since the program will probably generate a final 6 first (all with final stages) then there should prob be an 
-  initial step where it iterates over all pokemon and makes a pool of "fully evolved" mons and only considers those to generate
-- every time an evolution item is found in a sphere during iteration, it can just be added to the 'inventory'. if an evo item is needed for evolution in any of the generated pokemon, it will just check the inventory to see if it's there (or if there's enough)
+
 
 - to be efficient with memory usage, we can use prompts in the command line after the program is already running, 
   similar to pokequiz, in order to build all the data structures (Pokemon objects etc) first, then prompt the user: 
@@ -119,19 +76,27 @@
   - this can ALSO be used as extra challenge, i.e. the prescribed location can be an added challenge on the user if 
     they choose (they'd have to acquire it at that location)
 
-- the 'meta' yaml could also be used to keep track of the list of all possible items in the game? (the master list 
-  source of truth to check against during unit tests?)
-- option to reroll 1 pokemon (e.g. `reroll 2` to reroll the second)
-- do I need a function to get a list of OBTAINABLE pokemon from all the pools? e.g. make a set of each pool's 
-  pokemon and iterate over each pokemon, maybe use "getAllParents()" method on Pokemon class, and construct a list 
-  of all final evo pokemon which are obtainable?
+
+- option to reroll 1 pokemon (e.g. `reroll 2` to reroll the second) (to do this, we can pass an optional party list 
+  of Pokemon objects to the generate_final_party function. If it's non-empty, it can be treated as the base party to 
+  use/continue generating for)
+
 - STARTER (if include_starter is selected) could be moved to OUTSIDE the main generation function, by generating a 
   random of the 3, and then only passing n=5 to the main generation function instead. (edit: can't do this because 
   we need to consider that the starter is included in hm converage in is_party_valid function)
 
+
 ## final unit tests/checks
 - have a lookup table of all valid pokemon for a given region/gen, make sure all pokemon listed in the files are present in the lookup table
 - validate formatting of logic file (instructions for running this should be in docs/MR instructions so contributors of new games can run the unit test first)
+- the 'meta' yaml could also be used to keep track of the list of all possible items in the game? (the master list 
+  source of truth to check against during unit tests?)
+  - yes, via the "evolution_items_available" list
+- can have test parties already built to send to the is_party_valid funciton to make sure certain ones fail (2 
+  modals, etc.)
+output some sort of "incompatibility" message if it detects that the 3 data YAMLs 
+  are not compatible with each other (i.e. all the maps and pokemon should match spelling, etc between all 3 files 
+  before any logic is run)
 
 
 
@@ -165,3 +130,8 @@ Then your original line would work as written:
 - nickname generator function
   - pokemon universe pack
   - wacky pack
+- gym leader themed generation (create pools of valid canonical pokemon from certain characters like leaders, gio, etc.)
+  - then you can have a check that selects only from that pool of pokemon, OR there must be X overlap or something
+  - for this mode, it might not work with the other options like BALANCED, etc. so i wonder if you just leave it 
+    all as-is and let the user see if it works, or if you add in overrides to ignore the balancing for this mode
+- add PNGs of all the sprites and output them with some image library

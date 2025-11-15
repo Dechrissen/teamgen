@@ -58,4 +58,4 @@ class Pokemon:
     def get_parent(self) -> Pokemon | None:
         # how would this work for branching evos like Eevee?
         # do we even need this?
-        return
+        return None

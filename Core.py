@@ -25,7 +25,7 @@ def generate_final_party(all_pools, all_pokemon, config_data: dict, meta_data: d
 
     # iteratively build a party that is valid according to the config options
     while len(final_party) < n:
-        rand_mon = generate_random_mon(all_pokemon)
+        rand_mon = generate_random_mon(all_pokemon) #TODO change this to be a generation of a random mon from all_obtainable_pokemon instead (need a function to create this; use enabled_spheres in progression_rb.yaml to know which ones to include)
 
         # check if the new Pokemon makes the party valid
         if is_party_valid(final_party + [rand_mon], bool(len(final_party + [rand_mon]) == n), config_data, meta_data): #TODO if the 6th pokemon cannot fulfill the requirement to have all HM coverage, this will be an endless loop
@@ -39,8 +39,9 @@ def generate_final_party(all_pools, all_pokemon, config_data: dict, meta_data: d
 
 def is_party_valid(party, is_party_full, config_data, meta_data) -> bool:
 
-    # set up meta data
+    # set up metadata
     starter_species = meta_data["starter_species"]
+    modal_species = meta_data["modal_species"]
 
     # set up config options
     include_starter = config_data["include_starter"]
@@ -50,17 +51,23 @@ def is_party_valid(party, is_party_full, config_data, meta_data) -> bool:
     allow_dual_type = config_data["allow_dual_type"]
     prescribed_type = config_data["prescribed_type"]
     type_distribution = config_data["type_distribution"]
-    blacklist = config_data["blacklist"]
-    included_evo_methods = [em for em in config_data["included_evo_methods"] if config_data["included_evo_methods"][em] == True]
+    species_blacklist = config_data["species_blacklist"]
+    allowed_evo_methods = [em for em in config_data["allowed_evo_methods"] if config_data["allowed_evo_methods"][em] == True]
     bst_max = config_data["bst_max"]
     bst_min = config_data["bst_min"]
     ensure_hm_coverage = set([hm for hm in config_data["ensure_hm_coverage"] if config_data["ensure_hm_coverage"][hm] == True])
-    included_acquisition_methods = config_data["included_acquisition_methods"] #TODO this doesn't make sense here since we only have all_pokemon, needs to be checked in is_party_viable()
+    allowed_acquisition_methods = config_data["allowed_acquisition_methods"] #TODO this doesn't make sense here since we only have all_pokemon, needs to be checked in is_party_viable()
 
     # immediate False if these checks fail
     if not allow_duplicate_species:
         species_lines = [m.species_line for m in party]
         if len(species_lines) != len(set(species_lines)):
+            return False
+
+    if species_blacklist:
+        # check if any party Pokemon species are in the blacklist
+        if any(mon.species_line in species_blacklist for mon in party):
+            #print("party", [mon.name for mon in party], "violates blacklist", species_blacklist)
             return False
 
     if type_distribution != 'anything_goes':
@@ -76,10 +83,17 @@ def is_party_valid(party, is_party_full, config_data, meta_data) -> bool:
         if not (ensure_hm_coverage.issubset(party_hm_coverage)):
             return False
 
-    # checks against config options
+    for modal_group in modal_species:
+        if any(mon.species_line in modal_group for mon in party):
+            modals_in_party = [mon.species_line for mon in party if mon.species_line in modal_group]
+            if len(modals_in_party) > 1: #TODO if the limitation of 1 only is already handled by something else, should this just be a set() anyway?
+                print("party", [mon.name for mon in party], "violates modal group", modal_group)
+                return False
+
+    #TODO check limited species for no >2 snorlax?
+
+    # check each mon against config options
     for mon in party:
-        if mon.name in blacklist:
-            return False
         if (include_starter == False) and (mon.species_line in starter_species): #TODO do we need this one?
             return False
         if (allow_not_fully_evolved == False) and (mon.is_fully_evolved == False):
@@ -90,7 +104,7 @@ def is_party_valid(party, is_party_full, config_data, meta_data) -> bool:
             return False
         if (prescribed_type != 'none') and (prescribed_type not in mon.types):
             return False
-        if mon.evolution_method_required not in included_evo_methods:
+        if mon.evolution_method_required not in allowed_evo_methods:
             return False
         if bst_max != 'none':
             if mon.base_stat_total > bst_max:
@@ -99,17 +113,43 @@ def is_party_valid(party, is_party_full, config_data, meta_data) -> bool:
             if mon.base_stat_total < bst_min:
                 return False
 
-
     return True
 
-def is_party_progression_viable(all_pools) -> bool:
+def is_party_progression_viable(party, all_pools):
+    """
+    This should either return False if the party is not obtainable from the pools,
+    OR return a balance grade (e.g. balanced, early game heavy) if it is obtainable from the pools.
+    """
+    # or assign_balance_grade()
+    # maybe assign_balance_grade() could come after this function, i.e. if it's determined that the party IS
+    # progression viable, THEN we pass the party to assign_balance_grade to get a grade? then come back here.
     # TODO I think pools will be needed as an argument so you can validate stone evo pokemon (check if stone is in inventory)
     # TODO plus all other checks against pools obviously lol
-    return
+
+    final_party_with_acquisition_data = [tuple()] # should be pairs of Pokemon objects and pool_entries
+
+
+    # this function needs to check each mon in party and see the earliest it's available in the pools, if its multiple instances in 1 pool, then pick a random one?
+
+    # it also needs to return associated location from the pool entries. e.g. 'Magneton' is in the final party,
+    # so 'Magnemite' is determined to be the highest available stage in the pools, so whichever instance of Magnemite
+    # is selected will also need to keep its "acquisition method" and "acquiring location" from its pool entry.
+    # maybe we can just return the pool entry along with each final mon in final_party_with_acquisition_data? (tuples)
+
+    limited_methods = ['static_encounter', 'gift', 'trade', 'purchase', 'fossil_restore', 'poke_flute'] #TODO maybe this should come from the meta file
+
+    # this function needs to check for these acquisition methods in the pool entries: static_encounter, gift, trade, purchase, fossil_restore, poke_flute
+    # if any pokemon have a match on these, there should only be ONE in the final pool_entries selected for that pokemon with that method in that
+    # location (this automatically takes care of Snorlax), otherwise return False
+
+    # this function does NOT need to associate stone evo pokemon with a certain sphere/pool.
+    # FOR NOW, it should simply check that a required stone for a stone evo pokemon IS IN at least one of the pool inventories.
+    # in the future, since we have evo stone data for each pool (the earliest one becomes available) we can maybe do something with it.
+    return final_party_with_acquisition_data
 
 def generate_random_mon(all_pokemon: dict[str, 'Pokemon']) -> 'Pokemon':
     """
-    Generates a random Pokemon object.
+    Generates a random Pokemon.
 
     args:
         all_pokemon (dict of Pokemon objects)

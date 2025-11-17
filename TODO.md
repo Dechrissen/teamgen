@@ -48,6 +48,3 @@
   - if time is taking too long, probably means 6th party member can't be found (or some other config options 
     preventing party from being built) -> reset time and try again (and increment "tries")
   - if tries > 10, probably means party doesn't exist, so return "Party can't be found"
-
-- [ ] Do we need to keep track of static/purchase/trade pokemon being limited to only 1 per game? even if 
-  allow_duplicate species is on, it shouldnt generate >1 of these.

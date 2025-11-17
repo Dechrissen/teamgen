@@ -55,6 +55,6 @@ all_pools = build_pools(all_spheres, all_pokemon, starting_acquisition_methods)
 
 # MAIN
 print("Generating party...")
-party = generate_final_party(all_pools, all_pokemon, config_data, meta_data, n=6)
+party = generate_final_party(all_pools, all_pokemon, config_data, meta_data, n=1)
 for pokemon in party:
     print(pokemon.name)

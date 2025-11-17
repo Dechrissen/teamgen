@@ -35,6 +35,8 @@ def generate_final_party(all_pools, all_pokemon, config_data: dict, meta_data: d
     #TODO add separate check here to see if party is valid for hm coverage, if not maybe we can recursively return this function and try the whole thing again
     # or simply have a timeout failsafe thing for all generations so we auto-retry
     # might need to pass a time variable around to all these functions
+
+    is_party_progression_viable(final_party, all_pools, all_pokemon, config_data, meta_data)
     return final_party
 
 def is_party_valid(party, is_party_full, config_data, meta_data) -> bool:
@@ -56,7 +58,7 @@ def is_party_valid(party, is_party_full, config_data, meta_data) -> bool:
     bst_max = config_data["bst_max"]
     bst_min = config_data["bst_min"]
     ensure_hm_coverage = set([hm for hm in config_data["ensure_hm_coverage"] if config_data["ensure_hm_coverage"][hm] == True])
-    allowed_acquisition_methods = config_data["allowed_acquisition_methods"] #TODO this doesn't make sense here since we only have all_pokemon, needs to be checked in is_party_viable()
+    #TODO include 'spheres_enabled' so we know which spheres contain valid mons
 
     # immediate False if these checks fail
     if not allow_duplicate_species:
@@ -115,36 +117,109 @@ def is_party_valid(party, is_party_full, config_data, meta_data) -> bool:
 
     return True
 
-def is_party_progression_viable(party, all_pools):
+def is_party_progression_viable(party, all_pools, all_pokemon, config_data, meta_data):
     """
     This should either return False if the party is not obtainable from the pools,
     OR return a balance grade (e.g. balanced, early game heavy) if it is obtainable from the pools.
     """
     # or assign_balance_grade()
     # maybe assign_balance_grade() could come after this function, i.e. if it's determined that the party IS
-    # progression viable, THEN we pass the party to assign_balance_grade to get a grade? then come back here.
-    # TODO I think pools will be needed as an argument so you can validate stone evo pokemon (check if stone is in inventory)
-    # TODO plus all other checks against pools obviously lol
+    # progression viable, THEN we pass the party to assign_balance_grade to get a grade?
+    # TODO validate stone evo pokemon (check if stone is in inventory)
 
-    final_party_with_acquisition_data = [tuple()] # should be pairs of Pokemon objects and pool_entries
+    final_party_with_acquisition_data = []
+
+    allowed_acquisition_methods = [method for method in config_data["allowed_acquisition_methods"] if config_data["allowed_acquisition_methods"][method] == True]
+
+    for mon in party:
+        form_found = False
+        # keep track of all the previous evos we need to search for in the pools first (order matters)
+
+        cur_mon = mon
+        forms_to_search_in_order = [cur_mon]
+        # while the current mon has a previous evo, add it to the list to search for
+        while cur_mon.get_immediate_child(all_pokemon):
+            cur_mon = cur_mon.get_immediate_child(all_pokemon)
+            forms_to_search_in_order.append(cur_mon)
 
 
-    # this function needs to check each mon in party and see the earliest it's available in the pools, if its multiple instances in 1 pool, then pick a random one?
+        # the latest mon added to forms_to_search_in_order is the lowest stage, so we want to reverse it
+        forms_to_search_in_order.reverse() #TODO do i actually wanna do this in descending order? e.g. it should check for nidoqueen first
 
-    # it also needs to return associated location from the pool entries. e.g. 'Magneton' is in the final party,
-    # so 'Magnemite' is determined to be the highest available stage in the pools, so whichever instance of Magnemite
-    # is selected will also need to keep its "acquisition method" and "acquiring location" from its pool entry.
-    # maybe we can just return the pool entry along with each final mon in final_party_with_acquisition_data? (tuples)
+        earliest_form_found, earliest_pool_available = None, None
+        # add instances of the earliest available form of this mon (its pool_entry) to a list
+        instances_found = []
 
-    limited_methods = ['static_encounter', 'gift', 'trade', 'purchase', 'fossil_restore', 'poke_flute'] #TODO maybe this should come from the meta file
+        for pool_num in all_pools.keys():
 
-    # this function needs to check for these acquisition methods in the pool entries: static_encounter, gift, trade, purchase, fossil_restore, poke_flute
-    # if any pokemon have a match on these, there should only be ONE in the final pool_entries selected for that pokemon with that method in that
-    # location (this automatically takes care of Snorlax), otherwise return False
+            cur_pool = all_pools[pool_num]
+            cur_pool_entries = cur_pool['pool_entries'] # list of pool entries for this pool
+            #cur_pool_inventory = cur_pool['inventory'] # list of items for this pool
+
+            for form in forms_to_search_in_order:
+                for pool_entry in cur_pool_entries:
+                    if (
+                        (form.name == pool_entry['pokemon_obj'].name) and
+                        (pool_entry['acquisition_method'] in allowed_acquisition_methods)
+                    ):
+                        instances_found.append(pool_entry)
+                        form_found = True
+                        earliest_pool_available = pool_num
+                        earliest_form_found = form
+                if form_found:
+                    break
+            if form_found:
+                break
+
+        if not form_found:
+            #TODO make sure starter isn't checked for here, otherwise it'll always say not found in pools
+            print("no obtainable forms found for", mon.name)
+            return False
+
+        # --- TEST ---
+        print("earliest mon for", mon.name, "is", earliest_form_found.name, "in pool", earliest_pool_available, ":", instances_found)
+        # ------------
+
+        final_party_with_acquisition_data.append(
+            {
+                "party_member": mon,
+                "earliest_form": earliest_form_found,
+                "earliest_pool": earliest_pool_available,
+                "random_pool_entry_instance": random.choice(instances_found) if instances_found else None,
+            }
+        )
+
+    limited_methods_from_metadata = [method for method in meta_data['limited_acquisition_methods']]
+
+    def validate_limited_methods(party_with_acquisition_data, limited_methods) -> bool:
+        """
+        Checks whether there are > 1 Pokemon in a party that share both the same limited
+        acquisition_method and acquiring_location.
+        """
+        seen_pairs = set()
+
+        for entry in party_with_acquisition_data:
+            inst = entry["random_pool_entry_instance"]
+            if inst["acquisition_method"] in limited_methods:
+                pair = (inst["acquisition_method"], inst["acquiring_location"])
+                if pair in seen_pairs:
+                    print("Party not valid due to multiple instances of same limited acquisition method:", entry["party_member"].name, "with", pair)
+                    return False
+                seen_pairs.add(pair)
+
+        return True
+
+
+    if not validate_limited_methods(final_party_with_acquisition_data, limited_methods_from_metadata):
+
+        return False
+
 
     # this function does NOT need to associate stone evo pokemon with a certain sphere/pool.
     # FOR NOW, it should simply check that a required stone for a stone evo pokemon IS IN at least one of the pool inventories.
     # in the future, since we have evo stone data for each pool (the earliest one becomes available) we can maybe do something with it.
+
+
     return final_party_with_acquisition_data
 
 def generate_random_mon(all_pokemon: dict[str, 'Pokemon']) -> 'Pokemon':

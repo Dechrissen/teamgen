@@ -27,6 +27,8 @@ spheres:
             type: map
       - sphereNum: 2
         contents:
+          - name: CeruleanCity
+            type: map
           - name: Route5
             type: map
           - name: Route6

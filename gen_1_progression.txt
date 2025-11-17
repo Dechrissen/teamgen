@@ -17,7 +17,8 @@ route 25
 ---------------
 2: CERULEAN GYM
 ---------------
-route 5 
+cerulean city
+route 5
 route 6 
 vermilion city 
 ITEM: old rod

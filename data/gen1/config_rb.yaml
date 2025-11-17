@@ -1,11 +1,13 @@
+balancing: [balanced, early_game_heavy, late_game_heavy] # options: balanced, early_game_heavy, late_game_heavy
+
 include_starter: false
-allow_not_fully_evolved: true
+allow_not_fully_evolved: false
 allow_legendaries: false
 allow_duplicate_species: false
 allow_dual_type: true
 prescribed_type: none # options: any type (fire, water, etc.) or none
 type_distribution: anything_goes # options: no_overlap, all_share_one_type, anything_goes
-species_blacklist: [NIDORAN_M] # a comma-separated list of Pokemon species (stage 1s), each in all caps (Mr. Mime is MR.MIME, Farfetch'd is FARFETCHD, Nidoran♂ is NIDORAN_M)
+species_blacklist: [] # a comma-separated list of Pokemon species (stage 1s), each in all caps (Mr. Mime is MR.MIME, Farfetch'd is FARFETCHD, Nidoran♂ is NIDORAN_M)
 
 allowed_evo_methods:
   none: true # AKA stage 1 Pokemon
@@ -20,6 +22,7 @@ allowed_evo_methods:
 bst_max: none # options: integers or none
 bst_min: none # options: integers or none
 
+# party-wide coverage
 ensure_hm_coverage:
   FLASH: false
   CUT: false
@@ -27,7 +30,7 @@ ensure_hm_coverage:
   FLY: false
   SURF: false
   DIG: false
-  TELEPORT: false
+  TELEPORT: true
   SOFTBOILED: false
 
 allowed_acquisition_methods:

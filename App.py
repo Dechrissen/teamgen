@@ -21,8 +21,7 @@ for method in meta_data['acquisition_methods']:
     # add each acquisition method to the list of starting methods if it's both default (in metadata) and True (in allowed list in config data)
     if method['is_default'] == True and config_data['allowed_acquisition_methods'][method['name']] == True:
         starting_acquisition_methods.append(method['name'])
-# config options...
-prescribed_type = config_data['prescribed_type']
+
 
 
 # construct all_pokemon
@@ -36,9 +35,9 @@ with open('./data/gen1/locations_red.yaml') as l:
 all_locations = construct_full_location_set(location_data)
 
 # construct all_spheres
-with open('./data/gen1/progression_rb.yaml') as p:
-    progression_data = yaml.safe_load(p)
-all_spheres = construct_spheres(progression_data, all_locations)
+# with open('./data/gen1/progression_rb.yaml') as p:
+#     progression_data = yaml.safe_load(p)
+all_spheres = construct_spheres(meta_data, all_locations)
 
 # build pools from all previously constructed data
 all_pools = build_pools(all_spheres, all_pokemon, starting_acquisition_methods)
@@ -55,6 +54,6 @@ all_pools = build_pools(all_spheres, all_pokemon, starting_acquisition_methods)
 
 # MAIN
 print("Generating party...")
-party = generate_final_party(all_pools, all_pokemon, config_data, meta_data, n=1)
+party = generate_final_party(all_pools, all_pokemon, config_data, meta_data, n=6)
 for pokemon in party:
     print(pokemon.name)

@@ -2,7 +2,7 @@ balancing: [balanced, early_game_heavy, late_game_heavy] # options: balanced, ea
 
 include_starter: false
 allow_not_fully_evolved: false
-allow_legendaries: false
+allow_legendaries: true
 allow_duplicate_species: false
 allow_dual_type: true
 prescribed_type: none # options: any type (fire, water, etc.) or none
@@ -30,7 +30,7 @@ ensure_hm_coverage:
   FLY: false
   SURF: false
   DIG: false
-  TELEPORT: true
+  TELEPORT: false
   SOFTBOILED: false
 
 allowed_acquisition_methods:

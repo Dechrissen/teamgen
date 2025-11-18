@@ -15,7 +15,7 @@ def generate_final_party(all_pools, all_pokemon, config_data: dict, meta_data: d
         rand_starter_species = random.choice(meta_data["starter_species"])
         matching_pokemon = [
             all_pokemon[mon] for mon in all_pokemon
-            if all_pokemon[mon].species_line == rand_starter_species and all_pokemon[mon].is_fully_evolved #TODO change this to match highest allowed stage if NFE are allowed
+            if all_pokemon[mon].species_line == rand_starter_species and all_pokemon[mon].is_fully_evolved #TODO change this to match highest allowed stage if NFE are allowed? or actually this is only needed if we have a 'max_evo_stage' setting
         ]
         if matching_pokemon:
             chosen_starter = random.choice(matching_pokemon)
@@ -25,7 +25,7 @@ def generate_final_party(all_pools, all_pokemon, config_data: dict, meta_data: d
 
     # iteratively build a party that is valid according to the config options
     while len(final_party) < n:
-        rand_mon = generate_random_mon(all_pokemon) #TODO change this to be a generation of a random mon from all_obtainable_pokemon instead (need a function to create this; use enabled_spheres in progression_rb.yaml to know which ones to include)
+        rand_mon = generate_random_mon(all_pokemon)
 
         # check if the new Pokemon makes the party valid
         if is_party_valid(final_party + [rand_mon], bool(len(final_party + [rand_mon]) == n), config_data, meta_data): #TODO if the 6th pokemon cannot fulfill the requirement to have all HM coverage, this will be an endless loop
@@ -36,8 +36,11 @@ def generate_final_party(all_pools, all_pokemon, config_data: dict, meta_data: d
     # or simply have a timeout failsafe thing for all generations so we auto-retry
     # might need to pass a time variable around to all these functions
 
-    is_party_progression_viable(final_party, all_pools, all_pokemon, config_data, meta_data)
-    return final_party
+    party_with_acquisition_data = is_party_progression_viable(final_party, all_pools, all_pokemon, config_data, meta_data)
+    if party_with_acquisition_data:
+        balance_grade = assign_balance_grade(party_with_acquisition_data, meta_data)
+        print(balance_grade)
+    return final_party #TODO change this var name, not really final party yet
 
 def is_party_valid(party, is_party_full, config_data, meta_data) -> bool:
 
@@ -58,7 +61,7 @@ def is_party_valid(party, is_party_full, config_data, meta_data) -> bool:
     bst_max = config_data["bst_max"]
     bst_min = config_data["bst_min"]
     ensure_hm_coverage = set([hm for hm in config_data["ensure_hm_coverage"] if config_data["ensure_hm_coverage"][hm] == True])
-    #TODO include 'spheres_enabled' so we know which spheres contain valid mons
+    #TODO include 'spheres_enabled' so we know which spheres contain valid mons, then check against them (or this should be done in is_progression_viable func)
 
     # immediate False if these checks fail
     if not allow_duplicate_species:
@@ -88,11 +91,9 @@ def is_party_valid(party, is_party_full, config_data, meta_data) -> bool:
     for modal_group in modal_species:
         if any(mon.species_line in modal_group for mon in party):
             modals_in_party = [mon.species_line for mon in party if mon.species_line in modal_group]
-            if len(modals_in_party) > 1: #TODO if the limitation of 1 only is already handled by something else, should this just be a set() anyway?
+            if len(modals_in_party) > 1: #TODO if the limitation of 1 only is already handled by 'limited_methods', should this just be a set() anyway?
                 print("party", [mon.name for mon in party], "violates modal group", modal_group)
                 return False
-
-    #TODO check limited species for no >2 snorlax?
 
     # check each mon against config options
     for mon in party:
@@ -129,8 +130,6 @@ def is_party_progression_viable(party, all_pools, all_pokemon, config_data, meta
 
     final_party_with_acquisition_data = []
 
-    allowed_acquisition_methods = [method for method in config_data["allowed_acquisition_methods"] if config_data["allowed_acquisition_methods"][method] == True]
-
     for mon in party:
         form_found = False
         # keep track of all the previous evos we need to search for in the pools first (order matters)
@@ -146,11 +145,18 @@ def is_party_progression_viable(party, all_pools, all_pokemon, config_data, meta
         # the latest mon added to forms_to_search_in_order is the lowest stage, so we want to reverse it
         forms_to_search_in_order.reverse() #TODO do i actually wanna do this in descending order? e.g. it should check for nidoqueen first
 
+        allowed_acquisition_methods = [method for method in config_data["allowed_acquisition_methods"] if
+                                       config_data["allowed_acquisition_methods"][method] == True]
+        enabled_spheres = [sphere for sphere in meta_data['enabled_spheres']]
+
         earliest_form_found, earliest_pool_available = None, None
         # add instances of the earliest available form of this mon (its pool_entry) to a list
         instances_found = []
 
         for pool_num in all_pools.keys():
+            if pool_num not in enabled_spheres:
+                print("skipping pool", pool_num, "as it's not in 'enabled_spheres' in metadata file")
+                continue
 
             cur_pool = all_pools[pool_num]
             cur_pool_entries = cur_pool['pool_entries'] # list of pool entries for this pool
@@ -182,7 +188,7 @@ def is_party_progression_viable(party, all_pools, all_pokemon, config_data, meta
 
         final_party_with_acquisition_data.append(
             {
-                "party_member": mon,
+                "party_member_obj": mon,
                 "earliest_form": earliest_form_found,
                 "earliest_pool": earliest_pool_available,
                 "random_pool_entry_instance": random.choice(instances_found) if instances_found else None,
@@ -203,7 +209,7 @@ def is_party_progression_viable(party, all_pools, all_pokemon, config_data, meta
             if inst["acquisition_method"] in limited_methods:
                 pair = (inst["acquisition_method"], inst["acquiring_location"])
                 if pair in seen_pairs:
-                    print("Party not valid due to multiple instances of same limited acquisition method:", entry["party_member"].name, "with", pair)
+                    print("Party not valid due to multiple instances of same limited acquisition method:", entry["party_member_obj"].name, "with", pair)
                     return False
                 seen_pairs.add(pair)
 
@@ -211,7 +217,6 @@ def is_party_progression_viable(party, all_pools, all_pokemon, config_data, meta
 
 
     if not validate_limited_methods(final_party_with_acquisition_data, limited_methods_from_metadata):
-
         return False
 
 
@@ -219,8 +224,118 @@ def is_party_progression_viable(party, all_pools, all_pokemon, config_data, meta
     # FOR NOW, it should simply check that a required stone for a stone evo pokemon IS IN at least one of the pool inventories.
     # in the future, since we have evo stone data for each pool (the earliest one becomes available) we can maybe do something with it.
 
-
     return final_party_with_acquisition_data
+
+
+def assign_balance_grade(party_with_acquisition_data, meta_data):
+    """
+    Assigns a balance grade to a Pokémon party based on the distribution of each member's
+    availability in the enabled spheres (game progression pools).
+
+    Returns a dict with:
+    - lean: qualitative indication of early vs late game (early_game_heavy / balanced / late_game_heavy)
+    - spread: span of spheres covered (clustered / mixed_spread / wide_spread)
+    - pattern: qualitative shape of party across spheres
+               (early_late_split, middle_only, dual_cluster, single_cluster, or None)
+    - score_median: normalized median sphere (0=start of game, 1=end), for reference
+    """
+
+    lean_cutoffs = (0.30, 0.70)
+    spread_cutoffs = (0.35, 0.70)
+
+    # Build party distribution across enabled spheres
+    enabled_spheres = [sphere for sphere in meta_data['enabled_spheres']]
+    total_spheres = len(enabled_spheres)
+    party_distribution = {sphere: 0 for sphere in enabled_spheres}
+
+    for member in party_with_acquisition_data:
+        party_distribution[member["earliest_pool"]] += 1
+
+    print("party distribution:", party_distribution)
+
+    total = sum(party_distribution.values())
+    if total == 0 or total_spheres < 2:
+        return {'lean': 'no_data', 'spread': 'no_data', 'pattern': None}
+
+    # ---------- Lean calculation ----------
+    # Expand counts for median calculation
+    expanded = []
+    for i, count in party_distribution.items():
+        expanded.extend([i] * count)
+    expanded.sort()
+
+    # Compute median sphere
+    m = len(expanded) // 2
+    if len(expanded) % 2 == 1:
+        median_sphere = expanded[m]
+    else:
+        median_sphere = (expanded[m - 1] + expanded[m]) / 2
+
+    lean_score = (median_sphere - 1) / (total_spheres - 1)
+
+    # Determine majority of Pokémon in lower vs upper half
+    halfway_index = total_spheres // 2
+    lower_half_count = sum(
+        count for sphere, count in party_distribution.items()
+        if sphere <= halfway_index
+    )
+    upper_half_count = total - lower_half_count
+
+    # Assign qualitative lean
+    low, high = lean_cutoffs
+    if upper_half_count > (total / 2):
+        lean = 'late_game_heavy'
+    elif lower_half_count > (total / 2):
+        lean = 'early_game_heavy'
+    elif lean_score < low:
+        lean = 'early_game_heavy'
+    elif lean_score > high:
+        lean = 'late_game_heavy'
+    else:
+        lean = 'balanced'
+
+    # ---------- Spread calculation ----------
+    active_spheres = [i for i, count in party_distribution.items() if count > 0]
+    range_raw = max(active_spheres) - min(active_spheres)
+    spread_score = range_raw / (total_spheres - 1)
+
+    sp_low, sp_high = spread_cutoffs
+    if spread_score < sp_low:
+        spread = 'clustered'       # Pokémon tightly grouped in few spheres
+    elif spread_score > sp_high:
+        spread = 'wide_spread'     # Pokémon span most/all of the game
+    else:
+        spread = 'mixed_spread'    # intermediate span
+
+    # Count gaps between active spheres for pattern detection
+    gaps = sum(
+        1 for i in range(len(active_spheres) - 1)
+        if active_spheres[i+1] - active_spheres[i] > 1
+    )
+
+    # ---------- Pattern detection ----------
+    middle_start = total_spheres // 3 + 1
+    middle_end = total_spheres * 2 // 3
+
+    if (1 in active_spheres and total_spheres in active_spheres
+            and any(c == 0 for i, c in party_distribution.items() if i not in (1, total_spheres))):
+        pattern = 'early_late_split'    # Clusters at the start and end
+    elif all(middle_start <= s <= middle_end for s in active_spheres):
+        pattern = 'middle_only'         # All Pokémon in middle third
+    elif gaps == 1:
+        pattern = 'dual_cluster'        # Two separate clusters
+    elif len(active_spheres) > 1 and max(active_spheres) - min(active_spheres) + 1 == len(active_spheres):
+        pattern = 'single_cluster'      # Single contiguous cluster
+    else:
+        pattern = None                  # No distinct pattern
+
+    return {
+        'score_median': lean_score,
+        'lean': lean,
+        'spread': spread,
+        'pattern': pattern
+    }
+
 
 def generate_random_mon(all_pokemon: dict[str, 'Pokemon']) -> 'Pokemon':
     """
@@ -305,12 +420,12 @@ def construct_full_location_set(location_data) -> dict[str, Location]:
 
     return all_locations
 
-def construct_spheres(progression_data, all_locations) -> dict[int, Sphere]:
+def construct_spheres(meta_data, all_locations) -> dict[int, Sphere]:
     """
-    Creates a set of all Spheres from an input progression YAML.
+    Creates a set of all Spheres from an input meta YAML.
 
     args:
-        progression_data (from progression YAML), all_locations (dict of all Location objects)
+        meta_data (from meta YAML), all_locations (dict of all Location objects)
 
     returns:
         all_spheres (dict of Sphere objects, where keys are numbers (int) of spheres)
@@ -318,8 +433,8 @@ def construct_spheres(progression_data, all_locations) -> dict[int, Sphere]:
     # create empty set
     all_spheres = dict()
 
-    # iterate through each sphere in the progression data 'spheres' list
-    for cur_sphere in progression_data['spheres']:
+    # iterate through each sphere in the meta data 'spheres' list
+    for cur_sphere in meta_data['spheres']:
         # get the sphere number and contents (list of maps items, acquisition_unlocks)
         sphere_num = cur_sphere['sphereNum']
         sphere_contents = cur_sphere['contents']

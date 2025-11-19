@@ -1,11 +1,17 @@
-balancing: [balanced, early_game_heavy, late_game_heavy] # options: balanced, early_game_heavy, late_game_heavy
+# Balancing requirements
+# ----------------------
+# Lists reflect modes which are allowed in the output
+# Remove any undesired modes
+allowed_balancing: [balanced, early_game_heavy, late_game_heavy] # options: balanced, early_game_heavy, late_game_heavy
+allowed_spreads: [clustered, wide_spread, mixed_spread] # options: clustered, wide_spread, mixed_spread
+allowed_patterns: [single_cluster, dual_cluster, early_late_split] # options: single_cluster, dual_cluster, early_late_split, middle_only
 
 include_starter: false
 allow_not_fully_evolved: false
 allow_legendaries: true
 allow_duplicate_species: false
 allow_dual_type: true
-prescribed_type: none # options: any type (fire, water, etc.) or none
+prescribed_type: none # options: any type (fire, water, etc.) or none #TODO fix this, doesn't work as intended or not semantic enough
 type_distribution: anything_goes # options: no_overlap, all_share_one_type, anything_goes
 species_blacklist: [] # a comma-separated list of Pokemon species (stage 1s), each in all caps (Mr. Mime is MR.MIME, Farfetch'd is FARFETCHD, Nidoran♂ is NIDORAN_M)
 

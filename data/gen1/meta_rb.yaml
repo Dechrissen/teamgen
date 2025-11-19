@@ -3,7 +3,8 @@ starter_species:
   - CHARMANDER
   - SQUIRTLE
 
-# Only one of the Pokemon per modal group can be generated, and no dupes of any selected from a group
+# Only one of the Pokemon per modal group can be generated,
+# and no dupes of any selected from a group
 modal_species:
   - [HITMONLEE, HITMONCHAN]
   - [OMANYTE, KABUTO]

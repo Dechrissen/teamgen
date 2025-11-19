@@ -8,10 +8,10 @@
 - [ ] generate file for blue version when done
 - [ ] generate file for solus when done
 
-- [ ] add comments/annotations to config and other yaml files, at least titles
+- [ ] add comments/annotations to config and other yaml files, for users
 
 - make "gift" into "choice" for HITMONs?
-- need to figure out how to limit the fossils as choices, since you pick them up as fossils
+
 
 - [ ] maybe change all the stuff in the config YAML to be lists, not yaml-coded lists with booleans. Would be better 
   for future-proofing when adding more acquisition methods?
@@ -25,29 +25,20 @@
 - [ ] ? I think the config should maybe be a Config class. This would make it easier to validate and pass along to 
   functions
 
-- [ ] fix issue where if something like dragon type is generated for pokemon 1, and 'all_share_one_type' is selected 
-  along with "don't allow duplicate species", 
-  then it will be stuck in an infinite loop because no other valid pokemon exist to finish the party of 6
+
+- [ ] data validation tests, add "assert bst_max is int" for example so i dont have to worry about type validation in 
+  the functions themselves
 
 
-- [ ] validation tests, add "assert bst_max is int" for example so i dont have to worry about type validation in the 
-  functions themselves
-
-- [ ] is_party_viable function should actually ANALYZE the viability of a party and assign it a grade.
-  - BALANCED
-  - LATE_GAME_HEAVY
-  - EARLY_GAME_HEAVY
-  - etc
-  - THEN, you can also have config options to select a certain grade, or ALLOW_ANY
-
-- [ ] add time / tries / progress text
-  - Print "Generating party..."
-  - initialize time variable at the start of the program
-  - pass it along to all? functions
-  - if time is taking too long, probably means 6th party member can't be found (or some other config options 
-    preventing party from being built) -> reset time and try again (and increment "tries")
-  - if tries > 10, probably means party doesn't exist, so return "Party can't be found"
 
 - [ ] add a bunch of debug print statements and a DEBUG variable
   - if DEBUG and condition:
     - print...
+
+- [ ] Ultimately need one big blob of final output data from which to pull for visual printed output
+  - party members
+  - associated locations with acquisition method
+  - party distribution
+  - balancing/spread/pattern
+  then based on a CONFIG (of what is wanted in the output, e.g. 'show_prescribed_locations' and 
+    'show_acquisition_methods' etc.) we can print the final output.

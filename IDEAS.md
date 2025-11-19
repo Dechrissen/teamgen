@@ -12,7 +12,7 @@
 
 - for gen 3, mach and acro bike selection doesnt cause issue because you can always swap them, so the pokemon generated for you in that sphere will always be gettable
 - "exclude feebas" option
-  - or a list of "pokemon_to_exclude" where feebas is prepopulated by default
+  - or "blacklist" where feebas is prepopulated by default
 
 
 ## example "build" (list and order of routes and items in file)
@@ -62,28 +62,19 @@
 ```
 
 ## more ideas
-- the program should probably generate all the spheres from the config file, then generate a party (final evo_stages first?), and check it against the spheres. if it cant find the final form of a pokemon in a sphere, step down to the previous stage and check for it in the wild?
+
 - for trades in the pokemon data file: `"trade": ["ABRA for MR.MIME"]`
 - add ALL moon stones separately to the logic file spheres? (in `evo_items` list)
-
 
 - to be efficient with memory usage, we can use prompts in the command line after the program is already running, 
   similar to pokequiz, in order to build all the data structures (Pokemon objects etc) first, then prompt the user: 
   "Generate? Y/N" or whatever. This way it doesn't build all the data structures over and over for each run.
-- should "pools" be more than simply a list of pokemon objects? should they instead be a list of pairs, where each 
-  pokemon in the pool is associated with a location object? (this would allow us to output the location that said 
-  pokemon is generated in the final output, for extra detail)
-  - this can ALSO be used as extra challenge, i.e. the prescribed location can be an added challenge on the user if 
-    they choose (they'd have to acquire it at that location)
-
 
 - option to reroll 1 pokemon (e.g. `reroll 2` to reroll the second) (to do this, we can pass an optional party list 
   of Pokemon objects to the generate_final_party function. If it's non-empty, it can be treated as the base party to 
   use/continue generating for)
 
-- STARTER (if include_starter is selected) could be moved to OUTSIDE the main generation function, by generating a 
-  random of the 3, and then only passing n=5 to the main generation function instead. (edit: can't do this because 
-  we need to consider that the starter is included in hm converage in is_party_valid function)
+- add visual graph or w/e to balance grade output
 
 
 ## final unit tests/checks

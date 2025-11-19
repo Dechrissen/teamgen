@@ -22,8 +22,6 @@ for method in meta_data['acquisition_methods']:
     if method['is_default'] == True and config_data['allowed_acquisition_methods'][method['name']] == True:
         starting_acquisition_methods.append(method['name'])
 
-
-
 # construct all_pokemon
 with open('./data/gen1/pokedex_rb.yaml') as f:
     pokedex_data = yaml.safe_load(f)
@@ -54,6 +52,15 @@ all_pools = build_pools(all_spheres, all_pokemon, starting_acquisition_methods)
 
 # MAIN
 print("Generating party...")
-party = generate_final_party(all_pools, all_pokemon, config_data, meta_data, n=6)
-for pokemon in party:
-    print(pokemon.name)
+final_party_blob = generate_final_party(all_pools, all_pokemon, config_data, meta_data, n=6)
+if not final_party_blob:
+    print("Party could not be generated with current settings!")
+    exit(0)
+else:
+    for pokemon in final_party_blob['party_with_acquisition_data']:
+        print(pokemon["party_member_obj"].name)
+    print("party_distribution:",final_party_blob["party_distribution"])
+    print("score_median:",final_party_blob["score_median"])
+    print("lean:",final_party_blob["lean"])
+    print("spread:",final_party_blob["spread"])
+    print("pattern:",final_party_blob["pattern"])

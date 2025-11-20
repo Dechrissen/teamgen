@@ -3,6 +3,8 @@ from Location import Location
 from Sphere import Sphere
 import random
 
+FULL_DEBUG = False
+
 def generate_final_party(all_pools: dict, all_pokemon: dict, config_data: dict, meta_data: dict, n: int = 6,
                          retry: int = 0, max_retries: int = 10, max_iterations: int = 5000):
     """
@@ -12,6 +14,10 @@ def generate_final_party(all_pools: dict, all_pokemon: dict, config_data: dict, 
         final party blob (party, acquisition data, distribution, balance stats)
         OR None if it fails after max_retries
     """
+    debug = False
+
+    if debug or FULL_DEBUG:
+        print(f"[Attempt {retry} start]")
 
     if retry > max_retries:
         return None
@@ -54,18 +60,26 @@ def generate_final_party(all_pools: dict, all_pokemon: dict, config_data: dict, 
 
         iterations += 1
 
-    print(f"[retry {retry}] iterations for party generation: {iterations}")
+    if debug or FULL_DEBUG:
+        print(f"Tentative party of size {n} generated for Attempt {retry} after {iterations} iterations.")
+        print("Checking if party is progression viable...")
 
     party_with_acquisition_data = is_party_progression_viable(tentative_party, all_pools, all_pokemon, config_data, meta_data)
 
     if party_with_acquisition_data:
+        if debug or FULL_DEBUG:
+            print("Generating balance stats...")
+
         balance_stats = assign_balance_grade(party_with_acquisition_data, meta_data)
+
         if not validate_balance_grade(balance_stats, config_data):
-            print("Party doesn't pass balancing requirements in config. Retrying final party generation...")
+            if debug or FULL_DEBUG:
+                print("Party doesn't pass balancing requirements in config. Retrying final party generation...")
             return generate_final_party(all_pools, all_pokemon,
                                         config_data, meta_data,
                                         n, retry + 1,
                                         max_retries, max_iterations)
+
         final_party_blob = {
             "party_with_acquisition_data": party_with_acquisition_data,
             'party_distribution': balance_stats['party_distribution'],
@@ -76,7 +90,9 @@ def generate_final_party(all_pools: dict, all_pokemon: dict, config_data: dict, 
         }
         return final_party_blob
     else:
-        print("Party not progression viable. Retrying final party generation...")
+        if debug or FULL_DEBUG:
+            print("Party not progression viable. Retrying final party generation...")
+
         return generate_final_party(all_pools, all_pokemon,
                                     config_data, meta_data,
                                     n, retry + 1,
@@ -95,7 +111,8 @@ def is_party_valid(party, is_party_full, config_data, meta_data) -> bool:
     returns:
         bool: whether the party is valid
     """
-
+    debug = False
+    
     # set up metadata
     starter_species = meta_data["starter_species"]
     modal_species = meta_data["modal_species"]
@@ -113,59 +130,84 @@ def is_party_valid(party, is_party_full, config_data, meta_data) -> bool:
     bst_max = config_data["bst_max"]
     bst_min = config_data["bst_min"]
     ensure_hm_coverage = set([hm for hm in config_data["ensure_hm_coverage"] if config_data["ensure_hm_coverage"][hm] == True])
-    #TODO include 'spheres_enabled' so we know which spheres contain valid mons, then check against them (or this should be done in is_progression_viable func)
 
     # immediate False if these checks fail
     if not allow_duplicate_species:
         species_lines = [m.species_line for m in party]
         if len(species_lines) != len(set(species_lines)):
+            if debug or FULL_DEBUG:
+                print("party",[mon.name for mon in party],"contains duplicate species lines")
             return False
 
     if species_blacklist:
         # check if any party Pokemon species are in the blacklist
         if any(mon.species_line in species_blacklist for mon in party):
-            #print("party", [mon.name for mon in party], "violates blacklist", species_blacklist)
+            if debug or FULL_DEBUG:
+                print("party", [mon.name for mon in party], "violates blacklist", species_blacklist)
             return False
 
     if type_distribution != 'anything_goes':
+        if prescribed_type != 'none':
+            for mon in party:
+                if prescribed_type not in mon.types:
+                    if debug or FULL_DEBUG:
+                        print("party",[mon.name for mon in party], "contains", mon.name, "which violates config option prescribed_type =", prescribed_type)
+                    return False
         # this bool(...) expression evaluates to True if all Pokemon in party share at least one common type, False otherwise
         if (type_distribution == 'all_share_one_type') and not (bool(set.intersection(*(set(mon.types) for mon in party)))):
+            if debug or FULL_DEBUG:
+                print("party",[mon.name for mon in party], "violates type distribution", type_distribution)
             return False
         # this expression evaluates to True if no Pokemon in party share any types, False otherwise
         if (type_distribution == 'no_overlap') and not (len({t for mon in party for t in mon.types}) == sum(len(mon.types) for mon in party)):
+            if debug or FULL_DEBUG:
+                print("party",[mon.name for mon in party], "violates type distribution", type_distribution)
             return False
 
     if is_party_full:
         party_hm_coverage = set({hm for mon in party for hm in mon.hm_learnset})
         if not (ensure_hm_coverage.issubset(party_hm_coverage)):
+            if debug or FULL_DEBUG:
+                print("party",[mon.name for mon in party],"lacks HM coverage", ensure_hm_coverage)
             return False
 
     for modal_group in modal_species:
         if any(mon.species_line in modal_group for mon in party):
             modals_in_party = [mon.species_line for mon in party if mon.species_line in modal_group]
-            if len(modals_in_party) > 1: #TODO if the limitation of 1 only is already handled by 'limited_methods', should this just be a set() anyway?
-                print("party", [mon.name for mon in party], "violates modal group", modal_group)
+            if len(modals_in_party) > 1:
+                if debug or FULL_DEBUG:
+                    print("party", [mon.name for mon in party], "violates modal group", modal_group)
                 return False
 
     # check each mon against config options
     for mon in party:
-        if (include_starter == False) and (mon.species_line in starter_species): #TODO do we need this one?
-            return False
+        # if (include_starter == False) and (mon.species_line in starter_species): #TODO do we need this one? - don't think so because starter won't be in wild anyway, unless it is
+        #     return False
         if (allow_not_fully_evolved == False) and (mon.is_fully_evolved == False):
+            if debug or FULL_DEBUG:
+                print("party",[mon.name for mon in party], "contains", mon.name, "which violates config option allow_not_fully_evolved =",allow_not_fully_evolved)
             return False
         if (allow_legendaries == False) and (mon.is_legendary):
+            if debug or FULL_DEBUG:
+                print("party",[mon.name for mon in party], "contains", mon.name, "which violates config option allow_legendaries =",allow_legendaries)
             return False
         if (allow_dual_type == False) and (len(mon.types) > 1):
-            return False
-        if (prescribed_type != 'none') and (prescribed_type not in mon.types):
+            if debug or FULL_DEBUG:
+                print("party",[mon.name for mon in party], "contains", mon.name, "which violates config option allow_dual_type =", allow_dual_type)
             return False
         if mon.evolution_method_required not in allowed_evo_methods:
+            if debug or FULL_DEBUG:
+                print("party",[mon.name for mon in party], "contains", mon.name, "which violates config option allowed_evo_methods =", allowed_evo_methods)
             return False
         if bst_max != 'none':
             if mon.base_stat_total > bst_max:
+                if debug or FULL_DEBUG:
+                    print("party", [mon.name for mon in party], "contains", mon.name,"which violates config option bst_max =", bst_max)
                 return False
         if bst_min != 'none':
             if mon.base_stat_total < bst_min:
+                if debug or FULL_DEBUG:
+                    print("party", [mon.name for mon in party], "contains", mon.name,"which violates config option bst_min =", bst_min)
                 return False
 
     return True
@@ -188,6 +230,7 @@ def is_party_progression_viable(party, all_pools, all_pokemon, config_data, meta
             "random_pool_entry_instance": a random pool entry from the instances (in the earliest pool) of the earliest form
         }
     """
+    debug = False
 
     final_party_with_acquisition_data = []
 
@@ -238,7 +281,8 @@ def is_party_progression_viable(party, all_pools, all_pokemon, config_data, meta
 
         if not form_found:
             #TODO make sure starter isn't checked for here, otherwise it'll always say not found in pools
-            print("no obtainable forms found for", mon.name)
+            if debug or FULL_DEBUG:
+                print("Fail. No obtainable forms found for", mon.name, "in enabled spheres", enabled_spheres)
             return False
 
         # --- TEST ---
@@ -268,7 +312,8 @@ def is_party_progression_viable(party, all_pools, all_pokemon, config_data, meta
             if inst["acquisition_method"] in limited_methods:
                 pair = (inst["acquisition_method"], inst["acquiring_location"])
                 if pair in seen_pairs:
-                    print("Party not valid due to multiple instances of same limited acquisition method:", entry["party_member_obj"].name, "with", pair)
+                    if debug or FULL_DEBUG:
+                        print("Fail. Multiple instances of limited acquisition method/location pair:", entry["party_member_obj"].name, "with", pair)
                     return False
                 seen_pairs.add(pair)
 
@@ -299,6 +344,8 @@ def is_party_progression_viable(party, all_pools, all_pokemon, config_data, meta
     ):
         return False
     else:
+        if debug or FULL_DEBUG:
+            print("Party is progression viable!")
         return final_party_with_acquisition_data
 
 

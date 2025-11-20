@@ -29,11 +29,7 @@
 - [ ] data validation tests, add "assert bst_max is int" for example so i dont have to worry about type validation in 
   the functions themselves
 
-
-
-- [ ] add a bunch of debug print statements and a DEBUG variable
-  - if DEBUG and condition:
-    - print...
+- [ ] add DEBUG output to build_pools, etc.
 
 - [ ] Ultimately need one big blob of final output data from which to pull for visual printed output
   - party members

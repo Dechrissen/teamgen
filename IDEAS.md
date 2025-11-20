@@ -8,11 +8,9 @@
 - poketeamgen
 - pokesix
 
-## General ideas
-
+## Gen 3 ideas
 - for gen 3, mach and acro bike selection doesnt cause issue because you can always swap them, so the pokemon generated for you in that sphere will always be gettable
-- "exclude feebas" option
-  - or "blacklist" where feebas is prepopulated by default
+- gen 3 "blacklist" where feebas is prepopulated by default
 
 
 ## example "build" (list and order of routes and items in file)
@@ -75,6 +73,8 @@
   use/continue generating for)
 
 - add visual graph or w/e to balance grade output
+- add a region map (the one from the game) with a heatmap style overlay (or just dots) that show where your party is 
+  acquired :)
 
 
 ## final unit tests/checks

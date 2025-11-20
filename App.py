@@ -51,7 +51,7 @@ all_pools = build_pools(all_spheres, all_pokemon, starting_acquisition_methods)
 
 
 # MAIN
-print("Generating party...")
+print("Generating party...\n")
 final_party_blob = generate_final_party(all_pools, all_pokemon, config_data, meta_data, n=6)
 if not final_party_blob:
     print("Party could not be generated with current settings!")
@@ -59,7 +59,8 @@ if not final_party_blob:
 else:
     for pokemon in final_party_blob['party_with_acquisition_data']:
         print(pokemon["party_member_obj"].name)
-    print("party_distribution:",final_party_blob["party_distribution"])
+
+    print("\nparty_distribution:",final_party_blob["party_distribution"])
     print("score_median:",final_party_blob["score_median"])
     print("lean:",final_party_blob["lean"])
     print("spread:",final_party_blob["spread"])

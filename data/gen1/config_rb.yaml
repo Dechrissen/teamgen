@@ -8,11 +8,19 @@ allowed_patterns: [single_cluster, dual_cluster, early_late_split] # options: si
 
 include_starter: false
 allow_not_fully_evolved: false
-allow_legendaries: true
+allow_legendaries: false
 allow_duplicate_species: false
+
+# Types
+# -----
+
 allow_dual_type: true
-prescribed_type: none # options: any type (fire, water, etc.) or none #TODO fix this, doesn't work as intended or not semantic enough
+
 type_distribution: anything_goes # options: no_overlap, all_share_one_type, anything_goes
+
+# only works when type_distribution = all_share_one_type
+prescribed_type: none # options: any type (fire, water, etc.) or none
+
 species_blacklist: [] # a comma-separated list of Pokemon species (stage 1s), each in all caps (Mr. Mime is MR.MIME, Farfetch'd is FARFETCHD, Nidoran♂ is NIDORAN_M)
 
 allowed_evo_methods:
@@ -22,6 +30,7 @@ allowed_evo_methods:
   fire_stone: true
   water_stone: true
   thunder_stone: true
+  leaf_stone: true
   trade: true
 
 #TODO add suggestions here for general cutoffs that make sense for easy mode, hard mode etc.
@@ -31,10 +40,10 @@ bst_min: none # options: integers or none
 # party-wide coverage
 ensure_hm_coverage:
   FLASH: false
-  CUT: false
+  CUT: true
   STRENGTH: false
   FLY: false
-  SURF: false
+  SURF: true
   DIG: false
   TELEPORT: false
   SOFTBOILED: false

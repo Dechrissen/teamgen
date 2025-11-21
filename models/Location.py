@@ -1,6 +1,7 @@
 class Location:
     def __init__(self,
                  name: str,
+                 starter: list[str] = None,
                  walk: list[str] = None,
                  surf: list[str] = None,
                  old_rod: list[str] = None,
@@ -14,6 +15,7 @@ class Location:
                  fossil_restore: list[str] = None,
                  prize_window: list[str] = None):
         self.name = name # str
+        self.starter = starter  # list[str]
         self.walk = walk # list[str]
         self.surf = surf # list[str]
         self.old_rod = old_rod # list[str]

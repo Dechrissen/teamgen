@@ -4,6 +4,9 @@ import yaml
 
 
 def main():
+    if DEBUG:
+        print("===== DEBUG INFO =====")
+
     # validation functions should run up here (make sure all files are valid and formatted correctly)
 
     # GET ALL DATA #TODO change this later to all be programmatically picked from a config file which specifies which game uses which files

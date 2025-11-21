@@ -42,3 +42,15 @@
   - balancing/spread/pattern
   then based on a CONFIG (of what is wanted in the output, e.g. 'show_prescribed_locations' and 
     'show_acquisition_methods' etc.) we can print the final output.
+
+- [ ] add max_evo_stage config setting to validity function
+- [ ] make sure CLI UI outputs "no party able to be generated" if it fails, and not just "No party"
+- [ ] add full randomized function
+- [ ] add presets for enabled spheres in meta (or config) file
+  - exclude_postgame (6)
+  - exclude_victory_road (5 and 6)
+  - johto_only
+  - johto_and_kanto
+  - johto_and_early_kanto
+
+- ask chatgpt to check every location from locations is in meta spheres list

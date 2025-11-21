@@ -709,6 +709,10 @@
   - GOLDEEN
   - MAGIKARP
 - map_name: PalletTown
+  starter:
+    - BULBASAUR
+    - CHARMANDER
+    - SQUIRTLE
   old_rod:
   - MAGIKARP
   good_rod:

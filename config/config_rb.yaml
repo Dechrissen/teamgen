@@ -6,8 +6,11 @@ allowed_balancing: [balanced, early_game_heavy, late_game_heavy] # options: bala
 allowed_spreads: [clustered, wide_spread, mixed_spread] # options: clustered, wide_spread, mixed_spread
 allowed_patterns: [single_cluster, dual_cluster, early_late_split] # options: single_cluster, dual_cluster, early_late_split, middle_only
 
-include_starter: false
-allow_not_fully_evolved: false
+force_starter: true
+
+allow_not_fully_evolved: true
+max_evo_stage: 2 # options: int
+
 allow_legendaries: false
 allow_duplicate_species: false
 
@@ -49,6 +52,7 @@ ensure_hm_coverage:
   SOFTBOILED: false
 
 allowed_acquisition_methods:
+  starter: true
   walk: true
   surf: true
   old_rod: true
@@ -61,3 +65,7 @@ allowed_acquisition_methods:
   purchase: true
   fossil_restore: true
   prize_window: true
+
+# CLI UI
+show_balance_stats: true
+show_acquisition_details: true

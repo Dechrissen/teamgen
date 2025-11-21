@@ -3,7 +3,7 @@ from models.Location import Location
 from models.Sphere import Sphere
 import random
 
-FULL_DEBUG = False
+DEBUG = True
 
 def generate_final_party(all_pools: dict, all_pokemon: dict, config_data: dict, meta_data: dict, n: int = 6,
                          retry: int = 0, max_retries: int = 10, max_iterations: int = 5000):
@@ -24,25 +24,25 @@ def generate_final_party(all_pools: dict, all_pokemon: dict, config_data: dict, 
         final party blob (party, acquisition data, distribution, balance stats)
         OR None if it fails after max_retries
     """
-    debug = False
+    
 
     if retry > max_retries:
-        if debug or FULL_DEBUG:
+        if DEBUG:
             print("Could not generate valid party with current settings!")
         return None
 
-    if debug or FULL_DEBUG:
+    if DEBUG:
         print(f"[Attempt {retry} start]")
 
     iterations = 0
     tentative_party = []
 
-    # include a random starter if include_starter is selected in config
-    if config_data["include_starter"]:
+    # include a random starter if force_starter is selected in config
+    if config_data["force_starter"]:
         rand_starter_species = random.choice(meta_data["starter_species"])
         matching_pokemon = [
             all_pokemon[mon] for mon in all_pokemon
-            if all_pokemon[mon].species_line == rand_starter_species and all_pokemon[mon].is_fully_evolved #TODO change this to match highest allowed stage if NFE are allowed? or actually this is only needed if we have a 'max_evo_stage' setting
+            if all_pokemon[mon].species_line == rand_starter_species and all_pokemon[mon].evo_stage <= config_data['max_evo_stage']
         ]
         if matching_pokemon:
             chosen_starter = random.choice(matching_pokemon)
@@ -71,20 +71,20 @@ def generate_final_party(all_pools: dict, all_pokemon: dict, config_data: dict, 
 
         iterations += 1
 
-    if debug or FULL_DEBUG:
+    if DEBUG:
         print(f"Tentative party of size {n} generated for Attempt {retry} after {iterations} iterations.")
         print("Checking if party is progression viable...")
 
     party_with_acquisition_data = is_party_progression_viable(tentative_party, all_pools, all_pokemon, config_data, meta_data)
 
     if party_with_acquisition_data:
-        if debug or FULL_DEBUG:
+        if DEBUG:
             print("Generating balance stats...")
 
         balance_stats = assign_balance_grade(party_with_acquisition_data, meta_data)
 
         if not validate_balance_grade(balance_stats, config_data):
-            if debug or FULL_DEBUG:
+            if DEBUG:
                 print("Party doesn't pass balancing requirements in config. Retrying final party generation...")
             return generate_final_party(all_pools, all_pokemon,
                                         config_data, meta_data,
@@ -101,7 +101,7 @@ def generate_final_party(all_pools: dict, all_pokemon: dict, config_data: dict, 
         }
         return final_party_blob
     else:
-        if debug or FULL_DEBUG:
+        if DEBUG:
             print("Party not progression viable. Retrying final party generation...")
 
         return generate_final_party(all_pools, all_pokemon,
@@ -122,14 +122,14 @@ def is_party_valid(party, is_party_full, config_data, meta_data) -> bool:
     returns:
         bool: whether the party is valid
     """
-    debug = False
+    
     
     # set up metadata
     starter_species = meta_data["starter_species"]
     modal_species = meta_data["modal_species"]
 
     # set up config options
-    include_starter = config_data["include_starter"]
+    force_starter = config_data["force_starter"]
     allow_not_fully_evolved = config_data["allow_not_fully_evolved"]
     allow_legendaries = config_data["allow_legendaries"]
     allow_duplicate_species = config_data["allow_duplicate_species"]
@@ -146,14 +146,14 @@ def is_party_valid(party, is_party_full, config_data, meta_data) -> bool:
     if not allow_duplicate_species:
         species_lines = [m.species_line for m in party]
         if len(species_lines) != len(set(species_lines)):
-            if debug or FULL_DEBUG:
+            if DEBUG:
                 print("party",[mon.name for mon in party],"contains duplicate species lines")
             return False
 
     if species_blacklist:
         # check if any party Pokemon species are in the blacklist
         if any(mon.species_line in species_blacklist for mon in party):
-            if debug or FULL_DEBUG:
+            if DEBUG:
                 print("party", [mon.name for mon in party], "violates blacklist", species_blacklist)
             return False
 
@@ -161,24 +161,24 @@ def is_party_valid(party, is_party_full, config_data, meta_data) -> bool:
         if prescribed_type != 'none':
             for mon in party:
                 if prescribed_type not in mon.types:
-                    if debug or FULL_DEBUG:
+                    if DEBUG:
                         print("party",[mon.name for mon in party], "contains", mon.name, "which violates config option prescribed_type =", prescribed_type)
                     return False
         # this bool(...) expression evaluates to True if all Pokemon in party share at least one common type, False otherwise
         if (type_distribution == 'all_share_one_type') and not (bool(set.intersection(*(set(mon.types) for mon in party)))):
-            if debug or FULL_DEBUG:
+            if DEBUG:
                 print("party",[mon.name for mon in party], "violates type distribution", type_distribution)
             return False
         # this expression evaluates to True if no Pokemon in party share any types, False otherwise
         if (type_distribution == 'no_overlap') and not (len({t for mon in party for t in mon.types}) == sum(len(mon.types) for mon in party)):
-            if debug or FULL_DEBUG:
+            if DEBUG:
                 print("party",[mon.name for mon in party], "violates type distribution", type_distribution)
             return False
 
     if is_party_full:
         party_hm_coverage = set({hm for mon in party for hm in mon.hm_learnset})
         if not (ensure_hm_coverage.issubset(party_hm_coverage)):
-            if debug or FULL_DEBUG:
+            if DEBUG:
                 print("party",[mon.name for mon in party],"lacks HM coverage", ensure_hm_coverage)
             return False
 
@@ -186,38 +186,36 @@ def is_party_valid(party, is_party_full, config_data, meta_data) -> bool:
         if any(mon.species_line in modal_group for mon in party):
             modals_in_party = [mon.species_line for mon in party if mon.species_line in modal_group]
             if len(modals_in_party) > 1:
-                if debug or FULL_DEBUG:
+                if DEBUG:
                     print("party", [mon.name for mon in party], "violates modal group", modal_group)
                 return False
 
     # check each mon against config options
     for mon in party:
-        # if (include_starter == False) and (mon.species_line in starter_species): #TODO do we need this one? - don't think so because starter won't be in wild anyway, unless it is
-        #     return False
         if (allow_not_fully_evolved == False) and (mon.is_fully_evolved == False):
-            if debug or FULL_DEBUG:
+            if DEBUG:
                 print("party",[mon.name for mon in party], "contains", mon.name, "which violates config option allow_not_fully_evolved =",allow_not_fully_evolved)
             return False
         if (allow_legendaries == False) and (mon.is_legendary):
-            if debug or FULL_DEBUG:
+            if DEBUG:
                 print("party",[mon.name for mon in party], "contains", mon.name, "which violates config option allow_legendaries =",allow_legendaries)
             return False
         if (allow_dual_type == False) and (len(mon.types) > 1):
-            if debug or FULL_DEBUG:
+            if DEBUG:
                 print("party",[mon.name for mon in party], "contains", mon.name, "which violates config option allow_dual_type =", allow_dual_type)
             return False
         if mon.evolution_method_required not in allowed_evo_methods:
-            if debug or FULL_DEBUG:
+            if DEBUG:
                 print("party",[mon.name for mon in party], "contains", mon.name, "which violates config option allowed_evo_methods =", allowed_evo_methods)
             return False
         if bst_max != 'none':
             if mon.base_stat_total > bst_max:
-                if debug or FULL_DEBUG:
+                if DEBUG:
                     print("party", [mon.name for mon in party], "contains", mon.name,"which violates config option bst_max =", bst_max)
                 return False
         if bst_min != 'none':
             if mon.base_stat_total < bst_min:
-                if debug or FULL_DEBUG:
+                if DEBUG:
                     print("party", [mon.name for mon in party], "contains", mon.name,"which violates config option bst_min =", bst_min)
                 return False
 
@@ -246,11 +244,12 @@ def is_party_progression_viable(party, all_pools, all_pokemon, config_data, meta
             "random_pool_entry_instance": a random pool entry from the instances (in the earliest pool) of the earliest form
         }
     """
-    debug = False
+    
 
     final_party_with_acquisition_data = []
 
     for mon in party:
+
         form_found = False
         # keep track of all the previous evos we need to search for in the pools first (order matters)
         cur_mon = mon
@@ -297,7 +296,8 @@ def is_party_progression_viable(party, all_pools, all_pokemon, config_data, meta
 
         if not form_found:
             #TODO make sure starter isn't checked for here, otherwise it'll always say not found in pools
-            if debug or FULL_DEBUG:
+
+            if DEBUG:
                 print("Fail. No obtainable forms found for", mon.name, "in enabled spheres", enabled_spheres)
             return False
 
@@ -328,10 +328,29 @@ def is_party_progression_viable(party, all_pools, all_pokemon, config_data, meta
             if inst["acquisition_method"] in limited_methods:
                 pair = (inst["acquisition_method"], inst["acquiring_location"])
                 if pair in seen_pairs:
-                    if debug or FULL_DEBUG:
+                    if DEBUG:
                         print("Fail. Multiple instances of limited acquisition method/location pair:", entry["party_member_obj"].name, "with", pair)
                     return False
                 seen_pairs.add(pair)
+
+        return True
+
+    def validate_only_one_starter(party_with_acquisition_data) -> bool:
+        """
+        Checks whether there is > 1 starter in a party.
+        """
+
+        seen_starters = set()
+
+        for entry in party_with_acquisition_data:
+            inst = entry["random_pool_entry_instance"]
+            pkmn = entry["earliest_form"]
+            if inst["acquisition_method"] == 'starter':
+                seen_starters.add((pkmn.name, inst["acquisition_method"], inst["acquiring_location"]))
+                if len(seen_starters) > 1:
+                    if DEBUG:
+                        print("Fail. Multiple starters from same location:", seen_starters)
+                    return False
 
         return True
 
@@ -356,11 +375,12 @@ def is_party_progression_viable(party, all_pools, all_pokemon, config_data, meta
     # Final validations for party, return False if they don't pass
     if (
         (not validate_limited_methods(final_party_with_acquisition_data, limited_methods_from_metadata)) or
+        (not validate_only_one_starter(final_party_with_acquisition_data)) or
         (not validate_evo_item_conditions(final_party_with_acquisition_data))
     ):
         return False
     else:
-        if debug or FULL_DEBUG:
+        if DEBUG:
             print("Party is progression viable!")
         return final_party_with_acquisition_data
 
@@ -532,9 +552,9 @@ def construct_full_pokemon_set(pokedex_data) -> dict[str, 'Pokemon']:
     returns:
         all_pokemon (dict of Pokemon objects where keys are names of Pokemon)
     """
-    debug = False
+    
 
-    if debug or FULL_DEBUG:
+    if DEBUG:
         print("Constructing full Pokemon set...")
 
     # create empty dict
@@ -558,7 +578,7 @@ def construct_full_pokemon_set(pokedex_data) -> dict[str, 'Pokemon']:
         # add current mon's Pokemon object to dict
         all_pokemon[cur_mon["name"]] = cur_mon_obj
 
-    if debug or FULL_DEBUG:
+    if DEBUG:
         print("Done.")
 
     return all_pokemon
@@ -573,9 +593,9 @@ def construct_full_location_set(location_data) -> dict[str, Location]:
     returns:
         all_locations (dict of Location objects where keys are names of locations)
     """
-    debug = False
+    
 
-    if debug or FULL_DEBUG:
+    if DEBUG:
         print("Constructing full location set...")
 
     # create empty dict
@@ -586,6 +606,7 @@ def construct_full_location_set(location_data) -> dict[str, Location]:
         # create object of class Location for current location
         cur_loc_obj = Location(
             name=cur_loc["map_name"],
+            starter=cur_loc["starter"] if "starter" in cur_loc else None,
             walk=cur_loc["walk"] if "walk" in cur_loc else None,
             surf=cur_loc["surf"] if "surf" in cur_loc else None,
             old_rod=cur_loc["old_rod"] if "old_rod" in cur_loc else None,
@@ -603,7 +624,7 @@ def construct_full_location_set(location_data) -> dict[str, Location]:
         # add current loc's Location object to dict
         all_locations[cur_loc["map_name"]] = cur_loc_obj
 
-    if debug or FULL_DEBUG:
+    if DEBUG:
         print("Done.")
 
     return all_locations
@@ -619,9 +640,9 @@ def construct_spheres(meta_data, all_locations) -> dict[int, Sphere]:
     returns:
         all_spheres (dict of Sphere objects, where keys are numbers (int) of spheres)
     """
-    debug = False
+    
 
-    if debug or FULL_DEBUG:
+    if DEBUG:
         print("Constructing spheres...")
 
     # create empty set
@@ -648,7 +669,7 @@ def construct_spheres(meta_data, all_locations) -> dict[int, Sphere]:
         # create a Sphere object and add it to the dict of all spheres, where the key is the sphere num (1, 2, 3, etc.)
         all_spheres[sphere_num] = Sphere(maps, items, acquisition_unlocks)
 
-    if debug or FULL_DEBUG:
+    if DEBUG:
         print("Done.")
 
     return all_spheres
@@ -667,9 +688,9 @@ def build_pools(all_spheres, all_pokemon, starting_acquisition_methods) -> dict[
         all_pools (dict of pools -> {pool_num: {"pool_entries": [list of pool entries], "inventory": [list of items up to this pool]}})
             example pool entry: {"pokemon_obj": Pokemon object, "acquisition_method": method (str), "acquiring_location": location name (str)}
     """
-    debug = False
+    
 
-    if debug or FULL_DEBUG:
+    if DEBUG:
         print("Building pools...")
 
     all_pools = dict()
@@ -739,7 +760,7 @@ def build_pools(all_spheres, all_pokemon, starting_acquisition_methods) -> dict[
 
         all_pools[sphere_num] = {"pool_entries": current_pool_entries, "inventory": [item for item in inventory]}
 
-    if debug or FULL_DEBUG:
+    if DEBUG:
         print("Done.")
 
     return all_pools

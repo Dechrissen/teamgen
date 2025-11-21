@@ -12,7 +12,7 @@ def display_party(party_blob):
     print(f"{YELLOW}===== TeamGen ====={RESET}\n")
 
     if not party_blob:
-        #print("No party generated yet.\n")
+        print("No party.\n")
         return
 
     # 6 Pokemon names
@@ -28,10 +28,15 @@ def display_party(party_blob):
     print()
 
 def ui_loop(all_pools, all_pokemon, config_data, meta_data):
+
     party_on_screen = None
 
     while True:
-        clear()
+        if DEBUG:
+            pass
+        else:
+            clear()
+
         display_party(party_on_screen)
 
         print("Press ENTER to generate a new party, or Q to quit.")
@@ -41,7 +46,10 @@ def ui_loop(all_pools, all_pokemon, config_data, meta_data):
             return
 
         # ENTER → generate new party
-        clear()
+        if DEBUG:
+            pass
+        else:
+            clear()
         print("Generating party...\n")
 
         party_blob = generate_final_party(

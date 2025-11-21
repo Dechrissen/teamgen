@@ -1,5 +1,8 @@
 # TODO
 
+- [ ] add a donation button, or github sponsor button (in readme?)
+- post on reddit when done
+
 - [ ] in progression yaml, figure out how to handle trade rooms as well -- when do u get access to them or how do u 
   keep track of that?
   - should they have values like "needs: onix, gets: mrmime" ?
@@ -12,6 +15,10 @@
 
 - make "gift" into "choice" for HITMONs?
 
+- [ ] add "user defined modals" to the config, which are extra modals that get added to the modal list when doing 
+  the check
+  - e.g. "nidoran_m and nidoran_f"
+  - jynx and mr.mime
 
 - [ ] maybe change all the stuff in the config YAML to be lists, not yaml-coded lists with booleans. Would be better 
   for future-proofing when adding more acquisition methods?
@@ -25,11 +32,8 @@
 - [ ] ? I think the config should maybe be a Config class. This would make it easier to validate and pass along to 
   functions
 
-
 - [ ] data validation tests, add "assert bst_max is int" for example so i dont have to worry about type validation in 
   the functions themselves
-
-- [ ] add DEBUG output to build_pools, etc.
 
 - [ ] Ultimately need one big blob of final output data from which to pull for visual printed output
   - party members

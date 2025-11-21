@@ -126,3 +126,14 @@ Then your original line would work as written:
   - for this mode, it might not work with the other options like BALANCED, etc. so i wonder if you just leave it 
     all as-is and let the user see if it works, or if you add in overrides to ignore the balancing for this mode
 - add PNGs of all the sprites and output them with some image library
+- wacky "team name assignment" feature. analyzes certain things about the pokemon (types? egg group? etc) and 
+  somehow generates a name for the team from a preset pool of nouns and adjectives etc. ("the aquatic defenders"... 
+  "the fiery humanoids") :/ ... idk
+- add a "Team Defense" and "Team Coverage" analysis to the output, like here: https://richi3f.github.io/pokemon-team-planner
+- Learn how to make a Python app work on web app --> `teamgen.app`
+
+
+## Similar things
+- https://richi3f.github.io/pokemon-team-planner
+- https://randompokemon.com/
+- https://mypokemonteam.com/

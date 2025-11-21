@@ -1,6 +1,6 @@
-from Pokemon import Pokemon
-from Location import Location
-from Sphere import Sphere
+from models.Pokemon import Pokemon
+from models.Location import Location
+from models.Sphere import Sphere
 import random
 
 FULL_DEBUG = False
@@ -10,18 +10,29 @@ def generate_final_party(all_pools: dict, all_pokemon: dict, config_data: dict, 
     """
     Generates a final party of Pokemon.
 
+    args:
+        all_pools (dict of pools)
+        all_pokemon (dict of Pokemon objects)
+        config_data (dict): the config options from the config YAML
+        meta_data (dict): the config options from the config YAML
+        n (int): optional party size
+        retry (int): optional
+        max_retries (int): optional
+        max_iterations (int): optional
+
     returns:
         final party blob (party, acquisition data, distribution, balance stats)
         OR None if it fails after max_retries
     """
     debug = False
 
+    if retry > max_retries:
+        if debug or FULL_DEBUG:
+            print("Could not generate valid party with current settings!")
+        return None
+
     if debug or FULL_DEBUG:
         print(f"[Attempt {retry} start]")
-
-    if retry > max_retries:
-        return None
-        #raise RuntimeError("Could not generate valid party")
 
     iterations = 0
     tentative_party = []
@@ -100,11 +111,11 @@ def generate_final_party(all_pools: dict, all_pokemon: dict, config_data: dict, 
 
 def is_party_valid(party, is_party_full, config_data, meta_data) -> bool:
     """
-    Checks whether a party is valid per the config options from the config YAML.
+    Checks whether a party is valid per the config options in the config YAML.
 
     args:
         party (list of Pokemon objects)
-        is_party_full (bool: whether the len(party) is equal to the desired party size)
+        is_party_full (bool): whether the len(party) is equal to the desired party size
         config_data (dict): the config options from the config YAML
         meta_data (dict): the metadata from the meta YAML
 
@@ -214,13 +225,18 @@ def is_party_valid(party, is_party_full, config_data, meta_data) -> bool:
 
 def is_party_progression_viable(party, all_pools, all_pokemon, config_data, meta_data) -> list | bool:
     """
-    This should either return the party with added acquisition data if it is obtainable from the pools
-    OR False if the party is not obtainable from the pools.
+    Returns the party (list) with added acquisition data if it is obtainable from the pools
+    OR False if the party is not obtainable from the pools
 
     args:
-        #TODO
+        party (list of Pokemon objects)
+        all_pools (dict of pools)
+        all_pokemon (dict of Pokemon objects)
+        config_data (dict): the config options from the config YAML
+        meta_data (dict): the metadata from the meta YAML
+
     returns:
-        final_party_with_acquisition_data or False
+        final_party_with_acquisition_data OR False
 
     final_party_with_acquisition_data is a list of these objects:
         {
@@ -319,7 +335,7 @@ def is_party_progression_viable(party, all_pools, all_pokemon, config_data, meta
 
         return True
 
-    def validate_evo_item_conditions(party_with_acquisition_data):
+    def validate_evo_item_conditions(party_with_acquisition_data) -> bool:
         """
         Validates whether the party is viable per the evo_items available in the meta YAML.
         For each party member, if any of the Pokemon in the species line and below need a stone evo method,
@@ -349,16 +365,21 @@ def is_party_progression_viable(party, all_pools, all_pokemon, config_data, meta
         return final_party_with_acquisition_data
 
 
-def assign_balance_grade(party_with_acquisition_data, meta_data):
+def assign_balance_grade(party_with_acquisition_data, meta_data) -> dict:
     """
     Assigns a balance grade to a Pokémon party based on the distribution of each member's
     availability in the enabled spheres (game progression pools).
 
-    Returns a dict with:
+    args:
+        party_with_acquisition_data (list): output of is_party_progression_viable
+        meta_data (dict): the metadata from the meta YAML
+
+    returns a dict with these keys:
+    - party_distribution: dict of sphere_num/pokemon_count key/value pairs
     - lean: qualitative indication of early vs late game (early_game_heavy / balanced / late_game_heavy)
     - spread: span of spheres covered (clustered / mixed_spread / wide_spread)
     - pattern: qualitative shape of party across spheres
-               (early_late_split, middle_only, dual_cluster, single_cluster, or None)
+               (early_late_split, middle_only, dual_cluster, single_cluster, None)
     - score_median: normalized median sphere (0=start of game, 1=end), for reference
     """
 
@@ -372,8 +393,6 @@ def assign_balance_grade(party_with_acquisition_data, meta_data):
 
     for member in party_with_acquisition_data:
         party_distribution[member["earliest_pool"]] += 1
-
-    #print("party distribution:", party_distribution)
 
     total = sum(party_distribution.values())
     if total == 0 or total_spheres < 2:
@@ -396,7 +415,7 @@ def assign_balance_grade(party_with_acquisition_data, meta_data):
 
     lean_score = (median_sphere - 1) / (total_spheres - 1)
 
-    # Determine majority of Pokémon in lower vs upper half
+    # Determine if majority of Pokemon in lower or upper half
     halfway_index = total_spheres // 2
     lower_half_count = sum(
         count for sphere, count in party_distribution.items()
@@ -424,9 +443,9 @@ def assign_balance_grade(party_with_acquisition_data, meta_data):
 
     sp_low, sp_high = spread_cutoffs
     if spread_score < sp_low:
-        spread = 'clustered'       # Pokémon tightly grouped in few spheres
+        spread = 'clustered'       # Pokemon tightly grouped in few spheres
     elif spread_score > sp_high:
-        spread = 'wide_spread'     # Pokémon span most/all of the game
+        spread = 'wide_spread'     # Pokemon span most/all of the game
     else:
         spread = 'mixed_spread'    # intermediate span
 
@@ -444,7 +463,7 @@ def assign_balance_grade(party_with_acquisition_data, meta_data):
             and any(c == 0 for i, c in party_distribution.items() if i not in (1, total_spheres))):
         pattern = 'early_late_split'    # Clusters at the start and end
     elif all(middle_start <= s <= middle_end for s in active_spheres):
-        pattern = 'middle_only'         # All Pokémon in middle third
+        pattern = 'middle_only'         # All Pokemon in middle third
     elif gaps == 1:
         pattern = 'dual_cluster'        # Two separate clusters
     elif len(active_spheres) > 1 and max(active_spheres) - min(active_spheres) + 1 == len(active_spheres):
@@ -465,6 +484,13 @@ def assign_balance_grade(party_with_acquisition_data, meta_data):
 def validate_balance_grade(balance_stats, config_data) -> bool:
     """
     Checks whether a balance grade is valid per the allowed balance modes in a config YAML.
+
+    args:
+        balance_stats (dict): output of assign_balance_grade
+        config_data (dict): the config options from the config YAML
+
+    returns:
+        bool
     """
     allowed_balancing = [mode for mode in config_data['allowed_balancing']]
     allowed_spreads = [mode for mode in config_data['allowed_spreads']]
@@ -491,7 +517,7 @@ def generate_random_mon(all_pokemon: dict[str, 'Pokemon']) -> 'Pokemon':
         all_pokemon (dict of Pokemon objects)
 
     returns:
-        random_pokemon
+        random Pokemon object
     """
 
     return random.choice(list(all_pokemon.values()))
@@ -506,6 +532,11 @@ def construct_full_pokemon_set(pokedex_data) -> dict[str, 'Pokemon']:
     returns:
         all_pokemon (dict of Pokemon objects where keys are names of Pokemon)
     """
+    debug = False
+
+    if debug or FULL_DEBUG:
+        print("Constructing full Pokemon set...")
+
     # create empty dict
     all_pokemon = dict()
 
@@ -527,6 +558,9 @@ def construct_full_pokemon_set(pokedex_data) -> dict[str, 'Pokemon']:
         # add current mon's Pokemon object to dict
         all_pokemon[cur_mon["name"]] = cur_mon_obj
 
+    if debug or FULL_DEBUG:
+        print("Done.")
+
     return all_pokemon
 
 def construct_full_location_set(location_data) -> dict[str, Location]:
@@ -539,6 +573,11 @@ def construct_full_location_set(location_data) -> dict[str, Location]:
     returns:
         all_locations (dict of Location objects where keys are names of locations)
     """
+    debug = False
+
+    if debug or FULL_DEBUG:
+        print("Constructing full location set...")
+
     # create empty dict
     all_locations = dict()
 
@@ -564,6 +603,9 @@ def construct_full_location_set(location_data) -> dict[str, Location]:
         # add current loc's Location object to dict
         all_locations[cur_loc["map_name"]] = cur_loc_obj
 
+    if debug or FULL_DEBUG:
+        print("Done.")
+
     return all_locations
 
 def construct_spheres(meta_data, all_locations) -> dict[int, Sphere]:
@@ -571,11 +613,17 @@ def construct_spheres(meta_data, all_locations) -> dict[int, Sphere]:
     Creates a set of all Spheres from an input meta YAML.
 
     args:
-        meta_data (from meta YAML), all_locations (dict of all Location objects)
+        meta_data (from meta YAML)
+        all_locations (dict of all Location objects)
 
     returns:
         all_spheres (dict of Sphere objects, where keys are numbers (int) of spheres)
     """
+    debug = False
+
+    if debug or FULL_DEBUG:
+        print("Constructing spheres...")
+
     # create empty set
     all_spheres = dict()
 
@@ -600,6 +648,9 @@ def construct_spheres(meta_data, all_locations) -> dict[int, Sphere]:
         # create a Sphere object and add it to the dict of all spheres, where the key is the sphere num (1, 2, 3, etc.)
         all_spheres[sphere_num] = Sphere(maps, items, acquisition_unlocks)
 
+    if debug or FULL_DEBUG:
+        print("Done.")
+
     return all_spheres
 
 
@@ -616,6 +667,11 @@ def build_pools(all_spheres, all_pokemon, starting_acquisition_methods) -> dict[
         all_pools (dict of pools -> {pool_num: {"pool_entries": [list of pool entries], "inventory": [list of items up to this pool]}})
             example pool entry: {"pokemon_obj": Pokemon object, "acquisition_method": method (str), "acquiring_location": location name (str)}
     """
+    debug = False
+
+    if debug or FULL_DEBUG:
+        print("Building pools...")
+
     all_pools = dict()
 
     # to keep track of set of items that enable evolution (stones, etc.)
@@ -682,5 +738,8 @@ def build_pools(all_spheres, all_pokemon, starting_acquisition_methods) -> dict[
         spheres_checked[sphere_num] = {"methods_expanded": [method for method in enabled_acquisition_methods]}
 
         all_pools[sphere_num] = {"pool_entries": current_pool_entries, "inventory": [item for item in inventory]}
+
+    if debug or FULL_DEBUG:
+        print("Done.")
 
     return all_pools

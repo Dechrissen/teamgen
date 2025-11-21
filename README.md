@@ -1,4 +1,4 @@
-# `teamgen`, a universal party generator
+# TeamGen – Universal Party Generator
 
 A tool for generating a random, progression-viable party of six (or fewer) Pokémon for use in a Pokémon playthrough. 
 Pokémon availability and game progression are respected in the final output. Customization options are 

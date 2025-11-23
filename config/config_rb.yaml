@@ -67,5 +67,5 @@ allowed_acquisition_methods:
   prize_window: true
 
 # CLI UI
-show_acquisition_details: false
+show_acquisition_details: true
 show_balance_stats: true

@@ -1,19 +1,51 @@
 import os
 from Core import *
+from data.loader import build_all_data_structures
+import yaml
 
 def clear():
     os.system("cls" if os.name == "nt" else "clear")
 
-def display_party(party_blob, config_data):
+def set_game(mappings):
+    selected_game = None
+    valid_options = {}
+
+    for i, game_title in enumerate(mappings.keys(), start=1):
+        valid_options[str(i)] = game_title
+        print(f"{i}. {game_title}")
+
+    print("")
+    print("Select a game by number.\n")
+
+    user = input().strip().lower()
+
+    if user not in valid_options.keys():
+        print("not valid")
+        return False
+    else:
+        print("valid")
+        selected_game = valid_options[user]
+        print(f"selected game is {selected_game} with mappings {mappings[selected_game]}")
+        with open("./config/global_settings.yaml", "r") as f:
+            data = yaml.safe_load(f)
+        data["game"] = selected_game
+        with open("config/global_settings.yaml", "w") as f:
+            yaml.safe_dump(data, f)
+        return True
+
+def display_party(party_blob, config_data, game):
     # ANSI codes
     TITLE = "\033[30m\033[103m" # black text, bright yellow background
     BRIGHT_GREEN = "\033[92m"
     BRIGHT_MAGENTA = "\033[95m"
+    BRIGHT_RED = "\033[91m"
     RESET = "\033[0m"
 
     print(f"{TITLE}===== TeamGen ====={RESET}\n")
 
-    # Case 1: Never generated yet
+    print(f"Game: {game}\n")
+
+    # Case 1: Never generated yet, or set_game invalid option was passed
     if party_blob is None:
         print("Welcome to TeamGen!\n")
         return
@@ -21,6 +53,10 @@ def display_party(party_blob, config_data):
     # Case 2: Tried but failed
     if party_blob is False:
         print("No party could be generated with current settings!\n")
+        return
+
+    if party_blob == 'invalid_input':
+        print(f"{BRIGHT_RED}Invalid input! Please try again.{RESET}\n")
         return
 
     # print Pokemon
@@ -47,7 +83,9 @@ def display_party(party_blob, config_data):
 
     print()
 
-def ui_loop(all_pools, all_pokemon, config_data, meta_data):
+def ui_loop(all_pools, all_pokemon, config_data, meta_data, global_settings, mappings, game):
+
+
     # ANSI codes
     GREEN = "\033[32m"
     BRIGHT_CYAN = "\033[96m"
@@ -64,16 +102,20 @@ def ui_loop(all_pools, all_pokemon, config_data, meta_data):
 
         mode = None
 
-        display_party(party_on_screen, config_data)
+        display_party(party_on_screen, config_data, game)
 
-        print(f"{BRIGHT_CYAN}ENTER{RESET} - Generate")
-        print(f"{BRIGHT_CYAN}R{RESET} - Random mode")
+        print(f"Press {BRIGHT_CYAN}ENTER{RESET} to generate a party.")
+        print(f"{BRIGHT_CYAN}R{RESET} - Random generation")
+        print(f"{BRIGHT_CYAN}S{RESET} - Set game")
         print(f"{BRIGHT_CYAN}Q{RESET} - Quit")
         print("")
         user = input().strip().lower()
 
         if user == "q":
+            print("Goodbye!")
             return
+        if user == "s":
+            mode = "set_game"
         if user == "r":
             mode='full_randomizer'
 
@@ -82,11 +124,21 @@ def ui_loop(all_pools, all_pokemon, config_data, meta_data):
             pass
         else:
             clear()
-        print("Generating party...\n")
+
 
         if mode == 'full_randomizer':
+            print("Generating party...\n")
             party_blob = generate_fully_randomized_party(all_pokemon, n=6)
+        elif mode == 'set_game':
+            if set_game(mappings):
+                all_pools, all_pokemon, config_data, meta_data, global_settings, mappings, game = build_all_data_structures()
+                party_on_screen = None
+                continue
+            else:
+                party_on_screen = 'invalid_input'
+                continue
         else:
+            print("Generating party...\n")
             party_blob = generate_final_party(
                 all_pools, all_pokemon, config_data, meta_data, n=6
             )

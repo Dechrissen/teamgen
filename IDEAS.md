@@ -135,6 +135,8 @@ Then your original line would work as written:
   "the fiery humanoids") :/ ... idk
 - add a "Team Defense" and "Team Coverage" analysis to the output, like here: https://richi3f.github.io/pokemon-team-planner
 - Learn how to make a Python app work on web app --> `teamgen.app`
+- Integrate with randomized roms of vanilla games (need a function that reads rom data and outputs pokemon data in 
+  my needed format in `locations` yaml)
 
 
 ## Similar things

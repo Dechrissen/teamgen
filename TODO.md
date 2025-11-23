@@ -35,16 +35,18 @@
 - [ ] ? I think the config should maybe be a Config class. This would make it easier to validate and pass along to 
   functions
 
-- [ ] data validation tests, add "assert bst_max is int" for example so i dont have to worry about type validation in 
+- [ ] YAML data validation tests, add "assert bst_max is int" for example so i dont have to worry about type 
+  validation in 
   the functions themselves
 
 - [ ] Decide if adding stone evo validation
 
+- [ ] order output by sphere, ascending
+  - add special check 'if starter, always put in slot 1'
+  - but everything else doesn't matter, just sphere order
 
-- [ ] Need a "select game" feature (or maybe this will just be in config?)
-  - needs to define all relevant YAMLs to link together for X game or Y game
-
-
+- [ ] Should the 'output acquisition data/balance stats' options be in the global_settings yaml?
+  - maybe add a mode 'o' for output to change these in the CLI UI
 
 - [ ] add presets for enabled spheres in meta (or config) file
   - exclude_postgame (6)

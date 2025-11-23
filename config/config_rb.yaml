@@ -8,8 +8,8 @@ allowed_patterns: [single_cluster, dual_cluster, early_late_split] # options: si
 
 force_starter: true
 
-allow_not_fully_evolved: true
-max_evo_stage: 2 # options: int
+allow_not_fully_evolved: false
+max_evo_stage: 3 # options: int
 
 allow_legendaries: false
 allow_duplicate_species: false
@@ -44,7 +44,7 @@ bst_min: none # options: integers or none
 ensure_hm_coverage:
   FLASH: false
   CUT: true
-  STRENGTH: false
+  STRENGTH: true
   FLY: false
   SURF: true
   DIG: false
@@ -67,5 +67,5 @@ allowed_acquisition_methods:
   prize_window: true
 
 # CLI UI
+show_acquisition_details: false
 show_balance_stats: true
-show_acquisition_details: true

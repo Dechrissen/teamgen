@@ -3,10 +3,10 @@ from models.Location import Location
 from models.Sphere import Sphere
 import random
 
-DEBUG = True
+DEBUG = False
 
 def generate_final_party(all_pools: dict, all_pokemon: dict, config_data: dict, meta_data: dict, n: int = 6,
-                         retry: int = 0, max_retries: int = 10, max_iterations: int = 5000):
+                         retry: int = 0, max_retries: int = 50, max_iterations: int = 10000):
     """
     Generates a final party of Pokemon.
 
@@ -24,7 +24,6 @@ def generate_final_party(all_pools: dict, all_pokemon: dict, config_data: dict, 
         final party blob (party, acquisition data, distribution, balance stats)
         OR None if it fails after max_retries
     """
-    
 
     if retry > max_retries:
         if DEBUG:
@@ -122,8 +121,7 @@ def is_party_valid(party, is_party_full, config_data, meta_data) -> bool:
     returns:
         bool: whether the party is valid
     """
-    
-    
+
     # set up metadata
     starter_species = meta_data["starter_species"]
     modal_species = meta_data["modal_species"]
@@ -138,6 +136,7 @@ def is_party_valid(party, is_party_full, config_data, meta_data) -> bool:
     type_distribution = config_data["type_distribution"]
     species_blacklist = config_data["species_blacklist"]
     allowed_evo_methods = [em for em in config_data["allowed_evo_methods"] if config_data["allowed_evo_methods"][em] == True]
+    max_evo_stage = config_data["max_evo_stage"]
     bst_max = config_data["bst_max"]
     bst_min = config_data["bst_min"]
     ensure_hm_coverage = set([hm for hm in config_data["ensure_hm_coverage"] if config_data["ensure_hm_coverage"][hm] == True])
@@ -190,8 +189,12 @@ def is_party_valid(party, is_party_full, config_data, meta_data) -> bool:
                     print("party", [mon.name for mon in party], "violates modal group", modal_group)
                 return False
 
-    # check each mon against config options
+    # now check each mon against some more config options
     for mon in party:
+        if mon.evo_stage > max_evo_stage:
+            if DEBUG:
+                print("party",[mon.name for mon in party], "contains", mon.name, "which violates config option max_evo_stage =",max_evo_stage)
+            return False
         if (allow_not_fully_evolved == False) and (mon.is_fully_evolved == False):
             if DEBUG:
                 print("party",[mon.name for mon in party], "contains", mon.name, "which violates config option allow_not_fully_evolved =",allow_not_fully_evolved)
@@ -244,7 +247,6 @@ def is_party_progression_viable(party, all_pools, all_pokemon, config_data, meta
             "random_pool_entry_instance": a random pool entry from the instances (in the earliest pool) of the earliest form
         }
     """
-    
 
     final_party_with_acquisition_data = []
 
@@ -260,7 +262,7 @@ def is_party_progression_viable(party, all_pools, all_pokemon, config_data, meta
             forms_to_search_in_order.append(cur_mon)
 
         # the latest mon added to forms_to_search_in_order is the lowest stage, so we want to reverse it
-        forms_to_search_in_order.reverse() #TODO do i actually wanna do this in descending order? e.g. it should check for nidoqueen first
+        forms_to_search_in_order.reverse() #TODO do i actually wanna do this in descending order? should it check for highest evo first?
 
         allowed_acquisition_methods = [method for method in config_data["allowed_acquisition_methods"] if
                                        config_data["allowed_acquisition_methods"][method] == True]
@@ -295,10 +297,8 @@ def is_party_progression_viable(party, all_pools, all_pokemon, config_data, meta
                 break
 
         if not form_found:
-            #TODO make sure starter isn't checked for here, otherwise it'll always say not found in pools
-
             if DEBUG:
-                print("Fail. No obtainable forms found for", mon.name, "in enabled spheres", enabled_spheres)
+                print("FAIL. No obtainable forms found for", mon.name, "in enabled spheres", enabled_spheres)
             return False
 
         # --- TEST ---
@@ -321,17 +321,18 @@ def is_party_progression_viable(party, all_pools, all_pokemon, config_data, meta
         Checks whether there are > 1 Pokemon in a party that share both the same limited
         acquisition_method and acquiring_location.
         """
-        seen_pairs = set()
+        seen_triplets = set()
 
         for entry in party_with_acquisition_data:
             inst = entry["random_pool_entry_instance"]
+            pkmn = entry["earliest_form"]
             if inst["acquisition_method"] in limited_methods:
-                pair = (inst["acquisition_method"], inst["acquiring_location"])
-                if pair in seen_pairs:
+                triplet = (pkmn.name, inst["acquisition_method"], inst["acquiring_location"])
+                if triplet in seen_triplets:
                     if DEBUG:
-                        print("Fail. Multiple instances of limited acquisition method/location pair:", entry["party_member_obj"].name, "with", pair)
+                        print("FAIL. Multiple instances of limited acquisition method/location with same Pokémon:", triplet)
                     return False
-                seen_pairs.add(pair)
+                seen_triplets.add(triplet)
 
         return True
 
@@ -339,7 +340,6 @@ def is_party_progression_viable(party, all_pools, all_pokemon, config_data, meta
         """
         Checks whether there is > 1 starter in a party.
         """
-
         seen_starters = set()
 
         for entry in party_with_acquisition_data:
@@ -349,7 +349,7 @@ def is_party_progression_viable(party, all_pools, all_pokemon, config_data, meta
                 seen_starters.add((pkmn.name, inst["acquisition_method"], inst["acquiring_location"]))
                 if len(seen_starters) > 1:
                     if DEBUG:
-                        print("Fail. Multiple starters from same location:", seen_starters)
+                        print("FAIL. Multiple starters from same location:", seen_starters)
                     return False
 
         return True
@@ -521,10 +521,16 @@ def validate_balance_grade(balance_stats, config_data) -> bool:
     assigned_pattern = balance_stats['pattern']
 
     if assigned_balancing not in allowed_balancing:
+        if DEBUG:
+            print(f"FAIL (Balancing). Lean '{assigned_balancing}' not in allowed_balancing {allowed_balancing}")
         return False
     if assigned_spread not in allowed_spreads:
+        if DEBUG:
+            print(f"FAIL (Balancing). Spread '{assigned_spread}' not in allowed_spreads {allowed_spreads}")
         return False
     if assigned_pattern not in allowed_patterns:
+        if DEBUG:
+            print(f"FAIL (Balancing). Pattern '{assigned_pattern}' not in allowed_patterns {allowed_patterns}")
         return False
     return True
 
@@ -539,8 +545,31 @@ def generate_random_mon(all_pokemon: dict[str, 'Pokemon']) -> 'Pokemon':
     returns:
         random Pokemon object
     """
-
     return random.choice(list(all_pokemon.values()))
+
+def generate_fully_randomized_party(all_pokemon: dict[str, 'Pokemon'], n: int = 6):
+    party = []
+
+    for i in range(n):
+        mon = generate_random_mon(all_pokemon)
+        entry = {
+            "party_member_obj": mon,
+            "earliest_form": None,
+            "earliest_pool": None,
+            "random_pool_entry_instance": None
+        }
+        party.append(entry)
+
+    final_party_blob = {
+        "party_with_acquisition_data": party,
+        'party_distribution': None,
+        'score_median': None,
+        'lean': None,
+        'spread': None,
+        'pattern': None
+    }
+
+    return final_party_blob
 
 def construct_full_pokemon_set(pokedex_data) -> dict[str, 'Pokemon']:
     """
@@ -552,7 +581,6 @@ def construct_full_pokemon_set(pokedex_data) -> dict[str, 'Pokemon']:
     returns:
         all_pokemon (dict of Pokemon objects where keys are names of Pokemon)
     """
-    
 
     if DEBUG:
         print("Constructing full Pokemon set...")
@@ -593,7 +621,6 @@ def construct_full_location_set(location_data) -> dict[str, Location]:
     returns:
         all_locations (dict of Location objects where keys are names of locations)
     """
-    
 
     if DEBUG:
         print("Constructing full location set...")
@@ -640,7 +667,6 @@ def construct_spheres(meta_data, all_locations) -> dict[int, Sphere]:
     returns:
         all_spheres (dict of Sphere objects, where keys are numbers (int) of spheres)
     """
-    
 
     if DEBUG:
         print("Constructing spheres...")
@@ -664,7 +690,8 @@ def construct_spheres(meta_data, all_locations) -> dict[int, Sphere]:
                 items.append(element['name'])
             elif element['type'] == 'acquisition_unlock':
                 acquisition_unlocks.append(element['name'])
-            #TODO add a fallback here to check for any other type and raise an Error?
+            else:
+                raise TypeError(f"Type '{element['type']}' for '{element['name']}' not supported in meta YAML (sphere {sphere_num}).")
 
         # create a Sphere object and add it to the dict of all spheres, where the key is the sphere num (1, 2, 3, etc.)
         all_spheres[sphere_num] = Sphere(maps, items, acquisition_unlocks)
@@ -688,7 +715,6 @@ def build_pools(all_spheres, all_pokemon, starting_acquisition_methods) -> dict[
         all_pools (dict of pools -> {pool_num: {"pool_entries": [list of pool entries], "inventory": [list of items up to this pool]}})
             example pool entry: {"pokemon_obj": Pokemon object, "acquisition_method": method (str), "acquiring_location": location name (str)}
     """
-    
 
     if DEBUG:
         print("Building pools...")
@@ -711,7 +737,7 @@ def build_pools(all_spheres, all_pokemon, starting_acquisition_methods) -> dict[
         items = all_spheres[sphere_num].items
         acquisition_unlocks = all_spheres[sphere_num].acquisition_unlocks
         for item in items:
-            if item not in inventory: #TODO add all dupes if we want to count how many are used
+            if item not in inventory: #TODO modify this to add dupes if we want to count how many are used
                 inventory.append(item)
 
         for unlock in acquisition_unlocks:

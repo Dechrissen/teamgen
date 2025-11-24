@@ -4,6 +4,7 @@ Red:
   pokedex: './data/gen1/pokedex_rb.yaml'
   locations: './data/gen1/locations_red.yaml'
   config: './config/config_rb.yaml'
+
 Blue:
   meta: './data/gen1/meta_rb.yaml'
   pokedex: './data/gen1/pokedex_rb.yaml'
@@ -11,7 +12,7 @@ Blue:
   config: './config/config_rb.yaml'
 
 # romhacks
-Solus:
+Solus: #TODO
   meta: ''
   pokedex: ''
   locations: ''

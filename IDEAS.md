@@ -64,9 +64,6 @@
 - for trades in the pokemon data file: `"trade": ["ABRA for MR.MIME"]`
 - add ALL moon stones separately to the logic file spheres? (in `evo_items` list)
 
-- to be efficient with memory usage, we can use prompts in the command line after the program is already running, 
-  similar to pokequiz, in order to build all the data structures (Pokemon objects etc) first, then prompt the user: 
-  "Generate? Y/N" or whatever. This way it doesn't build all the data structures over and over for each run.
 
 - option to reroll 1 pokemon (e.g. `reroll 2` to reroll the second) (to do this, we can pass an optional party list 
   of Pokemon objects to the generate_final_party function. If it's non-empty, it can be treated as the base party to 
@@ -95,28 +92,6 @@ output some sort of "incompatibility" message if it detects that the 3 data YAML
 
 
 
-## idea for comparing names (str) to Location (obj) names from ChatGPT
-if you want to make Location objects comparable directly by name:
-You can define these methods in your class:
-
-```class Location:
-    def __init__(self, name):
-        self.name = name
-
-    def __eq__(self, other):
-        if isinstance(other, Location):
-            return self.name == other.name
-        if isinstance(other, str):
-            return self.name == other
-        return NotImplemented
-
-    def __hash__(self):
-        return hash(self.name)
-```
-
-Then your original line would work as written:
-`assert item['name'] in all_locations`
-…but only do this if it makes sense in your overall design (i.e., if comparing Location to a string is a valid semantic operation in your project).
 
 
 ## Later ideas

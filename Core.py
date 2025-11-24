@@ -80,7 +80,7 @@ def generate_final_party(all_pools: dict, all_pokemon: dict, config_data: dict, 
         if DEBUG:
             print("Generating balance stats...")
 
-        balance_stats = assign_balance_grade(party_with_acquisition_data, meta_data)
+        balance_stats = assign_balance_grade(party_with_acquisition_data, meta_data, config_data)
 
         if not validate_balance_grade(balance_stats, config_data):
             if DEBUG:
@@ -266,7 +266,8 @@ def is_party_progression_viable(party, all_pools, all_pokemon, config_data, meta
 
         allowed_acquisition_methods = [method for method in config_data["allowed_acquisition_methods"] if
                                        config_data["allowed_acquisition_methods"][method] == True]
-        enabled_spheres = [sphere for sphere in meta_data['enabled_spheres']]
+        sphere_mode = config_data["sphere_mode"]
+        enabled_spheres = [sphere for sphere in meta_data['sphere_generation_modes'][sphere_mode]]
 
         earliest_form_found, earliest_pool_available = None, None
         # add instances of the earliest available form of this mon (its pool_entry) to a list
@@ -385,7 +386,7 @@ def is_party_progression_viable(party, all_pools, all_pokemon, config_data, meta
         return final_party_with_acquisition_data
 
 
-def assign_balance_grade(party_with_acquisition_data, meta_data) -> dict:
+def assign_balance_grade(party_with_acquisition_data, meta_data, config_data) -> dict:
     """
     Assigns a balance grade to a Pokémon party based on the distribution of each member's
     availability in the enabled spheres (game progression pools).
@@ -407,7 +408,8 @@ def assign_balance_grade(party_with_acquisition_data, meta_data) -> dict:
     spread_cutoffs = (0.35, 0.70)
 
     # Build party distribution across enabled spheres
-    enabled_spheres = [sphere for sphere in meta_data['enabled_spheres']]
+    sphere_mode = config_data["sphere_mode"]
+    enabled_spheres = [sphere for sphere in meta_data['sphere_generation_modes'][sphere_mode]]
     total_spheres = len(enabled_spheres)
     party_distribution = {sphere: 0 for sphere in enabled_spheres}
 

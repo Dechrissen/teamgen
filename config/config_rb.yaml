@@ -11,7 +11,7 @@ force_starter: true
 allow_not_fully_evolved: false
 max_evo_stage: 3 # options: int
 
-allow_legendaries: false
+allow_legendaries: true
 allow_duplicate_species: false
 
 # Types
@@ -19,7 +19,7 @@ allow_duplicate_species: false
 
 allow_dual_type: true
 
-type_distribution: anything_goes # options: no_overlap, all_share_one_type, anything_goes
+type_distribution: no_overlap # options: no_overlap, all_share_one_type, anything_goes
 
 # only works when type_distribution = all_share_one_type
 prescribed_type: none # options: any type (fire, water, etc.) or none
@@ -47,7 +47,7 @@ ensure_hm_coverage:
   STRENGTH: true
   FLY: false
   SURF: true
-  DIG: false
+  DIG: true
   TELEPORT: false
   SOFTBOILED: false
 
@@ -65,6 +65,8 @@ allowed_acquisition_methods:
   purchase: true
   fossil_restore: true
   prize_window: true
+
+sphere_mode: pre_victory_road # options: pre_victory_road, no_cerulean_cave, all
 
 # CLI UI
 show_acquisition_details: true

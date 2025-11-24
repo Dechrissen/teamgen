@@ -3,6 +3,8 @@
 - [ ] add a donation button, or github sponsor button (in readme?)
 - post on reddit when done
 
+- add version to teamgen header (pull from python package file/info? is this a thing?)
+
 - [ ] in progression yaml, figure out how to handle trade rooms as well -- when do u get access to them or how do u 
   keep track of that?
   - should they have values like "needs: onix, gets: mrmime" ?
@@ -28,8 +30,7 @@
 - [ ] annotate the progression file so we know where certain things come from, e.g. the moon stone on route 2 can 
   only be gotten in sphere 2, so we should have a comment "from Route2 after Cut"
 
-
-- [ ] surface a "generation took X seconds" thing
+- [ ] Proper unit test suite
 
 - [ ] add Pool class
 - [ ] ? I think the config should maybe be a Config class. This would make it easier to validate and pass along to 
@@ -48,11 +49,5 @@
 - [ ] Should the 'output acquisition data/balance stats' options be in the global_settings yaml?
   - maybe add a mode 'o' for output to change these in the CLI UI
 
-- [ ] add presets for enabled spheres in meta (or config) file
-  - exclude_postgame (6)
-  - exclude_victory_road (5 and 6)
-  - johto_only
-  - johto_and_kanto
-  - johto_and_early_kanto
 
 - ask chatgpt to check every location from locations is in meta spheres list

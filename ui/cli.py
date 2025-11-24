@@ -2,6 +2,7 @@ import os
 from Core import *
 from data.loader import build_all_data_structures
 import yaml
+import time
 
 def clear():
     os.system("cls" if os.name == "nt" else "clear")
@@ -17,7 +18,7 @@ def set_game(mappings):
     print("")
     print("Select a game by number.\n")
 
-    user = input().strip().lower()
+    user = input("> ").strip().lower()
 
     if user not in valid_options.keys():
         print("not valid")
@@ -33,12 +34,13 @@ def set_game(mappings):
             yaml.safe_dump(data, f)
         return True
 
-def display_party(party_blob, config_data, game):
+def display_party(party_blob, config_data, game, duration):
     # ANSI codes
     TITLE = "\033[30m\033[103m" # black text, bright yellow background
     BRIGHT_GREEN = "\033[92m"
     BRIGHT_MAGENTA = "\033[95m"
     BRIGHT_RED = "\033[91m"
+    BLUE = "\033[34m"
     RESET = "\033[0m"
 
     print(f"{TITLE}===== TeamGen ====={RESET}\n")
@@ -60,6 +62,7 @@ def display_party(party_blob, config_data, game):
         return
 
     # print Pokemon
+    print(f"{BRIGHT_GREEN}------ PARTY ------{RESET}")
     for i, pokemon in enumerate(party_blob["party_with_acquisition_data"], start=1):
         prescription_details = ""
         if config_data['show_acquisition_details']:
@@ -82,16 +85,17 @@ def display_party(party_blob, config_data, game):
         print("pattern:", party_blob["pattern"])
 
     print()
+    if duration:
+        print(f"Generation took {duration:.2f} seconds.\n")
 
 def ui_loop(all_pools, all_pokemon, config_data, meta_data, global_settings, mappings, game):
-
-
     # ANSI codes
     GREEN = "\033[32m"
     BRIGHT_CYAN = "\033[96m"
     RESET = "\033[0m"
 
     party_on_screen = None
+    duration = None
 
     while True:
         if DEBUG:
@@ -102,14 +106,15 @@ def ui_loop(all_pools, all_pokemon, config_data, meta_data, global_settings, map
 
         mode = None
 
-        display_party(party_on_screen, config_data, game)
+        display_party(party_on_screen, config_data, game, duration)
 
         print(f"Press {BRIGHT_CYAN}ENTER{RESET} to generate a party.")
         print(f"{BRIGHT_CYAN}R{RESET} - Random generation")
         print(f"{BRIGHT_CYAN}S{RESET} - Set game")
         print(f"{BRIGHT_CYAN}Q{RESET} - Quit")
         print("")
-        user = input().strip().lower()
+
+        user = input("> ").strip().lower()
 
         if user == "q":
             print("Goodbye!")
@@ -128,7 +133,10 @@ def ui_loop(all_pools, all_pokemon, config_data, meta_data, global_settings, map
 
         if mode == 'full_randomizer':
             print("Generating party...\n")
+            start = time.time()
             party_blob = generate_fully_randomized_party(all_pokemon, n=6)
+            end = time.time()
+            duration = end - start
         elif mode == 'set_game':
             if set_game(mappings):
                 all_pools, all_pokemon, config_data, meta_data, global_settings, mappings, game = build_all_data_structures()
@@ -139,9 +147,12 @@ def ui_loop(all_pools, all_pokemon, config_data, meta_data, global_settings, map
                 continue
         else:
             print("Generating party...\n")
+            start = time.time()
             party_blob = generate_final_party(
                 all_pools, all_pokemon, config_data, meta_data, n=6
             )
+            end = time.time()
+            duration = end - start
 
         # if generation fails, mark explicitly with False
         if party_blob is None:

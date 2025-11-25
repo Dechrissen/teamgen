@@ -3,6 +3,14 @@
 - [ ] add a donation button, or github sponsor button (in readme?)
 - post on reddit when done
 
+- write README
+- workflow (shell script?) for:
+  - bumping version
+  - bundling new pyinstaller exe
+  - github action to make new tag/release
+  - adds exe to assets list in release page
+  - accepts text argument or pulls from a text file which details the patch notes which will go into the release page
+
 - add version to teamgen header (pull from python package file/info? is this a thing?)
 
 - [ ] in progression yaml, figure out how to handle trade rooms as well -- when do u get access to them or how do u 
@@ -41,13 +49,5 @@
   the functions themselves
 
 - [ ] Decide if adding stone evo validation
-
-- [ ] order output by sphere, ascending
-  - add special check 'if starter, always put in slot 1'
-  - but everything else doesn't matter, just sphere order
-
-- [ ] Should the 'output acquisition data/balance stats' options be in the global_settings yaml?
-  - maybe add a mode 'o' for output to change these in the CLI UI
-
 
 - ask chatgpt to check every location from locations is in meta spheres list

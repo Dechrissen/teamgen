@@ -39,6 +39,9 @@ def generate_final_party(all_pools: dict, all_pokemon: dict, config_data: dict, 
     # include a random starter if force_starter is selected in config
     if config_data["force_starter"]:
         rand_starter_species = random.choice(meta_data["starter_species"])
+        #TODO matching_pokemon could still be e.g. Stage 2 (less than max_evo_stage = 3) even though
+        # allow_not_fully_evolved = False, which will result in 10000 iterations because the Stage 2 mon
+        # will be included in every check of is_party_valid... fix this
         matching_pokemon = [
             all_pokemon[mon] for mon in all_pokemon
             if all_pokemon[mon].species_line == rand_starter_species and all_pokemon[mon].evo_stage <= config_data['max_evo_stage']

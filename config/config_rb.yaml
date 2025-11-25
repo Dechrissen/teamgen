@@ -4,7 +4,7 @@
 # Remove any undesired modes
 allowed_balancing: [balanced, early_game_heavy, late_game_heavy] # options: balanced, early_game_heavy, late_game_heavy
 allowed_spreads: [clustered, wide_spread, mixed_spread] # options: clustered, wide_spread, mixed_spread
-allowed_patterns: [single_cluster, dual_cluster, early_late_split] # options: single_cluster, dual_cluster, early_late_split, middle_only
+allowed_patterns: [single_cluster, dual_cluster, early_late_split, middle_only] # options: single_cluster, dual_cluster, early_late_split, middle_only
 
 force_starter: true
 
@@ -19,7 +19,7 @@ allow_duplicate_species: false
 
 allow_dual_type: true
 
-type_distribution: no_overlap # options: no_overlap, all_share_one_type, anything_goes
+type_distribution: anything_goes # options: no_overlap, all_share_one_type, anything_goes
 
 # only works when type_distribution = all_share_one_type
 prescribed_type: none # options: any type (fire, water, etc.) or none
@@ -67,7 +67,3 @@ allowed_acquisition_methods:
   prize_window: true
 
 sphere_mode: pre_victory_road # options: pre_victory_road, no_cerulean_cave, all
-
-# CLI UI
-show_acquisition_details: true
-show_balance_stats: true

@@ -1,3 +1,4 @@
+from util import resource_path
 from Core import *
 import yaml
 
@@ -28,23 +29,24 @@ def build_all_data_structures():
         print("===== DEBUG MODE =====")
 
     # get global settings
-    with open('./config/global_settings.yaml') as g:
+    with open(resource_path('config/global_settings.yaml')) as g:
         global_settings = yaml.safe_load(g)
     game = global_settings['game']
 
+
     # get game/config YAML path mappings
-    with open('./data/mappings.yaml') as m:
+    with open(resource_path('data/mappings.yaml')) as m:
         mappings = yaml.safe_load(m)
 
     # get relevant file paths for selected game in global_settings.yaml
     pokedex_file_path, locations_file_path, meta_file_path, config_file_path = expand_file_paths(mappings[game])
 
     # get selected game config data
-    with open(config_file_path) as f:
+    with open(resource_path(config_file_path)) as f:
         config_data = yaml.safe_load(f)
 
     # get selected game metadata
-    with open(meta_file_path) as m:
+    with open(resource_path(meta_file_path)) as m:
         meta_data = yaml.safe_load(m)
 
     # construct list of starting acquisition methods
@@ -55,12 +57,12 @@ def build_all_data_structures():
             starting_acquisition_methods.append(method['name'])
 
     # construct all_pokemon
-    with open(pokedex_file_path) as f:
+    with open(resource_path(pokedex_file_path)) as f:
         pokedex_data = yaml.safe_load(f)
     all_pokemon = construct_full_pokemon_set(pokedex_data)
 
     # construct all_locations
-    with open(locations_file_path) as l:
+    with open(resource_path(locations_file_path)) as l:
         location_data = yaml.safe_load(l)
     all_locations = construct_full_location_set(location_data)
 
@@ -79,4 +81,4 @@ def build_all_data_structures():
     # print(all_pools[1]['inventory'])
     # print(all_pools[2]['inventory'])
 
-    return all_pools, all_pokemon, config_data, meta_data, global_settings, mappings, game
+    return all_pools, all_pokemon, config_data, meta_data, mappings, global_settings

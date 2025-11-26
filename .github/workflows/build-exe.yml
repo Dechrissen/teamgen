@@ -1,0 +1,39 @@
+name: Build TeamGen EXE
+
+on:
+  push:
+    tags:
+      - "v*"   # triggers only when a tag is pushed, e.g., v1.4.0
+
+jobs:
+  build-windows:
+    runs-on: windows-latest
+
+    steps:
+      # 1. Checkout repo
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # 2. Set up Python
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      # 3. Install dependencies
+      - name: Install dependencies
+        run: |
+          pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install pyinstaller
+
+      # 4. Build the EXE using the spec file
+      - name: Build EXE with PyInstaller
+        run: |
+          pyinstaller teamgen.spec
+
+      # 5. Upload the EXE to GitHub Release
+      - name: Upload EXE to GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: dist/teamgen.exe

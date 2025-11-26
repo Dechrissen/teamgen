@@ -2,8 +2,11 @@
 
 - [ ] add a donation button, or github sponsor button (in readme?)
 - post on reddit when done
+- add to website/linkedin/portfolio
+  - and solus webpage?
 
 - write README
+
 - workflow (shell script?) for:
   - bumping version
   - bundling new pyinstaller exe
@@ -49,5 +52,8 @@
   the functions themselves
 
 - [ ] Decide if adding stone evo validation
+
+- add HM coverage output?
+  - list of HMs, check marks next to covered ones
 
 - ask chatgpt to check every location from locations is in meta spheres list

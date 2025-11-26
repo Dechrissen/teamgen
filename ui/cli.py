@@ -59,6 +59,7 @@ def display_party(party_blob, config_data, global_settings, duration, game, gene
     BRIGHT_GREEN = "\033[92m"
     BRIGHT_MAGENTA = "\033[95m"
     BRIGHT_RED = "\033[91m"
+    BRIGHT_BLUE = "\033[94m"
     BLUE = "\033[34m"
     RESET = "\033[0m"
 
@@ -66,8 +67,8 @@ def display_party(party_blob, config_data, global_settings, duration, game, gene
     show_balance_stats = global_settings['show_balance_stats']
 
     def print_global_settings():
-        print(f"Game: {game}")
-        print(f"Generation mode: {generation_mode}\n")
+        print(f"{BRIGHT_BLUE}Game mode{RESET}:\t {game}")
+        print(f"{BRIGHT_BLUE}Generation mode{RESET}: {generation_mode}\n")
 
     print(f"{TITLE}===== TeamGen v{__version__} ====={RESET}\n")
 

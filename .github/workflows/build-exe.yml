@@ -25,7 +25,7 @@ jobs:
 
       - name: Build EXE with PyInstaller
         run: |
-          pyinstaller --clean --onefile teamgen.spec
+          pyinstaller --clean teamgen.spec
 
       - name: Upload EXE as artifact
         uses: actions/upload-artifact@v4

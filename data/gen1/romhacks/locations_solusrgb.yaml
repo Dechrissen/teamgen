@@ -1,0 +1,834 @@
+- map_name: CeruleanCave1F
+  walk:
+  - ARBOK
+  - DITTO
+  - DODRIO
+  - GOLBAT
+  - HYPNO
+  - KADABRA
+  - MAGNETON
+  - PARASECT
+  - RAICHU
+  - SANDSLASH
+  - VENOMOTH
+  old_rod:
+  - MAGIKARP
+  good_rod:
+  - GOLDEEN
+  - POLIWAG
+  super_rod:
+  - KINGLER
+  - SEADRA
+  - SEAKING
+  - SLOWBRO
+- map_name: CeruleanCave2F
+  walk:
+  - CHANSEY
+  - DITTO
+  - DODRIO
+  - ELECTRODE
+  - KADABRA
+  - MAROWAK
+  - RHYDON
+  - VENOMOTH
+  - WIGGLYTUFF
+  old_rod:
+  - MAGIKARP
+  good_rod:
+  - GOLDEEN
+  - POLIWAG
+  super_rod:
+  - KINGLER
+  - SEADRA
+  - SEAKING
+  - SLOWBRO
+- map_name: CeruleanCaveB1F
+  walk:
+  - ARBOK
+  - CHANSEY
+  - DITTO
+  - ELECTRODE
+  - MAROWAK
+  - PARASECT
+  - RAICHU
+  - RHYDON
+  - SANDSLASH
+  old_rod:
+  - MAGIKARP
+  good_rod:
+  - GOLDEEN
+  - POLIWAG
+  super_rod:
+  - KINGLER
+  - SEADRA
+  - SEAKING
+  - SLOWBRO
+  static_encounter:
+  - MEWTWO
+- map_name: DiglettsCave
+  walk:
+  - DIGLETT
+  - DUGTRIO
+- map_name: MtMoon1F
+  walk:
+  - CLEFAIRY
+  - GEODUDE
+  - PARAS
+  - ZUBAT
+- map_name: MtMoonB1F
+  walk:
+  - CLEFAIRY
+  - GEODUDE
+  - PARAS
+  - ZUBAT
+- map_name: MtMoonB2F
+  walk:
+  - CLEFAIRY
+  - GEODUDE
+  - PARAS
+  - ZUBAT
+- map_name: PokemonMansion1F
+  walk:
+  - GRIMER
+  - GROWLITHE
+  - KOFFING
+  - MUK
+  - PONYTA
+  - VULPIX
+  - WEEZING
+- map_name: PokemonMansion2F
+  walk:
+  - GRIMER
+  - GROWLITHE
+  - KOFFING
+  - MUK
+  - PONYTA
+  - VULPIX
+  - WEEZING
+- map_name: PokemonMansion3F
+  walk:
+  - GRIMER
+  - GROWLITHE
+  - KOFFING
+  - MAGMAR
+  - MUK
+  - PONYTA
+  - VULPIX
+  - WEEZING
+- map_name: PokemonMansionB1F
+  walk:
+  - GRIMER
+  - GROWLITHE
+  - KOFFING
+  - MAGMAR
+  - MUK
+  - PONYTA
+  - VULPIX
+  - WEEZING
+- map_name: PokemonMansionB2F
+  static_encounter:
+  - MEW
+- map_name: PokemonTower3F
+  walk:
+  - CUBONE
+  - GASTLY
+  - HAUNTER
+- map_name: PokemonTower4F
+  walk:
+  - CUBONE
+  - GASTLY
+  - HAUNTER
+- map_name: PokemonTower5F
+  walk:
+  - CUBONE
+  - GASTLY
+  - HAUNTER
+- map_name: PokemonTower6F
+  walk:
+  - CUBONE
+  - GASTLY
+  - HAUNTER
+- map_name: PokemonTower7F
+  walk:
+  - CUBONE
+  - GASTLY
+  - HAUNTER
+- map_name: PowerPlant
+  walk:
+  - ELECTABUZZ
+  - MAGNEMITE
+  - MAGNETON
+  - PIKACHU
+  - RAICHU
+  - VOLTORB
+  static_encounter:
+  - ZAPDOS
+- map_name: RockTunnel1F
+  walk:
+  - CHARMANDER
+  - GEODUDE
+  - MACHOP
+  - ONIX
+  - ZUBAT
+- map_name: RockTunnelB1F
+  walk:
+  - CHARMANDER
+  - GEODUDE
+  - MACHOP
+  - ONIX
+  - ZUBAT
+- map_name: Route1
+  walk:
+  - PIDGEY
+  - RATTATA
+- map_name: Route10
+  walk:
+  - EKANS
+  - SANDSHREW
+  - SPEAROW
+  - VOLTORB
+  old_rod:
+  - MAGIKARP
+  good_rod:
+  - GOLDEEN
+  - POLIWAG
+  super_rod:
+  - POLIWHIRL
+  - SLOWPOKE
+- map_name: Route11
+  walk:
+  - DROWZEE
+  - EKANS
+  - SANDSHREW
+  - SPEAROW
+  old_rod:
+  - MAGIKARP
+  good_rod:
+  - GOLDEEN
+  - POLIWAG
+  super_rod:
+  - KRABBY
+  - SHELLDER
+  trade:
+  - NIDORINA
+- map_name: Route12
+  walk:
+  - BELLSPROUT
+  - FARFETCHD
+  - GLOOM
+  - ODDISH
+  - PIDGEY
+  - VENONAT
+  - WEEPINBELL
+  old_rod:
+  - MAGIKARP
+  good_rod:
+  - GOLDEEN
+  - POLIWAG
+  super_rod:
+  - GOLDEEN
+  - KRABBY
+  - MAGIKARP
+  - TENTACOOL
+  poke_flute:
+  - SNORLAX
+- map_name: Route13
+  walk:
+  - BELLSPROUT
+  - DITTO
+  - FARFETCHD
+  - GLOOM
+  - ODDISH
+  - PIDGEY
+  - VENONAT
+  - WEEPINBELL
+  old_rod:
+  - MAGIKARP
+  good_rod:
+  - GOLDEEN
+  - POLIWAG
+  super_rod:
+  - GOLDEEN
+  - KRABBY
+  - MAGIKARP
+  - TENTACOOL
+- map_name: Route14
+  walk:
+  - BELLSPROUT
+  - DITTO
+  - GLOOM
+  - ODDISH
+  - PIDGEOTTO
+  - PIDGEY
+  - VENONAT
+  - WEEPINBELL
+- map_name: Route15
+  walk:
+  - BELLSPROUT
+  - DITTO
+  - GLOOM
+  - ODDISH
+  - PIDGEOTTO
+  - PIDGEY
+  - VENONAT
+  - WEEPINBELL
+- map_name: Route16
+  walk:
+  - DODUO
+  - RATICATE
+  - RATTATA
+  - SPEAROW
+  poke_flute:
+  - SNORLAX
+- map_name: Route17
+  walk:
+  - DODUO
+  - EEVEE
+  - FEAROW
+  - RATICATE
+  - SPEAROW
+  old_rod:
+  - MAGIKARP
+  good_rod:
+  - GOLDEEN
+  - POLIWAG
+  super_rod:
+  - GOLDEEN
+  - KRABBY
+  - MAGIKARP
+  - TENTACOOL
+- map_name: Route18
+  walk:
+  - DODUO
+  - FEAROW
+  - RATICATE
+  - SPEAROW
+  old_rod:
+  - MAGIKARP
+  good_rod:
+  - GOLDEEN
+  - POLIWAG
+  super_rod:
+  - GOLDEEN
+  - KRABBY
+  - MAGIKARP
+  - TENTACOOL
+  trade:
+  - LICKITUNG
+- map_name: Route19
+  surf:
+  - TENTACOOL
+  old_rod:
+  - MAGIKARP
+  good_rod:
+  - GOLDEEN
+  - POLIWAG
+  super_rod:
+  - GOLDEEN
+  - HORSEA
+  - SHELLDER
+  - STARYU
+- map_name: Route20
+  surf:
+  - TENTACOOL
+  old_rod:
+  - MAGIKARP
+  good_rod:
+  - GOLDEEN
+  - POLIWAG
+  super_rod:
+  - GOLDEEN
+  - HORSEA
+  - SHELLDER
+  - STARYU
+- map_name: Route2
+  walk:
+  - CATERPIE
+  - PIDGEY
+  - RATTATA
+  - WEEDLE
+  trade:
+  - MR.MIME
+- map_name: Route21
+  walk:
+  - MR.MIME
+  - PIDGEOTTO
+  - PIDGEY
+  - RATICATE
+  - RATTATA
+  - TANGELA
+  surf:
+  - TENTACOOL
+  old_rod:
+  - MAGIKARP
+  good_rod:
+  - GOLDEEN
+  - POLIWAG
+  super_rod:
+  - GOLDEEN
+  - HORSEA
+  - SHELLDER
+  - STARYU
+- map_name: Route22
+  walk:
+  - NIDORAN_F
+  - NIDORAN_M
+  - RATTATA
+  - SPEAROW
+  old_rod:
+  - MAGIKARP
+  good_rod:
+  - GOLDEEN
+  - POLIWAG
+  super_rod:
+  - GOLDEEN
+  - POLIWAG
+- map_name: Route23
+  walk:
+  - ARBOK
+  - DITTO
+  - EKANS
+  - FEAROW
+  - SANDSHREW
+  - SANDSLASH
+  - SPEAROW
+  old_rod:
+  - MAGIKARP
+  good_rod:
+  - GOLDEEN
+  - POLIWAG
+  super_rod:
+  - KINGLER
+  - SEADRA
+  - SEAKING
+  - SLOWBRO
+- map_name: Route24
+  walk:
+  - ABRA
+  - BELLSPROUT
+  - CATERPIE
+  - KAKUNA
+  - METAPOD
+  - ODDISH
+  - PIDGEY
+  - WEEDLE
+  old_rod:
+  - MAGIKARP
+  good_rod:
+  - GOLDEEN
+  - POLIWAG
+  super_rod:
+  - GOLDEEN
+  - KRABBY
+  - PSYDUCK
+- map_name: Route25
+  walk:
+  - ABRA
+  - BELLSPROUT
+  - CATERPIE
+  - KAKUNA
+  - METAPOD
+  - ODDISH
+  - PIDGEY
+  - WEEDLE
+  old_rod:
+  - MAGIKARP
+  good_rod:
+  - GOLDEEN
+  - POLIWAG
+  super_rod:
+  - GOLDEEN
+  - KRABBY
+  - PSYDUCK
+- map_name: Route3
+  walk:
+  - JIGGLYPUFF
+  - PIDGEY
+  - SPEAROW
+  purchase:
+  - MAGIKARP
+- map_name: Route4
+  walk:
+  - EKANS
+  - RATTATA
+  - SANDSHREW
+  - SPEAROW
+  old_rod:
+  - MAGIKARP
+  good_rod:
+  - GOLDEEN
+  - POLIWAG
+  super_rod:
+  - GOLDEEN
+  - KRABBY
+  - PSYDUCK
+- map_name: Route5
+  walk:
+  - BELLSPROUT
+  - MANKEY
+  - MEOWTH
+  - ODDISH
+  - PIDGEY
+  trade:
+  - NIDORAN_F
+- map_name: Route6
+  walk:
+  - BELLSPROUT
+  - MANKEY
+  - MEOWTH
+  - ODDISH
+  - PIDGEY
+  old_rod:
+  - MAGIKARP
+  good_rod:
+  - GOLDEEN
+  - POLIWAG
+  super_rod:
+  - KRABBY
+  - SHELLDER
+- map_name: Route7
+  walk:
+  - BELLSPROUT
+  - GROWLITHE
+  - MANKEY
+  - MEOWTH
+  - ODDISH
+  - PIDGEY
+  - VULPIX
+- map_name: Route8
+  walk:
+  - EKANS
+  - GROWLITHE
+  - MANKEY
+  - MEOWTH
+  - PIDGEY
+  - SANDSHREW
+  - VULPIX
+- map_name: Route9
+  walk:
+  - EKANS
+  - RATTATA
+  - SANDSHREW
+  - SPEAROW
+- map_name: SafariZoneCenter
+  walk:
+  - CHANSEY
+  - EXEGGCUTE
+  - NIDORAN_F
+  - NIDORAN_M
+  - NIDORINA
+  - NIDORINO
+  - PARASECT
+  - PINSIR
+  - RHYHORN
+  - SCYTHER
+  - VENONAT
+  old_rod:
+  - MAGIKARP
+  good_rod:
+  - GOLDEEN
+  - POLIWAG
+  super_rod:
+  - DRATINI
+  - KRABBY
+  - PSYDUCK
+  - SLOWPOKE
+- map_name: SafariZoneEast
+  walk:
+  - DODUO
+  - EXEGGCUTE
+  - KANGASKHAN
+  - NIDORAN_F
+  - NIDORAN_M
+  - NIDORINA
+  - NIDORINO
+  - PARAS
+  - PARASECT
+  - PINSIR
+  - SCYTHER
+  old_rod:
+  - MAGIKARP
+  good_rod:
+  - GOLDEEN
+  - POLIWAG
+  super_rod:
+  - DRATINI
+  - KRABBY
+  - PSYDUCK
+  - SLOWPOKE
+- map_name: SafariZoneNorth
+  walk:
+  - CHANSEY
+  - EXEGGCUTE
+  - NIDORAN_F
+  - NIDORAN_M
+  - NIDORINA
+  - NIDORINO
+  - PARAS
+  - RHYHORN
+  - TAUROS
+  - VENOMOTH
+  old_rod:
+  - MAGIKARP
+  good_rod:
+  - GOLDEEN
+  - POLIWAG
+  super_rod:
+  - DRATINI
+  - KRABBY
+  - PSYDUCK
+  - SLOWPOKE
+- map_name: SafariZoneWest
+  walk:
+  - DODUO
+  - EXEGGCUTE
+  - KANGASKHAN
+  - LICKITUNG
+  - NIDORAN_F
+  - NIDORAN_M
+  - NIDORINA
+  - NIDORINO
+  - TAUROS
+  - VENOMOTH
+  - VENONAT
+  old_rod:
+  - MAGIKARP
+  good_rod:
+  - GOLDEEN
+  - POLIWAG
+  super_rod:
+  - DRATINI
+  - KRABBY
+  - PSYDUCK
+  - SLOWPOKE
+- map_name: SeafoamIslands1F
+  walk:
+  - GOLBAT
+  - GOLDUCK
+  - HORSEA
+  - KRABBY
+  - PSYDUCK
+  - SEEL
+  - SHELLDER
+  - SLOWBRO
+  - SLOWPOKE
+  - STARYU
+  - ZUBAT
+- map_name: SeafoamIslandsB1F
+  walk:
+  - DEWGONG
+  - HORSEA
+  - KINGLER
+  - KRABBY
+  - PSYDUCK
+  - SEADRA
+  - SEEL
+  - SHELLDER
+  - SLOWPOKE
+  - STARYU
+- map_name: SeafoamIslandsB2F
+  walk:
+  - GOLBAT
+  - GOLDUCK
+  - HORSEA
+  - JYNX
+  - KRABBY
+  - PSYDUCK
+  - SEEL
+  - SHELLDER
+  - SLOWBRO
+  - SLOWPOKE
+  - STARYU
+- map_name: SeafoamIslandsB3F
+  walk:
+  - DEWGONG
+  - HORSEA
+  - KINGLER
+  - KRABBY
+  - PSYDUCK
+  - SEADRA
+  - SEEL
+  - SHELLDER
+  - SLOWPOKE
+  - SQUIRTLE
+  - STARYU
+  old_rod:
+  - MAGIKARP
+  good_rod:
+  - GOLDEEN
+  - POLIWAG
+  super_rod:
+  - GOLDEEN
+  - HORSEA
+  - SHELLDER
+  - STARYU
+- map_name: SeafoamIslandsB4F
+  walk:
+  - GOLDUCK
+  - HORSEA
+  - JYNX
+  - KRABBY
+  - PSYDUCK
+  - SEEL
+  - SHELLDER
+  - SLOWBRO
+  - SLOWPOKE
+  - SQUIRTLE
+  - STARYU
+  old_rod:
+  - MAGIKARP
+  good_rod:
+  - GOLDEEN
+  - POLIWAG
+  super_rod:
+  - GOLDEEN
+  - HORSEA
+  - SHELLDER
+  - STARYU
+  static_encounter:
+  - ARTICUNO
+- map_name: VictoryRoad1F
+  walk:
+  - GEODUDE
+  - GOLBAT
+  - GRAVELER
+  - MACHOKE
+  - MACHOP
+  - MAROWAK
+  - ONIX
+  - ZUBAT
+- map_name: VictoryRoad2F
+  walk:
+  - GEODUDE
+  - GOLBAT
+  - GRAVELER
+  - HITMONCHAN
+  - MACHOKE
+  - MACHOP
+  - MAROWAK
+  - ONIX
+  - ZUBAT
+  static_encounter:
+  - MOLTRES
+- map_name: VictoryRoad3F
+  walk:
+  - GEODUDE
+  - GOLBAT
+  - GRAVELER
+  - HITMONLEE
+  - MACHOKE
+  - MACHOP
+  - ONIX
+  - VENOMOTH
+  - ZUBAT
+- map_name: ViridianForest
+  walk:
+  - BULBASAUR
+  - CATERPIE
+  - KAKUNA
+  - METAPOD
+  - PIKACHU
+  - WEEDLE
+- map_name: VermilionCity
+  old_rod:
+  - MAGIKARP
+  good_rod:
+  - GOLDEEN
+  - POLIWAG
+  super_rod:
+  - KRABBY
+  - SHELLDER
+  trade:
+  - FARFETCHD
+- map_name: CeladonCity
+  old_rod:
+  - MAGIKARP
+  good_rod:
+  - GOLDEEN
+  - POLIWAG
+  super_rod:
+  - POLIWHIRL
+  - SLOWPOKE
+  gift:
+  - EEVEE
+  prize_window:
+  - ABRA
+  - CLEFAIRY
+  - DRATINI
+  - MR.MIME
+  - EEVEE
+  - PORYGON
+- map_name: SilphCo
+  gift:
+  - LAPRAS
+- map_name: SaffronCity
+  gift:
+  - HITMONCHAN
+  - HITMONLEE
+- map_name: CinnabarLab
+  fossil_restore:
+  - OMANYTE
+  - KABUTO
+  - AERODACTYL
+  trade:
+  - SEEL
+  - ELECTRODE
+  - TANGELA
+  purchase:
+  - PORYGON
+- map_name: FuchsiaCity
+  old_rod:
+  - MAGIKARP
+  good_rod:
+  - GOLDEEN
+  - POLIWAG
+  super_rod:
+  - SEAKING
+  - KRABBY
+  - GOLDEEN
+  - MAGIKARP
+- map_name: PalletTown
+  starter:
+  - BULBASAUR
+  - CHARMANDER
+  - SQUIRTLE
+  old_rod:
+  - MAGIKARP
+  good_rod:
+  - GOLDEEN
+  - POLIWAG
+  super_rod:
+  - TENTACOOL
+  - POLIWAG
+- map_name: ViridianCity
+  old_rod:
+  - MAGIKARP
+  good_rod:
+  - GOLDEEN
+  - POLIWAG
+  super_rod:
+  - TENTACOOL
+  - POLIWAG
+- map_name: CeruleanCity
+  old_rod:
+  - MAGIKARP
+  good_rod:
+  - GOLDEEN
+  - POLIWAG
+  super_rod:
+  - PSYDUCK
+  - GOLDEEN
+  - KRABBY
+  trade:
+  - JYNX
+- map_name: CinnabarIsland
+  old_rod:
+  - MAGIKARP
+  good_rod:
+  - GOLDEEN
+  - POLIWAG
+  super_rod:
+  - STARYU
+  - HORSEA
+  - SHELLDER
+  - GOLDEEN

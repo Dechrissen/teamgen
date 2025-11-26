@@ -7,22 +7,13 @@
 
 - write README
 
-- workflow (shell script?) for:
-  - bumping version
-  - bundling new pyinstaller exe
-  - github action to make new tag/release
-  - adds exe to assets list in release page
-  - accepts text argument or pulls from a text file which details the patch notes which will go into the release page
-
-- add version to teamgen header (pull from python package file/info? is this a thing?)
+  - test on actual linux
 
 - [ ] in progression yaml, figure out how to handle trade rooms as well -- when do u get access to them or how do u 
   keep track of that?
   - should they have values like "needs: onix, gets: mrmime" ?
   - probably just ignore the needed mon
 
-- [ ] generate file for blue version when done
-- [ ] generate file for solus when done
 
 - [ ] add comments/annotations to config and other yaml files, for users
 - [ ] add comments throughout code, to make sure everything is clear

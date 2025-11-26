@@ -1,0 +1,224 @@
+starter_species:
+  - BULBASAUR
+  - CHARMANDER
+  - SQUIRTLE
+
+# Only one of the Pokemon per modal group can be generated,
+# and no dupes of any selected from a group
+modal_species:
+  - [HITMONLEE, HITMONCHAN]
+  - [OMANYTE, KABUTO]
+
+limited_acquisition_methods:
+  - starter # this is also taken care of with the validate_only_one_starter function, but extra precaution
+  - static_encounter
+  - gift
+  - trade
+  - purchase
+  - fossil_restore
+  - poke_flute
+
+acquisition_methods:
+  - name: starter
+    is_default: true
+  - name: walk
+    is_default: true
+  - name: surf
+    is_default: false
+  - name: old_rod
+    is_default: false
+  - name: good_rod
+    is_default: false
+  - name: super_rod
+    is_default: false
+  - name: poke_flute
+    is_default: false
+  - name: static_encounter
+    is_default: true
+  - name: trade
+    is_default: true
+  - name: gift
+    is_default: true
+  - name: purchase
+    is_default: true
+  - name: fossil_restore
+    is_default: true
+  - name: prize_window
+    is_default: true
+
+# unclear if we need this
+evo_items_available:
+  moon_stone: 4
+  fire_stone: inf
+  water_stone: inf
+  thunder_stone: inf
+  leaf_stone: inf
+
+spheres:
+      - sphereNum: 1
+        contents:
+          - name: PalletTown
+            type: map
+          - name: Route1
+            type: map
+          - name: Route22
+            type: map
+          - name: Route2
+            type: map
+          - name: ViridianForest
+            type: map
+          - name: Route3
+            type: map
+          - name: MtMoon1F
+            type: map
+          - name: MtMoonB1F
+            type: map
+          - name: MtMoonB2F
+            type: map
+          - name: moon_stone
+            type: item
+          - name: Route4
+            type: map
+          - name: Route24
+            type: map
+          - name: Route25
+            type: map
+      - sphereNum: 2
+        contents:
+          - name: CeruleanCity
+            type: map
+          - name: Route5
+            type: map
+          - name: Route6
+            type: map
+          - name: VermilionCity
+            type: map
+          - name: old_rod
+            type: acquisition_unlock
+          - name: DiglettsCave
+            type: map
+          - name: Route11
+            type: map
+          - name: Route9
+            type: map
+          - name: Route10
+            type: map
+          - name: RockTunnel1F
+            type: map
+          - name: RockTunnelB1F
+            type: map
+          - name: Route12
+            type: map
+          - name: Route8
+            type: map
+          - name: Route7
+            type: map
+          - name: CeladonCity
+            type: map
+          - name: fire_stone
+            type: item
+          - name: water_stone
+            type: item
+          - name: thunder_stone
+            type: item
+          - name: leaf_stone
+            type: item
+      - sphereNum: 3
+        contents:
+          - name: PokemonTower3F
+            type: map
+          - name: PokemonTower4F
+            type: map
+          - name: PokemonTower5F
+            type: map
+          - name: PokemonTower6F
+            type: map
+          - name: PokemonTower7F
+            type: map
+          - name: poke_flute
+            type: acquisition_unlock
+          - name: super_rod
+            type: acquisition_unlock
+          - name: Route13
+            type: map
+          - name: Route14
+            type: map
+          - name: Route15
+            type: map
+          - name: Route16
+            type: map
+          - name: Route17
+            type: map
+          - name: Route18
+            type: map
+          - name: good_rod
+            type: acquisition_unlock
+          - name: surf
+            type: acquisition_unlock
+          - name: PowerPlant
+            type: map
+          - name: SafariZoneCenter
+            type: map
+          - name: SafariZoneEast
+            type: map
+          - name: SafariZoneNorth
+            type: map
+          - name: SafariZoneWest
+            type: map
+          - name: SilphCo
+            type: map
+          - name: SaffronCity
+            type: map
+      - sphereNum: 4
+        contents:
+          - name: Route19
+            type: map
+          - name: Route20
+            type: map
+          - name: SeafoamIslands1F
+            type: map
+          - name: SeafoamIslandsB1F
+            type: map
+          - name: SeafoamIslandsB2F
+            type: map
+          - name: SeafoamIslandsB3F
+            type: map
+          - name: SeafoamIslandsB4F
+            type: map
+          - name: PokemonMansionB1F
+            type: map
+          - name: PokemonMansionB2F
+            type: map
+          - name: PokemonMansion1F
+            type: map
+          - name: PokemonMansion2F
+            type: map
+          - name: PokemonMansion3F
+            type: map
+          - name: CinnabarLab
+            type: map
+          - name: Route21
+            type: map
+      - sphereNum: 5
+        contents:
+          - name: Route23
+            type: map
+          - name: VictoryRoad1F
+            type: map
+          - name: VictoryRoad2F
+            type: map
+          - name: VictoryRoad3F
+            type: map
+      - sphereNum: 6
+        contents:
+          - name: CeruleanCave1F
+            type: map
+          - name: CeruleanCave2F
+            type: map
+          - name: CeruleanCaveB1F
+            type: map
+
+sphere_generation_modes:
+  all: [1,2,3,4,5,6]
+  no_cerulean_cave: [1,2,3,4,5]
+  pre_victory_road: [1,2,3,4]

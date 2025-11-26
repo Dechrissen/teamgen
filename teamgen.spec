@@ -1,6 +1,5 @@
 # -*- mode: python ; coding: utf-8 -*-
 from PyInstaller.building.build_main import Analysis, PYZ, EXE, COLLECT
-import os
 
 block_cipher = None
 

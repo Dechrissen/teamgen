@@ -1,19 +1,19 @@
 # vanilla games
 Red:
-  meta: 'data/gen1/meta_rb.yaml'
-  pokedex: 'data/gen1/pokedex_rb.yaml'
-  locations: 'data/gen1/locations_red.yaml'
-  config: 'config/config_rb.yaml'
+  meta: 'data/gen1/vanilla/meta_rb.yaml'
+  pokedex: 'data/gen1/vanilla/pokedex_rb.yaml'
+  locations: 'data/gen1/vanilla/locations_red.yaml'
+  config: 'config/config_gen1.yaml'
 
 Blue:
-  meta: 'data/gen1/meta_rb.yaml'
-  pokedex: 'data/gen1/pokedex_rb.yaml'
-  locations: 'data/gen1/locations_red.yaml' #TODO update this
-  config: 'config/config_rb.yaml'
+  meta: 'data/gen1/vanilla/meta_rb.yaml'
+  pokedex: 'data/gen1/vanilla/pokedex_rb.yaml'
+  locations: 'data/gen1/vanilla/locations_blue.yaml'
+  config: 'config/config_gen1.yaml'
 
 # romhacks
-Solus: #TODO
-  meta: ''
-  pokedex: ''
-  locations: ''
-  config: ''
+Solus:
+  meta: 'data/gen1/romhacks/meta_solusrgb.yaml'
+  pokedex: 'data/gen1/romhacks/pokedex_solusrgb.yaml'
+  locations: 'data/gen1/romhacks/locations_solusrgb.yaml'
+  config: 'config/config_gen1.yaml'

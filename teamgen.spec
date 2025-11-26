@@ -1,21 +1,22 @@
-# teamgen.spec — minimal, works with local config/data
+# -*- mode: python ; coding: utf-8 -*-
 
 block_cipher = None
 
 a = Analysis(
-    ['main.py'],             # entry point in teamgen/
+    ['main.py'],          # your main entry point
     pathex=[],
     binaries=[],
     datas=[
-        ('config/', 'config'),   # include all files in config/
-        ('data/', 'data'),       # include all files in data/
+        ('config/*.yaml', 'config'),
+        ('data/*.yaml', 'data')
     ],
     hiddenimports=[],
     hookspath=[],
-    hooksconfig={},
     runtime_hooks=[],
     excludes=[],
-    noarchive=False,
+    win_no_prefer_redirects=False,
+    win_private_assemblies=False,
+    cipher=block_cipher,
 )
 
 pyz = PYZ(a.pure, a.zipped_data, cipher=block_cipher)
@@ -27,10 +28,10 @@ exe = EXE(
     a.zipfiles,
     a.datas,
     name='teamgen',
-    console=True,                  # CLI UI
+    console=True,        # CLI app
     debug=False,
     strip=False,
     upx=False,
-    version='VERSION_PLACEHOLDER', # will be replaced by your bump_and_release.sh
+    version=None         # <-- safe for Windows
 )
 

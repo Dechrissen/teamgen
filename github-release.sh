@@ -1,25 +1,34 @@
 #!/bin/bash
 set -e
 
-# 1. Extract version from version.py
-VERSION=$(grep "__version__" teamgen/version.py | sed 's/.*"\(.*\)".*/\1/')
+# ----------------------------
+# 1. Read version from version.py
+# ----------------------------
+VERSION=$(grep "__version__" version.py | sed 's/.*"\(.*\)".*/\1/')
 echo "Detected version: $VERSION"
 
-# 2. Update spec file
-echo "Injecting version into teamgen.spec..."
-sed -i "s/VERSION_PLACEHOLDER/$VERSION/" teamgen.spec
+# ----------------------------
+# 2. (No need to modify spec file anymore)
+# ----------------------------
+echo "No spec modification needed for Windows-safe version=None"
 
-# 3. Commit spec file change (optional)
-git add teamgen.spec
-git commit -m "Update spec file for version $VERSION"
+# ----------------------------
+# 3. Commit version.py if needed
+# ----------------------------
+git add version.py
+git commit -m "Bump version to $VERSION" || echo "No changes to commit"
 
-# 4. Create a Git tag
+# ----------------------------
+# 4. Create git tag
+# ----------------------------
 TAG="v$VERSION"
 git tag $TAG
 
-# 5. Push commits and tag
-echo "Pushing tag $TAG..."
+# ----------------------------
+# 5. Push commit and tag
+# ----------------------------
 git push
 git push origin $TAG
+echo "Pushed tag $TAG"
 
-echo "Done. GitHub Action will now build your EXE."
+echo "Done. GitHub Action will now build your EXE for $TAG."

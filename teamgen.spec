@@ -1,15 +1,15 @@
 # -*- mode: python ; coding: utf-8 -*-
-import sys
 from PyInstaller.building.build_main import Analysis, PYZ, EXE, COLLECT
 
 block_cipher = None
 
 # --------------------------
-# Include only necessary data
+# Include data at top-level
 # --------------------------
+# The second element in each tuple is the target folder inside the dist folder
 datas = [
-    ('config', 'config'),  # source folder, destination folder in dist
-    ('data', 'data')       # optional
+    ('config', '.'),   # put config/ at top-level
+    ('data', '.')      # optional, top-level
 ]
 
 # --------------------------
@@ -18,7 +18,7 @@ datas = [
 a = Analysis(
     ['main.py'],
     pathex=[],
-    binaries=[],          # binaries go to COLLECT
+    binaries=[],          # binaries handled by COLLECT
     datas=datas,
     hiddenimports=[],     # none
     hookspath=[],
@@ -34,12 +34,12 @@ a = Analysis(
 pyz = PYZ(a.pure, a.zipped_data, cipher=block_cipher)
 
 # --------------------------
-# Build the EXE
+# Build EXE
 # --------------------------
 exe = EXE(
     pyz,
     a.scripts,
-    exclude_binaries=True,   # binaries will go in COLLECT
+    exclude_binaries=True,   # binaries handled by COLLECT
     name='teamgen',
     debug=False,
     strip=False,
@@ -48,14 +48,13 @@ exe = EXE(
 )
 
 # --------------------------
-# Collect everything into dist/teamgen/
-# config/ and data/ at top-level, runtime binaries in internal folder
+# Collect into dist/teamgen/
 # --------------------------
 coll = COLLECT(
     exe,
-    a.binaries,
+    a.binaries,    # runtime .pyd/.dll files
     a.zipfiles,
-    a.datas,
+    a.datas,       # config/ and data/ go where we specified ('.')
     strip=False,
     upx=True,
     name='teamgen'

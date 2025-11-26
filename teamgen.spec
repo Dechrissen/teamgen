@@ -1,6 +1,5 @@
 # -*- mode: python ; coding: utf-8 -*-
 import sys
-from PyInstaller.utils.hooks import collect_submodules
 from PyInstaller.building.build_main import Analysis, PYZ, EXE, COLLECT
 
 block_cipher = None
@@ -19,9 +18,9 @@ datas = [
 a = Analysis(
     ['main.py'],
     pathex=[],
-    binaries=[],          # keep binaries separate
+    binaries=[],          # binaries go to COLLECT
     datas=datas,
-    hiddenimports=hiddenimports,
+    hiddenimports=[],     # none
     hookspath=[],
     runtime_hooks=[],
     excludes=[],
@@ -50,7 +49,7 @@ exe = EXE(
 
 # --------------------------
 # Collect everything into dist/teamgen/
-# Keep runtime binaries hidden in '_internal' folder
+# config/ and data/ at top-level, runtime binaries in internal folder
 # --------------------------
 coll = COLLECT(
     exe,
@@ -59,8 +58,6 @@ coll = COLLECT(
     a.datas,
     strip=False,
     upx=True,
-    name='teamgen',
-    # move all binaries to _internal subfolder
-    # datas like config/ stay at top level
+    name='teamgen'
 )
 

@@ -1,15 +1,16 @@
 # -*- mode: python ; coding: utf-8 -*-
+from PyInstaller.utils.hooks import collect_submodules
 from PyInstaller.building.build_main import Analysis, PYZ, EXE, COLLECT
+from PyInstaller.utils.hooks import Tree
 
 block_cipher = None
 
 # --------------------------
-# Include data at top-level
+# Include folders as trees
 # --------------------------
-# The second element in each tuple is the target folder inside the dist folder
 datas = [
-    ('config', '.'),   # put config/ at top-level
-    ('data', '.')      # optional, top-level
+    Tree('config', prefix='config'),   # copies the entire config folder as-is
+    Tree('data', prefix='data')        # optional
 ]
 
 # --------------------------
@@ -18,7 +19,7 @@ datas = [
 a = Analysis(
     ['main.py'],
     pathex=[],
-    binaries=[],          # binaries handled by COLLECT
+    binaries=[],          # binaries go to COLLECT
     datas=datas,
     hiddenimports=[],     # none
     hookspath=[],
@@ -39,7 +40,7 @@ pyz = PYZ(a.pure, a.zipped_data, cipher=block_cipher)
 exe = EXE(
     pyz,
     a.scripts,
-    exclude_binaries=True,   # binaries handled by COLLECT
+    exclude_binaries=True,
     name='teamgen',
     debug=False,
     strip=False,
@@ -54,7 +55,7 @@ coll = COLLECT(
     exe,
     a.binaries,    # runtime .pyd/.dll files
     a.zipfiles,
-    a.datas,       # config/ and data/ go where we specified ('.')
+    a.datas,       # Tree preserves folder structure
     strip=False,
     upx=True,
     name='teamgen'

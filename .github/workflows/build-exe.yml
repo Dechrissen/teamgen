@@ -24,13 +24,24 @@ jobs:
           pip install pyinstaller      # needed for building
           pip install -r requirements.txt
 
+      - name: Read version from version.py
+        id: get_version
+        run: |
+          VERSION=$(python -c "import version; print(version.__version__)")
+          echo "VERSION=$VERSION" >> $GITHUB_ENV
+
       - name: Build EXE folder
         run: |
           python -m PyInstaller --clean teamgen.spec
 
+      - name: Rename output folder
+        run: |
+          mkdir -p dist
+          mv dist/teamgen "dist/teamgen-v${{ env.VERSION }}"
+
       - name: Upload folder artifact
         uses: actions/upload-artifact@v4
         with:
-          name: teamgen-folder
-          path: dist/teamgen/   # now this is a folder build
+          name: teamgen-v${{ env.VERSION }}
+          path: dist/teamgen-v${{ env.VERSION }}
 

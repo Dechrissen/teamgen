@@ -5,17 +5,17 @@ from PyInstaller.utils.hooks import collect_submodules
 
 block_cipher = None
 
-# Include all Python modules automatically detected
+# Include all hidden imports (if needed)
 hiddenimports = collect_submodules('')
 
-# Add data folders: (source, target) tuples
+# Add data folders: source → target
 datas = [
     ('config', 'config'),
     ('data', 'data'),
 ]
 
 a = Analysis(
-    ['main.py'],                # your entry script
+    ['main.py'],          # entry point
     pathex=[],
     binaries=[],
     datas=datas,
@@ -38,10 +38,11 @@ exe = EXE(
     a.zipfiles,
     a.datas,
     [],
-    name='teamgen',             # output EXE name
+    name='teamgen',       # EXE name
     debug=False,
-    bootloader_ignore_signals=False,
     strip=False,
     upx=True,
-    console=True                # shows console window
+    console=True          # show console window
 )
+
+# No onefile, so this will produce a folder build (default)

@@ -1,35 +1,36 @@
-name: Build EXE
+name: Build TeamGen EXE Folder
 
 on:
   push:
     tags:
-      - 'v*'   # trigger on version tags
+      - '*'  # triggers on any tag
 
 jobs:
   build:
     runs-on: windows-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.11'
+          python-version: 3.11
 
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install pyinstaller      # install PyInstaller for building the EXE
+          pip install pyinstaller      # needed for building
           pip install -r requirements.txt
 
-      - name: Build EXE with PyInstaller
+      - name: Build EXE folder
         run: |
-          pyinstaller --clean teamgen.spec
+          python -m PyInstaller --clean --console teamgen.spec
 
-      - name: Upload EXE as artifact
+      - name: Upload folder artifact
         uses: actions/upload-artifact@v4
         with:
-          name: teamgen-exe
-          path: dist/teamgen.exe
+          name: teamgen-folder
+          path: dist/teamgen/   # now this is a folder build
+

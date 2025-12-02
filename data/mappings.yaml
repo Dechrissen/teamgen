@@ -12,7 +12,7 @@ Blue:
   config: 'config/config_gen1.yaml'
 
 # romhacks
-Solus:
+Solus RGB:
   meta: 'data/gen1/romhacks/meta_solusrgb.yaml'
   pokedex: 'data/gen1/romhacks/pokedex_solusrgb.yaml'
   locations: 'data/gen1/romhacks/locations_solusrgb.yaml'

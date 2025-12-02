@@ -67,7 +67,7 @@ def display_party(party_blob, config_data, global_settings, duration, game, gene
     show_balance_stats = global_settings['show_balance_stats']
 
     def print_global_settings():
-        print(f"{BRIGHT_BLUE}Game mode{RESET}:\t {game}")
+        print(f"{BRIGHT_BLUE}Game setting{RESET}:\t {game}")
         print(f"{BRIGHT_BLUE}Generation mode{RESET}: {generation_mode}\n")
 
     print(f"{TITLE}===== TeamGen v{__version__} ====={RESET}\n")
@@ -90,7 +90,7 @@ def display_party(party_blob, config_data, global_settings, duration, game, gene
         return
 
     # ---------------- PRINT PARTY --------------------------------------------------------------------------
-    print(f"{BRIGHT_GREEN}------ PARTY --------------{RESET}")
+    print(f"{BRIGHT_GREEN}---- PARTY -------------------{RESET}")
     # sort party by Sphere number appearance ascending, with exception for starter in slot 1
     def sort_key(p):
         prescribed = p["random_pool_entry_instance"]
@@ -131,7 +131,7 @@ def display_party(party_blob, config_data, global_settings, duration, game, gene
     # ---------------------------------------------------------------------------- END PRINT PARTY ----------
 
     if show_balance_stats:
-        print(f"\n{BRIGHT_GREEN}------ STATS --------------{RESET}")
+        print(f"\n{BRIGHT_GREEN}---- STATS -------------------{RESET}")
         print("Distribution:\t", [("Sphere " + str(sphere) + ": " + str(party_blob["party_distribution"][sphere])) for sphere in party_blob["party_distribution"]] if party_blob["party_distribution"] else None)
         #print("score_median:", party_blob["score_median"])
         print("Lean:\t\t", party_blob["lean"])

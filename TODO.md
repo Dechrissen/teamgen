@@ -6,8 +6,8 @@
   - and solus webpage?
 
 - write README
-
-  - test on actual linux
+- make sure push for first release has "recommended settings" in config files
+- test on actual linux
 
 - [ ] in progression yaml, figure out how to handle trade rooms as well -- when do u get access to them or how do u 
   keep track of that?

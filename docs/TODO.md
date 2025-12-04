@@ -17,6 +17,7 @@
 
 - [ ] add comments/annotations to config and other yaml files, for users
 - [ ] add comments throughout code, to make sure everything is clear
+- add comments to unit test functions
 
 - make "gift" into "choice" for HITMONs?
 
@@ -47,4 +48,6 @@
 - add HM coverage output?
   - list of HMs, check marks next to covered ones
 
-- ask chatgpt to check every location from locations is in meta spheres list
+- check every location from locations is in meta spheres list (also add unit test for this?)
+- add CONTRIBUTING.md with guidelines for adding data files for additional games
+- make sure config can be changed while running?

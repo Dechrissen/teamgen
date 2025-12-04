@@ -1,5 +1,5 @@
 from util import resource_path
-from Core import *
+from core import *
 from data.loader import build_all_data_structures
 from version import __version__
 import os
@@ -140,7 +140,7 @@ def display_party(party_blob, config_data, global_settings, duration, game, gene
     print()
 
     if duration:
-        print(f"Generation took {duration:.2f} seconds.\n")
+        print(f"Generation took {duration:.2f}s\n")
 
     print_global_settings()
 

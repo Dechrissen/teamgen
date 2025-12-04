@@ -6,7 +6,7 @@ allowed_balancing: [balanced, early_game_heavy, late_game_heavy] # options: bala
 allowed_spreads: [clustered, wide_spread, mixed_spread] # options: clustered, wide_spread, mixed_spread
 allowed_patterns: [single_cluster, dual_cluster, early_late_split, middle_only] # options: single_cluster, dual_cluster, early_late_split, middle_only
 
-force_starter: true
+force_starter: false
 
 allow_not_fully_evolved: false
 max_evo_stage: 3 # options: int
@@ -28,7 +28,7 @@ species_blacklist: [] # a comma-separated list of Pokemon species (stage 1s), ea
 
 allowed_evo_methods:
   none: true # AKA stage 1 Pokemon
-  level-up: true
+  level-up: false
   moon_stone: true
   fire_stone: true
   water_stone: true
@@ -42,13 +42,13 @@ bst_min: none # options: integers or none
 
 # party-wide coverage
 ensure_hm_coverage:
-  FLASH: false
+  FLASH: true
   CUT: true
   STRENGTH: true
   FLY: false
   SURF: true
   DIG: true
-  TELEPORT: false
+  TELEPORT: true
   SOFTBOILED: false
 
 allowed_acquisition_methods:

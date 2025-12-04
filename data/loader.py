@@ -1,5 +1,5 @@
 from util import resource_path
-from Core import *
+from core import *
 import yaml
 
 def expand_file_paths(game_mappings):

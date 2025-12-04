@@ -1,6 +1,6 @@
-from models.Pokemon import Pokemon
-from models.Location import Location
-from models.Sphere import Sphere
+from models.pokemon import Pokemon
+from models.location import Location
+from models.sphere import Sphere
 import random
 
 DEBUG = False

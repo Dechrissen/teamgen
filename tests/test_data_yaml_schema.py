@@ -7,6 +7,7 @@ def filter_yaml(yaml_files, category):
 # ================= POKEDEX YAML TESTS =================
 # these tests iterate over all `pokedex_` YAMLs in data/
 def test_pokedex_required_fields(yaml_files):
+    """Tests whether all required fields are present for each Pokemon."""
     REQUIRED = {
         "name",
         "species_line",
@@ -25,7 +26,13 @@ def test_pokedex_required_fields(yaml_files):
             assert not missing, f"{path}: missing {missing} in {mon}"
 
 def test_pokedex_data_types(yaml_files):
+    """Tests whether all data types are valid for each Pokemon."""
     valid_hms = {'CUT', 'FLASH', 'SURF', 'STRENGTH', 'FLY', 'DIG', 'TELEPORT', 'SOFTBOILED'}
+    valid_types = {'normal', 'fire', 'water', 'grass', 'electric', 'flying', 'fighting',
+                   'ice', 'psychic', 'ground', 'rock', 'poison', 'bug', 'dragon', 'ghost'}
+    valid_evo_methods = {'none', 'level-up', 'moon_stone', 'fire_stone', 'water_stone',
+                         'thunder_stone', 'leaf_stone', 'trade'}
+
     for path, category in filter_yaml(yaml_files, "pokedex"):
         pokedex = load_yaml(path)
         for mon in pokedex:
@@ -54,7 +61,8 @@ def test_pokedex_data_types(yaml_files):
             assert "types" in mon
             assert isinstance(mon["types"], list), "'types' must be a list"
             assert all(isinstance(t, str) for t in mon["types"]), "'types' must contain only strings"
-            # TODO add all types
+            for t in mon["types"]:
+                assert t in valid_types, f"Invalid type '{t}' for Pokemon '{mon['name']}'"
 
             # test base_stat_total
             assert "base_stat_total" in mon
@@ -70,4 +78,24 @@ def test_pokedex_data_types(yaml_files):
             # test evolution_method_required
             assert "evolution_method_required" in mon
             assert isinstance(mon["evolution_method_required"], str)
-            # TODO add all valid methods
+            assert mon["evolution_method_required"] in valid_evo_methods, f"Invalid evolution method '{mon['evolution_method_required']}' for Pokemon '{mon['name']}'"
+
+def test_location_fields(yaml_files):
+    """Tests whether all fields in each location entry are valid."""
+    valid_acquisition_methods = {'starter','walk','surf','old_rod','good_rod','super_rod','poke_flute',
+                                 'static_encounter','trade','gift','purchase','fossil_restore','prize_window'}
+    for path, category in filter_yaml(yaml_files, "locations"):
+        locations = load_yaml(path)
+        for location in locations:
+            assert "map_name" in location
+            assert isinstance(location["map_name"], str)
+            assert all(field in valid_acquisition_methods for field in location if field != "map_name")
+            for acquisition_method in location:
+                if acquisition_method != 'map_name':
+                    assert isinstance(location[acquisition_method], list)
+                    assert all(isinstance(pokemon, str) for pokemon in location[acquisition_method])
+
+def test_location_pokemon_entries_are_valid(yaml_files):
+    """Tests whether all Pokemon entries in each acquisition entry per map are also present in the Pokedex file for the same game."""
+    #TODO don't know if we should do this
+    pass

@@ -46,7 +46,9 @@ acquisition_methods:
   - name: prize_window
     is_default: true
 
+#TODO
 # unclear if we need this
+# add to unit test if we do
 evo_items_available:
   moon_stone: 4
   fire_stone: inf

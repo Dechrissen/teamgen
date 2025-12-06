@@ -51,3 +51,5 @@
 - check every location from locations is in meta spheres list (also add unit test for this?)
 - add CONTRIBUTING.md with guidelines for adding data files for additional games
 - make sure config can be changed while running?
+  - reload config (R) option in main menu
+  - runs a simple function in UI which rebuilds all data structures

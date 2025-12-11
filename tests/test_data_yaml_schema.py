@@ -72,6 +72,9 @@ def test_pokedex_data_types(yaml_files):
             assert isinstance(mon["evolution_method_required"], str), f"{path}:{mon['name']}: 'evolution_method_required' must be a string"
             assert mon["evolution_method_required"] in valid_evo_methods, f"{path}:Invalid evolution_method_required '{mon['evolution_method_required']}' for Pokemon '{mon['name']}'"
 
+
+# ================= LOCATIONS YAML TESTS =================
+# these tests iterate over all `locations_` YAMLs in data/
 def test_location_fields(yaml_files):
     """Tests whether all fields in each location entry are valid."""
     valid_acquisition_methods = {'starter','walk','surf','old_rod','good_rod','super_rod','poke_flute',
@@ -96,6 +99,9 @@ def test_no_duplicate_location_fields(yaml_files):
             assert location["map_name"] not in unique_locations, f"{path}: duplicate location entry {location['map_name']}"
             unique_locations.append(location["map_name"])
 
+
+# ================= META YAML TESTS =================
+# these tests iterate over all `meta_` YAMLs in data/
 def test_meta_required_fields(yaml_files):
     """Tests whether all required fields are present in a meta YAML."""
     REQUIRED = {
@@ -110,3 +116,81 @@ def test_meta_required_fields(yaml_files):
         meta = load_yaml(path)
         missing = REQUIRED - meta.keys()
         assert not missing, f"{path}: missing required fields {missing}"
+
+def test_meta_data_types(yaml_files):
+    """Tests whether all data types are valid for entries in meta YAML."""
+    for path, category in filter_yaml(yaml_files, "meta"):
+        meta = load_yaml(path)
+
+        #TODO should also check whether each of these have the correct format for the entries within them
+        assert isinstance(meta['starter_species'], list), f"{path}: 'starter_species' must be a list"
+        assert isinstance(meta['modal_species'], list), f"{path}: 'modal_species' must be a list"
+        assert isinstance(meta['limited_acquisition_methods'], list), f"{path}: 'limited_acquisition_methods' must be a list"
+        assert isinstance(meta['acquisition_methods'], list), f"{path}: 'acquisition_methods' must be a list"
+        assert isinstance(meta['spheres'], list), f"{path}: 'spheres' must be a list"
+        assert isinstance(meta['sphere_generation_modes'], dict), f"{path}: 'sphere_generation_modes' must be a dict"
+
+
+# ================= CONFIG YAML TESTS =================
+# these tests iterate over all `pokedex_` YAMLs in config/
+def test_config_required_fields(yaml_files):
+    """Tests whether all required fields are present in a config YAML."""
+    REQUIRED = {
+        "allowed_balancing",
+        "allowed_spreads",
+        "allowed_patterns",
+        "force_starter",
+        "allow_not_fully_evolved",
+        "max_evo_stage",
+        "allow_legendaries",
+        "allow_duplicate_species",
+        "allow_dual_type",
+        "type_distribution",
+        "prescribed_type",
+        "species_blacklist",
+        "allowed_evo_methods",
+        "bst_max",
+        "bst_min",
+        "ensure_hm_coverage",
+        "allowed_acquisition_methods",
+        "sphere_mode"
+    }
+    for path, category in filter_yaml(yaml_files, "config"):
+        config = load_yaml(path)
+        missing = REQUIRED - config.keys()
+        assert not missing, f"{path}: missing required fields {missing}"
+
+def test_config_data_types(yaml_files):
+    """Tests whether all data types are valid for entries in config YAML."""
+    valid_type_distributions = {"no_overlap", "all_share_one_type", "anything_goes"}
+    valid_types = {'normal', 'fire', 'water', 'grass', 'electric', 'flying', 'fighting',
+                   'ice', 'psychic', 'ground', 'rock', 'poison', 'bug', 'dragon', 'ghost'}
+    for path, category in filter_yaml(yaml_files, "config"):
+        config = load_yaml(path)
+
+        assert isinstance(config['allowed_balancing'], list), f"{path}: 'allowed_balancing' must be a list"
+        assert isinstance(config['allowed_spreads'], list), f"{path}: 'allowed_spreads' must be a list"
+        assert isinstance(config['allowed_patterns'], list), f"{path}: 'allowed_patterns' must be a list"
+        assert isinstance(config['force_starter'], bool), f"{path}: 'force_starter' must be a bool"
+        assert isinstance(config['allow_not_fully_evolved'], bool), f"{path}: 'allow_not_fully_evolved' must be a bool"
+        assert isinstance(config['max_evo_stage'], int), f"{path}: 'max_evo_stage' must be an int"
+        assert isinstance(config['allow_legendaries'], bool), f"{path}: 'allow_legendaries' must be a bool"
+        assert isinstance(config['allow_duplicate_species'], bool), f"{path}: 'allow_duplicate_species' must be a bool"
+        assert isinstance(config['allow_dual_type'], bool), f"{path}: 'allow_dual_type' must be a bool"
+
+        assert isinstance(config['type_distribution'], str), f"{path}: 'type_distribution' must be a str"
+        assert config['type_distribution'] in valid_type_distributions, f"{path}: 'type_distribution' must be one of: {valid_type_distributions}"
+
+        assert config['prescribed_type'] in (valid_types | {'none'}), f"{path}: 'prescribed_type' must be one of: {valid_types | {'none'}}"
+
+        assert isinstance(config['species_blacklist'], list), f"{path}: 'species_blacklist' must be a list"
+        assert isinstance(config['allowed_evo_methods'], dict), f"{path}: 'allowed_evo_methods' must be a dict"
+
+        assert (isinstance(config['bst_max'], int) or config['bst_max'] == 'none'), f"{path}: 'bst_max' must be an int or 'none'"
+        assert (isinstance(config['bst_min'], int) or config['bst_min'] == 'none'), f"{path}: 'bst_min' must be an int or 'none'"
+
+        assert isinstance(config['ensure_hm_coverage'], dict), f"{path}: 'ensure_hm_coverage' must be a dict"
+        assert isinstance(config['allowed_acquisition_methods'], dict), f"{path}: 'allowed_acquisition_methods' must be a dict"
+
+        assert isinstance(config['sphere_mode'], str), f"{path}: 'sphere_mode' must be a str"
+

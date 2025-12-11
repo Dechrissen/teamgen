@@ -8,14 +8,19 @@ def find_yaml_files():
     """Yields (path, category) for all YAMLs in data/ subfolders."""
     for path in (BASE / "data").rglob("*.yaml"):
         name = path.name.lower()
-
         if "pokedex" in name:
             yield path, "pokedex"
         elif "locations" in name:
             yield path, "locations"
         elif "meta" in name:
             yield path, "meta"
-        elif "config" in name:
+        else:
+            # unknown but still a valid YAML — skip these
+            yield path, "unknown"
+
+    for path in (BASE / "config").rglob("*.yaml"):
+        name = path.name.lower()
+        if "config" in name:
             yield path, "config"
         elif "global_settings" in name:
             yield path, "global_settings"

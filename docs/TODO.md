@@ -39,14 +39,10 @@
 - [ ] ? I think the config should maybe be a Config class. This would make it easier to validate and pass along to 
   functions
 
-- [ ] YAML data validation tests, add "assert bst_max is int" for example so i dont have to worry about type 
-  validation in 
-  the functions themselves
-
 - [ ] Decide if adding stone evo validation
 
-- add HM coverage output?
-  - list of HMs, check marks next to covered ones
+- add HM coverage output
+  - list of HMs, check marks next to covered ones, or color them green
 
 - check every location from locations is in meta spheres list (also add unit test for this?)
 - add CONTRIBUTING.md with guidelines for adding data files for additional games

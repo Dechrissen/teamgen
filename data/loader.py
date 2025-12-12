@@ -20,9 +20,8 @@ def build_all_data_structures():
         all_pokemon (dict): all Pokemon objects for a given game
         config_data (dict): config options for a given game
         meta_data (dict): metadata for a given game
-        global_settings (dict): global settings from global_settings.yaml
         mappings (dict): game:set_of_file_paths pairs for all supported games
-        game (str): name of currently set game
+        global_settings (dict): global settings from global_settings.yaml
     """
 
     if DEBUG:
@@ -32,7 +31,6 @@ def build_all_data_structures():
     with open(resource_path('config/global_settings.yaml')) as g:
         global_settings = yaml.safe_load(g)
     game = global_settings['game']
-
 
     # get game/config YAML path mappings
     with open(resource_path('data/mappings.yaml')) as m:
@@ -67,18 +65,9 @@ def build_all_data_structures():
     all_locations = construct_full_location_set(location_data)
 
     # construct all_spheres
-    # with open('./data/gen1/progression_rb.yaml') as p:
-    #     progression_data = yaml.safe_load(p)
     all_spheres = construct_spheres(meta_data, all_locations)
 
     # build pools from all previously constructed data
     all_pools = build_pools(all_spheres, all_pokemon, starting_acquisition_methods)
-
-    # TESTING
-    # for entry in all_pools[5]['pool_entries']:
-    #     print("acquire", entry["pokemon_obj"].name, "by", entry["acquisition_method"], "at", entry["acquiring_location"])
-
-    # print(all_pools[1]['inventory'])
-    # print(all_pools[2]['inventory'])
 
     return all_pools, all_pokemon, config_data, meta_data, mappings, global_settings

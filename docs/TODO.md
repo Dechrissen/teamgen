@@ -9,14 +9,16 @@
 - make sure push for first release has "recommended settings" in config files
 - test on actual linux
 
+- add Yellow
+
 - [ ] in progression yaml, figure out how to handle trade rooms as well -- when do u get access to them or how do u 
   keep track of that?
   - should they have values like "needs: onix, gets: mrmime" ?
   - probably just ignore the needed mon
 
-
+- clean up CLI UI code and add some comments
 - [ ] add comments/annotations to config and other yaml files, for users
-- [ ] add comments throughout code, to make sure everything is clear
+
 - add comments to unit test functions
 
 - make "gift" into "choice" for HITMONs?
@@ -45,7 +47,8 @@
   - list of HMs, check marks next to covered ones, or color them green
 
 - check every location from locations is in meta spheres list (also add unit test for this?)
+
 - add CONTRIBUTING.md with guidelines for adding data files for additional games
-- make sure config can be changed while running?
-  - reload config (R) option in main menu
-  - runs a simple function in UI which rebuilds all data structures
+
+
+- add unit tests for party generation functions (define test parties)

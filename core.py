@@ -44,7 +44,7 @@ def generate_final_party(all_pools: dict, all_pokemon: dict, config_data: dict, 
         # will be included in every check of is_party_valid... fix this
         matching_pokemon = [
             all_pokemon[mon] for mon in all_pokemon
-            if all_pokemon[mon].species_line == rand_starter_species and all_pokemon[mon].evo_stage <= config_data['max_evo_stage']
+            if (all_pokemon[mon].species_line == rand_starter_species) and (all_pokemon[mon].evo_stage <= config_data['max_evo_stage'])
         ]
         if matching_pokemon:
             chosen_starter = random.choice(matching_pokemon)
@@ -79,6 +79,7 @@ def generate_final_party(all_pools: dict, all_pokemon: dict, config_data: dict, 
 
     party_with_acquisition_data = is_party_progression_viable(tentative_party, all_pools, all_pokemon, config_data, meta_data)
 
+    # this will be False if party generated is not obtainable from pools
     if party_with_acquisition_data:
         if DEBUG:
             print("Generating balance stats...")
@@ -106,6 +107,7 @@ def generate_final_party(all_pools: dict, all_pokemon: dict, config_data: dict, 
         if DEBUG:
             print("Party not progression viable. Retrying final party generation...")
 
+        # try again if party wasn't viable / obtainable from pools
         return generate_final_party(all_pools, all_pokemon,
                                     config_data, meta_data,
                                     n, retry + 1,
@@ -125,12 +127,12 @@ def is_party_valid(party, is_party_full, config_data, meta_data) -> bool:
         bool: whether the party is valid
     """
 
-    # set up metadata
-    starter_species = meta_data["starter_species"]
+    # get metadata
+    #starter_species = meta_data["starter_species"]
     modal_species = meta_data["modal_species"]
 
-    # set up config options
-    force_starter = config_data["force_starter"]
+    # get config options
+    #force_starter = config_data["force_starter"]
     allow_not_fully_evolved = config_data["allow_not_fully_evolved"]
     allow_legendaries = config_data["allow_legendaries"]
     allow_duplicate_species = config_data["allow_duplicate_species"]
@@ -144,6 +146,7 @@ def is_party_valid(party, is_party_full, config_data, meta_data) -> bool:
     bst_min = config_data["bst_min"]
     ensure_hm_coverage = set([hm for hm in config_data["ensure_hm_coverage"] if config_data["ensure_hm_coverage"][hm] == True])
 
+    # ---------------------------------------
     # immediate False if these checks fail
     if not allow_duplicate_species:
         species_lines = [m.species_line for m in party]
@@ -191,6 +194,7 @@ def is_party_valid(party, is_party_full, config_data, meta_data) -> bool:
                 if DEBUG:
                     print("party", [mon.name for mon in party], "violates modal group", modal_group)
                 return False
+    # ---------------------------------------
 
     # now check each mon against some more config options
     for mon in party:
@@ -254,7 +258,6 @@ def is_party_progression_viable(party, all_pools, all_pokemon, config_data, meta
     final_party_with_acquisition_data = []
 
     for mon in party:
-
         form_found = False
         # keep track of all the previous evos we need to search for in the pools first (order matters)
         cur_mon = mon
@@ -265,10 +268,12 @@ def is_party_progression_viable(party, all_pools, all_pokemon, config_data, meta
             forms_to_search_in_order.append(cur_mon)
 
         # the latest mon added to forms_to_search_in_order is the lowest stage, so we want to reverse it
-        forms_to_search_in_order.reverse() #TODO do i actually wanna do this in descending order? should it check for highest evo first?
+        forms_to_search_in_order.reverse() #TODO should we actually do this in descending order? (i.e. should it check for highest evo first?)
 
         allowed_acquisition_methods = [method for method in config_data["allowed_acquisition_methods"] if
                                        config_data["allowed_acquisition_methods"][method] == True]
+
+        # get 'active' (enabled) spheres from config preset sphere_mode
         sphere_mode = config_data["sphere_mode"]
         enabled_spheres = [sphere for sphere in meta_data['sphere_generation_modes'][sphere_mode]]
 
@@ -278,13 +283,15 @@ def is_party_progression_viable(party, all_pools, all_pokemon, config_data, meta
 
         for pool_num in all_pools.keys():
             if pool_num not in enabled_spheres:
-                #print("skipping pool", pool_num, "as it's not in 'enabled_spheres' in metadata file")
+                # skip pool if it's not for one of the enabled spheres
                 continue
 
             cur_pool = all_pools[pool_num]
             cur_pool_entries = cur_pool['pool_entries'] # list of pool entries for this pool
-            #cur_pool_inventory = cur_pool['inventory'] # list of items for this pool
+            #cur_pool_inventory = cur_pool['inventory'] # list of items for this pool #TODO are we tracking items ever?
 
+            # iteratively check for the earliest form --> latest form of an evolution line
+            # and exit loop when a form is found
             for form in forms_to_search_in_order:
                 for pool_entry in cur_pool_entries:
                     if (
@@ -318,6 +325,9 @@ def is_party_progression_viable(party, all_pools, all_pokemon, config_data, meta
             }
         )
 
+    # now that we have the party with acquisition data (pool entires with acquisition methods, etc.)
+    # define some functions to do the final validations for the whole party and make sure it's
+    # viable per the pools
     limited_methods_from_metadata = [method for method in meta_data['limited_acquisition_methods']]
 
     def validate_limited_methods(party_with_acquisition_data, limited_methods) -> bool:
@@ -376,7 +386,7 @@ def is_party_progression_viable(party, all_pools, all_pokemon, config_data, meta
 
         return True # for now, always return True
 
-    # Final validations for party, return False if they don't pass
+    # Final validations for party, return False if any don't pass
     if (
         (not validate_limited_methods(final_party_with_acquisition_data, limited_methods_from_metadata)) or
         (not validate_only_one_starter(final_party_with_acquisition_data)) or
@@ -517,10 +527,12 @@ def validate_balance_grade(balance_stats, config_data) -> bool:
     returns:
         bool
     """
+    # the allowed modes per the config file
     allowed_balancing = [mode for mode in config_data['allowed_balancing']]
     allowed_spreads = [mode for mode in config_data['allowed_spreads']]
     allowed_patterns = [mode for mode in config_data['allowed_patterns']]
 
+    # the assigned modes given to the party (from balance_stats) by assign_balance_grade
     assigned_balancing = balance_stats['lean']
     assigned_spread = balance_stats['spread']
     assigned_pattern = balance_stats['pattern']
@@ -552,11 +564,23 @@ def generate_random_mon(all_pokemon: dict[str, 'Pokemon']) -> 'Pokemon':
     """
     return random.choice(list(all_pokemon.values()))
 
-def generate_fully_randomized_party(all_pokemon: dict[str, 'Pokemon'], n: int = 6):
+def generate_fully_randomized_party(all_pokemon: dict[str, 'Pokemon'], n: int = 6) -> dict:
+    """
+    Generates a fully randomized party of Pokemon with empty balance stats and acquisition data (since the party is not
+    generated with any considerations about acquisition/viability, these stats are irrelevant).
+
+    args:
+        all_pokemon (dict of Pokemon objects)
+        n (int): the party size
+
+    returns:
+        final_party_blob (dict): the full party blob with empty balance stats and acquisition data
+    """
     party = []
 
     for i in range(n):
         mon = generate_random_mon(all_pokemon)
+        # fill its entry with dummy (empty) acquisition data
         entry = {
             "party_member_obj": mon,
             "earliest_form": None,
@@ -565,6 +589,7 @@ def generate_fully_randomized_party(all_pokemon: dict[str, 'Pokemon'], n: int = 
         }
         party.append(entry)
 
+    # add dummy (empty) balance stats to the final party blob
     final_party_blob = {
         "party_with_acquisition_data": party,
         'party_distribution': None,
@@ -709,7 +734,7 @@ def construct_spheres(meta_data, all_locations) -> dict[int, Sphere]:
 
 def build_pools(all_spheres, all_pokemon, starting_acquisition_methods) -> dict[int, dict]:
     """
-    Expands the Pokemon lists in each Sphere of all_spheres, then creates a dict of pools (each containing list of available Pokemon for each pool).
+    Expands the Pokemon lists in each Sphere of all_spheres, then creates a dict of pools (each containing a list of available Pokemon for each pool).
 
     args:
         all_spheres (dict of Sphere objects, where keys are numbers (int) of spheres)

@@ -89,6 +89,11 @@ def display_party(party_blob, config_data, global_settings, duration, game, gene
         print_global_settings()
         return
 
+    if party_blob == 'config_reloaded':
+        print(f"{BRIGHT_GREEN}Config reloaded.{RESET}\n")
+        print_global_settings()
+        return
+
     # ---------------- PRINT PARTY --------------------------------------------------------------------------
     print(f"{BRIGHT_GREEN}---- PARTY -------------------{RESET}")
     # sort party by Sphere number appearance ascending, with exception for starter in slot 1
@@ -170,6 +175,7 @@ def ui_loop(all_pools, all_pokemon, config_data, meta_data, mappings, global_set
         print(f"Press {BRIGHT_CYAN}ENTER{RESET} to generate a party.")
         print(f"{BRIGHT_CYAN}G{RESET} - Toggle generation mode")
         print(f"{BRIGHT_CYAN}S{RESET} - Set game")
+        print(f"{BRIGHT_CYAN}R{RESET} - Reload config")
         print(f"{BRIGHT_CYAN}Q{RESET} - Quit")
         print("")
 
@@ -183,6 +189,8 @@ def ui_loop(all_pools, all_pokemon, config_data, meta_data, mappings, global_set
             mode='toggle_generation_mode'
         if user == "s":
             mode = "set_game"
+        if user == "r":
+            mode = "reload_config"
 
         # otherwise, when ENTER pressed ...
         if DEBUG:
@@ -203,6 +211,10 @@ def ui_loop(all_pools, all_pokemon, config_data, meta_data, mappings, global_set
         elif mode == 'toggle_generation_mode':
             generation_mode = toggle_generation_mode(generation_mode)
             party_on_screen = None
+            continue
+        elif mode == 'reload_config':
+            all_pools, all_pokemon, config_data, meta_data, mappings, global_settings = build_all_data_structures()
+            party_on_screen = 'config_reloaded'
             continue
 
         # generation

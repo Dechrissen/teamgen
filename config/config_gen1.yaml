@@ -6,10 +6,10 @@ allowed_balancing: [balanced, early_game_heavy, late_game_heavy] # options: bala
 allowed_spreads: [clustered, wide_spread, mixed_spread] # options: clustered, wide_spread, mixed_spread
 allowed_patterns: [single_cluster, dual_cluster, early_late_split, middle_only] # options: single_cluster, dual_cluster, early_late_split, middle_only
 
-force_starter: false
+force_starter: true
 
-allow_not_fully_evolved: false
-max_evo_stage: 3 # options: int
+allow_not_fully_evolved: true
+max_evo_stage: 2 # options: int
 
 allow_legendaries: true
 allow_duplicate_species: false
@@ -28,7 +28,7 @@ species_blacklist: [] # a comma-separated list of Pokemon species (stage 1s), ea
 
 allowed_evo_methods:
   none: true # AKA stage 1 Pokemon
-  level-up: false
+  level-up: true
   moon_stone: true
   fire_stone: true
   water_stone: true

@@ -90,10 +90,6 @@ output some sort of "incompatibility" message if it detects that the 3 data YAML
   are not compatible with each other (i.e. all the maps and pokemon should match spelling, etc between all 3 files 
   before any logic is run)
 
-
-
-
-
 ## Later ideas
 - Provide ChatGPT-powered subtool in the program (CLI) that allows the user or a developer to add a new logic file for a new game by having a ChatGPT token in a config, and then a prompt with placeholders etc where the user can provide links to the prompt for ChatGPT (like links to pokemon data, locations on bulbapedia, etc) to build at least the bulk of a new logic json. Maybe in the case of romhacks, a link to the code idk.
 - "get this team race" is dictated by IGT at the end of it, so it can be async.
@@ -108,6 +104,8 @@ output some sort of "incompatibility" message if it detects that the 3 data YAML
 - wacky "team name assignment" feature. analyzes certain things about the pokemon (types? egg group? etc) and 
   somehow generates a name for the team from a preset pool of nouns and adjectives etc. ("the aquatic defenders"... 
   "the fiery humanoids") :/ ... idk
+  - can take into account stats of the pokemon as well, e.g. "defenders" gets high probability of being picked if 
+    most pokemon on team have relatively high defense
 - add a "Team Defense" and "Team Coverage" analysis to the output, like here: https://richi3f.github.io/pokemon-team-planner
 - Learn how to make a Python app work on web app --> `teamgen.app`
 - Integrate with randomized roms of vanilla games (need a function that reads rom data and outputs pokemon data in 

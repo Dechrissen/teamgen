@@ -29,39 +29,40 @@ but also with romhacks that might contain the following (as long as the relevant
   - [Pokémon Solus RGB](https://github.com/Dechrissen/poke-solus-rgb)
 
 ## Installation
-**Option 1**: Linux / macOS (Recommended)
+### Option 1: Linux / macOS (Recommended)
 
 Prerequisites:
 - Python 3.10+
-- pip
-- (Optional) venv
+- `pip`
+- (Optional) `venv`
 
 Steps:
-- Clone this repository
-- `cd teamgen`
-- (Optional) Create a virtual environment first for less headache
-  - `python -m venv .venv`
-  - `source .venv/bin/activate`
-- Install dependencies (`pip install -r requirements.txt`)
-- Run with `python main.py`
+1. Clone this repository (or download the [latest release](https://github.com/Dechrissen/teamgen/releases/latest) 
+   source code and extract it)
+2. `cd teamgen`
+3. (Optional) Create a virtual environment first for less headache
+    - `python -m venv .venv`
+    - `source .venv/bin/activate`
+4. Install dependencies (`pip install -r requirements.txt`)
+5. Run with `python main.py`
 
-**Option 2**: Windows – Prebuilt executable
+### Option 2: Windows – Prebuilt executable
 
-- Download `teamgen-<version>.zip` from the [latest release](https://github.com/Dechrissen/teamgen/releases/latest) 
+1. Download `teamgen-<version>.zip` from the [latest release](https://github.com/Dechrissen/teamgen/releases/latest) 
   assets
-- Extract
-- Run `teamgen.exe`
+2. Extract
+3. Run `teamgen.exe`
 
 ## Usage
 
 ### Using the app
-- `ENTER` — Generate a party with the current settings
-- `G` — Toggle the generation mode between Progression-viable and Random
+- `ENTER` – Generate a party with the current settings
+- `G` – Toggle the generation mode between Progression-viable and Random
   - Progression-viable: Considers game data, locations, progression, config settings
   - Random: Completely random generation
-- `S` — Open the 'Set game' menu to switch current game setting
-- `R` — Reload the config file (after making any config changes while the app is running)
-- `Q` — Quit the app
+- `S` – Open the 'Set game' menu to switch current game setting
+- `R` – Reload the config file (after making any config changes while the app is running)
+- `Q` – Quit the app
 
 ### Changing config settings
 Open `/config/config_gen1.yaml` (for example, for Generation 1 games). Modify values according to your preferences. 
@@ -72,7 +73,7 @@ Save the file and then use the `R` option in the app to reload.
 
 ## Contributing
 
-If you'd like to add support for a missing game or romhack to _TeamGen_, see [CONTRIBUTING.md](/CONTRIBUTING.md).
+If you'd like to add support for a missing game or romhack, see [CONTRIBUTING.md](/CONTRIBUTING.md).
 
 ## License
 _TeamGen_ is licensed under the MIT License. See the `LICENSE` file for full details.

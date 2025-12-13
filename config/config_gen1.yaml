@@ -1,33 +1,40 @@
-# Balancing requirements
-# ----------------------
-# Lists reflect modes which are allowed in the output
-# Remove any undesired modes
-allowed_balancing: [balanced, early_game_heavy, late_game_heavy] # options: balanced, early_game_heavy, late_game_heavy
-allowed_spreads: [clustered, wide_spread, mixed_spread] # options: clustered, wide_spread, mixed_spread
-allowed_patterns: [single_cluster, dual_cluster, early_late_split, middle_only] # options: single_cluster, dual_cluster, early_late_split, middle_only
+# ==================================
+# TeamGen — Gen 1 configuration file
+# ==================================
 
+
+# ---------
+# Balancing
+# ---------
+# These lists reflect balancing modes which are ALLOWED in the output.
+
+# options: balanced, early_game_heavy, late_game_heavy
+allowed_balancing: [balanced, early_game_heavy, late_game_heavy]
+
+# options: clustered, wide_spread, mixed_spread
+allowed_spreads: [clustered, wide_spread, mixed_spread]
+
+# options: single_cluster, dual_cluster, early_late_split, middle_only
+allowed_patterns: [single_cluster, dual_cluster, early_late_split, middle_only]
+
+
+# ---------------
+# Pokémon details
+# ---------------
+
+# Whether to ensure that a random starter is present in the output party.
 force_starter: true
 
-allow_not_fully_evolved: true
-max_evo_stage: 2 # options: int
+# Whether to allow not fully evolved Pokémon in the output party.
+allow_not_fully_evolved: false
 
-allow_legendaries: true
-allow_duplicate_species: false
+# The highest evolution stage allowed among members of the output party.
+# options: int
+max_evo_stage: 3
 
-# Types
-# -----
-
-allow_dual_type: true
-
-type_distribution: anything_goes # options: no_overlap, all_share_one_type, anything_goes
-
-# only works when type_distribution = all_share_one_type
-prescribed_type: none # options: any type (fire, water, etc.) or none
-
-species_blacklist: [] # a comma-separated list of Pokemon species (stage 1s), each in all caps (Mr. Mime is MR.MIME, Farfetch'd is FARFETCHD, Nidoran♂ is NIDORAN_M)
-
+# Evolution methods allowed among members in the final output party.
 allowed_evo_methods:
-  none: true # AKA stage 1 Pokemon
+  none: true # i.e. Stage 1 Pokémon
   level-up: true
   moon_stone: true
   fire_stone: true
@@ -36,21 +43,62 @@ allowed_evo_methods:
   leaf_stone: true
   trade: true
 
-#TODO add suggestions here for general cutoffs that make sense for easy mode, hard mode etc.
-bst_max: none # options: integers or none
-bst_min: none # options: integers or none
+# Whether to allow legendary Pokémon in the output party.
+allow_legendaries: false
 
-# party-wide coverage
+# Whether to allow duplicate species in the output party.
+allow_duplicate_species: false
+
+# A list of Pokémon species to blacklist from the output party.
+# values: a comma-separated list of Pokémon species (stage 1s), each in all caps
+# e.g. Mr. Mime is MR.MIME, Farfetch'd is FARFETCHD, Nidoran♂ is NIDORAN_M
+species_blacklist: []
+
+# Maximum and minimum base stat totals allowed for members of the output party.
+#TODO add suggestions here for general cutoffs that make sense for easy mode, hard mode, etc.
+# options: int or none
+bst_max: none
+bst_min: none
+
+
+# -----------------
+# Type restrictions
+# -----------------
+
+# Whether to allow dual-type Pokémon in the output party.
+allow_dual_type: true
+
+# For fine-tuning the type distribution across members of the output party.
+# options: no_overlap, all_share_one_type, anything_goes
+type_distribution: anything_goes
+
+# A single type which will be required for ALL members in the final output party.
+# note: this setting only works when type_distribution = all_share_one_type
+# options: any type (fire, water, etc.) or none
+prescribed_type: none
+
+
+# -------------
+# Move coverage
+# -------------
+
+# HMs to require in the output party's combined move pool.
 ensure_hm_coverage:
-  FLASH: true
+  FLASH: false
   CUT: true
   STRENGTH: true
-  FLY: false
+  FLY: true
   SURF: true
-  DIG: true
-  TELEPORT: true
+  DIG: false
+  TELEPORT: false
   SOFTBOILED: false
 
+
+# --------------------------------------------
+# Pokémon acquisition and progression settings
+# --------------------------------------------
+
+# Acquisition methods allowed among members of the output party, considering the enabled Spheres.
 allowed_acquisition_methods:
   starter: true
   walk: true
@@ -60,10 +108,16 @@ allowed_acquisition_methods:
   super_rod: true
   poke_flute: true
   static_encounter: true
-  trade: true
+  trade: false
   gift: true
   purchase: true
   fossil_restore: true
   prize_window: true
 
-sphere_mode: pre_victory_road # options: pre_victory_road, no_cerulean_cave, all
+# Preset Sphere Mode from the corresponding `meta` YAML, which defines the enabled Spheres for Pokémon availability.
+# note: anything other than pre_victory_road can potentially generate Pokémon in Victory Road or later (postgame)
+# options: pre_victory_road, no_cerulean_cave, all
+# - pre_victory_road = beginning of game up to Cinnabar Island
+# - no_cerulean_cave = beginning of game up to Route 23 and Victory Road, inclusive
+# - all = all areas, including Cerulean Cave
+sphere_mode: pre_victory_road

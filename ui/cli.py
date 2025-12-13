@@ -55,20 +55,21 @@ def toggle_generation_mode(generation_mode):
 
 def display_party(party_blob, config_data, global_settings, duration, game, generation_mode):
     # ANSI codes
-    TITLE = "\033[30m\033[103m" # black text, bright yellow background
+    TITLE = "\033[1;100;93m" # bright black background, bold bright yellow text
     BRIGHT_GREEN = "\033[92m"
     BRIGHT_MAGENTA = "\033[95m"
     BRIGHT_RED = "\033[91m"
     BRIGHT_BLUE = "\033[94m"
-    BLUE = "\033[34m"
+    BRIGHT_BLACK = "\033[90m"
+    BRIGHT_YELLOW = "\033[93m"
     RESET = "\033[0m"
 
     show_acquisition_details = global_settings['show_acquisition_details']
     show_balance_stats = global_settings['show_balance_stats']
 
     def print_global_settings():
-        print(f"{BRIGHT_BLUE}Game setting{RESET}:\t {game}")
-        print(f"{BRIGHT_BLUE}Generation mode{RESET}: {generation_mode}\n")
+        print(f"Game setting:\t {game}")
+        print(f"Generation mode: {generation_mode}\n")
 
     print(f"{TITLE}===== TeamGen v{__version__} ====={RESET}\n")
 
@@ -84,8 +85,19 @@ def display_party(party_blob, config_data, global_settings, duration, game, gene
         print_global_settings()
         return
 
+    # Other cases
     if party_blob == 'invalid_input':
         print(f"{BRIGHT_RED}Invalid input! Please try again.{RESET}\n")
+        print_global_settings()
+        return
+
+    if party_blob == 'game_updated':
+        print(f"{BRIGHT_GREEN}Game setting updated.{RESET}\n")
+        print_global_settings()
+        return
+
+    if party_blob == 'generation_mode_toggled':
+        print(f"{BRIGHT_GREEN}Generation mode updated.{RESET}\n")
         print_global_settings()
         return
 
@@ -95,7 +107,7 @@ def display_party(party_blob, config_data, global_settings, duration, game, gene
         return
 
     # ---------------- PRINT PARTY --------------------------------------------------------------------------
-    print(f"{BRIGHT_GREEN}---- PARTY -------------------{RESET}")
+    print(f"{BRIGHT_YELLOW}---- PARTY -------------------{RESET}")
     # sort party by Sphere number appearance ascending, with exception for starter in slot 1
     def sort_key(p):
         prescribed = p["random_pool_entry_instance"]
@@ -136,7 +148,7 @@ def display_party(party_blob, config_data, global_settings, duration, game, gene
     # ---------------------------------------------------------------------------- END PRINT PARTY ----------
 
     if show_balance_stats:
-        print(f"\n{BRIGHT_GREEN}---- STATS -------------------{RESET}")
+        print(f"\n{BRIGHT_YELLOW}---- STATS -------------------{RESET}")
         print("Distribution:\t", [("Sphere " + str(sphere) + ": " + str(party_blob["party_distribution"][sphere])) for sphere in party_blob["party_distribution"]] if party_blob["party_distribution"] else None)
         #print("score_median:", party_blob["score_median"])
         print("Lean:\t\t", party_blob["lean"])
@@ -152,7 +164,6 @@ def display_party(party_blob, config_data, global_settings, duration, game, gene
 
 def ui_loop(all_pools, all_pokemon, config_data, meta_data, mappings, global_settings):
     # ANSI codes
-    GREEN = "\033[32m"
     BRIGHT_CYAN = "\033[96m"
     RESET = "\033[0m"
 
@@ -203,14 +214,14 @@ def ui_loop(all_pools, all_pokemon, config_data, meta_data, mappings, global_set
             if set_game(mappings):
                 all_pools, all_pokemon, config_data, meta_data, mappings, global_settings = build_all_data_structures()
                 game = global_settings['game']
-                party_on_screen = None
+                party_on_screen = 'game_updated'
                 continue
             else:
                 party_on_screen = 'invalid_input'
                 continue
         elif mode == 'toggle_generation_mode':
             generation_mode = toggle_generation_mode(generation_mode)
-            party_on_screen = None
+            party_on_screen = 'generation_mode_toggled'
             continue
         elif mode == 'reload_config':
             all_pools, all_pokemon, config_data, meta_data, mappings, global_settings = build_all_data_structures()

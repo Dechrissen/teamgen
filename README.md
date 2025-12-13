@@ -9,7 +9,8 @@ available to curate the output further.
 2. [Currently supported games](#currently-supported-games)
 3. [Installation](#installation)
 4. [Usage](#usage)
-5. [License](#license)
+5. [Contributing](#contributing)
+6. [License](#license)
 
 ## Introduction
 _TeamGen_ generates (prescribes) a party for use in a playthrough — either to introduce an element of 
@@ -46,8 +47,10 @@ Steps:
 
 **Option 2**: Windows – Prebuilt executable
 
-- Download teamgen.exe from the [latest release](https://github.com/Dechrissen/teamgen/releases/latest) assets
-- Run it directly
+- Download `teamgen-<version>.zip` from the [latest release](https://github.com/Dechrissen/teamgen/releases/latest) 
+  assets
+- Extract
+- Run `teamgen.exe`
 
 ## Usage
 
@@ -63,6 +66,13 @@ Steps:
 ### Changing config settings
 Open `/config/config_gen1.yaml` (for example, for Generation 1 games). Modify values according to your preferences. 
 Save the file and then use the `R` option in the app to reload.
+
+> [!NOTE]
+> If you are running the Windows executable, the config files are in `/_internal/config`.
+
+## Contributing
+
+If you'd like to add support for a missing game or romhack to _TeamGen_, see [CONTRIBUTING.md](/CONTRIBUTING.md).
 
 ## License
 _TeamGen_ is licensed under the MIT License. See the `LICENSE` file for full details.

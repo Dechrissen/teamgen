@@ -1,9 +1,8 @@
 # TODO
 
-- add a donation button, or github sponsor button (in readme?)
-- post on reddit when done
-- add to website/linkedin/portfolio
-  - and solus webpage?
+- add a donation button, or github sponsor button (in readme)
+
+- add to website/linkedin/portfolio/solus webpage
 
 - make sure push for first release has "recommended settings" in config files
 - test on actual linux
@@ -43,3 +42,5 @@
 - add unit tests for party generation functions (define test parties)
 
 - add toggle options for "Show balance stats" and "Show acquisition details" in UI
+
+- add 'export to txt' option for saving teams, or do it automatically (last X teams generated in a file)

@@ -5,3 +5,4 @@ data/__pycache__
 .idea
 build
 dist
+docs/*_progression.txt

@@ -1,6 +1,8 @@
 # TODO
 
 - add a donation button, or github sponsor button (in readme)
+- make a logo
+- add to itch.io
 
 - add to website/linkedin/portfolio/solus webpage
 
@@ -44,3 +46,6 @@
 - add toggle options for "Show balance stats" and "Show acquisition details" in UI
 
 - add 'export to txt' option for saving teams, or do it automatically (last X teams generated in a file)
+- ~~fix VENUSAUR having either "acquire via walk at ViridianForest" OR the normal starter method for Solus RGB when 
+  force_starter = True, while the 
+  other 2 starters correctly have their "starter" method selected.~~

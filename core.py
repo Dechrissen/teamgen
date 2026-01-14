@@ -3,6 +3,7 @@ from models.location import Location
 from models.sphere import Sphere
 import random
 
+#DEBUG = True
 DEBUG = False
 
 def generate_final_party(all_pools: dict, all_pokemon: dict, config_data: dict, meta_data: dict, n: int = 6,
@@ -81,6 +82,19 @@ def generate_final_party(all_pools: dict, all_pokemon: dict, config_data: dict, 
 
     # this will be False if party generated is not obtainable from pools
     if party_with_acquisition_data:
+        if config_data["force_starter"]:
+            if DEBUG:
+                print("'force_starter = True' in config. Ensuring 'starter' acquisition method exists in party...")
+            if not any(
+                member["random_pool_entry_instance"]["acquisition_method"] == "starter"
+                for member in party_with_acquisition_data
+            ):
+                if DEBUG:
+                    print("Party doesn't contain 'starter' acquisition method. Retrying final party generation...")
+                return generate_final_party(all_pools, all_pokemon,
+                                            config_data, meta_data,
+                                            n, retry + 1,
+                                            max_retries, max_iterations)
         if DEBUG:
             print("Generating balance stats...")
 

@@ -55,6 +55,7 @@ allow_duplicate_species: false
 species_blacklist: []
 
 # Maximum and minimum base stat totals allowed for members of the output party.
+# note: use Gen 1 BST values (https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_base_stats_in_Generation_I)
 #TODO add suggestions here for general cutoffs that make sense for easy mode, hard mode, etc.
 # options: int or none
 bst_max: none
@@ -113,11 +114,3 @@ allowed_acquisition_methods:
   purchase: true
   fossil_restore: true
   prize_window: true
-
-# Preset Sphere Mode from the corresponding `meta` YAML, which defines the enabled Spheres for Pokémon availability.
-# note: anything other than pre_victory_road can potentially generate Pokémon in Victory Road or later (postgame)
-# options: pre_victory_road, no_cerulean_cave, all
-# - pre_victory_road = beginning of game up to Cinnabar Island
-# - no_cerulean_cave = beginning of game up to Route 23 and Victory Road, inclusive
-# - all = all areas, including Cerulean Cave
-sphere_mode: pre_victory_road

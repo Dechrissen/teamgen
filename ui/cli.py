@@ -42,7 +42,7 @@ def toggle_generation_mode(generation_mode):
     elif generation_mode == 'Random':
         new_generation_mode = 'Progression-viable'
     else:
-        # probable don't need this case but w/e
+        # probably don't need this case but w/e
         new_generation_mode = 'Progression-viable'
 
     with open(resource_path("config/global_settings.yaml"), "r") as f:
@@ -53,7 +53,7 @@ def toggle_generation_mode(generation_mode):
 
     return new_generation_mode
 
-def display_party(party_blob, config_data, global_settings, duration, game, generation_mode):
+def display_party(party_blob, config_data, global_settings, duration, game, generation_mode, config_file_path):
     # ANSI codes
     TITLE = "\033[1;100;93m" # bright black background, bold bright yellow text
     BRIGHT_GREEN = "\033[92m"
@@ -69,6 +69,7 @@ def display_party(party_blob, config_data, global_settings, duration, game, gene
 
     def print_global_settings():
         print(f"Game setting:\t {game}")
+        print(f"Config file:\t {config_file_path}")
         print(f"Generation mode: {generation_mode}\n")
 
     print(f"{TITLE}===== TeamGen v{__version__} ====={RESET}\n")
@@ -171,6 +172,7 @@ def ui_loop(all_pools, all_pokemon, config_data, meta_data, mappings, global_set
     duration = None
     generation_mode = global_settings['generation_mode']
     game = global_settings['game']
+    config_file_path = mappings[game]['config']
 
     while True:
         if DEBUG:
@@ -181,7 +183,7 @@ def ui_loop(all_pools, all_pokemon, config_data, meta_data, mappings, global_set
 
         mode = None
 
-        display_party(party_on_screen, config_data, global_settings, duration, game, generation_mode)
+        display_party(party_on_screen, config_data, global_settings, duration, game, generation_mode, config_file_path)
 
         print(f"Press {BRIGHT_CYAN}ENTER{RESET} to generate a party.")
         print(f"{BRIGHT_CYAN}G{RESET} - Toggle generation mode")

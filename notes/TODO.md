@@ -46,6 +46,7 @@
 - add toggle options for "Show balance stats" and "Show acquisition details" in UI
 
 - add 'export to txt' option for saving teams, or do it automatically (last X teams generated in a file)
-- ~~fix VENUSAUR having either "acquire via walk at ViridianForest" OR the normal starter method for Solus RGB when 
-  force_starter = True, while the 
-  other 2 starters correctly have their "starter" method selected.~~
+
+- add some code that generates the config files for each game (creates the yaml) or something that resets it to the default (recommended) values before i push a release (or maybe have options in the UI to switch to certain presets, like "recommended", "hard", etc)
+
+- add "types to exclude" config setting

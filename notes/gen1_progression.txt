@@ -1,0 +1,94 @@
+--------
+1: START
+--------
+route 1 
+route 22
+route 2
+viridian forest
+route 3
+route 3 pokecenter - magikarp purchase
+mt moon 1F 
+mt moon B1F
+mt moon B2F - fossils here
+STONE: moon stone <--- do we put all the possible moon stones in the game?
+route 4 
+route 24
+route 25 
+---------------
+2: CERULEAN GYM
+---------------
+cerulean city
+route 5
+route 6 
+vermilion city 
+ITEM: old rod
+diglett's cave
+route 11 
+route 9 
+route 10 
+rock tunnel 1F 
+rock tunnel B1F 
+route 12 <--- at this point, we can't access snorlax or super rod
+route 8 
+route 7 
+celadon city 
+STONE: fire stone
+STONE: water stone
+STONE: thunder stone
+STONE: leaf stone
+game corner 
+celadon mansion 
+--------------
+3: CELADON GYM
+--------------
+pokemon tower 3F 
+pokemon tower 4F 
+pokemon tower 5F 
+pokemon tower 6F 
+pokemon tower 7F
+ITEM: pokeflute
+ITEM: super rod
+route 13
+route 14
+route 15
+route 16
+route 17
+route 18
+ITEM: good rod
+HM: Surf
+power plant
+safari zone center
+safari zone east
+safari zone north
+safari zone west
+silph co.
+fighting dojo
+--------------
+4: SAFFRON GYM
+--------------
+route 19
+route 20
+seafoam islands 1F
+seafoam islands B1F
+seafoam islands B2F
+seafoam islands B3F
+seafoam islands B4F
+cinnabar mansion B1F
+cinnabar mansion 1
+cinnabar mansion 2
+cinnabar mansion 3
+cinnabar lab
+route 21
+-------
+ENDGAME
+-------
+route 23
+victory road 1F
+victory road 2F
+victory road 3F
+--------
+POSTGAME
+--------
+cerulean cave 1F
+cerulean cave 2F
+cerulean cave B1F

@@ -287,8 +287,8 @@ def is_party_progression_viable(party, all_pools, all_pokemon, config_data, meta
         allowed_acquisition_methods = [method for method in config_data["allowed_acquisition_methods"] if
                                        config_data["allowed_acquisition_methods"][method] == True]
 
-        # get 'active' (enabled) spheres from config preset sphere_mode
-        sphere_mode = config_data["sphere_mode"]
+        # get 'active' (enabled) spheres from config preset selected_sphere_mode
+        sphere_mode = meta_data["selected_sphere_mode"]
         enabled_spheres = [sphere for sphere in meta_data['sphere_generation_modes'][sphere_mode]]
 
         earliest_form_found, earliest_pool_available = None, None
@@ -435,7 +435,7 @@ def assign_balance_grade(party_with_acquisition_data, meta_data, config_data) ->
     spread_cutoffs = (0.35, 0.70)
 
     # Build party distribution across enabled spheres
-    sphere_mode = config_data["sphere_mode"]
+    sphere_mode = meta_data["selected_sphere_mode"]
     enabled_spheres = [sphere for sphere in meta_data['sphere_generation_modes'][sphere_mode]]
     total_spheres = len(enabled_spheres)
     party_distribution = {sphere: 0 for sphere in enabled_spheres}

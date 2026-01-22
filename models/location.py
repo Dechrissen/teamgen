@@ -29,5 +29,6 @@ class Location:
         self.fossil_restore = fossil_restore # list[str]
         self.prize_window = prize_window # list[str]
         #TODO add squirt_bottle for gen 2? sudowoodo
+        #TODO add headbutt for gen 2?
         #TODO add devon_scope for gen 3? kecleon
 

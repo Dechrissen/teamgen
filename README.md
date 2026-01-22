@@ -29,7 +29,7 @@ but also with romhacks that might contain the following (as long as the relevant
   - [Pokémon Solus RGB](https://github.com/Dechrissen/poke-solus-rgb)
 
 ## Installation
-### Option 1: Linux / macOS (Recommended)
+### Option 1: Linux / macOS (CLI)
 
 Prerequisites:
 - Python 3.10+
@@ -46,7 +46,7 @@ Steps:
 4. Install dependencies (`pip install -r requirements.txt`)
 5. Run with `python main.py`
 
-### Option 2: Windows – Prebuilt executable
+### Option 2: Windows (Prebuilt executable)
 
 1. Download `teamgen-<version>.zip` from the [latest release](https://github.com/Dechrissen/teamgen/releases/latest) 
   assets
@@ -73,7 +73,7 @@ Save the file and then use the `R` option in the app to reload.
 
 ## Contributing
 
-If you'd like to add support for a missing game or romhack, see [CONTRIBUTING.md](/CONTRIBUTING.md).
+If you'd like to add support for a missing game or romhack, see [`CONTRIBUTING.md`](/CONTRIBUTING.md).
 
 ## License
-_TeamGen_ is licensed under the MIT License. See the `LICENSE` file for full details.
+_TeamGen_ is licensed under the MIT License. See [`LICENSE`](/LICENSE) for full details.

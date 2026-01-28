@@ -28,11 +28,15 @@ def test_pokedex_required_fields(yaml_files):
 
 def test_pokedex_data_types(yaml_files):
     """Tests whether all data types are valid for each Pokemon."""
-    valid_hms = {'CUT', 'FLASH', 'SURF', 'STRENGTH', 'FLY', 'DIG', 'TELEPORT', 'SOFTBOILED'}
+    valid_hms = {'CUT', 'FLASH', 'SURF', 'STRENGTH', 'FLY', 'DIG', 'TELEPORT', 'SOFTBOILED',
+                 'WATERFALL', 'WHIRLPOOL', 'ROCK_SMASH', 'HEADBUTT'}
     valid_types = {'normal', 'fire', 'water', 'grass', 'electric', 'flying', 'fighting',
-                   'ice', 'psychic', 'ground', 'rock', 'poison', 'bug', 'dragon', 'ghost'}
+                   'ice', 'psychic', 'ground', 'rock', 'poison', 'bug', 'dragon', 'ghost',
+                   'steel', 'dark'}
     valid_evo_methods = {'none', 'level-up', 'moon_stone', 'fire_stone', 'water_stone',
-                         'thunder_stone', 'leaf_stone', 'trade'}
+                         'thunder_stone', 'leaf_stone', 'trade',
+                         'happiness', 'trade_metal_coat', 'trade_kings_rock', 'trade_dragon_scale', 'trade_upgrade',
+                         'level-up_atk_equal_def', 'level-up_atk_greater_def', 'level-up_def_greater_atk', 'sun_stone'}
 
     for path, category in filter_yaml(yaml_files, "pokedex"):
         pokedex = load_yaml(path)

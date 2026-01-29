@@ -182,6 +182,15 @@
   super_rod:
   - MAGIKARP
   - GYARADOS
+- map_name: GoldenrodCity
+  gift:
+  - EEVEE
+  prize_window:
+  - ABRA
+  - EKANS
+  - DRATINI
+  trade:
+  - MACHOP
 - map_name: IcePath1F
   walk:
   - GOLBAT
@@ -259,7 +268,7 @@
   - SANDSHREW
   - SANDSLASH
   - ZUBAT
-- map_name: MountMortar1FEntrance
+- map_name: MtMortar1FEntrance
   walk:
   - GEODUDE
   - MACHOP
@@ -278,13 +287,13 @@
   - GOLDEEN
   - MAGIKARP
   - SEAKING
-- map_name: MountMortar1FBack
+- map_name: MtMortar1FBack
   walk:
   - GEODUDE
   - MACHOP
   - RATTATA
   - ZUBAT
-- map_name: MountMortar2F
+- map_name: MtMortar2F
   walk:
   - GEODUDE
   - GOLBAT
@@ -305,7 +314,7 @@
   - GOLDEEN
   - MAGIKARP
   - SEAKING
-- map_name: MountMortarB1F
+- map_name: MtMortarB1F
   walk:
   - GEODUDE
   - MACHOP
@@ -689,6 +698,19 @@
   surf:
   - TENTACOOL
   - TENTACRUEL
+  old_rod:
+  - MAGIKARP
+  - TENTACOOL
+  good_rod:
+  - MAGIKARP
+  - TENTACOOL
+  - CHINCHOU
+  - SHELLDER
+  super_rod:
+  - CHINCHOU
+  - TENTACRUEL
+  - LANTURN
+  - SHELLDER
   headbutt:
   - CATERPIE
   - METAPOD
@@ -705,6 +727,19 @@
   surf:
   - TENTACOOL
   - TENTACRUEL
+  old_rod:
+  - MAGIKARP
+  - TENTACOOL
+  good_rod:
+  - MAGIKARP
+  - TENTACOOL
+  - CHINCHOU
+  - SHELLDER
+  super_rod:
+  - CHINCHOU
+  - TENTACRUEL
+  - LANTURN
+  - SHELLDER
   headbutt:
   - CATERPIE
   - METAPOD
@@ -723,6 +758,15 @@
   surf:
   - POLIWAG
   - POLIWHIRL
+  old_rod:
+  - MAGIKARP
+  - POLIWAG
+  good_rod:
+  - MAGIKARP
+  - POLIWAG
+  super_rod:
+  - POLIWAG
+  - MAGIKARP
 - map_name: Route29
   walk:
   - HOOTHOOT
@@ -800,6 +844,16 @@
   - QUAGSIRE
   - TENTACOOL
   - TENTACRUEL
+  old_rod:
+  - MAGIKARP
+  - TENTACOOL
+  good_rod:
+  - MAGIKARP
+  - TENTACOOL
+  super_rod:
+  - MAGIKARP
+  - TENTACOOL
+  - QWILFISH
   headbutt:
   - SPEAROW
   - AIPOM
@@ -810,19 +864,6 @@
   - RATTATA
   - SPEAROW
   - ZUBAT
-  old_rod:
-  - MAGIKARP
-  - KRABBY
-  good_rod:
-  - MAGIKARP
-  - KRABBY
-  - CORSOLA
-  - STARYU
-  super_rod:
-  - KRABBY
-  - KINGLER
-  - CORSOLA
-  - STARYU
   headbutt:
   - SPEAROW
   - AIPOM
@@ -883,6 +924,8 @@
   - EXEGGCUTE
   - BUTTERFREE
   - PINECO
+  gift:
+  - SPEAROW
 - map_name: Route36
   walk:
   - GROWLITHE
@@ -891,25 +934,14 @@
   - NIDORAN_M
   - PIDGEY
   - STANTLER
-  old_rod:
-  - MAGIKARP
-  - KRABBY
-  good_rod:
-  - MAGIKARP
-  - KRABBY
-  - CORSOLA
-  - STARYU
-  super_rod:
-  - KRABBY
-  - KINGLER
-  - CORSOLA
-  - STARYU
   headbutt:
   - CATERPIE
   - METAPOD
   - EXEGGCUTE
   - BUTTERFREE
   - PINECO
+  squirt_bottle:
+  - SUDOWOODO
 - map_name: Route37
   walk:
   - GROWLITHE
@@ -918,19 +950,6 @@
   - PIDGEY
   - SPINARAK
   - STANTLER
-  old_rod:
-  - MAGIKARP
-  - KRABBY
-  good_rod:
-  - MAGIKARP
-  - KRABBY
-  - CORSOLA
-  - STARYU
-  super_rod:
-  - KRABBY
-  - KINGLER
-  - CORSOLA
-  - STARYU
   headbutt:
   - CATERPIE
   - METAPOD
@@ -939,26 +958,13 @@
   - PINECO
 - map_name: Route38
   walk:
-  - FARFETCH_D
+  - FARFETCHD
   - MAGNEMITE
   - MILTANK
   - RATICATE
   - RATTATA
   - SNUBBULL
   - TAUROS
-  old_rod:
-  - MAGIKARP
-  - KRABBY
-  good_rod:
-  - MAGIKARP
-  - KRABBY
-  - CORSOLA
-  - STARYU
-  super_rod:
-  - KRABBY
-  - KINGLER
-  - CORSOLA
-  - STARYU
   headbutt:
   - CATERPIE
   - METAPOD
@@ -967,25 +973,12 @@
   - PINECO
 - map_name: Route39
   walk:
-  - FARFETCH_D
+  - FARFETCHD
   - MAGNEMITE
   - MILTANK
   - RATICATE
   - RATTATA
   - TAUROS
-  old_rod:
-  - MAGIKARP
-  - KRABBY
-  good_rod:
-  - MAGIKARP
-  - KRABBY
-  - CORSOLA
-  - STARYU
-  super_rod:
-  - KRABBY
-  - KINGLER
-  - CORSOLA
-  - STARYU
   headbutt:
   - CATERPIE
   - METAPOD
@@ -1001,20 +994,26 @@
   surf:
   - GOLDEEN
   - SEAKING
-  old_rod:
-  - MAGIKARP
-  - GOLDEEN
-  good_rod:
-  - MAGIKARP
-  - GOLDEEN
-  super_rod:
-  - GOLDEEN
-  - MAGIKARP
-  - SEAKING
 - map_name: Route40
   surf:
   - TENTACOOL
   - TENTACRUEL
+  old_rod:
+  - MAGIKARP
+  - KRABBY
+  good_rod:
+  - MAGIKARP
+  - KRABBY
+  - CORSOLA
+  - STARYU
+  super_rod:
+  - KRABBY
+  - KINGLER
+  - CORSOLA
+  - STARYU
+  rock_smash:
+  - KRABBY
+  - SHUCKLE
 - map_name: Route42
   walk:
   - FLAAFFY
@@ -1102,10 +1101,6 @@
   - MAGIKARP
   - DRAGONAIR
   - DRATINI
-  headbutt:
-  - SPEAROW
-  - AIPOM
-  - HERACROSS
 - map_name: Route46
   walk:
   - GEODUDE
@@ -1178,19 +1173,6 @@
 - map_name: RuinsOfAlphInnerChamber
   walk:
   - UNOWN
-  old_rod:
-  - MAGIKARP
-  - KRABBY
-  good_rod:
-  - MAGIKARP
-  - KRABBY
-  - CORSOLA
-  - STARYU
-  super_rod:
-  - KRABBY
-  - KINGLER
-  - CORSOLA
-  - STARYU
 - map_name: RuinsOfAlphOutside
   walk:
   - NATU
@@ -1207,7 +1189,7 @@
   super_rod:
   - POLIWAG
   - MAGIKARP
-- map_name: SilverCaveItemRooms
+- map_name: MtSilverCaveChambers
   walk:
   - GOLBAT
   - GOLDUCK
@@ -1225,7 +1207,7 @@
   - GOLDEEN
   - MAGIKARP
   - SEAKING
-- map_name: SilverCaveOutside
+- map_name: MtSilver
   walk:
   - DODRIO
   - DODUO
@@ -1237,24 +1219,23 @@
   surf:
   - POLIWAG
   - POLIWHIRL
-- map_name: SilverCaveRoom1
+  old_rod:
+  - MAGIKARP
+  - POLIWAG
+  good_rod:
+  - MAGIKARP
+  - POLIWAG
+  super_rod:
+  - POLIWAG
+  - MAGIKARP
+- map_name: MtSilverCave1F
   walk:
   - GOLBAT
   - GRAVELER
   - LARVITAR
   - ONIX
   - URSARING
-  old_rod:
-  - MAGIKARP
-  - GOLDEEN
-  good_rod:
-  - MAGIKARP
-  - GOLDEEN
-  super_rod:
-  - GOLDEEN
-  - MAGIKARP
-  - SEAKING
-- map_name: SilverCaveRoom2
+- map_name: MtSilverCave2F
   walk:
   - GOLBAT
   - GOLDUCK
@@ -1275,24 +1256,14 @@
   - GOLDEEN
   - MAGIKARP
   - SEAKING
-- map_name: SilverCaveRoom3
+- map_name: MtSilverCaveSummit
   walk:
   - GOLBAT
   - GOLDUCK
   - LARVITAR
   - ONIX
   - URSARING
-  old_rod:
-  - MAGIKARP
-  - GOLDEEN
-  good_rod:
-  - MAGIKARP
-  - GOLDEEN
-  super_rod:
-  - GOLDEEN
-  - MAGIKARP
-  - SEAKING
-- map_name: SlowpokeWellB1f
+- map_name: SlowpokeWellB1F
   walk:
   - SLOWPOKE
   - ZUBAT
@@ -1308,7 +1279,7 @@
   - GOLDEEN
   - MAGIKARP
   - SEAKING
-- map_name: SlowpokeWellB2f
+- map_name: SlowpokeWellB2F
   walk:
   - GOLBAT
   - SLOWPOKE
@@ -1326,177 +1297,64 @@
   - GOLDEEN
   - MAGIKARP
   - SEAKING
-- map_name: SproutTower2f
+- map_name: SproutTower2F
   walk:
   - GASTLY
   - RATTATA
-  old_rod:
-  - MAGIKARP
-  - KRABBY
-  good_rod:
-  - MAGIKARP
-  - KRABBY
-  - CORSOLA
-  - STARYU
-  super_rod:
-  - KRABBY
-  - KINGLER
-  - CORSOLA
-  - STARYU
-- map_name: SproutTower3f
+- map_name: SproutTower3F
   walk:
   - GASTLY
   - RATTATA
-  old_rod:
-  - MAGIKARP
-  - KRABBY
-  good_rod:
-  - MAGIKARP
-  - KRABBY
-  - CORSOLA
-  - STARYU
-  super_rod:
-  - KRABBY
-  - KINGLER
-  - CORSOLA
-  - STARYU
-- map_name: TinTower2f
+- map_name: TeamRocketHQB1F
+  static_encounter:
+  - GEODUDE
+  - VOLTORB
+  - KOFFING
+- map_name: TeamRocketHQB2F
+  static_encounter:
+  - ELECTRODE
+- map_name: TinTower2F
   walk:
   - GASTLY
   - RATTATA
-  old_rod:
-  - MAGIKARP
-  - KRABBY
-  good_rod:
-  - MAGIKARP
-  - KRABBY
-  - CORSOLA
-  - STARYU
-  super_rod:
-  - KRABBY
-  - KINGLER
-  - CORSOLA
-  - STARYU
-- map_name: TinTower3f
+- map_name: TinTower3F
   walk:
   - GASTLY
   - RATTATA
-  old_rod:
-  - MAGIKARP
-  - KRABBY
-  good_rod:
-  - MAGIKARP
-  - KRABBY
-  - CORSOLA
-  - STARYU
-  super_rod:
-  - KRABBY
-  - KINGLER
-  - CORSOLA
-  - STARYU
-- map_name: TinTower4f
+- map_name: TinTower4F
   walk:
   - GASTLY
   - RATTATA
-  old_rod:
-  - MAGIKARP
-  - KRABBY
-  good_rod:
-  - MAGIKARP
-  - KRABBY
-  - CORSOLA
-  - STARYU
-  super_rod:
-  - KRABBY
-  - KINGLER
-  - CORSOLA
-  - STARYU
-- map_name: TinTower5f
+- map_name: TinTower5F
   walk:
   - GASTLY
   - RATTATA
-  old_rod:
-  - MAGIKARP
-  - KRABBY
-  good_rod:
-  - MAGIKARP
-  - KRABBY
-  - CORSOLA
-  - STARYU
-  super_rod:
-  - KRABBY
-  - KINGLER
-  - CORSOLA
-  - STARYU
-- map_name: TinTower6f
+- map_name: TinTower6F
   walk:
   - GASTLY
   - RATTATA
-  old_rod:
-  - MAGIKARP
-  - KRABBY
-  good_rod:
-  - MAGIKARP
-  - KRABBY
-  - CORSOLA
-  - STARYU
-  super_rod:
-  - KRABBY
-  - KINGLER
-  - CORSOLA
-  - STARYU
-- map_name: TinTower7f
+- map_name: TinTower7F
   walk:
   - GASTLY
   - RATTATA
-  old_rod:
-  - MAGIKARP
-  - KRABBY
-  good_rod:
-  - MAGIKARP
-  - KRABBY
-  - CORSOLA
-  - STARYU
-  super_rod:
-  - KRABBY
-  - KINGLER
-  - CORSOLA
-  - STARYU
-- map_name: TinTower8f
+- map_name: TinTower8F
   walk:
   - GASTLY
   - RATTATA
-  old_rod:
-  - MAGIKARP
-  - KRABBY
-  good_rod:
-  - MAGIKARP
-  - KRABBY
-  - CORSOLA
-  - STARYU
-  super_rod:
-  - KRABBY
-  - KINGLER
-  - CORSOLA
-  - STARYU
-- map_name: TinTower9f
+- map_name: TinTower9F
   walk:
   - GASTLY
   - RATTATA
-  old_rod:
-  - MAGIKARP
-  - KRABBY
-  good_rod:
-  - MAGIKARP
-  - KRABBY
-  - CORSOLA
-  - STARYU
-  super_rod:
-  - KRABBY
-  - KINGLER
-  - CORSOLA
-  - STARYU
+- map_name: TinTowerRoof
+  rainbow_wing:
+  - HO-OH
 - map_name: TohjoFalls
+  walk:
+    - RATICATE
+    - ZUBAT
+    - GOLBAT
+    - SLOWPOKE
+    - RATTATA
   surf:
   - GOLDEEN
   - SEAKING
@@ -1511,7 +1369,7 @@
   - GOLDEEN
   - MAGIKARP
   - SEAKING
-- map_name: UnionCave1f
+- map_name: UnionCave1F
   walk:
   - GEODUDE
   - ONIX
@@ -1531,7 +1389,7 @@
   - GOLDEEN
   - MAGIKARP
   - SEAKING
-- map_name: UnionCaveB1f
+- map_name: UnionCaveB1F
   walk:
   - GEODUDE
   - ONIX
@@ -1551,7 +1409,7 @@
   - GOLDEEN
   - MAGIKARP
   - SEAKING
-- map_name: UnionCaveB2f
+- map_name: UnionCaveB2F
   walk:
   - GEODUDE
   - GOLBAT
@@ -1576,6 +1434,8 @@
   - KINGLER
   - CORSOLA
   - STARYU
+  static_encounter:
+  - LAPRAS
 - map_name: VermilionCity
   surf:
   - TENTACOOL
@@ -1597,6 +1457,19 @@
   surf:
   - TENTACOOL
   - TENTACRUEL
+  old_rod:
+  - MAGIKARP
+  - TENTACOOL
+  good_rod:
+  - MAGIKARP
+  - TENTACOOL
+  - CHINCHOU
+  - SHELLDER
+  super_rod:
+  - CHINCHOU
+  - TENTACRUEL
+  - LANTURN
+  - SHELLDER
 - map_name: VictoryRoad
   walk:
   - GOLBAT
@@ -1604,19 +1477,6 @@
   - ONIX
   - RHYHORN
   - URSARING
-  old_rod:
-  - MAGIKARP
-  - KRABBY
-  good_rod:
-  - MAGIKARP
-  - KRABBY
-  - CORSOLA
-  - STARYU
-  super_rod:
-  - KRABBY
-  - KINGLER
-  - CORSOLA
-  - STARYU
 - map_name: VioletCity
   surf:
   - POLIWAG
@@ -1638,149 +1498,25 @@
   surf:
   - POLIWAG
   - POLIWHIRL
-- map_name: WhirlIslandB1f
-  walk:
-  - GOLBAT
-  - KRABBY
-  - SEEL
-  - ZUBAT
   old_rod:
   - MAGIKARP
-  - KRABBY
+  - POLIWAG
   good_rod:
   - MAGIKARP
-  - KRABBY
-  - HORSEA
+  - POLIWAG
   super_rod:
-  - KRABBY
-  - KINGLER
-  - SEADRA
-  - HORSEA
-- map_name: WhirlIslandB2f
+  - POLIWAG
+  - MAGIKARP
+- map_name: WhirlIslands1F
   walk:
   - GOLBAT
   - KRABBY
   - SEEL
   - ZUBAT
   surf:
-  - HORSEA
-  - TENTACRUEL
-  old_rod:
-  - MAGIKARP
-  - KRABBY
-  good_rod:
-  - MAGIKARP
-  - KRABBY
-  - HORSEA
-  super_rod:
-  - KRABBY
-  - KINGLER
-  - SEADRA
-  - HORSEA
-- map_name: WhirlIslandCave
-  walk:
-  - GOLBAT
-  - KRABBY
-  - SEEL
-  - ZUBAT
-  old_rod:
-  - MAGIKARP
-  - KRABBY
-  good_rod:
-  - MAGIKARP
-  - KRABBY
-  - HORSEA
-  super_rod:
-  - KRABBY
-  - KINGLER
-  - SEADRA
-  - HORSEA
-- map_name: WhirlIslandLugiaChamber
-  walk:
-  - GOLBAT
-  - KRABBY
-  - SEEL
-  - ZUBAT
-  surf:
-  - HORSEA
-  - SEADRA
-  - TENTACRUEL
-  old_rod:
-  - MAGIKARP
-  - KRABBY
-  good_rod:
-  - MAGIKARP
-  - KRABBY
-  - HORSEA
-  super_rod:
-  - KRABBY
-  - KINGLER
-  - SEADRA
-  - HORSEA
-- map_name: WhirlIslandNe
-  walk:
-  - GOLBAT
-  - KRABBY
-  - SEEL
-  - ZUBAT
-  old_rod:
-  - MAGIKARP
-  - KRABBY
-  good_rod:
-  - MAGIKARP
-  - KRABBY
-  - HORSEA
-  super_rod:
-  - KRABBY
-  - KINGLER
-  - SEADRA
-  - HORSEA
-- map_name: WhirlIslandNw
-  walk:
-  - GOLBAT
-  - KRABBY
-  - SEEL
-  - ZUBAT
-  old_rod:
-  - MAGIKARP
-  - KRABBY
-  good_rod:
-  - MAGIKARP
-  - KRABBY
-  - HORSEA
-  super_rod:
-  - KRABBY
-  - KINGLER
-  - SEADRA
-  - HORSEA
-- map_name: WhirlIslandSe
-  walk:
-  - GOLBAT
-  - KRABBY
-  - SEEL
-  - ZUBAT
-  old_rod:
-  - MAGIKARP
-  - KRABBY
-  good_rod:
-  - MAGIKARP
-  - KRABBY
-  - HORSEA
-  super_rod:
-  - KRABBY
-  - KINGLER
-  - SEADRA
-  - HORSEA
-- map_name: WhirlIslandSw
-  walk:
-  - GOLBAT
-  - KRABBY
-  - SEEL
-  - ZUBAT
-  surf:
-  - HORSEA
   - TENTACOOL
   - TENTACRUEL
+  - HORSEA
   old_rod:
   - MAGIKARP
   - KRABBY
@@ -1793,3 +1529,54 @@
   - KINGLER
   - SEADRA
   - HORSEA
+- map_name: WhirlIslandsB1F
+  walk:
+  - GOLBAT
+  - KRABBY
+  - SEEL
+  - ZUBAT
+- map_name: WhirlIslandsB2F
+  walk:
+  - GOLBAT
+  - KRABBY
+  - SEEL
+  - ZUBAT
+  surf:
+  - HORSEA
+  - TENTACRUEL
+  old_rod:
+  - MAGIKARP
+  - KRABBY
+  good_rod:
+  - MAGIKARP
+  - KRABBY
+  - HORSEA
+  super_rod:
+  - KRABBY
+  - KINGLER
+  - SEADRA
+  - HORSEA
+- map_name: WhirlIslandsB2FInnerCave
+  walk:
+  - GOLBAT
+  - KRABBY
+  - SEEL
+  - ZUBAT
+  surf:
+  - HORSEA
+  - SEADRA
+  - TENTACRUEL
+  old_rod:
+  - MAGIKARP
+  - KRABBY
+  good_rod:
+  - MAGIKARP
+  - KRABBY
+  - HORSEA
+  super_rod:
+  - KRABBY
+  - KINGLER
+  - SEADRA
+  - HORSEA
+  silver_wing:
+  - LUGIA

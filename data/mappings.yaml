@@ -1,4 +1,4 @@
-# vanilla games
+### vanilla games ###
 Red:
   meta: 'data/gen1/vanilla/meta_rb.yaml'
   pokedex: 'data/gen1/vanilla/pokedex_rb.yaml'
@@ -11,7 +11,13 @@ Blue:
   locations: 'data/gen1/vanilla/locations_blue.yaml'
   config: 'config/config_gen1.yaml'
 
-# romhacks
+Gold:
+  meta: 'data/gen2/vanilla/meta_gold.yaml'
+  pokedex: 'data/gen2/vanilla/pokedex_gs.yaml'
+  locations: 'data/gen2/vanilla/locations_gold.yaml'
+  config: 'config/config_gen2.yaml'
+
+### romhacks ###
 Solus RGB:
   meta: 'data/gen1/romhacks/meta_solusrgb.yaml'
   pokedex: 'data/gen1/romhacks/pokedex_solusrgb.yaml'

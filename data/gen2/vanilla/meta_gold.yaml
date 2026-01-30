@@ -1,0 +1,336 @@
+starter_species:
+  - CYNDAQUIL
+  - CHIKORITA
+  - TOTODILE
+
+# Only one of the Pokemon per modal group can be generated,
+# and no dupes of any selected from a group
+modal_species: []
+
+limited_acquisition_methods:
+  - starter # this is also taken care of with the validate_only_one_starter function, but extra precaution
+  - static_encounter
+  - gift
+  - trade
+  - purchase
+  - fossil_restore
+  - poke_flute
+  - squirt_bottle
+  - roaming
+  - rainbow_wing
+  - silver_wing
+
+acquisition_methods:
+  - name: starter
+    is_default: true
+  - name: walk
+    is_default: true
+  - name: surf
+    is_default: false
+  - name: old_rod
+    is_default: false
+  - name: good_rod
+    is_default: false
+  - name: super_rod
+    is_default: false
+  - name: poke_flute
+    is_default: false
+  - name: static_encounter
+    is_default: true
+  - name: trade
+    is_default: true
+  - name: gift
+    is_default: true
+  - name: purchase
+    is_default: true
+  - name: fossil_restore
+    is_default: true
+  - name: prize_window
+    is_default: true
+  - name: headbutt
+    is_default: false
+  - name: rock_smash
+    is_default: false
+  - name: squirt_bottle
+    is_default: false
+  - name: roaming
+    is_default: true
+  - name: rainbow_wing
+    is_default: false
+  - name: silver_wing
+    is_default: false
+
+spheres:
+      - sphereNum: 1
+        contents:
+          - name: NewBarkTown
+            type: map
+          - name: Route29
+            type: map
+          - name: Route46
+            type: map
+          - name: CherrygroveCity
+            type: map
+          - name: Route30
+            type: map
+          - name: Route31
+            type: map
+          - name: DarkCaveVioletEntrance
+            type: map
+          - name: VioletCity
+            type: map
+          - name: SproutTower2F
+            type: map
+          - name: SproutTower3F
+            type: map
+          - name: RuinsOfAlphInnerChamber
+            type: map
+          - name: Route32
+            type: map
+          - name: old_rod
+            type: acquisition_unlock
+          - name: UnionCave1F
+            type: map
+          - name: UnionCaveB1F
+            type: map
+          - name: Route33
+            type: map
+          - name: AzaleaTown
+            type: map
+          - name: SlowpokeWellB1F
+            type: map
+      - sphereNum: 2
+        contents:
+          - name: IlexForest
+            type: map
+          - name: headbutt
+            type: acquisition_unlock
+          - name: Route34
+            type: map
+          - name: GoldenrodCity
+            type: map
+          - name: squirt_bottle
+            type: acquisition_unlock
+          - name: Route35
+            type: map
+          - name: NationalPark
+            type: map
+          - name: Route36
+            type: map
+          - name: rock_smash
+            type: acquisition_unlock
+          - name: Route37
+            type: map
+          - name: EcruteakCity
+            type: map
+          - name: surf
+            type: acquisition_unlock
+          - name: BurnedTower1F
+            type: map
+          - name: BurnedTowerB1F
+            type: map
+          - name: TinTower2F
+            type: map
+          - name: TinTower3F
+            type: map
+          - name: TinTower4F
+            type: map
+          - name: TinTower5F
+            type: map
+          - name: TinTower6F
+            type: map
+          - name: TinTower7F
+            type: map
+          - name: TinTower8F
+            type: map
+          - name: TinTower9F
+            type: map
+          - name: TinTowerRoof
+            type: map
+      - sphereNum: 3
+        contents:
+          - name: Route38
+            type: map
+          - name: Route39
+            type: map
+          - name: OlivineCity
+            type: map
+          - name: good_rod
+            type: acquisition_unlock
+          - name: OlivinePort
+            type: map
+          - name: UnionCaveB2F
+            type: map
+          - name: RuinsOfAlphOutside
+            type: map
+          - name: SlowpokeWellB2F
+            type: map
+          - name: Route40
+            type: map
+          - name: Route41
+            type: map
+          - name: WhirlIslands1F
+            type: map
+          - name: WhirlIslandsB1F
+            type: map
+          - name: WhirlIslandsB2F
+            type: map
+          - name: WhirlIslandsB2FInnerCave
+            type: map
+          - name: CianwoodCity
+            type: map
+      - sphereNum: 4
+        contents:
+          - name: Route42
+            type: map
+          - name: MtMortar1FEntrance
+            type: map
+          - name: MtMortar1FBack
+            type: map
+          - name: MtMortarB1F
+            type: map
+          - name: MtMortar2F
+            type: map
+          - name: Route43
+            type: map
+          - name: LakeOfRage
+            type: map
+          - name: TeamRocketHQB1F
+            type: map
+          - name: TeamRocketHQB2F
+            type: map
+          - name: rainbow_wing
+            type: acquisition_unlock
+          - name: Route44
+            type: map
+          - name: IcePath1F
+            type: map
+          - name: IcePathB1F
+            type: map
+          - name: IcePathB2F
+            type: map
+          - name: IcePathB3F
+            type: map
+          - name: BlackthornCity
+            type: map
+          - name: DragonsDen
+            type: map
+          - name: Route45
+            type: map
+          - name: DarkCaveBlackthornEntrance
+            type: map
+          - name: Route27
+            type: map
+          - name: TohjoFalls
+            type: map
+          - name: Route26
+            type: map
+          - name: VictoryRoad
+            type: map
+      - sphereNum: 5
+        contents:
+          - name: VermilionCity
+            type: map
+          - name: VermilionPort
+            type: map
+          - name: Route6
+            type: map
+          - name: Route5
+            type: map
+          - name: CeruleanCity
+            type: map
+          - name: Route4
+            type: map
+          - name: Route24
+            type: map
+          - name: Route25
+            type: map
+          - name: Route9
+            type: map
+          - name: Route10
+            type: map
+          - name: RockTunnel1F
+            type: map
+          - name: RockTunnelB1F
+            type: map
+          - name: poke_flute
+            type: acquisition_unlock
+          - name: Route8
+            type: map
+          - name: Route12
+            type: map
+          - name: super_rod
+            type: acquisition_unlock
+          - name: Route11
+            type: map
+          - name: Route13
+            type: map
+          - name: Route14
+            type: map
+          - name: Route15
+            type: map
+          - name: FuchsiaCity
+            type: map
+          - name: Route18
+            type: map
+          - name: Route17
+            type: map
+          - name: Route16
+            type: map
+          - name: CeladonCity
+            type: map
+          - name: Route7
+            type: map
+      - sphereNum: 6
+        contents:
+          - name: DiglettsCave
+            type: map
+          - name: Route2
+            type: map
+          - name: PewterCity
+            type: map
+          - name: silver_wing
+            type: acquisition_unlock
+          - name: Route3
+            type: map
+          - name: MtMoon
+            type: map
+          - name: ViridianCity
+            type: map
+          - name: Route22
+            type: map
+          - name: Route1
+            type: map
+          - name: PalletTown
+            type: map
+          - name: Route21
+            type: map
+          - name: CinnabarIsland
+            type: map
+          - name: Route20
+            type: map
+          - name: Route19
+            type: map
+      - sphereNum: 7
+        contents:
+          - name: Route28
+            type: map
+          - name: MtSilver
+            type: map
+          - name: MtSilverCave1F
+            type: map
+          - name: MtSilverCave2F
+            type: map
+          - name: MtSilverCaveSummit
+            type: map
+          - name: MtSilverCaveChambers
+            type: map
+
+sphere_generation_modes:
+  all: [1,2,3,4,5,6,7] # all areas, including Mt. Silver
+  no_mt_silver: [1,2,3,4,5,6] # beginning of game through end of Kanto, excluding Mt. Silver
+  pre_kanto: [1,2,3,4] # beginning of game up to Elite Four (Johto only)
+
+# Selected Sphere Mode which defines the enabled Spheres for Pokémon availability.
+# This can be changed to any of the above modes. no_mt_silver is default/recommended.
+selected_sphere_mode: no_mt_silver

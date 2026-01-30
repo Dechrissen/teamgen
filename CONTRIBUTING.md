@@ -28,6 +28,9 @@ This project is separated into two parts: A) the logic handling code (where new 
 1. Possibly a new `pokedex_` YAML for the whole generation/set of games, assuming one of the existing ones in the codebase won't work
 2. A new `locations_` YAML for each individual game in that generation/set
 3. A new `meta_` YAML to encode the progression order and some other metadata about that game/set of games
+   - If any new acquisition methods are added, such as `squirt_bottle` for Gen 2 (Sudowoodo), be sure to add them to 
+     `location.py`,
+     `construct_full_location_set()` in `core.py`, and `test_data_yaml_schema.py`
 4. Possibly a new `config_` YAML for the entire generation, assuming one of the existing ones won't work
 5. Update `data/mappings.yaml` to ensure all your new files are correctly mapped to your new game
 

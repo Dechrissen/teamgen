@@ -215,7 +215,9 @@ def ui_loop(all_pools, all_pokemon, config_data, meta_data, mappings, global_set
         if mode == 'set_game':
             if set_game(mappings):
                 all_pools, all_pokemon, config_data, meta_data, mappings, global_settings = build_all_data_structures()
+                # if user sets a new game, then the displayed game and corresponding config file path need to change too
                 game = global_settings['game']
+                config_file_path = mappings[game]['config']
                 party_on_screen = 'game_updated'
                 continue
             else:

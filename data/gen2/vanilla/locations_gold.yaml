@@ -1,3 +1,10 @@
+- map_name: AzaleaTown
+  headbutt:
+  - CATERPIE
+  - METAPOD
+  - EXEGGCUTE
+  - BUTTERFREE
+  - PINECO
 - map_name: BlackthornCity
   surf:
   - MAGIKARP
@@ -24,6 +31,10 @@
   - MAGMAR
   - RATTATA
   - ZUBAT
+  roaming:
+  - ENTEI
+  - RAIKOU
+  - SUICUNE
 - map_name: CeladonCity
   surf:
   - GRIMER
@@ -417,6 +428,9 @@
   - TENTACRUEL
   - LANTURN
   - SHELLDER
+- map_name: PewterCity
+  trade:
+  - RAPIDASH
 - map_name: RockTunnel1F
   walk:
   - CUBONE
@@ -1014,6 +1028,24 @@
   rock_smash:
   - KRABBY
   - SHUCKLE
+- map_name: Route41
+  surf:
+  - TENTACOOL
+  - TENTACRUEL
+  - MANTINE
+  old_rod:
+  - MAGIKARP
+  - TENTACOOL
+  good_rod:
+  - MAGIKARP
+  - TENTACOOL
+  - CHINCHOU
+  - SHELLDER
+  super_rod:
+  - CHINCHOU
+  - TENTACRUEL
+  - LANTURN
+  - SHELLDER
 - map_name: Route42
   walk:
   - FLAAFFY
@@ -1453,6 +1485,8 @@
   - TENTACRUEL
   - LANTURN
   - SHELLDER
+  poke_flute:
+  - SNORLAX
 - map_name: VermilionPort
   surf:
   - TENTACOOL

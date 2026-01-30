@@ -50,3 +50,12 @@
 - add some code that generates the config files for each game (creates the yaml) or something that resets it to the default (recommended) values before i push a release (or maybe have options in the UI to switch to certain presets, like "recommended", "hard", etc)
 
 - add "types to exclude" config setting
+- add setting to meta file for G/S that is a boolean to enable or disable whether player has access to CELEBI event. 
+  celebi event data (gs ball acquisition method? will just be in the data files but only work if this setting is 
+  turned on.)
+- verify if HMs listed in pokedex_rb actually include only machine moves or if its level-up as well. should prob 
+  include level-up too.
+- figure out if we need to handle stone availability in the config/meta files. If Flareon gets generated in party in 
+  gen 2, it will assume a fire stone is available. is it? maybe back to the original idea of adding it to the 
+  spheres list when it becomes available, then checking if stones are acquired by the time the pokemon is generated.
+- toggle for "gen 2 or gen 1 pokemon only" in gen 2 generation? and onward

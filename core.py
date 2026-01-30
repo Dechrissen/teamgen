@@ -7,7 +7,7 @@ import random
 DEBUG = False
 
 def generate_final_party(all_pools: dict, all_pokemon: dict, config_data: dict, meta_data: dict, n: int = 6,
-                         retry: int = 0, max_retries: int = 50, max_iterations: int = 10000):
+                         retry: int = 0, max_retries: int = 100, max_iterations: int = 10000):
     """
     Generates a final party of Pokemon.
 
@@ -677,6 +677,7 @@ def construct_full_location_set(location_data) -> dict[str, Location]:
         # create object of class Location for current location
         cur_loc_obj = Location(
             name=cur_loc["map_name"],
+            # gen 1 methods ...
             starter=cur_loc["starter"] if "starter" in cur_loc else None,
             walk=cur_loc["walk"] if "walk" in cur_loc else None,
             surf=cur_loc["surf"] if "surf" in cur_loc else None,
@@ -689,7 +690,14 @@ def construct_full_location_set(location_data) -> dict[str, Location]:
             gift=cur_loc["gift"] if "gift" in cur_loc else None,
             purchase=cur_loc["purchase"] if "purchase" in cur_loc else None,
             fossil_restore=cur_loc["fossil_restore"] if "fossil_restore" in cur_loc else None,
-            prize_window=cur_loc["prize_window"] if "prize_window" in cur_loc else None
+            prize_window=cur_loc["prize_window"] if "prize_window" in cur_loc else None,
+            # gen 2 methods ...
+            squirt_bottle=cur_loc["squirt_bottle"] if "squirt_bottle" in cur_loc else None,
+            headbutt=cur_loc["headbutt"] if "headbutt" in cur_loc else None,
+            rock_smash=cur_loc["rock_smash"] if "rock_smash" in cur_loc else None,
+            roaming=cur_loc["roaming"] if "roaming" in cur_loc else None,
+            rainbow_wing=cur_loc["rainbow_wing"] if "rainbow_wing" in cur_loc else None,
+            silver_wing=cur_loc["silver_wing"] if "silver_wing" in cur_loc else None
         )
 
         # add current loc's Location object to dict

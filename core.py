@@ -692,6 +692,7 @@ def construct_full_location_set(location_data) -> dict[str, Location]:
             fossil_restore=cur_loc["fossil_restore"] if "fossil_restore" in cur_loc else None,
             prize_window=cur_loc["prize_window"] if "prize_window" in cur_loc else None,
             # gen 2 methods ...
+            bug_catching_contest=cur_loc["bug_catching_contest"] if "bug_catching_contest" in cur_loc else None,
             squirt_bottle=cur_loc["squirt_bottle"] if "squirt_bottle" in cur_loc else None,
             headbutt=cur_loc["headbutt"] if "headbutt" in cur_loc else None,
             rock_smash=cur_loc["rock_smash"] if "rock_smash" in cur_loc else None,

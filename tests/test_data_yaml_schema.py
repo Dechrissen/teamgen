@@ -83,7 +83,8 @@ def test_location_fields(yaml_files):
     """Tests whether all fields in each location entry are valid."""
     valid_acquisition_methods = {'starter','walk','surf','old_rod','good_rod','super_rod','poke_flute',
                                  'static_encounter','trade','gift','purchase','fossil_restore','prize_window',
-                                 'rock_smash', 'squirt_bottle', 'headbutt', 'roaming', 'rainbow_wing', 'silver_wing'}
+                                 'bug_catching_contest', 'rock_smash', 'squirt_bottle', 'headbutt', 'roaming',
+                                 'rainbow_wing', 'silver_wing'}
     for path, category in filter_yaml(yaml_files, "locations"):
         locations = load_yaml(path)
         for location in locations:

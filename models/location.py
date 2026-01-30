@@ -14,6 +14,7 @@ class Location:
                  purchase: list[str] = None,
                  fossil_restore: list[str] = None,
                  prize_window: list[str] = None,
+                 bug_catching_contest: list[str] = None,
                  squirt_bottle: list[str] = None,
                  headbutt:list[str] = None,
                  rock_smash: list[str] = None,
@@ -35,6 +36,7 @@ class Location:
         self.purchase = purchase  # list[str]
         self.fossil_restore = fossil_restore # list[str]
         self.prize_window = prize_window # list[str]
+        self.bug_catching_contest = bug_catching_contest # list[str]
         self.squirt_bottle = squirt_bottle # list[str]
         self.headbutt = headbutt # list[str]
         self.rock_smash = rock_smash # list[str]

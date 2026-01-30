@@ -354,6 +354,17 @@
   - PIDGEY
   - SUNKERN
   - HOOTHOOT
+  bug_catching_contest:
+  - CATERPIE
+  - METAPOD
+  - BUTTERFREE
+  - WEEDLE
+  - KAKUNA
+  - BEEDRILL
+  - PARAS
+  - VENONAT
+  - SCYTHER
+  - PINSIR
 - map_name: NewBarkTown
   starter:
   - CYNDAQUIL

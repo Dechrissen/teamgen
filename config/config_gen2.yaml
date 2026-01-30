@@ -127,6 +127,7 @@ allowed_acquisition_methods:
   fossil_restore: true
   prize_window: true
   rock_smash: true
+  bug_catching_contest: true
   squirt_bottle: true
   headbutt: true
   roaming: true

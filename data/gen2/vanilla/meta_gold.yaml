@@ -47,6 +47,8 @@ acquisition_methods:
     is_default: true
   - name: prize_window
     is_default: true
+  - name: bug_catching_contest
+    is_default: true
   - name: headbutt
     is_default: false
   - name: rock_smash

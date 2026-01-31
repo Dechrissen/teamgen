@@ -25,6 +25,8 @@ but also with romhacks that might contain the following (as long as the relevant
 - **Vanilla**
   - Pokémon Red
   - Pokémon Blue
+  - Pokémon Gold
+  - Pokémon Silver
 - **Romhacks**
   - [Pokémon Solus RGB](https://github.com/Dechrissen/poke-solus-rgb)
 

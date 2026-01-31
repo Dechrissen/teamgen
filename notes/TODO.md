@@ -53,9 +53,9 @@
 - add setting to meta file for G/S that is a boolean to enable or disable whether player has access to CELEBI event. 
   celebi event data (gs ball acquisition method? will just be in the data files but only work if this setting is 
   turned on.)
-- verify if HMs listed in pokedex_rb actually include only machine moves or if its level-up as well. should prob 
-  include level-up too.
+
 - figure out if we need to handle stone availability in the config/meta files. If Flareon gets generated in party in 
   gen 2, it will assume a fire stone is available. is it? maybe back to the original idea of adding it to the 
   spheres list when it becomes available, then checking if stones are acquired by the time the pokemon is generated.
 - toggle for "gen 2 or gen 1 pokemon only" in gen 2 generation? and onward
+  - or not a toggle, but a list of 'allowed generations' e.g. [1,2,3]

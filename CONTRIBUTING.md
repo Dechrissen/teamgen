@@ -45,6 +45,10 @@ the HM learnsets
 of any Pokémon in your new game (e.g. Yellow has slightly different HM learnsets compares to R/B), then you can 
 simply use the existing `pokedex_` file and skip this step.
 
+The `hm_learnset` field should consist of moves usable in the field, including things like Dig, Teleport, and 
+Softboiled, and only if they're learned in the game in question via machine or level-up (_not_ via trading from an 
+older generation).
+
 If you need a new file, it should be structured as a YAML list. Here's a snippet with 2 entries for BULBASAUR and 
 IVYSAUR. Follow this format.
 ```yaml

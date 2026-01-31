@@ -17,6 +17,12 @@ Gold:
   locations: 'data/gen2/vanilla/locations_gold.yaml'
   config: 'config/config_gen2.yaml'
 
+Silver:
+  meta: 'data/gen2/vanilla/meta_silver.yaml'
+  pokedex: 'data/gen2/vanilla/pokedex_gs.yaml'
+  locations: 'data/gen2/vanilla/locations_silver.yaml'
+  config: 'config/config_gen2.yaml'
+
 ### romhacks ###
 Solus RGB:
   meta: 'data/gen1/romhacks/meta_solusrgb.yaml'

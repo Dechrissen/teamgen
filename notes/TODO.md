@@ -1,19 +1,9 @@
 # TODO
 
-- add a donation button, or github sponsor button (in readme)
 - make a logo
 - add to itch.io
-
-- add to website/linkedin/portfolio/solus webpage
-
-- make sure push for first release has "recommended settings" in config files
-- test on actual linux
-
 - add Yellow
-
-- figure out how to handle trade rooms
-  - should they have values like "needs: onix, gets: mrmime" ?
-  - probably just ignore the needed mon
+- add Crystal
 
 - clean up CLI UI code and add some comments
 
@@ -27,19 +17,15 @@
 
 - annotate the progression file so we know where certain things come from, e.g. the moon stone on route 2 can only be gotten in sphere 2, so we should have a comment "from Route2 after Cut"
 
-- Proper unit test suite
+- Finish unit test suite
 
 - add Pool class
 - config should maybe be a Config class. This would make it easier to validate and pass along to functions
-
-- Decide if adding stone evo validation
 
 - add HM coverage output
   - list of HMs, check marks next to covered ones, or color them green
 
 - check every location from locations is in meta spheres list (also add unit test for this?)
-
-- add CONTRIBUTING.md with guidelines for adding data files for additional games
 
 - add unit tests for party generation functions (define test parties)
 
@@ -50,6 +36,7 @@
 - add some code that generates the config files for each game (creates the yaml) or something that resets it to the default (recommended) values before i push a release (or maybe have options in the UI to switch to certain presets, like "recommended", "hard", etc)
 
 - add "types to exclude" config setting
+
 - add setting to meta file for G/S that is a boolean to enable or disable whether player has access to CELEBI event. 
   celebi event data (gs ball acquisition method? will just be in the data files but only work if this setting is 
   turned on.)
@@ -57,5 +44,6 @@
 - figure out if we need to handle stone availability in the config/meta files. If Flareon gets generated in party in 
   gen 2, it will assume a fire stone is available. is it? maybe back to the original idea of adding it to the 
   spheres list when it becomes available, then checking if stones are acquired by the time the pokemon is generated.
+
 - toggle for "gen 2 or gen 1 pokemon only" in gen 2 generation? and onward
   - or not a toggle, but a list of 'allowed generations' e.g. [1,2,3]

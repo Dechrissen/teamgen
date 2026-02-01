@@ -2,7 +2,6 @@
 # TeamGen — Gen 2 configuration file
 # ==================================
 
-
 # ---------
 # Balancing
 # ---------
@@ -37,10 +36,10 @@ allowed_evo_methods:
   none: true # i.e. Stage 1 Pokémon
   level-up: true
   moon_stone: true
-  fire_stone: true
-  water_stone: true
-  thunder_stone: true
-  leaf_stone: true
+  fire_stone: true # acquire after showing Bill's grandfather certain Pokémon in Kanto
+  water_stone: true # acquire after showing Bill's grandfather certain Pokémon in Kanto
+  thunder_stone: true # acquire after showing Bill's grandfather certain Pokémon in Kanto
+  leaf_stone: true # acquire after showing Bill's grandfather certain Pokémon in Kanto
   trade: false
   happiness: true
   trade_metal_coat: false

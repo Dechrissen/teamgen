@@ -2,6 +2,8 @@
 
 - add to itch.io
 
+- build iOS app with Claude (consider legality of sprite distribution)
+
 - add support for:
   - Yellow
   - Crystal
@@ -89,3 +91,11 @@
 - add base stat totals to web app UI
 
 - maybe add base stat totals and types to 'export party' txt file
+
+- add keywords, like nuzlocke, random, team builder etc. to index.html head and main page and stuff.
+
+- fix bug: every time i change games, global settings reset in web app
+
+- fix Microsfot defender flagging on Windows
+
+- update CONTRIBUTING.md with any new instructions for adding new games since it was last updated

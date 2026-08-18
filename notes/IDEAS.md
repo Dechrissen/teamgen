@@ -92,7 +92,6 @@
 - for trades in the pokemon data file: `"trade": ["ABRA for MR.MIME"]`
 - add ALL moon stones separately to the logic file spheres? (in `evo_items` list)
 
-
 - option to reroll 1 pokemon (e.g. `reroll 2` to reroll the second) (to do this, we can pass an optional party list 
   of Pokemon objects to the generate_final_party function. If it's non-empty, it can be treated as the base party to 
   use/continue generating for)
@@ -117,7 +116,6 @@ output some sort of "incompatibility" message if it detects that the 3 data YAML
   before any logic is run)
 
 ## Later ideas
-- Provide claude-powered skill in the program (CLI) that allows the user or a developer to add a new logic file for a new game by having a claude token in a config, and then a prompt with placeholders etc where the user can provide links to the prompt for claude (like links to pokemon data, locations on bulbapedia, etc) to build at least the bulk of a new logic json. Maybe in the case of romhacks, a link to the code idk.
 - nickname generator function
   - pokemon universe pack
   - wacky pack
@@ -132,7 +130,6 @@ output some sort of "incompatibility" message if it detects that the 3 data YAML
     most pokemon on team have relatively high defense
   - if we do this and add individual stats for every pokemon entry in the pokedex files, we can also leverage those stats to add additional config settings, such as "ensure high attack stat team" or "ensure fast team" or something.
 - add a "Team Defense" and "Team Coverage" analysis to the output, like here: https://richi3f.github.io/pokemon-team-planner
-- Learn how to make a Python app work on web app --> `www.dexelect.app`
 - Integrate with randomized roms of vanilla games (need a function that reads rom data and outputs pokemon data in 
   my needed format in `locations` yaml)
 

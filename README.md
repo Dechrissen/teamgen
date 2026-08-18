@@ -27,7 +27,7 @@
 
 ## Dexelect – Progression-aware Pokémon Team Generator
 
-Dexelect is a tool for generating (prescribing) a random, progression-faithful team of Pokémon for use in a challenge playthrough. Customization options are available to curate the output party further.
+Dexelect is a tool for generating (or prescribing) a random, progression-faithful team of Pokémon for acquisition and use in a challenge playthrough. Customization options are available to curate the output party.
 
 <p align="center">
   <img alt="Dexelect GUI sample output" src="screenshots/sample-gui-output.png" width="80%">
@@ -44,7 +44,7 @@ Dexelect is a tool for generating (prescribing) a random, progression-faithful t
 
 
 ## Introduction
-Dexelect generates (prescribes) a **progression-faithful** party for use in a playthrough — either to introduce an element of 
+Dexelect generates (or prescribes) a **progression-faithful** party for use in a playthrough — either to introduce an element of 
 challenge or simply for team inspiration. See the [suggested rulesets](/docs/RULESETS.md) for some ideas about how to use Dexelect.
 
 The app is **universal** in that it maintains compatibility with most generations of Pokémon games, 
@@ -71,7 +71,7 @@ See [`CONTRIBUTING.md`](/CONTRIBUTING.md) if you'd like to add support for a rom
 | 2   | Crystal    | Planned   |
 | 3   | Ruby       | ✔         |
 | 3   | Sapphire   | ✔         |
-| 3   | Emerald    | Planned   |
+| 3   | Emerald    | In progress   |
 | 4   | Diamond    | ✔         |
 | 4   | Pearl      | ✔         |
 | 4   | Platinum   | Planned   |
@@ -201,11 +201,9 @@ Please support Dexelect development! The app is free and open-source, but you ca
 - Join the [Discord](https://discord.gg/YTxu5uM7r6)
 - Share the app with someone who might be interested
 
-
 ## Contributing
 
 If you'd like to add support for a missing game or romhack, see [`CONTRIBUTING.md`](/CONTRIBUTING.md).
-
 
 ## License
 
@@ -213,9 +211,16 @@ Dexelect is licensed under the MIT License (see [`LICENSE`](/LICENSE)).
 
 ## Disclaimer on LLM usage
 
-The core code in this project (i.e., `core.py` logic and functions, data file format, data structures, classes) was neither designed nor written by an LLM.
+_TLDR_: The GUI front-ends were bootstrapped using an LLM. The rest of the code is human-written.
 
-The GUI wrappers (local `Tk` GUI and web app) were created using LLMs; as such the directories that were exclusively authored by an LLM in this project are `ui/gui/` and `ui/web/`. Development work on this project is sometimes carried out utilizing LLMs for certain tedious tasks such as data file creation and formatting (the `.yaml` files in `/data`).
+The core of this project (i.e., `core.py` logic and functions, data file format, data structures, classes) was **neither designed nor authored by an LLM**.
+
+The GUI front-ends (`Tk` GUI, Flask web app) were bootstrapped using an LLM; as such, the LLM-authored directories in this project are `ui/gui/` and `ui/web/`. (The command-line UI in `ui/cli.py` is the original, human-authored UI, and it can be invoked with the flag `--ui=cli`.)
+
+For continued development, data curation for the per-game data files in `data/` is partially carried out with an LLM (web scraping, formatting, etc.).
+
+See [_How I Use AI_](https://www.derekandersen.net/md/how-i-use-ai).
 
 ## Legal
+
 Pokémon and all respective names and sprites are © and ™ of Nintendo, Game Freak, and The Pokémon Company. Dexelect is an unofficial fan project and is not affiliated with, endorsed, or sponsored by them.

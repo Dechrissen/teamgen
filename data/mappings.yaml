@@ -34,17 +34,17 @@ Ruby:
   config: 'config/config_gen3.yaml'
   sprites: 'assets/sprites/gen3'
 
-Emerald:
-  meta: 'data/gen3/vanilla/meta_emerald.yaml'
-  pokedex: 'data/gen3/vanilla/pokedex_rs.yaml'
-  locations: 'data/gen3/vanilla/locations_emerald.yaml'
-  config: 'config/config_gen3.yaml'
-  sprites: 'assets/sprites/gen3'
-  
 Sapphire:
   meta: 'data/gen3/vanilla/meta_rs.yaml'
   pokedex: 'data/gen3/vanilla/pokedex_rs.yaml'
   locations: 'data/gen3/vanilla/locations_sapphire.yaml'
+  config: 'config/config_gen3.yaml'
+  sprites: 'assets/sprites/gen3'
+
+Emerald:
+  meta: 'data/gen3/vanilla/meta_emerald.yaml'
+  pokedex: 'data/gen3/vanilla/pokedex_rs.yaml'
+  locations: 'data/gen3/vanilla/locations_emerald.yaml'
   config: 'config/config_gen3.yaml'
   sprites: 'assets/sprites/gen3'
 

@@ -1,0 +1,3 @@
+- location data sourced from serebii Pokearth Hoenn page
+https://serebii.net/pokearth/hoenn/index.shtml
+

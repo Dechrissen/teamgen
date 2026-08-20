@@ -1,0 +1,333 @@
+starter_species:
+- TREECKO
+- TORCHIC
+- MUDKIP
+
+modal_species:
+- [LILEEP, ANORITH]
+- [LATIOS, LATIAS]
+
+limited_acquisition_methods:
+- starter
+- static_encounter
+- gift
+- trade
+- fossil_restore
+- sealed_chamber_puzzle
+- roaming
+- devon_scope
+
+acquisition_methods:
+- name: starter
+  is_default: true
+- name: walk
+  is_default: true
+- name: surf
+  is_default: false
+- name: old_rod
+  is_default: false
+- name: good_rod
+  is_default: false
+- name: super_rod
+  is_default: false
+- name: rock_smash
+  is_default: false
+- name: dive
+  is_default: false
+- name: go_goggles
+  is_default: false
+- name: devon_scope
+  is_default: false
+- name: static_encounter
+  is_default: true
+- name: trade
+  is_default: true
+- name: gift
+  is_default: true
+- name: fossil_restore
+  is_default: true
+- name: sealed_chamber_puzzle
+  is_default: false
+- name: roaming
+  is_default: true
+- name: mirage_island
+  is_default: true
+
+evo_items_available:
+  moon_stone: inf
+  fire_stone: inf
+  water_stone: inf
+  thunder_stone: inf
+  leaf_stone: inf
+  sun_stone: inf
+
+spheres:
+- sphereNum: 1
+  contents:
+  - name: Route101
+    type: map
+  - name: Route102
+    type: map
+  - name: Route103
+    type: map
+  - name: PetalburgCity
+    type: map
+  - name: Route104
+    type: map
+  - name: PetalburgWoods
+    type: map
+  - name: RustboroCity
+    type: map
+- sphereNum: 2
+  contents:
+  - name: Route116
+    type: map
+  - name: RusturfTunnel
+    type: map
+  - name: Route105
+    type: map
+  - name: IslandCave
+    type: map
+  - name: Route106
+    type: map
+  - name: old_rod
+    type: acquisition_unlock
+  - name: GraniteCave1F
+    type: map
+  - name: GraniteCaveStevensRoom
+    type: map
+  - name: GraniteCaveB1F
+    type: map
+  - name: GraniteCaveB2F
+    type: map
+  - name: DewfordTown
+    type: map
+- sphereNum: 3
+  contents:
+  - name: Route107
+    type: map
+  - name: Route108
+    type: map
+  - name: AbandonedShip
+    type: map
+  - name: Route109
+    type: map
+  - name: SlateportCity
+    type: map
+  - name: Route110
+    type: map
+  - name: rock_smash
+    type: acquisition_unlock
+  - name: Route111
+    type: map
+  - name: DesertRuins
+    type: map
+  - name: MirageTower
+    type: map
+  - name: Route112
+    type: map
+  - name: FieryPath
+    type: map
+  - name: Route113
+    type: map
+  - name: Route114
+    type: map
+  - name: MeteorFalls1F1R
+    type: map
+  - name: Route115
+    type: map
+  - name: JaggedPass
+    type: map
+  - name: LavaridgeTown
+    type: map
+  - name: go_goggles
+    type: acquisition_unlock
+  - name: DevonCorporation
+    type: map
+  - name: Route117
+    type: map
+- sphereNum: 4
+  contents:
+  - name: surf
+    type: acquisition_unlock
+  - name: NewMauvilleEntrance
+    type: map
+  - name: NewMauvilleBasement
+    type: map
+  - name: Route118
+    type: map
+  - name: good_rod
+    type: acquisition_unlock
+  - name: Route119
+    type: map
+  - name: WeatherInstitute
+    type: map
+  - name: FortreeCity
+    type: map
+  - name: Route120
+    type: map
+  - name: devon_scope
+    type: acquisition_unlock
+  - name: AncientTomb
+    type: map
+- sphereNum: 5
+  contents:
+  - name: Route121
+    type: map
+  - name: SafariZoneSouthEast
+    type: map
+  - name: SafariZoneSouthWest
+    type: map
+  - name: SafariZoneNorthWest
+    type: map
+  - name: SafariZoneNorthEast
+    type: map
+  - name: Route122
+    type: map
+  - name: MtPyre1F
+    type: map
+  - name: MtPyre2F
+    type: map
+  - name: MtPyre3F
+    type: map
+  - name: MtPyre4F
+    type: map
+  - name: MtPyre5F
+    type: map
+  - name: MtPyre6F
+    type: map
+  - name: MtPyreExterior
+    type: map
+  - name: MtPyreSummit
+    type: map
+  - name: Route123
+    type: map
+  - name: MagmaHideout
+    type: map
+  - name: LilycoveCity
+    type: map
+  - name: AquaHideout2F
+    type: map
+  - name: Route124
+    type: map
+  - name: MossdeepCity
+    type: map
+- sphereNum: 6
+  contents:
+  - name: super_rod
+    type: acquisition_unlock
+  - name: dive
+    type: acquisition_unlock
+  - name: Route125
+    type: map
+  - name: ShoalCave1F1R_HighTide
+    type: map
+  - name: ShoalCave1F1R_LowTide
+    type: map
+  - name: ShoalCave1F2R_HighTide
+    type: map
+  - name: ShoalCave1F2R_LowTide
+    type: map
+  - name: ShoalCaveB1F_LowTide
+    type: map
+  - name: ShoalCaveB2F_LowTide
+    type: map
+  - name: ShoalCaveB3F_LowTide
+    type: map
+  - name: Route126
+    type: map
+  - name: Route127
+    type: map
+  - name: Route128
+    type: map
+  - name: SeafloorCavern
+    type: map
+  - name: SootopolisCity
+    type: map
+  - name: CaveOfOriginEntrance
+    type: map
+  - name: CaveOfOriginInterior
+    type: map
+  - name: Route129
+    type: map
+  - name: Route130
+    type: map
+  - name: Route131
+    type: map
+  - name: SkyPillar1F
+    type: map
+  - name: SkyPillar3F
+    type: map
+  - name: SkyPillar5F
+    type: map
+  - name: PacifidlogTown
+    type: map
+  - name: Route132
+    type: map
+  - name: Route133
+    type: map
+  - name: Route134
+    type: map
+  - name: sealed_chamber_puzzle
+    type: acquisition_unlock
+  - name: MeteorFalls1F2R
+    type: map
+  - name: MeteorFalls1F3R
+    type: map
+  - name: MeteorFallsB1F1R
+    type: map
+  - name: MeteorFallsB1F2R
+    type: map
+- sphereNum: 7
+  contents:
+  - name: EverGrandeCity
+    type: map
+  - name: VictoryRoad1F
+    type: map
+  - name: VictoryRoadB1F
+    type: map
+  - name: VictoryRoadB2F
+    type: map
+- sphereNum: 8
+  contents:
+  - name: StevensHouse
+    type: map
+  - name: SkyPillar6F
+    type: map
+  - name: MarineCave
+    type: map
+  - name: TerraCave
+    type: map
+  - name: SafariZoneExtentionNorth
+    type: map
+  - name: SafariZoneExtentionSouth
+    type: map
+  - name: DesertUnderpass
+    type: map
+  - name: ArtisanCave
+    type: map
+  - name: BattleFrontier
+    type: map
+  - name: BirthIsland
+    type: map
+  - name: FarawayIsland
+    type: map
+  - name: NavelRock
+    type: map
+  - name: RandomLocationStartingFromLittlerootTown
+    type: map
+  - name: SouthernIsland
+    type: map
+  - name: LittlerootTown
+    type: map
+
+sphere_generation_modes:
+  all: [1,2,3,4,5,6,7,8] # all areas including postgame
+  no_postgame: [1,2,3,4,5,6,7] # beginning of game through Victory Road, excluding postgame
+  pre_victory_road: [1,2,3,4,5,6] # beginning of game up to Victory Road
+  early_game: [1,2]
+  mid_game: [3,4]
+  late_game: [5,6,7]
+
+suggested_sphere_mode: pre_victory_road
+  

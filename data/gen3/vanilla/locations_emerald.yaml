@@ -281,7 +281,7 @@
   sealed_chamber_puzzle:
   - REGIROCK
 - map_name: MirageTower
-  walk:
+  go_goggles:
   - SANDSHREW
   - TRAPINCH
 - map_name: Route112
@@ -1143,6 +1143,11 @@
   - REMORAID
   - GOLDEEN
   - OCTILLERY
+- map_name: DesertUnderpass
+  walk:
+  - DITTO
+  - WHISMUR
+  - LOUDRED
 - map_name: ArtisanCave
   walk:
   - SMEARGLE
@@ -1154,11 +1159,6 @@
 - map_name: BirthIsland
   static_encounter:
   - DEOXYS
-- map_name: DesertUnderpass
-  walk:
-  - DITTO
-  - WHISMUR
-  - LOUDRED
 - map_name: FarawayIsland
   static_encounter:
   - MEW

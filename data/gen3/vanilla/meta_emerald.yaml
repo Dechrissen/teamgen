@@ -6,6 +6,7 @@ starter_species:
 modal_species:
 - [LILEEP, ANORITH]
 - [LATIOS, LATIAS]
+- [CHIKORITA, CYNDAQUIL, TOTODILE]
 
 limited_acquisition_methods:
 - starter
@@ -260,6 +261,8 @@ spheres:
     type: map
   - name: SkyPillar5F
     type: map
+  - name: SkyPillar6F
+    type: map
   - name: PacifidlogTown
     type: map
   - name: Route132
@@ -271,8 +274,6 @@ spheres:
   - name: sealed_chamber_puzzle
     type: acquisition_unlock
   - name: MeteorFalls1F2R
-    type: map
-  - name: MeteorFalls1F3R
     type: map
   - name: MeteorFallsB1F1R
     type: map
@@ -292,15 +293,15 @@ spheres:
   contents:
   - name: StevensHouse
     type: map
-  - name: SkyPillar6F
+  - name: MeteorFallsStevensCave
     type: map
   - name: MarineCave
     type: map
   - name: TerraCave
     type: map
-  - name: SafariZoneExtentionNorth
+  - name: SafariZoneExtensionNorth
     type: map
-  - name: SafariZoneExtentionSouth
+  - name: SafariZoneExtensionSouth
     type: map
   - name: DesertUnderpass
     type: map
@@ -308,16 +309,16 @@ spheres:
     type: map
   - name: BattleFrontier
     type: map
-  - name: BirthIsland
-    type: map
-  - name: FarawayIsland
-    type: map
-  - name: NavelRock
-    type: map
+  # - name: BirthIsland
+  #   type: map
+  # - name: FarawayIsland
+  #   type: map
+  # - name: NavelRock
+  #   type: map
   - name: RandomLocationStartingFromLittlerootTown
     type: map
-  - name: SouthernIsland
-    type: map
+  # - name: SouthernIsland
+  #   type: map
   - name: LittlerootTown
     type: map
 

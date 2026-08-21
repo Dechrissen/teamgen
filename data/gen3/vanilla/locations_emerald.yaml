@@ -1099,12 +1099,12 @@
   static_encounter:
   - RAYQUAZA
 - map_name: MarineCave
-  walk:
+  static_encounter:
   - KYOGRE
 - map_name: TerraCave
   static_encounter:
   - GROUDON
-- map_name: SafariZoneExtentionNorth
+- map_name: SafariZoneExtensionNorth
   walk:
   - AIPOM
   - TEDDIURSA
@@ -1116,7 +1116,7 @@
   - MILTANK
   rock_smash:
   - SHUCKLE
-- map_name: SafariZoneExtentionSouth
+- map_name: SafariZoneExtensionSouth
   walk:
   - MAREEP
   - SUNKERN
@@ -1154,22 +1154,22 @@
   - SUDOWOODO
   trade:
   - MEOWTH
-- map_name: BirthIsland
-  static_encounter:
-  - DEOXYS
-- map_name: FarawayIsland
-  static_encounter:
-  - MEW
+# - map_name: BirthIsland
+#   static_encounter:
+#   - DEOXYS
+# - map_name: FarawayIsland
+#   static_encounter:
+#   - MEW
 - map_name: LittlerootTown
   gift:
   - CHIKORITA
   - CYNDAQUIL
   - TOTODILE
-- map_name: NavelRock
-  static_encounter:
-  - HO-OH
-  - LUGIA
-- map_name: MeteorFalls1F3R
+# - map_name: NavelRock
+#   static_encounter:
+#   - HO-OH
+#   - LUGIA
+- map_name: MeteorFallsStevensCave
   walk:
   - GOLBAT
   - SOLROCK
@@ -1177,10 +1177,10 @@
   roaming:
   - LATIOS
   - LATIAS
-- map_name: SouthernIsland
-  static_encounter:
-  - LATIOS
-  - LATIAS
+# - map_name: SouthernIsland
+#   static_encounter:
+#   - LATIOS
+#   - LATIAS
 
 
 

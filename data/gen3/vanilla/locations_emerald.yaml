@@ -14,10 +14,10 @@
   - POOCHYENA
   - SEEDOT
   - RALTS
-  - SURSKIT
+  - LOTAD
   surf:
   - MARILL
-  - SURSKIT
+  - GOLDEEN
   old_rod:
   - MAGIKARP
   - GOLDEEN
@@ -60,7 +60,8 @@
   - CORPHISH
 - map_name: Route104
   walk:
-  - ZIGZAGOON
+  - POOCHYENA
+  - MARILL
   - WURMPLE
   - TAILLOW
   - WINGULL
@@ -81,16 +82,17 @@
   - TAILLOW
   - SHROOMISH
   - SLAKOTH
-  - ZIGZAGOON
+  - POOCHYENA
 - map_name: RustboroCity
   trade:
-  - MAKUHITA
+  - SEEDOT
 - map_name: Route116
   walk:
+  - POOCHYENA
   - WHISMUR
-  - ZIGZAGOON
   - TAILLOW
   - NINCADA
+  - ABRA
   - SKITTY
 - map_name: RusturfTunnel
   walk:
@@ -144,12 +146,12 @@
   - ZUBAT
   - ABRA
   - MAKUHITA
-  - MAWILE
+  - SABLEYE
 - map_name: GraniteCaveB2F
   walk:
   - ARON
   - ZUBAT
-  - MAWILE
+  - SABLEYE
   - ABRA
   rock_smash:
   - GEODUDE
@@ -240,7 +242,7 @@
 - map_name: Route110
   walk:
   - ELECTRIKE
-  - ZIGZAGOON
+  - POOCHYENA
   - MINUN
   - GULPIN
   - ODDISH
@@ -267,7 +269,7 @@
   - TRAPINCH
   surf:
   - MARILL
-  - SURSKIT
+  - GOLDEEN
   old_rod:
   - MAGIKARP
   - GOLDEEN
@@ -282,10 +284,14 @@
 - map_name: DesertRuins
   sealed_chamber_puzzle:
   - REGIROCK
+- map_name: MirageTower
+  go_goggles:
+  - SANDSHREW
+  - TRAPINCH
 - map_name: Route112
   walk:
   - NUMEL
-  - MACHOP
+  - MARILL
 - map_name: FieryPath
   walk:
   - NUMEL
@@ -297,18 +303,18 @@
 - map_name: Route113
   walk:
   - SPINDA
-  - SANDSHREW
+  - SLUGMA
   - SKARMORY
 - map_name: Route114
   walk:
   - SWABLU
-  - SEEDOT
-  - ZANGOOSE
+  - LOTAD
+  - LOMBRE
+  - SEVIPER
   - NUZLEAF
-  - SURSKIT
   surf:
   - MARILL
-  - SURSKIT
+  - GOLDEEN
   old_rod:
   - MAGIKARP
   - GOLDEEN
@@ -325,7 +331,7 @@
   - SOLROCK
   - ZUBAT
   surf:
-  - GOLBAT
+  - ZUBAT
   - SOLROCK
   old_rod:
   - GOLDEEN
@@ -370,16 +376,15 @@
   - ANORITH
 - map_name: Route117
   walk:
-  - ZIGZAGOON
-  - ROSELIA
-  - ILLUMISE
   - ODDISH
+  - POOCHYENA
+  - ILLUMISE
   - MARILL
   - VOLBEAT
-  - SURSKIT
+  - SEEDOT
   surf:
   - MARILL
-  - SURSKIT
+  - GOLDEEN
   old_rod:
   - MAGIKARP
   - GOLDEEN
@@ -415,7 +420,7 @@
   - PELIPPER
   old_rod:
   - MAGIKARP
-  - GOLDEEN
+  - TENTACOOL
   good_rod:
   - MAGIKARP
   - TENTACOOL
@@ -437,7 +442,7 @@
   old_rod:
   - FEEBAS
   - MAGIKARP
-  - GOLDEEN
+  - TENTACOOL
   good_rod:
   - FEEBAS
   - MAGIKARP
@@ -453,19 +458,19 @@
   - CASTFORM
 - map_name: FortreeCity
   trade:
-  - SKITTY
+  - PLUSLE
 - map_name: Route120
   walk:
-  - LINOONE
+  - MIGHTYENA
   - ODDISH
-  - ZIGZAGOON
+  - POOCHYENA
   - MARILL
   - ABSOL
-  - SURSKIT
+  - SEEDOT
   - KECLEON
   surf:
   - MARILL
-  - SURSKIT
+  - GOLDEEN
   old_rod:
   - MAGIKARP
   - GOLDEEN
@@ -482,9 +487,9 @@
   - REGISTEEL
 - map_name: Route121
   walk:
-  - DUSKULL
-  - ZIGZAGOON
-  - LINOONE
+  - SHUPPET
+  - POOCHYENA
+  - MIGHTYENA
   - ODDISH
   - WINGULL
   - GLOOM
@@ -578,13 +583,13 @@
   - SHARPEDO
 - map_name: MtPyre1F
   walk:
-  - DUSKULL
+  - SHUPPET
 - map_name: MtPyre2F
   walk:
-  - DUSKULL
+  - SHUPPET
 - map_name: MtPyre3F
   walk:
-  - DUSKULL
+  - SHUPPET
 - map_name: MtPyre4F
   walk:
   - SHUPPET
@@ -600,8 +605,7 @@
 - map_name: MtPyreExterior
   walk:
   - WINGULL
-  - MEDITITE
-  - DUSKULL
+  - SHUPPET
   - VULPIX
 - map_name: MtPyreSummit
   walk:
@@ -610,9 +614,9 @@
   - DUSKULL
 - map_name: Route123
   walk:
-  - DUSKULL
-  - ZIGZAGOON
-  - LINOONE
+  - SHUPPET
+  - POOCHYENA
+  - MIGHTYENA
   - ODDISH
   - WINGULL
   - GLOOM
@@ -630,6 +634,11 @@
   - WAILMER
   super_rod:
   - WAILMER
+- map_name: MagmaHideout
+  walk:
+  - GEODUDE
+  - GRAVELER
+  - TORKOAL
 - map_name: LilycoveCity
   surf:
   - TENTACOOL
@@ -645,7 +654,7 @@
   super_rod:
   - WAILMER
   - STARYU
-- map_name: MagmaAquaHideout2F
+- map_name: AquaHideout2F
   static_encounter:
   - ELECTRODE
 - map_name: Route124
@@ -844,11 +853,8 @@
 - map_name: CaveOfOriginInterior
   walk:
   - GOLBAT
-  - MAWILE
+  - SABLEYE
   - ZUBAT
-- map_name: CaveOfOriginBasement
-  static_encounter:
-  - GROUDON
 - map_name: Route129
   surf:
   - TENTACOOL
@@ -900,22 +906,22 @@
 - map_name: SkyPillar1F
   walk:
   - GOLBAT
-  - MAWILE
+  - SABLEYE
   - CLAYDOL
-  - DUSCLOPS
+  - BANETTE
 - map_name: SkyPillar3F
   walk:
   - GOLBAT
-  - MAWILE
+  - SABLEYE
   - CLAYDOL
-  - DUSCLOPS
+  - BANETTE
 - map_name: SkyPillar5F
   walk:
-  - ALTARIA
   - GOLBAT
-  - MAWILE
+  - SABLEYE
   - CLAYDOL
-  - DUSCLOPS
+  - BANETTE
+  - ALTARIA
 - map_name: PacifidlogTown
   surf:
   - TENTACOOL
@@ -932,7 +938,7 @@
   - WAILMER
   - SHARPEDO
   trade:
-  - CORSOLA
+  - HORSEA
 - map_name: Route132
   surf:
   - TENTACOOL
@@ -1064,8 +1070,7 @@
   - GOLBAT
   - HARIYAMA
   - LAIRON
-  - MEDICHAM
-  - MEDITITE
+  - MAWILE
   rock_smash:
   - GEODUDE
   - GRAVELER
@@ -1074,7 +1079,7 @@
   - GOLBAT
   - MAWILE
   - LAIRON
-  - MEDICHAM
+  - SABLEYE
   surf:
   - GOLBAT
   old_rod:
@@ -1093,6 +1098,97 @@
 - map_name: SkyPillar6F
   static_encounter:
   - RAYQUAZA
+- map_name: MarineCave
+  static_encounter:
+  - KYOGRE
+- map_name: TerraCave
+  static_encounter:
+  - GROUDON
+- map_name: SafariZoneExtensionNorth
+  walk:
+  - AIPOM
+  - TEDDIURSA
+  - LEDYBA
+  - SUNKERN
+  - HOOTHOOT
+  - PINECO
+  - HOUNDOUR
+  - MILTANK
+  rock_smash:
+  - SHUCKLE
+- map_name: SafariZoneExtensionSouth
+  walk:
+  - MAREEP
+  - SUNKERN
+  - SPINARAK
+  - AIPOM
+  - HOOTHOOT
+  - GLIGAR
+  - SNUBBULL
+  - STANTLER
+  surf:
+  - WOOPER
+  - MARILL
+  - QUAGSIRE
+  old_rod:
+  - MAGIKARP
+  - GOLDEEN
+  good_rod:
+  - MAGIKARP
+  - GOLDEEN
+  - REMORAID
+  super_rod:
+  - REMORAID
+  - GOLDEEN
+  - OCTILLERY
+- map_name: DesertUnderpass
+  walk:
+  - DITTO
+  - WHISMUR
+  - LOUDRED
+- map_name: ArtisanCave
+  walk:
+  - SMEARGLE
+- map_name: BattleFrontier
+  static_encounter:
+  - SUDOWOODO
+  trade:
+  - MEOWTH
+# - map_name: BirthIsland
+#   static_encounter:
+#   - DEOXYS
+# - map_name: FarawayIsland
+#   static_encounter:
+#   - MEW
+- map_name: LittlerootTown
+  gift:
+  - CHIKORITA
+  - CYNDAQUIL
+  - TOTODILE
+# - map_name: NavelRock
+#   static_encounter:
+#   - HO-OH
+#   - LUGIA
+- map_name: MeteorFallsStevensCave
+  walk:
+  - GOLBAT
+  - SOLROCK
 - map_name: RandomLocationStartingFromLittlerootTown
   roaming:
   - LATIOS
+  - LATIAS
+# - map_name: SouthernIsland
+#   static_encounter:
+#   - LATIOS
+#   - LATIAS
+
+
+
+
+
+
+
+
+
+
+

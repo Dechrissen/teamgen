@@ -157,6 +157,10 @@
   - GEODUDE
   - NOSEPASS
 - map_name: DewfordTown
+  surf:
+  - PELIPPER
+  - TENTACOOL
+  - WINGULL
   old_rod:
   - MAGIKARP
   - TENTACOOL

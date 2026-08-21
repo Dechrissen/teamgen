@@ -331,7 +331,7 @@
   - SOLROCK
   - ZUBAT
   surf:
-  - GOLBAT
+  - ZUBAT
   - SOLROCK
   old_rod:
   - GOLDEEN
@@ -420,7 +420,7 @@
   - PELIPPER
   old_rod:
   - MAGIKARP
-  - GOLDEEN
+  - TENTACOOL
   good_rod:
   - MAGIKARP
   - TENTACOOL
@@ -442,7 +442,7 @@
   old_rod:
   - FEEBAS
   - MAGIKARP
-  - GOLDEEN
+  - TENTACOOL
   good_rod:
   - FEEBAS
   - MAGIKARP
@@ -802,10 +802,6 @@
   super_rod:
   - WAILMER
   - SHARPEDO
-  dive:
-  - CHINCHOU
-  - CLAMPERL
-  - RELICANTH
 - map_name: Route128
   surf:
   - TENTACOOL
@@ -822,10 +818,6 @@
   - LUVDISC
   - CORSOLA
   - WAILMER
-  dive:
-  - CHINCHOU
-  - CLAMPERL
-  - RELICANTH
 - map_name: SeafloorCavern
   walk:
   - GOLBAT

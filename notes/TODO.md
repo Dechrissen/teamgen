@@ -99,3 +99,12 @@
 - fix Microsfot defender flagging on Windows
 
 - update CONTRIBUTING.md with any new instructions for adding new games since it was last updated
+
+- add "ensure selected HMs are acquirable before they're needed" config box. for example, set some flag in each sphere to mark where HMs are first needed for that game. separate list in meta file? then each HM must have a member that can learn it before X sphere
+```
+hms_needed_by:
+  CUT: 1
+  etc...
+```
+
+- location blacklist? e.g. safari zone in gen 1

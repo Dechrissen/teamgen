@@ -1,4 +1,0 @@
-- location data sourced from serebii Pokearth Hoenn page
-https://serebii.net/pokearth/hoenn/index.shtml
-
-- not sure how to reconcile Latios/Latias choice for the roaming encounters and the Southern Island encounters

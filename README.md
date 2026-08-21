@@ -71,7 +71,7 @@ See [`CONTRIBUTING.md`](/CONTRIBUTING.md) if you'd like to add support for a rom
 | 2   | Crystal    | Planned   |
 | 3   | Ruby       | ✔         |
 | 3   | Sapphire   | ✔         |
-| 3   | Emerald    | In progress   |
+| 3   | Emerald    | ✔         |
 | 4   | Diamond    | ✔         |
 | 4   | Pearl      | ✔         |
 | 4   | Platinum   | Planned   |
@@ -192,6 +192,7 @@ Save the file and then, if the app was running, use the `R` option in the app to
 ## Credits
 - [Quadrixis](https://github.com/Quadrixis) – assistance with progression data planning and app testing
 - [Jade Lune](https://systemrift.com/) – logo and icon design
+- [mtheball](https://github.com/mtheball) – Emerald support ([#1](https://github.com/Dechrissen/dexelect/pull/1))
 
 ## Support Dexelect
 
